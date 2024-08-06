@@ -9,18 +9,19 @@
 	<link href="css/bootstrap-4.4.1.css" rel="stylesheet">
 	<link href="css/myStyle.css" rel="stylesheet" type="text/css">
 	<link href="myStyle.css" rel="stylesheet" type="text/css">
-</head>
-<body style="padding-top: 70px">
+
+  </head>
+  <body style="padding-top: 70px">
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/popper.min.js"></script> 
   <script src="js/bootstrap-4.4.1.js"></script>
-<div class="container-fluid">
+  <div class="container-fluid">
     <div class="container">
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="Index.html"><img src="images/Logo.png" width="200" class="img-fluid"> </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="Index.html">Home <span class="sr-only">(current)</span></a>
@@ -56,10 +57,13 @@
 					<li><a class="dropdown-item" href="export_data.html">Export</a></li>
 					<li><a class="dropdown-item" href="can_dbc_editor.html">CAN Edit</a></li>
 					<li><a class="dropdown-item" href="macnet.html">MacNet</a></li>
-              </ul>
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="worldwide.html">Worldwide</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -67,36 +71,141 @@
             <li class="nav-item">
                 <a class="nav-link" href="support.html">Support</a>
             </li>
-		</ul>
-    </div>
-      </nav>				
-    </div>	  
-</div>
-<div class="container-fluid">
-  <div class="container">
-  <img src="images/contactImage.png" alt="" width="1016" height="259" class="img-fluid"/> </div>
-	<h1></h1>
-</div>
-<div class="container-fluid">
-  <div class="container">	  
-	  <footer>
-        <div class="row">
-          <div class="col-xl-4 col-lg-3"><p>&nbsp;</p><img src="images/Logo.png" width="200" class="img-fluid">&nbsp;
-		  </div>
-	      
-		  <div class="col-xl-4 col-lg-5">
-			<strong>Maccor, Inc</strong><br>
-	        4322 South 49th W Ave<br>Tulsa, OK 74107 USA <br>
-			sales@maccor.com
-		  </div>
-          
-		  <div class="col-xl-4 col-lg-4">
-            <p>&nbsp;</p>
-            <p>Copyright&#169; 2024 - All Rights Reserved&nbsp;</p>
-          </div>
-        </div>			  
-    </footer> 
+			<li class="nav-item">
+                <a class="nav-link" href="events.html">News &amp; Events</a>
+            </li>
+        </ul>
+
+      </div>
+    </nav>
+  </div>  
+
   </div>
-</div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <img src="images/contactImg.png" alt="" width="944" height="264" class="img-fluid; center" style="padding: 8px" /> </div>
+	<h1></h1>
+  </div>
+	  
+  <div class="container-fluid">
+    <div class="container">	
+      <h2 class="text-center">Contact Us</h2>
+		
+	  <form id="contact" class="container" action="" method="post">
+        <fieldset>
+          <input name="name" type="text" autofocus required id="name" placeholder="Full name" tabindex="1">
+        </fieldset>
+	    <fieldset>
+          <input name="company" type="company" required id="company" placeholder="Enter your company" tabindex="2">
+        </fieldset>
+		<fieldset>
+          <input name="address1" type="address" required id="address1" placeholder="Enter you address (line 1)" tabindex="3">
+        </fieldset>
+		<fieldset>
+          <input name="address2" type="address" required id="address2" placeholder="Enter you address (line 2)" tabindex="4">
+        </fieldset>
+		<fieldset>
+          <input name="city" type="city" required id="city" placeholder="Enter your city" tabindex="5">
+        </fieldset>
+		 <fieldset>
+          <input name="state" type="state" required id="state" placeholder="Enter your State/Province" tabindex="6">
+        </fieldset>
+		 <fieldset>
+          <input name="postalcode" type="postalcode" required id="postalcode" placeholder="Enter your postal code" tabindex="7">
+        </fieldset>
+		<fieldset>
+          <input name="country" type="country" required id="country" placeholder="Enter your country" tabindex="8">
+        </fieldset>
+		<fieldset>
+          <input name="phone" type="tel" required id="phone" placeholder="Enter your phone" tabindex="9">
+        </fieldset>
+		
+		<fieldset>
+          <input name="email" type="email" required id="email" placeholder="Your Email Address" tabindex="10">
+        </fieldset>
+	    <table width="100%">
+		   <tr>
+		     <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_0">
+		       Desktop Tester</label></td>
+			 <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_1">
+		       Cell and Module Testers</label></td>  
+	      </tr>
+		  <tr>
+		     <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_2">
+		       EV, Module, and Pack</label></td>
+			 <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_3">
+		       Temperature Chamber</label></td>
+	      </tr>
+		  <tr>
+		     <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_4">
+		       High Volume Tester</label></td>
+			 <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_5">
+		       Formation</label></td>
+	      </tr>
+		  <tr>
+		     <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_6">
+		       Virtual Machine</label></td>
+			 <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_7">
+		       Cell Balancer</label></td>
+	      </tr>
+		  <tr>
+		     <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_8">
+		       Accesories</label></td>
+			 <td><label>
+		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_9">
+		       Options</label></td>
+	      </tr>			
+	    </table>
+		  
+        <fieldset>
+          <input name="subject" type="text" autofocus required id="subject" placeholder="Subject" tabindex="11">
+        </fieldset>
+		  
+        <fieldset>
+          <textarea name="message" required id="message" placeholder="Type your Message Here...." tabindex="12"></textarea>
+        </fieldset>
+        <fieldset>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+	  
+	  
+  <div class="container-fluid" id="padding">
+    <div class="container">	 
+		
+      <footer>
+	<div class="row">
+	  <div class="col-xl-8">
+		<img src="images/Logo.png" width="200" class="img-fluid"><br><p><strong id="Footy1">Maccor is the trusted partner for professionals in cutting-edge, innovation-focused settings, offering unparalleled support for the unique challenges faced by laboratories.</strong></p>
+	  </div>
+		
+	  <div class="col-xl-2">&nbsp;</div>
+    </div>
+
+	<div class="row">
+      <div class="col-lg-6 col-xl-4">
+		<p>4322 South 49th W Ave&nbsp;Tulsa, OK 74107 USA<br><a href="mailto:sales@maccor.com">sales@maccor.com</a><br><a href="tel:+19184461874">+1 918 446-1874</a></p><p>&nbsp;</p></div>
+        <div class="col-lg-6 col-xl-4"></div>
+    </div>
+	 	    
+	<div class="row">
+	  <div class="col-xl-6"><p>Copyright&#169; 2024, Maccor, Inc., All Rights Reserved.</p></div>
+	  <div class="col-xl-6"><a href="https://www.linkedin.com/company/maccor-inc-"><img src="images/In-blue.png" alt="" width="25"/></a>&nbsp;</div>
+    </div>
+  </footer>  
+    </div>
+  </div>
 </body>
 </html>
