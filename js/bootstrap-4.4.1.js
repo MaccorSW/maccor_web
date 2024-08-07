@@ -786,7 +786,7 @@
 
       this._activeElement = this._element.querySelector(Selector$2.ACTIVE_ITEM);
 
-      var activeindex = this._getItemindex(this._activeElement);
+      var activeIndex = this._getItemIndex(this._activeElement);
 
       if (index > this._items.length - 1 || index < 0) {
         return;
@@ -799,13 +799,13 @@
         return;
       }
 
-      if (activeindex === index) {
+      if (activeIndex === index) {
         this.pause();
         this.cycle();
         return;
       }
 
-      var direction = index > activeindex ? Direction.NEXT : Direction.PREV;
+      var direction = index > activeIndex ? Direction.NEXT : Direction.PREV;
 
       this._slide(direction, this._items[index]);
     };
@@ -967,7 +967,7 @@
       }
     };
 
-    _proto._getItemindex = function _getItemindex(element) {
+    _proto._getItemIndex = function _getItemIndex(element) {
       this._items = element && element.parentNode ? [].slice.call(element.parentNode.querySelectorAll(Selector$2.ITEM)) : [];
       return this._items.indexOf(element);
     };
@@ -976,30 +976,30 @@
       var isNextDirection = direction === Direction.NEXT;
       var isPrevDirection = direction === Direction.PREV;
 
-      var activeindex = this._getItemindex(activeElement);
+      var activeIndex = this._getItemIndex(activeElement);
 
-      var lastItemindex = this._items.length - 1;
-      var isGoingToWrap = isPrevDirection && activeindex === 0 || isNextDirection && activeindex === lastItemindex;
+      var lastItemIndex = this._items.length - 1;
+      var isGoingToWrap = isPrevDirection && activeIndex === 0 || isNextDirection && activeIndex === lastItemIndex;
 
       if (isGoingToWrap && !this._config.wrap) {
         return activeElement;
       }
 
       var delta = direction === Direction.PREV ? -1 : 1;
-      var itemindex = (activeindex + delta) % this._items.length;
-      return itemindex === -1 ? this._items[this._items.length - 1] : this._items[itemindex];
+      var itemIndex = (activeIndex + delta) % this._items.length;
+      return itemIndex === -1 ? this._items[this._items.length - 1] : this._items[itemIndex];
     };
 
     _proto._triggerSlideEvent = function _triggerSlideEvent(relatedTarget, eventDirectionName) {
-      var targetindex = this._getItemindex(relatedTarget);
+      var targetIndex = this._getItemIndex(relatedTarget);
 
-      var fromindex = this._getItemindex(this._element.querySelector(Selector$2.ACTIVE_ITEM));
+      var fromIndex = this._getItemIndex(this._element.querySelector(Selector$2.ACTIVE_ITEM));
 
       var slideEvent = $.Event(Event$2.SLIDE, {
         relatedTarget: relatedTarget,
         direction: eventDirectionName,
-        from: fromindex,
-        to: targetindex
+        from: fromIndex,
+        to: targetIndex
       });
       $(this._element).trigger(slideEvent);
       return slideEvent;
@@ -1010,7 +1010,7 @@
         var indicators = [].slice.call(this._indicatorsElement.querySelectorAll(Selector$2.ACTIVE));
         $(indicators).removeClass(ClassName$2.ACTIVE);
 
-        var nextIndicator = this._indicatorsElement.children[this._getItemindex(element)];
+        var nextIndicator = this._indicatorsElement.children[this._getItemIndex(element)];
 
         if (nextIndicator) {
           $(nextIndicator).addClass(ClassName$2.ACTIVE);
@@ -1023,11 +1023,11 @@
 
       var activeElement = this._element.querySelector(Selector$2.ACTIVE_ITEM);
 
-      var activeElementindex = this._getItemindex(activeElement);
+      var activeElementIndex = this._getItemIndex(activeElement);
 
       var nextElement = element || activeElement && this._getItemByDirection(direction, activeElement);
 
-      var nextElementindex = this._getItemindex(nextElement);
+      var nextElementIndex = this._getItemIndex(nextElement);
 
       var isCycling = Boolean(this._interval);
       var directionalClassName;
@@ -1071,8 +1071,8 @@
       var slidEvent = $.Event(Event$2.SLID, {
         relatedTarget: nextElement,
         direction: eventDirectionName,
-        from: activeElementindex,
-        to: nextElementindex
+        from: activeElementIndex,
+        to: nextElementIndex
       });
 
       if ($(this._element).hasClass(ClassName$2.SLIDE)) {
@@ -1158,16 +1158,16 @@
 
       var config = _objectSpread2({}, $(target).data(), {}, $(this).data());
 
-      var slideindex = this.getAttribute('data-slide-to');
+      var slideIndex = this.getAttribute('data-slide-to');
 
-      if (slideindex) {
+      if (slideIndex) {
         config.interval = false;
       }
 
       Carousel._jQueryInterface.call($(target), config);
 
-      if (slideindex) {
-        $(target).data(DATA_KEY$2).to(slideindex);
+      if (slideIndex) {
+        $(target).data(DATA_KEY$2).to(slideIndex);
       }
 
       event.preventDefault();
