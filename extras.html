@@ -10,51 +10,65 @@
 	     <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
 	     <link href="css/myStyle.css" rel="stylesheet" type="text/css">
 	
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
 </head>
-<style>
-	ul {
-		position: fixed;
-	}	
-</style>
+
+
 	
 <body data-spy="scroll" data-target="#verticalScrollspy" data-offset="50" style="padding-top: 70px">
 	
+<section class="contactme">
+	<div>
+		<i class="bi bi-envelope-arrow-up"></i>
+	</div>
+    <div>
+		<form action="" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+			  <label for="nameinput">Name</label>
+              <input type="text" class="form-control" id="control_name" placeholder="Enter your name">
+			</div>
+			<div class="form-group">
+			  <label for="companyinput">Company</label>
+              <input type="text" class="form-control" id="control_company" placeholder="Enter your company">
+			</div>
+			<div class="form-group">
+			  <label for="emailinput">Email</label>
+			  <input type="email" class="form-control" id="control_email_input" placeholder="Enter your e-mail">
+			</div>
+			<div class="form-group">
+			  <label for="channelsinput">Number of Channels</label>
+              <input type="text" class="form-control" id="control_channels" placeholder="How many test channels do you need">
+			</div>
+			<div class="form-group">
+			  <label for="companyinput">Maximum Voltage</label>
+              <input type="text" class="form-control" id="control_voltage" placeholder="Enter your maximum Voltgae">
+			</div>
+			<div class="form-group">
+			  <label for="companyinput">Maximum Current</label>
+              <input type="text" class="form-control" id="control_current" placeholder="Enter your maximum Current">
+			</div>
+			<div class="form-group">
+			  <label for="messageinput">Message</label>
+			  <textarea  class="form-control" id="control_message_input" rows="3"></textarea>
+			</div>
+			<buttom type="submit" class="btn btn-primary">Submit</buttom>
+		</form>
+	</div>
+  </section>
+<div class="container">
+  
 
-
-<img src="images/GlobalSupport.png" usemap="#image-map">
-
-<map name="image-map">
-<area target="_self" alt="" title="" href="#na" coords="1263,42,12,589" shape="rect">
-
-<area target="_self" alt="" title="" href="#na" coords="1276,595,-1,1437" shape="rect">
-
-<area target="_self" alt="" title="" href="#uk" coords="1417,32,1376,193,1478,283,1710,280,1877,276, 1861, 199, 1736,32" shape="poly"> 
-
-<area target="_self" alt="" title="" href="#eg" coords="1700,299, 1729,379, 1826,424, 1887,366, 1890,289,1781,273" shape="poly"> 
-
-<area target="_self" alt="" title="" href="#is" coords="1893,251, 1909,325,1986,302,2044,264,1980,209,1919,177" shape="poly">
-
-<area target="_self" alt="" title="" href="#in" coords="2289,380,2353,499,2437,569,2469,502,2517,344,2417,300,2324,287,2276,300" shape="poly"> 
-
-<area target="_self" alt="" title="" href="#ma" coords="2588,685,2723,685,2794,634,2713,553,2601,605,2568,627" shape="poly">
-
-<area target="_self" alt="" title="" href="#tw" coords="2803,497,2864,494,2884,427,2826,395" shape="poly">
-
-<area target="_self" alt="" title="" href="#sk" coords="2893,401,2861,356,2835,289,2919,292,2932,372,2912,398" shape="poly">
-
-<area target="_self" alt="" title="" href="#jp" coords="2964,427,3031,411,3099,395,3051,330,2980,295,2951,369" shape="poly">
-
-<area target="_self" alt="" title="" href="#na" coords="1411,1384,3578,1449,3575,369,3096,228,3099,485,2787,726,2578,742,2308,530,2215,362,2038,308, 1887,411,1800,462,1700,398,1671,305,1466,298,1337,218,1285,459" shape="poly"> 
-
-<area target="_self" alt="" title="" href="#na" coords="1806,3,3125,22,3060,244,2784,266,2572,317,2327,256,2247,269,2253,343,2105,279,1903,141,1758,38" shape="poly"> 
-
-</map>
+  
+</div>	
   <div class="container-fluid">
     <div class="container">
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="index.html"><img src="images/Logo.png" alt="logo" width="200" class="img-fluid"> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+		  </button>
+
+  
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
@@ -102,8 +116,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="support.html">Support</a>
             </li>
-        </ul>
-
+        </ul><br>
+        
       </div>
     </nav>
     </div>
@@ -111,77 +125,97 @@
 	
   <div class="container-fluid">
   <div class="container">
-  <img src="images/contactImg.png" alt="" width="944" height="264" class="img-fluid; center" style="padding: 8px" /> </div>
+  <img src="images/contimg.svg" alt="" width="944" height="264" class="img-fluid; center" style="padding: 8px" /> </div>
 	<h1></h1>
   </div>
-	
-  <div class="container-fluid">
-    <div class="container">	
-      <h5 class="text-center">Benefit from Maccor's team of highly skilled sales and service engineers who are trained by the factory, ensuring comprehensive coverage for all your needs.</h5>
+	<div class="container-fluid">
+      <div class="container">
+	    <div class="btn-toolbar" role="toolbar">
+		    <div class="btn-group mr-2" role="group">
+		      <a href="#na"><button type="button" class="btn btn-link">North America</button></a>
+		      <a href="#uk"><button type="button" class="btn btn-link">Europe</button></a>
+			  <a href="#sk"><button type="button" class="btn btn-link">South Korea</button></a>
+			  <a href="#ch"><button type="button" class="btn btn-link">China</button></a>
+		      <a href="#jp"><button type="button" class="btn btn-link">Japan</button></a>
+			  <a href="#tw"><button type="button" class="btn btn-link">Taiwan</button></a>
+		      <a href="#sg"><button type="button" class="btn btn-link">Signaore</button></a>
+		      <a href="#my"><button type="button" class="btn btn-link">Malaysia</button></a>
+		      <a href="#io"><button type="button" class="btn btn-link">Indonesia</button></a>
+		      <a href="#il"><button type="button" class="btn btn-link">Israel</button></a>
+		      <a href="#tk"><button type="button" class="btn btn-link">Turkey</button></a>
+		      <a href="#in"><button type="button" class="btn btn-link">India</button></a>
+		      <a href="#eg"><button type="button" class="btn btn-link">Egypt</button></a>
+		      <a href="#sa"><button type="button" class="btn btn-link">South America</button></a>
+	      </div>
+	    </div>
+
+
 	</div>
   </div>	
+<div class="container-fluid">
+  <div class="container">	
+      <h5 class="text-center">Benefit from Maccor's team of highly skilled sales and service engineers who are trained by the factory, ensuring comprehensive coverage for all your needs.</h5>
+	</div>
+  </div>
+
 	
   <div class="container-fluid">
     <div class="row"  color="white">
       <div class="col-3 col-sm-2" id="verticalScrollspy" color="white">
         <ul class="nav flex-column nav-pills"  color="white">
-          <li class="nav-item"><a class="nav-link" href="#na">North America</a></li>
-          <li class="nav-item"><a class="nav-link" href="#uk">Europe</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sk">South Korea</a></li>
-          <li class="nav-item"><a class="nav-link" href="#ch">China</a></li>
-          <li class="nav-item"><a class="nav-link" href="#jp">Japan</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tw">Taiwan</a></li>
-	  	  <li class="nav-item"><a class="nav-link" href="#sg">Signapore</a></li>
+          
         </ul>
-       </div>
+      </div>
 		
        <div class="col-9 col-sm-8">
          <div id="na" class="container-fluid" style="margin-top:60px">
            <h1 class="text-center">North America</h1>
-           <p style="text-align: center;"><b>Maccor Inc. </b><br>4322 South 49th West Avenue <br>&nbsp;Tulsa, OK 74107 USA <br>&nbsp;Phone: (918)446-1874 <br>sales@maccor.com</p>
+           <p style="text-align: center;"><b>Maccor Inc. </b><br>4322 South 49th West Avenue <br>&nbsp;Tulsa, OK 74107 USA <br>&nbsp;Phone: (918)446-1874 <br>sales@maccor.com</p><br>
+           <p style="text-align: center;"><b>Maccor West</b><br>780 Montague Exp.<br>Suite 205<br>&nbsp;San Jose, CA 95131 USA <br>&nbsp;Phone: (408)708-7200 <br>maccorwest@Maccor.com</p> 
          </div>
-			 
-           <div id="uk" class="container-fluid">
+         <hr class="mt-1 mb-1"/>
+         <div id="uk" class="container-fluid">
              <h1 class="text-center">Europe</h1>
-               <p style="text-align: center;"><b>CellCare Technologies Limited </b><br>Unit A2 | Airfield Business Park <br>&nbsp;Harrison Road | Market Harborough <br>&nbsp;Leicestershire LE16 7UL <br>&nbsp;United Kingdom <br>&nbsp;Phone: +44 1858 468438 <br>&nbsp;sales@cellcare.com<br><br></p>                                        
-           </div>
-			 
+               <p style="text-align: center;"><b>CellCare Technologies Limited </b><br>Unit A2 | Airfield Business Park <br>&nbsp;Harrison Road | Market Harborough <br>&nbsp;Leicestershire LE16 7UL <br>&nbsp;United Kingdom <br>&nbsp;Phone: +44 1858 468438 <br>&nbsp;sales@cellcare.com<br><br></p>    
+         </div>
+			<hr class="mt-1 mb-1"/> 
            <div id="sk" class="container-fluid">
              <h1 class="text-center">South Korea</h1>
              <p style="text-align: center;"><b>Korea Thermo-Tech Co.,Ltd </b><br>Gwanggyo Woomi NEWV A Rm#913 &amp; 914<br>&nbsp;(Sanghyeon Dong) 338, Gwanggyojungang-ro, <br>&nbsp;Suji-gu,&nbsp;Yongin-si, Gyeonggi-do, <br>&nbsp;16942 Korea<br>&nbsp;Phone: 82-31-707-2002 <br>kthermo1@gmail.com<br><br></p>
 		   </div>    
-			 
+			<hr class="mt-1 mb-1"/> 
 		   <div id="ch" class="container-fluid">
              <h1 class="text-center">China</h1>
              <p style="text-align: center;">
              <b>Smarteam Technology Ltd. </b><br>www.smt.com.cn -&nbsp;www.maccor.com.cn<br><br>Room 808, Building 3, No.5 Tianhua Avenue, Daxing&nbsp;District, <br><b>Beijing</b>, China <br>&nbsp;P.C: 102629 <br>&nbsp;Phone: 0086 10 88378615 <br>David - david@smt.com.cn<br><br>Room 222, Qinye Business center, No.6 Road Xinan,&nbsp;82 Zone Baoan, <br><b>Shenzhen</b>, China <br>&nbsp;P.C: 518101 <br>&nbsp;Phone: 0086 755 29961259<br>Ryan - ryan@smt.com.cn <br><br>Room 211, Building A, Yajing industrial park, No.32&nbsp;Dongfu Road, <br><b>Suzhou</b>, China <br>&nbsp;P.C: 215001 <br>&nbsp;Phone: 0086 512 67770397<br>Ivan - wbz@smt.com.cn <br><br>Room 3004, Building 6, Central new town Yuanjiagang, Jiulongpo District,<br><b>Chongqing</b>, China <br>&nbsp;P.C: 400042<br>Phone: 0086 23 68705459<br>Forrest - hxj@smt.com.cn<br><br>&nbsp;Office: No. 81, Jinye 1 road, high-tech Zone, <br><b>XiAn</b>, Shaanxi, China <br>&nbsp;P.C: 710068<br>Phone: 0086 29 86747623<br>Zeng Duan - zd@smt.com.cn <br><br><br><b>Sinrui International Group Limited <br></b>www.sinruigroup.com<br><br>No. 1, LouGang Avenue, SongGang Street, BaoAn District, <br><b>ShenZhen</b>, China<br>&nbsp;Phone: 0086 755 27201283 <br>&nbsp;Mobile: 0086 013825298639 <br>&nbsp;johnny@sinruigroup.com<br><br></p>
 		   </div>  
-			 
+			<hr class="mt-1 mb-1"/> 
 		   <div id="jp" class="container-fluid">
              <h1 class="text-center">Japan</h1>
              <p style="text-align: center;"><b>Toyo Corporation</b><br>www.toyo.co.jp<br><br>1-6, Yaesu 1-chome, Chuo-ku <br>&nbsp;Tokyo 103-8284, Japan <br>&nbsp;Phone: +81-(0)3-3245-1103 <br>&nbsp;tezukah@toyo.co.jp&nbsp;<br><br></p>
 		   </div> 	
-			 
+			<hr class="mt-1 mb-1"/> 
 		   <div id="tw" class="container-fluid">
              <h1 class="text-center">Taiwan</h1>
              <p style="text-align: center;">
              <b>Chen Chi Automation Corp. <br></b>www.chenchi.tw<br><br>1134, WuGuang Rd., Wuri, <br>&nbsp;Taichung County, Taiwan 41449 <br>&nbsp;Phone: 886-4-2338-1692 <br>cca.tw@msa.hinet.net&nbsp;<br><br>
              </p>
 		   </div>
-			 
+			<hr class="mt-1 mb-1"/> 
 		   <div id="sg" class="container-fluid">
              <h1 class="text-center">Signapore</h1>
              <p style="text-align: center;">
              <b>Gaia Science Pte Ltd <br></b>www.gaiascience.com.sg<br><br>Block 102 E Pasir Panjang Road #02-07, Singapore-118529 <br>&nbsp;Phone: +65 6276 8884 <br>info@gaiascience.com.sg
              </p>
 		   </div>
-			 
+			<hr class="mt-1 mb-1"/> 
 		   <div id="my" class="container-fluid">
              <h1 class="text-center">Malaysia</h1>
              <p style="text-align: center;">
              <b>Gaia Science Sdn Bhd <br></b>www.gaiascience.com.my<br><br>No. 60 , Jalan Puteri 5/5,Bandar Puteri 47100 Puchong, <br>&nbsp;Selangor, Malaysia <br>&nbsp;Phone: +603 8065 3889<br>info@gaiascience.com.my<br><br>
              </p>
 		   </div>
+		   <hr class="mt-1 mb-1"/>
 		   <div id="io" class="container-fluid">
              <h1 class="text-center">Indonesia</h1>
              <p style="text-align: center;"><b>PT GaiaScience </b><br>www.gaiascience.co.id<br><br>Jl. Kirana Avenue II Kirana Boutique Office Block D3 <br>No.3 Kelapa Gading - Jakarta Utara 14240 <br>&nbsp;Indonesia <br>&nbsp;Phone: +62 21 4586 0646 &amp; 2928 9933 <br>info@gaiascience.co.id&nbsp;<br><br></p>
@@ -191,46 +225,70 @@
              <h1 class="text-center">Israel</h1>
              <p style="text-align: center;"><b>WeisScientific Ltd. </b><br>www.weisscientific.com<br><br>13 Mor'an street, Timrat <br>&nbsp;P.O. Box 293 <br>&nbsp;36576, Israel <br>&nbsp;Phone: +972-(0)4-644-1575&nbsp; <br>sales@weisscientific.com&nbsp;<br><br></p>
 		   </div>
-			 
+			<hr class="mt-1 mb-1"/> 
 		   <div id="tk" class="container-fluid">
              <h1 class="text-center">Turkey</h1>
              <p style="text-align: center;"><b>Referans Kimya Limited </b><br>Mustafa Kilincarslan <br>&nbsp;Dikmen Cad. No:313/19-20 <br>&nbsp;ANKARA/TURKEY <br>&nbsp;Phone: +90 312-482-0020 <br>&nbsp;mustafa@referanskimya.com<br><br></p>
 		   </div>
-			 
+			<hr class="mt-1 mb-1"/> 
 		   <div id="in" class="container-fluid">
              <h1 class="text-center">India</h1>
              <p style="text-align: center;"><b>Inkarp Instruments PVT Ltd </b><br>1-2-45/1, Street No.2, Kakatiya <br>&nbsp;Nagar Colony, Habsiguda <br>&nbsp;Hyderabad-500007 India <br>&nbsp;inkarp@cellcare.com<br><br></p>
 		   </div>
-			 
+			<hr class="mt-1 mb-1"/> 
 		   <div id="vt" class="container-fluid">
              <h1 class="text-center">Vietnam</h1>
              <p style="text-align: center;"><b>Chen Chi Automation Corp. </b><br>https://www.chenchi.tw/vi<br><br>Vietnam 130 Hong Ha, Ward 9, Phu Nhuan <br>&nbsp;Ho Chi Minh City, Vietnam <br>&nbsp;Phone: +84-2835-350998 <br>&nbsp;Mobile: +84-3740-37315 <br>&nbsp;cca.vn@chenchi.tw&nbsp;</p>
 		   </div>
+		   <hr class="mt-1 mb-1"/>
 		   <div id="eg" class="container-fluid">
              <h1 class="text-center">Egypt</h1>
-             <p class="text-center">[Constact Details go here]</p>
+             <p class="text-center">Ewest Egypt<br>9 Mahmoud Ghoname St.<br> 6<sup>th</sup> Section<br> Nasr City Cairo, Egypt<br>Phone: +20 1009222263<br><a href="mailto:ahmed.ali@ewest-egypt.com?subject=Web%20Inquiry">ahmed.ali@ewest-egypt.com</a></p>
 		   </div>
+		   <hr class="mt-1 mb-1"/>
 		   <div id="sa" class="container-fluid">
              <h1 class="text-center">South America</h1>
-             <p style="text-align: center;"><b>Maccor Inc. </b><br>4322 South 49th West Avenue <br>&nbsp;Tulsa, OK 74107 USA <br>&nbsp;Phone: (918)446-1874 <br>sales@maccor.com</p>
+
+           <p style="text-align: center;"><b>Maccor Inc. </b><br>4322 South 49th West Avenue <br>&nbsp;Tulsa, OK 74107 USA <br>&nbsp;Phone: (918)446-1874 <br>sales@maccor.com</p><br>
+           <p style="text-align: center;"><b>Maccor West</b><br>780 Montague Exp.<br>Suite 205<br>&nbsp;San Jose, CA 95131 USA <br>&nbsp;Phone: (408)708-7200 <br>maccorwest@Maccor.com</p> 
 		   </div>
 			 
-         </div>
+      </div>
 		
 		 <div class="col-3 col-sm-2" id="verticalScrollspy_" color="white">
           <ul class="nav flex-column nav-pills"  color="white">
-  		    <li class="nav-item"><a class="nav-link" href="#my">Malaysia</a></li>
-		    <li class="nav-item"><a class="nav-link" href="#io">Indonesia</a></li>
-		    <li class="nav-item"><a class="nav-link" href="#il">Israel</a></li>
-		    <li class="nav-item"><a class="nav-link" href="#tk">Turkey</a></li>
-		    <li class="nav-item"><a class="nav-link" href="#in">India</a></li>
-		    <li class="nav-item"><a class="nav-link" href="#eg">Egypt</a></li>
-		    <li class="nav-item"><a class="nav-link" href="#sa">South America</a></li>
+
            </ul>
          </div>
-       </div>
-      </div>
+    </div>
+</div>
 	
+	
+<!-- <div id="sticky-button">
+	<a href="#divOne" class="button">Request a Quote</a>
+  </div>	-->
+	
+<div class="overlay" id="divOne">
+    <div class="wrapper">
+	  <h3>Please fill out form</h3>  
+	  <a href="#" class="close">&times;</a>
+	  <div class="content">
+		<div class="container">
+		  <form>
+			<label>Name</label>
+			<input type="text" placeholder="Enter Your Name">
+			<label>E-Mail Address</label>
+			<input type="email" placeholder="Enter your email">  
+			 <label>Channels</label>
+			<input type="email" placeholder="Number of test channels"> 
+			<label>Subject</label>
+			<textarea placeholder="Comments"></textarea>
+			<input type="submit" value="Submit">
+		  </form>	
+		</div>
+	  </div>
+	</div>
+  </div>
 	
     <footer>  
       <div class="container-fluid" id="padding">
