@@ -67,18 +67,19 @@ footer {
     box-shadow: 2px 4px 7px rgba(0,0,0,0.4);
 	color: #171796;
   }
-body {
+  body {
     min-height: 0%;
     max-width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-top-width: thin;
-    }
-#padding {
+  }
+}	
+  #padding {
     left: auto;
-    }
-#carouselExampleIndicators1 {
+  }
+  #carouselExampleIndicators1 {
     background-image: url(../images/cara_b.png);
     background-attachment: fixed;
 }
@@ -89,7 +90,7 @@ body {
 
 
 
-}
+
 
 @media screen and (max-width: 960px) {
   #sticky-button {
@@ -106,7 +107,69 @@ body {
   }
 }
 
+@media screen and (min-width: 1000px) {
+	h1 {
+		font-size: 3rem; /* 16 * 3 = 48 px */
+	}
+	
+	h2 {
+		font-size: 2.25rem; /* 16 * 2.25 = 36 px */
+	}	
+	
+	h3 {
+		font-size: 2rem; /* 16 * 2.25 = 32 px */
+	}	
+	
+	h4 {
+		font-size: 1.5rem; /* 16 * 1.5 = 24 px */
+	}
+	
+	h5 {
+		font-size: 1rem; /* 16 * 1 = 16 px */
+	}	
+	
+	h6 {
+		font-size: 0.75rem; /* 16 * 0.75 = 12 px */
+	}	
+	th {
+		font-size: 1.25rem;
+	}
+	td {
+		font-size: 1rem;
+	}
+}
 
+@media screen and (max-width: 400px) {
+	h1 {
+		font-size: 1.5rem; /* 16 * 3 = 48 px */
+	}
+	
+	h2 {
+		font-size: 1.125rem; /* 16 * 1.125 = 18 px */
+	}
+	
+	h3 {
+		font-size: 1rem; /* 16 * 2.25 = 32 px */
+	}	
+	
+	h4 {
+		font-size: 0.75rem; /* 16 * 1.5 = 24 px */
+	}
+	
+	h5 {
+		font-size: 0.5rem; /* 16 * 1 = 16 px */
+	}	
+	
+	h6 {
+		font-size: 0.375rem; /* 16 * 0.75 = 12 px */
+	}
+	th {
+		font-size: 0.3125rem;
+	}
+	td {
+		font-size: 0.25rem;
+	}
+}
 
 .container {
   width:100%;
