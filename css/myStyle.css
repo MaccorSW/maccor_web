@@ -78,6 +78,16 @@ body {
 #padding {
     left: auto;
     }
+#carouselExampleIndicators1 {
+    background-image: url(../images/cara_b.png);
+    background-attachment: fixed;
+}
+#carouselExampleIndicators1 .carousel-indicators {
+    background-image: url(../images/cara_b.png);
+    background-attachment: fixed;
+}
+
+
 
 }
 
