@@ -406,11 +406,14 @@ form {
   background-image: url(../images/cara_b.png);
   background-attachment: fixed;
   width: 100%;
+  
 }
 .carousel-inner{
   height: 15rem;
+	
 }
 .carousel-caption{
   color: #fff;
   top: 50%;
+	vertical-align: middle;
 }
