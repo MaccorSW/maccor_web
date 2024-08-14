@@ -405,10 +405,10 @@ form {
   margin-top: 0px;
   background-image: url(../images/cara_b.png);
   background-attachment: fixed;
-  height: 300px;
+  width: 100%;
 }
 .carousel-inner{
-  height: 200px;
+  height: auto;
 }
 .carousel-caption{
   color: #fff;
