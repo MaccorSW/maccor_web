@@ -79,14 +79,12 @@ footer {
   #padding {
     left: auto;
   }
-  #carouselExampleIndicators1 {
+
+#carouselExampleIndicators1 {
     background-image: url(../images/cara_b.png);
     background-attachment: fixed;
 }
-#carouselExampleIndicators1 .carousel-indicators {
-    background-image: url(../images/cara_b.png);
-    background-attachment: fixed;
-}
+
 
 
 
@@ -401,4 +399,18 @@ form {
    height:63px; /* this is the height of your header */
    margin-top:-63px; /* this is again negative value of the height of your header */
    visibility:hidden;
+}
+
+.carousel{
+  margin-top: 0px;
+  background-image: url(../images/cara_b.png);
+  background-attachment: fixed;
+  height: 300px;
+}
+.carousel-inner{
+  height: 200px;
+}
+.carousel-caption{
+  color: #fff;
+  top: 50%;
 }
