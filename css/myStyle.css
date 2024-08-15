@@ -403,7 +403,7 @@ form {
 
 .carousel{
   margin-top: 0px;
-  background-image: url(../images/cara_b.png);
+  background-image: url("../images/cara_a.svg");
   background-attachment: fixed;
   width: 100%;
   
