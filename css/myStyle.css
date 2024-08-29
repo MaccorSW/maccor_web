@@ -262,6 +262,10 @@ fieldset {
  color:#888;
 }
 
+body {
+	height: 7vh;
+}
+
 .box {
 	text-align: center;
 }
@@ -329,7 +333,7 @@ form label {
 	font-weight: 500;
 	letter-spacing: 3px;
 }
-input[type=text], textarea{
+input[type=text]{
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
@@ -338,6 +342,18 @@ input[type=text], textarea{
 	margin-top: 6px;
 	margin-bottom: 16px;
 	resize: vertical;
+}
+
+textarea{
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	border-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 16px;
+	resize: vertical;
+	rows=4;
 }
 input[type="submit"]{
 	background-color: #413b3b;
@@ -420,3 +436,6 @@ form {
   top: 50%;
 	vertical-align: middle;
 }
+
+
+
