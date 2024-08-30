@@ -306,7 +306,7 @@ body {
 	padding: 5px;
 	background: #e7e7e7;
 	border-radius: 5px;
-	width: 100%;
+	width: 80%;
 	position: relative;
 	transition: all 5s ease-in-out;
   }
@@ -319,8 +319,8 @@ body {
   }	
 	
   input[type=text]{
-	width: 80%;
-	padding: 4px;
+	width: 100%;
+	padding: 12px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	border-sizing: border-box;
