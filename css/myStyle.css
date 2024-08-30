@@ -302,7 +302,7 @@ body {
 
 @media screen and (max-width: 400px) {
   .wrapper {
-	margin: 70px;
+	margin: 25px;
 	padding: 5px;
 	background: #e7e7e7;
 	border-radius: 5px;
@@ -316,6 +316,7 @@ body {
 	font-weight: 100;
 	letter-spacing: 3px;
 	font-size: 0.75rem;
+	height: 25px;
   }	
 	
   input[type=text]{
