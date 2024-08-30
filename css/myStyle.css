@@ -310,13 +310,21 @@ body {
 	position: relative;
 	transition: all 5s ease-in-out;
   }
+	
+  label {
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 3px;
+	font-size: 1.25rem;
+	height: 1.25rem;
+  }
 
   form label {
 	text-transform: uppercase;
 	font-weight: 100;
 	letter-spacing: 3px;
 	font-size: 0.75rem;
-	height: 25px;
+	height: 1.rem;
   }	
 	
   input[type=text]{
