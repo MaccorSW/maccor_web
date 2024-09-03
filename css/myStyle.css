@@ -317,7 +317,7 @@ body {
 	font-weight: 300;
 	letter-spacing: 3px;
 	font-size: 1.25rem;
-	height: 1.25rem;
+	
   }
 
   form label {
@@ -325,10 +325,21 @@ body {
 	font-weight: 100;
 	letter-spacing: 3px;
 	font-size: 0.75rem;
-	height: 1.rem;
+	
   }	
 	
   input[type=text]{
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	border-sizing: border-box;
+	margin-top: 20px;
+	margin-bottom: 8px;
+	resize: vertical;
+  }
+	
+  input[type=email]{
 	width: 100%;
 	padding: 12px;
 	border: 1px solid #ccc;
@@ -346,7 +357,7 @@ body {
 @media screen and (min-width: 1000px) {
   .wrapper {
 	margin: 50px;
-	padding: 50px;
+	padding: 25px;
 	background: #e7e7e7;
 	border-radius: 5px;
 	width: 30%;
@@ -365,16 +376,25 @@ body {
 	
   input[type=text]{
 	width: 100%;
-	padding: 12px;
+	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	border-sizing: border-box;
-	margin-top: 6px;
-	margin-bottom: 16px;
+	margin-top: 2px;
+	margin-bottom: 12px;
 	resize: vertical;
   }
 	
-
+  input[type=email]{
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	border-sizing: border-box;
+	margin-top: 2px;
+	margin-bottom: 12px;
+	resize: vertical;
+  }
 
 }	
 	
@@ -397,7 +417,7 @@ body {
 .container {
 	border-radius: 5px;
 	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 }
 
 

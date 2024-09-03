@@ -24,15 +24,23 @@
 		<h3>Please Fill Out</h3>
         <a href="#" class="close">&times;</a>
 		
-		<form>
-		  <label>Name</label>
-		  <input type="text" placeholder="Enter Your Name">
-		  <label>E-mail</label>
-		  <input type="text" placeholder="Enter Your E-Mail">
-		  <label>Company</label>
-		  <input type="text" placeholder="Enter Your Company">
-		  <label>Subject</label>					
-		  <textarea rows="4" placeholder="Your query here..."></textarea>
+		<form class="row g-3" action="https://formsubmit.co/m.sandoval@maccor.com" method="POST">
+		  <label for="name" class="col-form-label">Name</label>
+		  <input type="text" class="form-control" id="name" placeholder="* Enter Your Name" required>
+		  
+		  <label for="company" class="col-form-label">Company</label>
+		  <input type="text" class="form-control" id="company" placeholder="Enter Your Company">
+			
+		  <label for="phone" class="col-form-label">Telephone</label>
+		  <input type="tel" class="form-control" id="phone">	
+			
+		  <label for="email" class="col-form-label">E-mail</label>
+		  <input type="email" class="form-control" id="email" placeholder="* Enter Your E-Mail" required>
+
+			
+		  <label for="subject" class="col-form-label">Subject</label>					
+		  <textarea rows="4" class="form-control" id="subject" placeholder="Your query here..."></textarea>
+			
 		  <input type="submit" value="Submit">
 			<a href="#" class="close"><button type="button" class="btn btn-link">Close</button></a>
         </form>
