@@ -8,7 +8,7 @@
     <!-- Bootstrap -->
 	<link href="css/bootstrap-4.4.1.css" rel="stylesheet">
 	<link href="css/myStyle.css" rel="stylesheet" type="text/css">
-	<link href="myStyle.css" rel="stylesheet" type="text/css">
+	
 
   </head>
   <body style="padding-top: 70px">
@@ -92,11 +92,16 @@
       <h2 class="text-center">Contact Us</h2>
 		
 	  <form id="contact" class="container" action="https://formsubmit.co/59c1fbbbd61009d56b823cbb0e49fca9" method="post">
+		  <input type="text" name="_honey" style="display:none">
+		  <input type="hidden" name="_next" value="https://maccor-web-prototype-3wgyp.ondigitalocean.app/thankyou.html">
+		  <input type="hidden" name="_captcha" value="false">
+		  
         <fieldset>
-          <input name="name" type="text" autofocus required id="name" placeholder="Full name" tabindex="1">
+          <input name="name" type="text" autofocus required id="name" placeholder="* Please enter your name" tabindex="1">
         </fieldset>
+		
 	    <fieldset>
-          <input name="company" type="company" required id="company" placeholder="Enter your company" tabindex="2">
+          <input name="company" type="company" required id="company" placeholder="* Enter your company" tabindex="2">
         </fieldset>
 		<fieldset>
           <input name="address1" type="address" id="address1" placeholder="Enter your address (line 1)" tabindex="3">
@@ -121,9 +126,9 @@
         </fieldset>
 		
 		<fieldset>
-          <input name="email" type="email" required id="email" placeholder="Your Email Address" tabindex="10">
+          <input name="email" type="email" required id="email" placeholder="* Your Email Address" tabindex="10">
         </fieldset>
-	    <table width="100%" style=" font-size: 4vmin;">
+	    <table width="100%" >
 		   <tr>
 		     <td><label>
 		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_0">
@@ -166,12 +171,9 @@
 	      </tr>			
 	    </table>
 		  
+	  
         <fieldset>
-          <input name="subject" type="text" autofocus  id="subject" placeholder="Subject" tabindex="11">
-        </fieldset>
-		  
-        <fieldset>
-          <textarea name="message" id="message" placeholder="Type your Message Here...." tabindex="12"></textarea>
+          <textarea name="message" id="message" placeholder="Type your Message Here...." tabindex="11"></textarea>
         </fieldset>
         <fieldset>
           <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>

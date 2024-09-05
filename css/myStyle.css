@@ -176,7 +176,7 @@ footer {
   position:relative;
 }
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact input[type="company"], #contact input[type="address"], #contact input[type="city"], #contact input[type="state"], #contact input[type="country"], #contact input[type="postalcode"], #contact input[type="checkbox"], #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
 
 #contact {
   background:#F9F9F9;
@@ -219,12 +219,12 @@ fieldset {
   transition:border-color 0.3s ease-in-out;
   border:1px solid #AAA;
 }
-
+/*
 #contact textarea {
   height:100px;
   max-width:100%;
   resize:none;
-}
+} */
 
 #contact button[type="submit"] {
   cursor:pointer;
@@ -327,7 +327,7 @@ body {
 	font-size: 0.75rem;
 	
   }	
-	
+/*	
   input[type=text]{
 	width: 100%;
 	padding: 12px;
@@ -337,7 +337,7 @@ body {
 	margin-top: 20px;
 	margin-bottom: 8px;
 	resize: vertical;
-  }
+  } */
 	
   input[type=email]{
 	width: 100%;
@@ -373,7 +373,7 @@ body {
 	font-size: 1rem;
 	
   }
-	
+	/*
   input[type=text]{
 	width: 100%;
 	padding: 10px;
@@ -383,7 +383,7 @@ body {
 	margin-top: 2px;
 	margin-bottom: 12px;
 	resize: vertical;
-  }
+  }*/
 	
   input[type=email]{
 	width: 100%;
