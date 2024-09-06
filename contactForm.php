@@ -11,5 +11,5 @@ $headers = "From: ".$mailFrom;
 $txt = "You have recieved an e-mail from ".$name.".\n\n".$message;
 $txt = $_POST['address1'];
 mail($mailto, $subject, $txt, $headers);
-header("Location: AFTER-SEND-PAGE?mailsend");
+header("https://maccor-web-prototype-3wgyp.ondigitalocean.app/thankyou.html");
 }
