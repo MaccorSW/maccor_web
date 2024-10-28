@@ -18,41 +18,76 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/popper.min.js"></script> 
   <script src="js/bootstrap-4.4.1.js"></script>
-
-  <div class="overlay" id="divOne">
-	  <div class="wrapper"> 
-		<h3>Please Fill Out</h3>
-        <a href="#" class="close">&times;</a>
-		
-		<form class="row g-3" action="https://formsubmit.co/426d1f6840d278eb607b4b6d3b96e96a" method="POST">
-		  
-		  <input type="hidden" name="_cc" value="https://formsubmit.co/59c1fbbbd61009d56b823cbb0e49fca9">
-		  <input type="text" name="_honey" style="display:none">
-		  <input type="hidden" name="_next" value="https://maccor-web-prototype-3wgyp.ondigitalocean.app/thankyou.html">
-		  <input type="hidden" name="_captcha" value="false">
-			
-		  <label for="name" class="col-form-label">Name</label>
-		  <input type="text" class="form-control" name="name" id="name" placeholder="* Enter Your Name" required>
-		  
-		  <label for="company" class="col-form-label">Company</label>
-		  <input type="text" class="form-control" name="company" id="company" placeholder="Enter Your Company">
-			
-		  <label for="phone" class="col-form-label">Telephone</label>
-		  <input type="tel" class="form-control" name ="telephone" id="phone">	
-			
-		  <label for="email" class="col-form-label">E-mail</label>
-		  <input type="email" class="form-control" name="email" id="email" placeholder="* Enter Your E-Mail" required>
-
-			
-		  <label for="subject" class="col-form-label">Subject</label>					
-		  <textarea rows="4" class="form-control" name="comments" id="subject" placeholder="Your query here..."></textarea>
-			
-		  <input type="submit" value="Submit">
-			<a href="#" class="close"><button type="button" class="btn btn-link">Close</button></a>
-        </form>
-	  </div>	  
+  <style>
+	  .container-fluid{
+		  display: grid;
+		  place-items: center;
+	  }
+	  .main{
+		  background-color: aqua;
+		  width: 80%
+	  }  
+	  form{
+		  width: 80%;
+	  }
+	  form label{
+		  color: navy;
+	  }
+	  .form-input{
+		  margin-top: 10px;
+		  font-size: 20px;
+		  margin-left: 50px;
+	  }
+	  input{
+		  width: 80%;
+		  height: 30px;
+		  border-radius: 10px;
+	  }
+	  .form-input button{
+		  width: 120px;
+		  height: 35px;
+		  border-radius: 10px;
+		  cursor: pointer;
+	  }
+  </style>
+	  
+	  
+  <div class="container-fluid">
+	  <h1>Test Form Submit</h1>
+	<div class="main">
+		<form action="">
+			<div class="form-input">
+				<label for="">Name</label><br>
+				<input type="text" placeholder="Enter your name">
+			</div>
+			<div class="form-input">
+				<label for="">eMail</label><br>
+				<input type="text" placeholder="Enter your email">
+			</div>
+			<div class="form-input">
+				<button type="button" onClick="SendEmail()">Send eMail</button>
+			</div>
+		</form>
+	</div>  
   </div>
-	
+	  <!-- https://www.youtube.com/watch?v=yP85ECOVMe8 -->
+
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
+  <script>
+	function SendEmail(){
+	  Email.send({
+        SecureToken : "0907f917-0c5a-4ae8-9c4e-650bf54af9e2",
+        To : 'm.sandoval@maccor.com',
+        From : "you@isp.com",
+        Subject : "This is the subject",
+        Body : "And this is the body",
+
+}).then(
+  message => alert(message)
+);	
+	}  
+  </script>	
 
    	  
   </body>
