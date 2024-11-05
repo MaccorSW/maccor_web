@@ -18,6 +18,7 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/popper.min.js"></script> 
   <script src="js/bootstrap-4.4.1.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
   <style>
 	  .container-fluid{
 		  display: grid;
@@ -51,22 +52,6 @@
 	  }
   </style>
 	  
-  <form action="https://public.herotofu.com/v1/a2db16b0-9b79-11ef-a0ee-650b92707733" method="post" accept-charset="UTF-8">
-    <div>
-      <label for="name">Your Name</label>
-      <input name="Name" id="name2" type="text" required />
-    </div>
-    <div>
-      <label for="email">Your Email</label>
-      <input name="Email" id="email2" type="email" required  />
-    </div>
-    <div>
-      <input type="submit" value="Download CTA" />
-      <div style="text-indent:-99999px; white-space:nowrap; overflow:hidden; position:absolute;" aria-hidden="true">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-      </div>
-    </div>
-  </form>
 
 	  <div class="container-fluid">
     <div class="container">	
@@ -188,51 +173,22 @@
           <textarea name="message" id="message" placeholder="Type your Message Here...." tabindex="11"></textarea>
         </fieldset>
         <fieldset>
-          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+          <button class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback="onSubmit" data-action="submit" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
         </fieldset>
       </form>
     </div>
   </div>
 	  
 	  
-  <div class="container-fluid">
-	  <h1>Test Form Submit</h1>
-	<div class="main">
-		<form action="">
-			<div class="form-input">
-				<label for="">Name</label><br>
-				<input type="text" placeholder="Enter your name">
-			</div>
-			<div class="form-input">
-				<label for="">eMail</label><br>
-				<input type="text" placeholder="Enter your email">
-			</div>
-			<div class="form-input">
-				<button type="button" onClick="SendEmail()">Send eMail</button>
-			</div>
-		</form>
-	</div>  
-  </div>
-	  
-	  
-	  <!-- https://www.youtube.com/watch?v=yP85ECOVMe8 -->
-
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
   
-  <script>
-	function SendEmail(){
-	  Email.send({
-        SecureToken : "1f6715b5-c28b-451d-8d0f-21b0935369bf",
-        To : 'plaudquer@gmail.com',
-        From : "you@isp.com",
-        Subject : "This is the subject",
-        Body : "And this is the body",
-
-}).then(
-  message => alert(message)
-);	
-	}  
-  </script>	
+	  
+	  
+ <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
+	  
 
    	  
   </body>
