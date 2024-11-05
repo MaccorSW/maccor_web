@@ -1,3 +1,9 @@
+<?php
+  define('site_key', 'x1x1')
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -8,6 +14,7 @@
     <!-- Bootstrap -->
 	<link href="css/bootstrap-4.4.1.css" rel="stylesheet">
 	<link href="css/myStyle.css" rel="stylesheet" type="text/css">
+	 <script src="https://www.google.com/recaptcha/api.js"></script>
 <html>
   <div id="sticky-button">
   <a href="#divOne">Request a Quote</a>
@@ -18,7 +25,7 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/popper.min.js"></script> 
   <script src="js/bootstrap-4.4.1.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js"></script>
+  
   <style>
 	  .container-fluid{
 		  display: grid;
@@ -56,6 +63,7 @@
 	  <div class="container-fluid">
     <div class="container">	
       <p class="text-center">Please fill out the form below and someone will reach out to you soon.</p>
+	  <p><?php echo site_key ?></p>
 
 	  <!-- <form id="contact" class="container" action="https://formsubmit.co/sales@maccor.com" method="post"></form>-->
         <form action="https://public.herotofu.com/v1/a2db16b0-9b79-11ef-a0ee-650b92707733" method="post" accept-charset="UTF-8">
