@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[258],{27050:function(e,t,a){"use strict";a.r(t);var n=a(15180),l=a(24695),c=a(11035),u=a(12325);t.default=()=>(Object(c.useEffect)(()=>{Object(u.a)()},[]),c.createElement(n.a,null,c.createElement(n.a.Canvas,null,c.createElement(l.default,null))))}}]);
