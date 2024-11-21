@@ -1,4 +1,157 @@
 @charset "utf-8";
-h1 {
-    color: green;
+#promo {
+  margin-top: 33px;
+  position: relative;
+}
+
+img {
+  width: 320px;
+  height: 267px;
+  position: absolute;
+}
+
+.A {
+animation: animA 10s infinite alternate;
+}
+
+.B {
+animation: animB 10s infinite alternate;
+}
+
+@keyframes animA {
+  0%, 25% {
+    opacity: 0;
+    z-index: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  
+  100% {
+    opacity: 1;
+    z-index: 1
+  }
+}
+
+@keyframes animB {
+  0%,25% {
+    opacity: 1;
+    z-index: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+ 100% {
+    opacity: 0;
+    z-index: 0
+  }
+}
+
+
+
+/* Styling the area of the slides */
+#slideshow {
+    overflow: hidden;
+    height: 510px;
+    width: 728px;
+    margin: 0 auto;
+}
+
+/* Style each of the sides 
+  with a fixed width and height */
+.slide {
+    float: left;
+    height: 510px;
+    width: 728px;
+}
+
+/* Add animation to the slides */
+.slide-wrapper {
+
+    /* Calculate the total width on the
+    basis of number of slides */
+    width: calc(728px * 4);
+
+    /* Specify the animation with the
+    duration and speed */
+    animation: slide 10s ease infinite;
+}
+
+/* Set the background color
+  of each of the slides */
+.slide:nth-child(1) {
+    background: green;
+}
+
+.slide:nth-child(2) {
+    background: pink;
+}
+
+.slide:nth-child(3) {
+    background: red;
+}
+
+.slide:nth-child(4) {
+    background: yellow;
+}
+
+/* Define the animation 
+  for the slideshow */
+@keyframes slide {
+
+    /* Calculate the margin-left for 
+    each of the slides */
+    20% {
+        margin-left: 0px;
+    }
+
+    40% {
+        margin-left: calc(-728px * 1);
+    }
+
+    60% {
+        margin-left: calc(-728px * 2);
+    }
+
+    80% {
+        margin-left: calc(-728px * 3);
+    }
+}
+
+.fadein img {
+    position:absolute;
+    top:0;
+    -webkit-animation-name: fade;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 6s;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+}
+
+@-webkit-keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+#f1 {
+    background-color: lightblue;
+}
+#f2 {
+    -webkit-animation-delay: -4s;
+    background-color: yellow;
+}
+#f3 {
+    -webkit-animation-delay: -2s;
+    background-color: lightgreen;
 }
