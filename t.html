@@ -1,9 +1,3 @@
-<?php
-  define('site_key', 'x1x1')
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -26,177 +20,80 @@
   <script src="js/popper.min.js"></script> 
   <script src="js/bootstrap-4.4.1.js"></script>
   
-  <style>
-	  .container-fluid{
-		  display: grid;
-		  place-items: center;
-	  }
-	  .main{
-		  background-color: aqua;
-		  width: 80%
-	  }  
-	  form{
-		  width: 80%;
-	  }
-	  form label{
-		  color: navy;
-	  }
-	  .form-input{
-		  margin-top: 10px;
-		  font-size: 20px;
-		  margin-left: 50px;
-	  }
-	  input{
-		  width: 80%;
-		  height: 30px;
-		  border-radius: 10px;
-	  }
-	  .form-input button{
-		  width: 120px;
-		  height: 35px;
-		  border-radius: 10px;
-		  cursor: pointer;
-	  }
-  </style>
-	  
-
-	  <div class="container-fluid">
-    <div class="container">	
-      <p class="text-center">Please fill out the form below and someone will reach out to you soon.</p>
-	  <p><?php echo site_key ?></p>
-
-	  <!-- <form id="contact" class="container" action="https://formsubmit.co/sales@maccor.com" method="post"></form>-->
-        <form action="https://public.herotofu.com/v1/a2db16b0-9b79-11ef-a0ee-650b92707733" method="post" accept-charset="UTF-8">
-		
-
-   
-
-		<!-- <form id="contact" class="container" action="contactForm.php" method="post">-->
-	    <input type="text" name="_honey" style="display:none">
-		<!--  <input type="hidden" name="_next" value="https://maccor-web-prototype-3wgyp.ondigitalocean.app/thankyou.html">
-		  <input type="hidden" name="_captcha" value="false">
-		-->
-        <fieldset>
-          <input name="name" type="text" autofocus required id="name" placeholder="* Please enter your name" tabindex="1">
-        </fieldset>
-		
-	    <fieldset>
-          <input name="company" type="company" required id="company" placeholder="* Enter your company" tabindex="2">
-        </fieldset>
-	
-	    <fieldset>
-          <input name="email" type="email" required id="email" placeholder="* Your Email Address" tabindex="10">
-        </fieldset>
-	
-		<fieldset>
-          <input name="address1" type="address" id="address1" placeholder="Enter your address (line 1)" tabindex="3">
-        </fieldset>
-		<fieldset>
-          <input name="address2" type="address" id="address2" placeholder="Enter your address (line 2)" tabindex="4">
-        </fieldset>
-		<fieldset>
-          <input name="city" type="city" id="city" placeholder="Enter your city" tabindex="5">
-        </fieldset>
-		 <fieldset>
-          <input name="state" type="state" id="state" placeholder="Enter your State/Province" tabindex="6">
-        </fieldset>
-		 <fieldset>
-          <input name="postalcode" type="postalcode" id="postalcode" placeholder="Enter your postal code" tabindex="7">
-        </fieldset>
-		<fieldset>
-          <input name="country" type="country" id="country" placeholder="Enter your country" tabindex="8">
-        </fieldset>
-		<fieldset>
-          <input name="phone" type="tel" id="phone" placeholder="Enter your phone" tabindex="9">
-        </fieldset>
-		
-		<div class="row">
-		   <div class="col-lg-6">
-			 <table width="100%" >
-		       <tr>
-		         <td>
-		           <label>
-		           <input type="checkbox" name="cbInterest_desktop" value="checkbox" id="cbInterest_0">
-	               Desktop Tester
-				   </label>
-				 </td>
-
-	      </tr>
-		  <tr>
-		     <td><label>
-		       <input type="checkbox" name="cbInterest_8500" value="checkbox" id="cbInterest_2">
-		       EV, Module, and Pack</label></td>
-	      </tr>
-		  <tr>
-		     <td><label>
-		       <input type="checkbox" name="cbInterest_4600" value="checkbox" id="cbInterest_4">
-		       High Volume Tester</label></td>
-	      </tr>
-		  <tr>
-		     <td><label>
-		       <input type="checkbox" name="cbInterest_vm" value="checkbox" id="cbInterest_6">
-			   Virtual Machine</label>
-			  </td>
-
-	      </tr>
-		  <tr>
-		     <td><label>
-		       <input type="checkbox" name="cbInterest_accessories" value="checkbox" id="cbInterest_8">
-		       Accessories</label></td>
-	      </tr>			
-	    </table></div>
-			
-			
-		<div class="col-lg-6">  
-	      <table width="100%" >
-		    <tr>
-		      <td><label>
-		       <input type="checkbox" name="cbInterest_4000" value="checkbox" id="cbInterest_1">
-		       Cell and Module Testers</label></td> 
-	      </tr>
-		  <tr>
-			<td><label>
-		       <input type="checkbox" name="cbInterest" value="checkbox" id="cbInterest_3">
-		       Temperature Chamber</label></td>
-		  </tr>
-		  <tr>
-			 <td><label>
-		       <input type="checkbox" name="cbInterest_formation" value="checkbox" id="cbInterest_5">
-		       Formation</label></td>
-	      </tr>
-		  <tr>
-			 <td><label>
-		       <input type="checkbox" name="cbInterest_balancer" value="checkbox" id="cbInterest_7">
-		       Cell Balancer</label></td>
-	      </tr>
-		  <tr>
-			 <td><label>
-		       <input type="checkbox" name="cbInterest_options" value="checkbox" id="cbInterest_9">
-		       Options</label></td>
-	      </tr>			
-	    </table>
-		</div>  </div>
-	  
-        <fieldset>
-          <textarea name="message" id="message" placeholder="Type your Message Here...." tabindex="11"></textarea>
-        </fieldset>
-        <fieldset>
-          <button class="g-recaptcha" data-sitekey="6LchAHYqAAAAACtrousy1ne3P8r8OtV8XLWyWUX4" data-callback="onSubmit" data-action="submit" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-	  
-	  
-  
-	  
-	  
- <script>
-   function onSubmit(token) {
-     document.getElementById("demo-form").submit();
-   }
- </script>
-	  
+ <div class="table-wrap">
+  <table class="sortable">
+    <caption>
+      Systems available for Quick Delivery
+      <span class="sr-only">
+        (column headers with buttons are sortable).
+      </span>
+    </caption>
+    <thead>
+      <tr>
+        <th>
+          <button>
+            Asset Number
+            <span aria-hidden="true"></span>
+          </button>
+        </th>
+        <th aria-sort="ascending">
+          <button>
+            Channels
+            <span aria-hidden="true"></span>
+          </button>
+        </th>
+        <th>
+          <button>
+            Maximum Voltage
+            <span aria-hidden="true"></span>
+          </button>
+        </th>
+        <th  class="num">
+		  <button>
+            Maximum Current
+            <span aria-hidden="true"></span>
+          </button>         
+        </th>
+        <th class="num">
+          <button>
+            Current Ranges
+            <span aria-hidden="true"></span>
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>J012358</td>
+        <td class="num">96</td>
+        <td class="num" style="color: rgb(0, 65, 132); text-align: center;">5</td>
+        <td class="num">5</td>
+        <td class="num">4</td>
+      </tr>
+      <tr>
+        <td>J012359</td>
+        <td class="num">96</td>
+        <td class="num">5</td>
+        <td class="num">5</td>
+        <td class="num">4</td>
+      </tr>
+	  <tr>
+        <td>J012360</td>
+        <td class="num">96</td>
+        <td class="num">5</td>
+        <td class="num">50</td>
+        <td class="num">3</td>
+      </tr>
+	  <tr>
+        <td>J012361</td>
+        <td class="num">96</td>
+        <td class="num">5</td>
+        <td class="num">50</td>
+        <td class="num">3</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
    	  
   </body>
