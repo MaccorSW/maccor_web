@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interactive Word Search (Fixed Puzzle)</title>
+  <style>
+    :root {
+      --cell-size: 34px;
+      --border: #cfd4dc;
+      --bg: #f7f8fb;
+      --hl: #ffeb3b;
+      --hl2: #90caf9;
+      --text: #1f2937;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh; /* Ensure body takes full height */
+      overflow-y: auto;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 24px auto;
+      padding: 16px;
+      display: grid;
+      /* 1fr for puzzle, 300px for wordbank */
+      grid-template-columns: 1fr 300px; 
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+
+    /* Word search grid */
+    table.wordsearch {
+      border-collapse: collapse;
+      margin: 0 auto; /* Center the table inside the card */
+      user-select: none;
+    }
+
+    /* Puzzle Card: Sticky ensures it stays in view if the page scrolls, 
+       though with the wordbank scroll fix, the page shouldn't scroll much. */
+    .puzzle {
+      position: sticky;
+      top: 16px; 
+      text-align: center; /* Center content */
+    }
+    
+    /* Word Bank Card: Fixed height with internal scrolling */
+    .wordbank {
+      /* Calculate height so it fits on screen without pushing page scroll */
+      max-height: calc(100vh - 80px); 
+      overflow-y: auto; /* Adds scrollbar inside this card specifically */
+      position: sticky;
+      top: 16px;
+    }
+    
+    table.wordsearch td {
+      width: var(--cell-size);
+      height: var(--cell-size);
+      border: 1px solid var(--border);
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 16px;
+      cursor: default;
+      background: white;
+      transition: background 120ms ease;
+    }
+
+    table.wordsearch td.highlight {
+      background: var(--hl);
+    }
+
+    table.wordsearch td.highlight-secondary {
+      background: var(--hl2);
+    }
+
+    /* Word bank list styles */
+    .wordbank .hint {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: -6px;
+      margin-bottom: 12px;
+    }
+
+    .words {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .words li {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      background: #fff;
+      transition: transform 100ms ease, background 120ms ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .words li:hover {
+      background: #f1f5f9;
+      transform: translateY(-1px);
+      border-color: #b0b8c4;
+    }
+
+    .words li .dir {
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    /* Custom Scrollbar for the word bank (makes it look cleaner) */
+    .wordbank::-webkit-scrollbar {
+      width: 8px;
+    }
+    .wordbank::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .wordbank::-webkit-scrollbar-thumb {
+      background-color: #cfd4dc;
+      border-radius: 4px;
+    }
+
+    /* Responsive: Stack vertically on small screens */
+    @media (max-width: 900px) {
+      .wrap {
+        grid-template-columns: 1fr; /* Single column */
+      }
+      .wordbank {
+        max-height: 300px; /* Limit height on mobile too */
+      }
+      .puzzle {
+        position: static; /* Unstick on mobile to allow natural flow */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    
+    <div class="card puzzle">
+      <h1>Word Search Puzzle</h1>
+      <div id="gridMount"></div>
+    </div>
+
+    <div class="card wordbank">
+      <h1>Word Bank</h1>
+      <div class="hint">Hover (or tap) a word to highlight its letters in the puzzle.</div>
+      <ul id="wordList" class="words"></ul>
+    </div>
+
+  </div> <script>
+    const GRID = [
+      "B R L G H M O D U L E L B I X E L F X N V K H C".split(" "),
+      "Q C C O A Z W W B G Y T H E R M A L U P E Y M M".split(" "),
+      "Y Z D E P A N Q M D X D Q Y R E T T A B F E O W".split(" "),
+      "O X V G P M F S H S A P A N O D E U L L E C A S".split(" "),
+      "P D S E Y Q J I U T R O L I M P E D A N C E D B".split(" "),
+      "C N G W V P F Y A G K H Q R C A P A C I T Y Y V".split(" "),
+      "E Q A D V A N C E D C B W Z T E T S E T C K M F".split(" "),
+      "D E L B D X B L K R O R F O H L L X J T L L D S".split(" "),
+      "O U P E P U I M F J C Y L I N D R I C A L E I H".split(" "),
+      "H G F E P K U A A P E G A T L O V N H H O B S F".split(" "),
+      "T G M L Y V T M J C C W N Q U A L I T Y B O C M".split(" "),
+      "A J O B F V L X T D C K V M Y W R Z P G N R H P".split(" "),
+      "C Z H A I S A F E T Y O A E L I T W P Z O P A R".split(" "),
+      "I P A R E U A S B E R E R U T A R E P M E T R I".split(" "),
+      "F L F U S C A F A H Y C O U L O M B O O X F G Q".split(" "),
+      "Y Y O D L C C G G O L D S T A N D A R D A O E L".split(" "),
+      "K Q Y U U E C Q O P V D G W J W J V S U B T D J".split(" "),
+      "N Q I I P S U R P O P R E L I A B L E N I N N I".split(" "),
+      "Y C N J Q S R Y K W K X M A D N A N L E T E J H".split(" "),
+      "C B T E Z F A J B E E S R O H K R O W U J R O Y".split(" "),
+      "R I C D P U T F I R N I V L E K C I A H M R Y X".split(" "),
+      "V D B W C L E Z V A X Y G R E N E S V E C U X N".split(" "),
+      "H U W N J Z A E C N E L L E C X E U K A F C M I".split(" "),
+      "R E S U L T S H C H A R G E P W P F U N H Z P F".split(" "),
+    ];
+
+    const WORDS = [
+      { word: "ACCURATE",  start: [14,6], end: [21,6]},
+      { word: "ADVANCED",  start: [6,2], end: [6,9]},
+      { word: "ANODE",  start: [3,12], end: [3,16]},
+      { word: "BATTERY",  start: [2,19], end: [2,13]},
+      { word: "CAPACITY",  start: [5,14], end: [5,21]},
+      { word: "CATHODE",  start: [12,0], end: [6,0]},
+      { word: "CELL",  start: [3,21], end: [3,18]},
+      { word: "CHARGE",  start: [23,8], end: [23,13]},
+      { word: "COULOMB",  start: [14,11], end: [14,17]},
+      { word: "CURRENT",  start: [22,21], end: [16,21]},
+      { word: "CYLINDRICAL",  start: [8,10], end: [8,20]},
+      { word: "DATA",  start: [2,11], end: [5,8]},
+      { word: "DCIR",  start: [20,3], end: [20,0]},
+      { word: "DISCHARGE",  start: [7,22], end: [15,22]},
+      { word: "DURABLE",  start: [15,3], end: [9,3]},
+      { word: "ENERGY",  start: [21,16], end: [21,11]},
+      { word: "EXCELLENCE",  start: [22,16], end: [22,7]},
+      { word: "FLEXIBLE",  start: [0,17], end: [0,10]},
+      { word: "FUN",  start: [23,17], end: [23,19]},
+      { word: "FUSION",  start: [23,17], end: [18,17]},
+      { word: "GOLDSTANDARD",  start: [15,8], end: [15,19]},
+      { word: "HAPPY",  start: [0,4], end: [4,4]},
+      { word: "IMPEDANCE",  start: [4,13], end: [4,21]},
+      { word: "JOY",  start: [18,22], end: [20,22]},
+      { word: "KELVIN",  start: [20,15], end: [20,10]},
+      { word: "MACCOR",  start: [8,7], end: [13,12]},
+      { word: "MODULE",  start: [0,5], end: [0,10]},
+      { word: "POWER",  start: [16,9], end: [20,9]},
+      { word: "PROBE",  start: [12,21], end: [8,21]},
+      { word: "PULSE",  start: [17,4], end: [13,4]},
+      { word: "QUALITY",  start: [10,13], end: [10,19]},
+      { word: "RELIABLE",  start: [17,11], end: [17,18]},
+      { word: "RESULTS",  start: [23,0], end: [23,6]},
+      { word: "SAFETY",  start: [12,5], end: [12,10]},
+      { word: "SUCCESSFUL",  start: [12,5], end: [21,5]},
+      { word: "TEMPERATURE",  start: [13,21], end: [13,11]},
+      { word: "TEST",  start: [6,19], end: [6,16]},
+      { word: "THERMAL",  start: [1,11], end: [1,17]},
+      { word: "VOLTAGE",  start: [9,16], end: [9,10]},
+      { word: "WORKHORSE",  start: [19,18], end: [19,10]},
+    ];
+
+    function renderGrid() {
+      const table = document.createElement("table");
+      table.className = "wordsearch";
+
+      for (let r = 0; r < GRID.length; r++) {
+        const tr = document.createElement("tr");
+        for (let c = 0; c < GRID[r].length; c++) {
+          const td = document.createElement("td");
+          td.textContent = GRID[r][c];
+          td.dataset.r = r;
+          td.dataset.c = c;
+          td.id = `cell-${r}-${c}`;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+
+      document.getElementById("gridMount").appendChild(table);
+    }
+
+    function getPathCells(start, end) {
+      const [r1, c1] = start;
+      const [r2, c2] = end;
+
+      const dr = Math.sign(r2 - r1);
+      const dc = Math.sign(c2 - c1);
+
+      const lenR = Math.abs(r2 - r1);
+      const lenC = Math.abs(c2 - c1);
+      const steps = Math.max(lenR, lenC);
+
+      if (!(lenR === 0 || lenC === 0 || lenR === lenC)) return [];
+
+      const cells = [];
+      for (let i = 0; i <= steps; i++) {
+        cells.push([r1 + dr * i, c1 + dc * i]);
+      }
+      return cells;
+    }
+
+    function highlightCells(cells, secondary = false) {
+      clearHighlights();
+      const className = secondary ? "highlight-secondary" : "highlight";
+      for (const [r, c] of cells) {
+        const el = document.getElementById(`cell-${r}-${c}`);
+        if (el) el.classList.add(className);
+      }
+    }
+
+    function clearHighlights() {
+      document.querySelectorAll("td.highlight, td.highlight-secondary")
+        .forEach(td => td.classList.remove("highlight", "highlight-secondary"));
+    }
+
+    function renderWordBank() {
+      const ul = document.getElementById("wordList");
+      ul.innerHTML = "";
+
+      WORDS.forEach((w) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${w.word}</span>
+          <span class="dir">${directionLabel(w.start, w.end)}</span>
+        `;
+
+        const cells = getPathCells(w.start, w.end);
+
+        li.addEventListener("mouseenter", () => highlightCells(cells));
+        li.addEventListener("mouseleave", clearHighlights);
+
+        li.addEventListener("click", () => {
+          const anyHighlighted = cells.some(([r,c]) => {
+            const el = document.getElementById(`cell-${r}-${c}`);
+            return el && el.classList.contains("highlight");
+          });
+          if (anyHighlighted) clearHighlights();
+          else highlightCells(cells, true);
+        });
+
+        ul.appendChild(li);
+      });
+    }
+
+    function directionLabel(start, end) {
+      const [r1, c1] = start;
+      const [r2, c2] = end;
+      const dr = r2 - r1;
+      const dc = c2 - c1;
+
+      if (dr === 0 && dc > 0) return "→";
+      if (dr === 0 && dc < 0) return "←";
+      if (dc === 0 && dr > 0) return "↓";
+      if (dc === 0 && dr < 0) return "↑";
+      if (dr > 0 && dc > 0) return "↘";
+      if (dr > 0 && dc < 0) return "↙";
+      if (dr < 0 && dc > 0) return "↗";
+      if (dr < 0 && dc < 0) return "↖";
+      return "";
+    }
+
+    renderGrid();
+    renderWordBank();
+  </script>
+</body>
+</html>
