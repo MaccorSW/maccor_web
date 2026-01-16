@@ -226,8 +226,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="events.html">Events</a>
             </li>
-             <li class="nav-item active">
+             <li class="nav-item">
                 <a class="nav-link" href="press.html">Press</a>
+            </li> 			
+             <li class="nav-item active">
+                <a class="nav-link" href="cg_v1b.html">Puzzles</a>
             </li>          
         </ul>
 
@@ -236,9 +239,17 @@
   </div>  
   </div>
       
+  <div class="container-fluid">
+    <div class="container">  
+      <a href="fusion.html">
+        <img src="images/banners/banner_a.png" width="1251" height="449" alt="Fusion Series" class="img-fluid"/>
+      </a>
+    </div>
+  </div>
+      
   <div class="container">
       <div id="puzzle-area">
-        <h1>Crypto Quote (v1)</h1>
+        <h1>Cryptogram Puzzle (v1)</h1>
         <p class="instructions">Decipher the quote by typing the correct letters in the boxes. <br>Changing one letter will update all identical symbols in the puzzle.</p>
     
         <div id="puzzle-container"></div>
@@ -253,7 +264,17 @@
             <button onclick="resetPuzzle()" class="reset">Reset</button>
         </div>
       </div>
-  </div>
+      
+      <div class="row mb-5">
+            <div class="col-6 text-left">
+                <a href="cg_v1.html" class="btn btn-secondary">&laquo; Prev</a>
+            </div>
+            <div class="col-6 text-right">
+                <a href="ws_v1.html" class="btn btn-primary">Next &raquo;</a>
+            </div>
+        </div>
+      </div>
+
       
   <footer>  
       <div class="container-fluid" id="padding">
@@ -283,17 +304,17 @@
 
     <script>
         // 1. Data Setup based on your PDF
-        const PLAIN_TEXT = "NOTHING IN LIFE IS TO BE FEARED, IT IS ONLY TO BE UNDERSTOOD. NOW IS THE TIME TO UNDERSTAND MORE, SO THAT WE MAY FEAR LESS.";
-        const AUTHOR = "MARIE CURIE";
+        const PLAIN_TEXT = "IF I HAVE SEEN FURTHER THAN OTHERS, IT IS BY STANDING UPON THE SHOULDERS OF GIANTS.";
+        const AUTHOR = "ISAAC NEWTON";
         
         // Mapping from PDF Answer Key 
         const CIPHER_KEY = {
-            'A': 'S', 'B': 'E', 'C': 'A', 'D': 'U', 'E': 'V', 
-            'F': 'T', 'G': 'D', 'H': 'G', 'I': 'Y', 'J': 'M', 
-            'K': 'W', 'L': 'J', 'M': 'I', 'N': 'L', 'O': 'C', 
-            'P': 'H', 'Q': 'B', 'R': 'Q', 'S': 'R', 'T': 'O', 
-            'U': 'X', 'V': 'N', 'W': 'P', 'X': 'K', 'Y': 'F', 
-            'Z': 'Z'
+            'A': 'D', 'B': 'U', 'C': 'N', 'D': 'F', 'E': 'X', 
+			'F': 'A', 'G': 'C', 'H': 'L', 'I': 'E', 'J': 'W', 
+			'K': 'G', 'L': 'K', 'M': 'Y', 'N': 'I', 'O': 'M', 
+			'P': 'J', 'Q': 'Z', 'R': 'Q', 'S': 'T', 'T': 'V', 
+			'U': 'R', 'V': 'B', 'W': 'H', 'X': 'P', 'Y': 'S', 
+			'Z': 'O'        
         };
     
         // Reverse map for generating the puzzle text logically
