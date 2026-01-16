@@ -152,15 +152,15 @@
             background: none;
             border: 1px solid #eee;
             border-radius: 8px;
-            padding: 10px 20px;
+            padding: 10px 5px; /* Reduced padding for 3 buttons */
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 5px;
             color: #555;
-            font-size: 0.9rem;
-            width: 45%;
+            font-size: 0.85rem;
+            width: 30%; /* Changed from 45% to 30% to fit 3 buttons */
             transition: all 0.2s;
         }
         
@@ -172,6 +172,10 @@
 
         .btn-erase { color: #dc3545; border-color: #f5c6cb; background-color: #fff5f5; }
         .btn-erase:hover { background-color: #f8d7da; }
+        
+        /* New Hint Button Style */
+        .btn-hint { color: #856404; border-color: #ffeeba; background-color: #fff3cd; }
+        .btn-hint:hover { background-color: #ffe8a1; }
 
         /* Numpad */
         .numpad {
@@ -337,10 +341,13 @@
                 
                 <div class="actions">
                     <button class="action-btn btn-erase" onclick="eraseCell()">
-                        <i class="fas fa-eraser"></i> Erase Cell
+                        <i class="fas fa-eraser"></i> Erase
+                    </button>
+                    <button class="action-btn btn-hint" onclick="revealCell()">
+                        <i class="fas fa-lightbulb"></i> Hint
                     </button>
                     <button class="action-btn btn-reveal" onclick="revealBoard()">
-                        <i class="fas fa-eye"></i> Reveal All
+                        <i class="fas fa-eye"></i> Reveal
                     </button>
                 </div>
     
@@ -531,8 +538,6 @@
             }
         ];
 
-        // REMOVED THE OVERWRITING BUG HERE
-
         const boardEl = document.getElementById('board');
         let selectedCellIndex = null;
         let cells = []; 
@@ -616,6 +621,32 @@
 
             currentCell.textContent = '';
             currentCell.classList.remove('user-input', 'wrong', 'revealed');
+        }
+
+        // NEW FUNCTION: REVEAL SINGLE CELL (HINT)
+        function revealCell() {
+            if (selectedCellIndex === null) {
+                alert("Please select a cell first to get a hint.");
+                return;
+            }
+
+            const currentCell = cells[selectedCellIndex];
+
+            // Don't modify initial cells
+            if (currentCell.classList.contains('initial')) {
+                 alert("This cell is already a starting clue.");
+                 return;
+            }
+
+            // Get correct value from solution
+            const correctValue = currentSolution[selectedCellIndex];
+
+            // Update DOM
+            currentCell.textContent = correctValue;
+            
+            // Remove wrong/input styling and add revealed styling
+            currentCell.classList.remove('wrong', 'user-input');
+            currentCell.classList.add('revealed');
         }
 
         function revealBoard() {
