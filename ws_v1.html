@@ -49,7 +49,35 @@
         --hl2: #90caf9;
         --text: #1f2937;
       }
+      @media (max-width: 900px) {
+        /* 1. Shrink cell size to fit more on screen */
+        :root {
+          --cell-size: 20px; /* Reduced from 34px */
+        }
 
+        /* 2. Switch to single column layout (You already had this) */
+        .wrap {
+          grid-template-columns: 1fr; 
+        }
+
+        /* 3. CRITICAL: Allow the puzzle itself to scroll horizontally */
+        .puzzle {
+          position: static;
+          overflow-x: auto;   /* Enables sideways scrolling for just the grid */
+          display: block;     /* Ensures the scroll container behaves correctly */
+          width: 100%;        /* Forces it to respect screen width */
+        }
+
+        /* 4. Adjust font size for the smaller cells */
+        table.wordsearch td {
+          font-size: 10px;
+        }
+
+        /* 5. Adjust word bank height */
+        .wordbank {
+          max-height: 250px;
+        }
+      }
       /* Note: Removed body styles to prevent conflict with main site layout */
 
       .wrap {
@@ -263,13 +291,17 @@
     </div>
   </div>
     
-  <div class="container-fluid">
-    <div class="container">  
-      <a href="fusion.html">
-        <img src="images/banners/banner_a.png" width="1251" height="449" alt="Fusion Series" class="img-fluid"/>
-      </a>
+    <div class="container-fluid">
+      <div class="container">  
+        <a href="fusion.html">
+          <picture>
+            <source media="(max-width: 768px)" srcset="images/banners/fusion_banner_mobile.png">
+
+            <img src="images/banners/banner_a.png" alt="Fusion Series" class="img-fluid"/>
+          </picture>
+        </a>
+      </div>
     </div>
-  </div>    
 
 <div class="container-fluid">
     <div class="container">	
