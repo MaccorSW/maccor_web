@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-048RD5EJRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-048RD5EJRN');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maccor - Brain Teasers</title>
+    <link rel="canonical" href="https://www.maccor.com/press.html" /> 
+    <meta name="Description" content="Maccor Puzzles">
+    <meta name="viewport" content="width=device-width/4, initial-scale=1.0">
+    
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/myStyle.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --maccor-blue: #0056b3; 
+        }
+
+        /* Puzzle Card Styles */
+        .puzzle-section {
+            padding: 40px 0;
+            background-color: #f8f9fa;
+            min-height: 600px;
+        }
+
+        .puzzle-card {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .puzzle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* The visual area that mimics the Rebus images */
+        .puzzle-visual {
+            height: 180px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #444;
+            border-bottom: 1px solid #eee;
+            padding: 15px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace; 
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card-title {
+            color: var(--maccor-blue);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-reveal {
+            background-color: var(--maccor-blue);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .btn-reveal:hover {
+            background-color: #004494;
+            text-decoration: none;
+            color: white;
+        }
+
+        .answer-box {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-weight: bold;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Specific Visual Styling for Rebus Puzzles */
+        .fraction { display: flex; flex-direction: column; line-height: 1; align-items: center; }
+        .underline { border-bottom: 2px solid #333; display: block; width: 100%; margin: 2px 0; }
+        .tiny { font-size: 0.8rem; }
+    </style>
+
+    <html>
+      <div id="sticky-button">
+        <a href="contact.html">Request a Quote</a>
+      </div>
+    </html>
+  </head>
+  <body style="padding-top: 70px">
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script> 
+  <script src="js/bootstrap-4.4.1.js"></script>
+  <div class="container-fluid">
+    <div class="container">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="index.html"><img src="images/Logo.png" width="200" class="img-fluid" alt="Maccor Logo"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Products </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                   <li><a class="dropdown-item" href="products.html">Overview</a></li>
+					<li><hr></li>
+					<li><a class="dropdown-item" href="fusion.html"><strong>FUSION</strong> Integrated Test System</a></li>
+                   <li><a class="dropdown-item" href="series6k.html">NextGen</a></li>
+                   <li><a class="dropdown-item" href="desktops.html">Desktops</a></li>
+					<li><a class="dropdown-item" href="automatedbatterytester.html">Cell and Module</a></li>
+                    <li><a class="dropdown-item" href="compact_temperature_chamber.html">Temperature Chamber</a></li>
+					<li><a class="dropdown-item" href="high_volume_battery_tester.html">High Volume</a></li><li><a class="dropdown-item" href="batteryformation.html">Formation</a></li>
+					<li><a class="dropdown-item" href="m22.html">Virtual Machine</a></li>
+					<li><a class="dropdown-item" href="cell_balancer.html">Cell Balancer</a></li>					
+					<li><a class="dropdown-item" href="accessories.html">Accessories</a></li>
+					<li><a class="dropdown-item" href="options.html">Options</a></li>
+                </ul>
+            </li>
+			<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Software </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                    <li><a class="dropdown-item" href="software.html">Overview</a></li>
+					<li><hr></li>
+                    <li><a class="dropdown-item" href="mactest.html">MacTest</a></li>
+					<li><a class="dropdown-item" href="build_test.html">Build Test</a></li>
+                    <li><a class="dropdown-item" href="mims_client.html">MIMS Client</a></li>
+					<li><a class="dropdown-item" href="mims_server.html">MIMS Server</a></li>
+					<li><a class="dropdown-item" href="view_data.html">Data Viewer</a></li>
+					<li><a class="dropdown-item" href="export_data.html">Export</a></li>
+					<li><a class="dropdown-item" href="can_dbc_editor.html">CAN Edit</a></li>
+					</ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="worldwide.html">Worldwide</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="support.html">Support</a>
+            </li>
+			<li class="nav-item">
+                <a class="nav-link" href="events.html">Events</a>
+            </li>
+			 <li class="nav-item active">
+                <a class="nav-link" href="press.html">Press</a>
+            </li>          
+        </ul>
+
+      </div>
+    </nav>
+  </div>  
+  </div>
+      
+    <div class="container-fluid">
+      <div class="container">  
+        <a href="fusion.html">
+          <picture>
+            <source media="(max-width: 768px)" srcset="images/banners/fusion_banner_mobile.png">
+
+            <img src="images/banners/fusion_banner_2.png" alt="Fusion Series" class="img-fluid"/>
+          </picture>
+        </a>
+      </div>
+    </div>      
+	  
+  <div class="container-fluid puzzle-section">
+      <div class="container">
+        
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h1 style="color: #0056b3;">Brain Teasers</h1>
+                <p>Can you solve these visual riddles? Click "Reveal Answer" to see if you are right.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <img src="images/puzzlea/eyeshadow.png" width="200" class="img-fluid" alt="Eye Shadow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 1</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans1', this)">Reveal Answer</button>
+                        <div id="ans1" class="answer-box">Eye Shadow</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <img src="images/puzzlea/pot8oos.png" width="200" class="img-fluid" alt="Eye Shadow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 2</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans2', this)">Reveal Answer</button>
+                        <div id="ans2" class="answer-box">Potatoes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <div class="fraction">
+                            <img src="images/puzzlea/breakfast.png" width="200" class="img-fluid" alt="Eye Shadow">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 3</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans3', this)">Reveal Answer</button>
+                        <div id="ans3" class="answer-box">Breakfast</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <div class="fraction">
+                            <img src="images/puzzlea/travel.png" width="200" class="img-fluid" alt="Eye Shadow">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 4</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans4', this)">Reveal Answer</button>
+                        <div id="ans4" class="answer-box">Travel Overseas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <div class="fraction">
+                            <img src="images/puzzlea/onetime.png" width="200" class="img-fluid" alt="Eye Shadow">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 5</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans5', this)">Reveal Answer</button>
+                        <div id="ans5" class="answer-box">Once upon a time</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <img src="images/puzzlea/downtown.png" width="200" class="img-fluid" alt="Eye Shadow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 6</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans6', this)">Reveal Answer</button>
+                        <div id="ans6" class="answer-box">Downtown</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <img src="images/puzzlea/life.png" width="200" class="img-fluid" alt="Eye Shadow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 7</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans7', this)">Reveal Answer</button>
+                        <div id="ans7" class="answer-box">Life behind bars</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <img src="images/puzzlea/topsecret.png" width="200" class="img-fluid" alt="Eye Shadow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 8</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans8', this)">Reveal Answer</button>
+                        <div id="ans8" class="answer-box">Top Secret</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <div style="text-align:right; width:100%;">
+                            <img src="images/puzzlea/step.png" width="200" class="img-fluid" alt="Eye Shadow">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 9</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans9', this)">Reveal Answer</button>
+                        <div id="ans9" class="answer-box">Step Father</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <img src="images/puzzlea/nevermind.png" width="200" class="img-fluid" alt="Eye Shadow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 10</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans10', this)">Reveal Answer</button>
+                        <div id="ans10" class="answer-box">Forget it</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <img src="images/puzzlea/understand.png" width="200" class="img-fluid" alt="Eye Shadow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 11</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans11', this)">Reveal Answer</button>
+                        <div id="ans11" class="answer-box">Try to understand</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="puzzle-card">
+                    <div class="puzzle-visual">
+                        <img src="images/puzzlea/3d.png" width="200" class="img-fluid" alt="Eye Shadow">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Puzzle 12</h5>
+                        <button class="btn-reveal" onclick="toggleAnswer('ans12', this)">Reveal Answer</button>
+                        <div id="ans12" class="answer-box">3D Movie</div>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+      <div class="row mb-5">
+            <div class="col-6 text-left">
+                <a href="sudoku_v1.html" class="btn btn-secondary">&laquo; Prev</a>
+            </div>
+            <div class="col-6 text-right">
+                <a href="cg_v1.html" class="btn btn-primary">Next &raquo;</a>
+            </div>
+        </div></div>
+      </div>
+      
+  <footer>  
+      <div class="container-fluid" id="padding">
+        <div class="container"  style="background-color: #ebebeb">	 
+      
+	      <div class="row">
+	        <div class="col-xl-8"><br>
+		      <img src="images/Logo.png" width="200" class="img-fluid" alt="Maccor Logo"><br><p><strong id="Footy1">Maccor is the trusted partner for professionals in cutting-edge, innovation-focused settings, offering unparalleled support for the unique challenges faced by laboratories.</strong></p>
+	        </div>
+	        <div class="col-xl-2">&nbsp;</div>
+          </div>
+
+	      <div class="row">
+            <div class="col-lg-6 col-xl-4">
+		      <p>4322 South 49th W Ave&nbsp;Tulsa, OK 74107 USA<br><a href="mailto:sales@maccor.com">sales@maccor.com</a><br><a href="tel:+19184461874">+1 918 446-1874</a></p><p>&nbsp;</p></div>
+            <div class="col-lg-6 col-xl-4"></div>
+          </div>
+	 	    
+	      <div class="row">
+	        <div class="col-xl-6"><p>Copyright&#169; 2024, Maccor, Inc., All Rights Reserved.</p></div>
+	        <div class="col-xl-6"><a href="https://www.linkedin.com/company/maccor-inc-"  target="_blank"><img src="images/In-Blue.png" alt="" width="25"/></a></div>
+          </div>
+  
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+        function toggleAnswer(elementId, btnElement) {
+            var x = document.getElementById(elementId);
+            if (x.style.display === "block") {
+                x.style.display = "none";
+                btnElement.textContent = "Reveal Answer";
+                btnElement.style.backgroundColor = "#0056b3"; // Back to Maccor Blue
+            } else {
+                x.style.display = "block";
+                btnElement.textContent = "Hide Answer";
+                btnElement.style.backgroundColor = "#6c757d"; // Gray out the button
+            }
+        }
+    </script>
+    
+  </body>
+</html>
