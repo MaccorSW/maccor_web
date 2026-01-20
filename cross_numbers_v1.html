@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+	    <script async src="https://www.googletagmanager.com/gtag/js?id=G-048RD5EJRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-048RD5EJRN');
+    </script>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Press - Number Fill-In Puzzle</title>
+	<link rel="canonical" href="https://www.maccor.com/press.html" /> 
+	<meta name="Description" content="Maccor in the news">
+    <meta name="viewport" content="width=device-width/4, initial-scale=1.0">
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+	<link href="css/myStyle.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --primary-btn: #007bff;
+            --danger-btn: #dc3545;
+            --secondary-btn: #6c757d;
+            --cell-size: 32px;
+        }
+
+        /* Scoped wrapper for the puzzle to avoid messing up Maccor site body */
+        #puzzle-wrapper {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 800px; /* Ensure enough space */
+            margin: 0;
+            border-radius: 8px; /* Soften edges */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #puzzle-wrapper h1 {
+            color: #333;
+            margin: 0 0 20px 0;
+            font-weight: bold;
+        }
+
+        /* Layout: Grid on Left, List on Right */
+        .puzzle-main-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            max-width: 1200px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center;
+        }
+
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .controls {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Scope buttons to puzzle to avoid bootstrap conflict */
+        .controls button {
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            transition: opacity 0.2s;
+        }
+        .controls button:hover { opacity: 0.9; }
+
+        #verify-btn { background-color: var(--primary-btn); }
+        #reveal-btn { background-color: var(--danger-btn); }
+        #reset-btn { background-color: var(--secondary-btn); }
+
+        /* Grid Styling */
+        .puzzle-container {
+            border: 4px solid #000;
+            background-color: #000;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(15, var(--cell-size));
+            grid-template-rows: repeat(15, var(--cell-size));
+            gap: 1px;
+            background-color: #000;
+        }
+
+        .cell {
+            width: var(--cell-size);
+            height: var(--cell-size);
+            border: none;
+            text-align: center;
+            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            color: #000;
+        }
+
+        /* Input States */
+        input.cell { background-color: #fff; }
+        input.cell:focus { background-color: #e8f0fe; }
+        
+        /* Blocked cells */
+        .cell.blocked { background-color: #000; pointer-events: none; }
+
+        /* Starter cells (Pre-filled) */
+        input.cell.starter {
+            background-color: #e0e0e0; /* Light gray */
+            color: #333;
+        }
+
+        /* Verification Colors */
+        input.cell.correct { background-color: #d4edda; color: #155724; }
+        input.cell.incorrect { background-color: #f8d7da; color: #721c24; }
+
+        /* Right Panel: Word List */
+        .right-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 300px;
+            text-align: left;
+        }
+
+        .right-panel h3 {
+            margin-top: 0;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            font-size: 1.25rem;
+        }
+
+        .word-group { margin-bottom: 20px; }
+        .word-group h4 { margin: 10px 0 5px 0; color: #555; font-size: 16px; }
+        
+        .word-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .word-item {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .word-item.crossed-off {
+            text-decoration: line-through;
+            color: #aaa;
+            background-color: #f0f0f0;
+        }
+    </style>
+
+    <html>
+      <div id="sticky-button">
+        <a href="contact.html">Request a Quote</a>
+      </div>
+    </html>
+  </head>
+  <body style="padding-top: 70px">
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script> 
+  <script src="js/bootstrap-4.4.1.js"></script>
+  <div class="container-fluid">
+    <div class="container">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="index.html"><img src="images/Logo.png" width="200" class="img-fluid" alt="Maccor Logo"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Products </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                   <li><a class="dropdown-item" href="products.html">Overview</a></li>
+					<li><hr></li>
+					<li><a class="dropdown-item" href="fusion.html"><strong>FUSION</strong> Integrated Test System</a></li>
+                   <li><a class="dropdown-item" href="series6k.html">NextGen</a></li>
+                   <li><a class="dropdown-item" href="desktops.html">Desktops</a></li>
+					<li><a class="dropdown-item" href="automatedbatterytester.html">Cell and Module</a></li>
+                    <li><a class="dropdown-item" href="compact_temperature_chamber.html">Temperature Chamber</a></li>
+					<li><a class="dropdown-item" href="high_volume_battery_tester.html">High Volume</a></li><li><a class="dropdown-item" href="batteryformation.html">Formation</a></li>
+					<li><a class="dropdown-item" href="m22.html">Virtual Machine</a></li>
+					<li><a class="dropdown-item" href="cell_balancer.html">Cell Balancer</a></li>					
+					<li><a class="dropdown-item" href="accessories.html">Accessories</a></li>
+					<li><a class="dropdown-item" href="options.html">Options</a></li>
+                </ul>
+            </li>
+			<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Software </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                    <li><a class="dropdown-item" href="software.html">Overview</a></li>
+					<li><hr></li>
+                    <li><a class="dropdown-item" href="mactest.html">MacTest</a></li>
+					<li><a class="dropdown-item" href="build_test.html">Build Test</a></li>
+                    <li><a class="dropdown-item" href="mims_client.html">MIMS Client</a></li>
+					<li><a class="dropdown-item" href="mims_server.html">MIMS Server</a></li>
+					<li><a class="dropdown-item" href="view_data.html">Data Viewer</a></li>
+					<li><a class="dropdown-item" href="export_data.html">Export</a></li>
+					<li><a class="dropdown-item" href="can_dbc_editor.html">CAN Edit</a></li>
+					</ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="worldwide.html">Worldwide</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="support.html">Support</a>
+            </li>
+			<li class="nav-item">
+                <a class="nav-link" href="events.html">Events</a>
+            </li>
+			 <li class="nav-item active">
+                <a class="nav-link" href="press.html">Press</a>
+            </li>          
+        </ul>
+
+      </div>
+    </nav>
+  </div>  
+  </div>
+      
+    <div class="container-fluid">
+      <div class="container">  
+        <a href="fusion.html">
+          <picture>
+            <source media="(max-width: 768px)" srcset="images/banners/fusion_banner_mobile.png">
+
+            <img src="images/banners/fusion_banner_2.png" alt="Fusion Series" class="img-fluid"/>
+          </picture>
+        </a>
+      </div>
+    </div>
+      
+  <div class="container">
+      <div id="puzzle-wrapper">
+        <h1>Number Fill-In</h1>
+
+        <div class="puzzle-main-container">
+            
+            <div class="left-panel">
+                <div class="controls">
+                    <button id="verify-btn" onclick="verifyAnswers()">Verify</button>
+                    <button id="reveal-btn" onclick="revealSolution()">Reveal Solution</button>
+                    <button id="reset-btn" onclick="resetGrid()">Clear</button>
+                </div>
+                
+                <div class="puzzle-container">
+                    <div id="grid" class="grid"></div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <h3>Number List</h3>
+                <div id="word-list-container">
+                    </div>
+            </div>
+
+        </div>
+      </div>
+  </div>
+    
+	  
+    <footer>  
+      <div class="container-fluid" id="padding">
+        <div class="container"  style="background-color: #ebebeb">	 
+      
+	      <div class="row">
+	        <div class="col-xl-8"><br>
+		      <img src="images/Logo.png" width="200" class="img-fluid" alt="Maccor Logo"><br><p><strong id="Footy1">Maccor is the trusted partner for professionals in cutting-edge, innovation-focused settings, offering unparalleled support for the unique challenges faced by laboratories.</strong></p>
+	        </div>
+	        <div class="col-xl-2">&nbsp;</div>
+          </div>
+
+	      <div class="row">
+            <div class="col-lg-6 col-xl-4">
+		      <p>4322 South 49th W Ave&nbsp;Tulsa, OK 74107 USA<br><a href="mailto:sales@maccor.com">sales@maccor.com</a><br><a href="tel:+19184461874">+1 918 446-1874</a></p><p>&nbsp;</p></div>
+            <div class="col-lg-6 col-xl-4"></div>
+          </div>
+	 	    
+	      <div class="row">
+	        <div class="col-xl-6"><p>Copyright&#169; 2024, Maccor, Inc., All Rights Reserved.</p></div>
+	        <div class="col-xl-6"><a href="https://www.linkedin.com/company/maccor-inc-"  target="_blank"><img src="images/In-Blue.png" alt="" width="25"/></a></div>
+          </div>
+  
+        </div>
+      </div>
+    </footer>  	
+
+    <script>
+        // 1. THE SOLUTION DATA
+        const puzzleData = [
+            ['3','7','3','6','8', '#', '4','8','8','9', '#', '7','5','9','4'],
+            ['4','4','8','4','5', '#', '6','4','9','7', '#', '6','4','6','7'],
+            ['5','2','3','2','2', '#', '4','6','1','9', '#', '1','6','1','3'],
+            ['5','3','7','9','5', '4', '6','3','1','8', '#', '8','0','8','9'],
+            ['#','#','#','#', '5', '6', '9','9', '#', '4', '8','1','1','5','6'],
+            ['3','8','4','3', '#', '4', '5','9', '#', '1', '5','4','#','#','#'],
+            ['2','2','5','8', '#', '6', '5','9', '8', '#', '6','9','8','5','5'],
+            ['2','1','5','6', '9', '9', '2','#', '5', '9', '4','7','9','1','0'],
+            ['2','1','5','3', '5', '#', '8','6', '4', '9', '#','9','0','1','4'],
+            ['#','#','#','5', '9', '2', '#','6', '9', '8', '#','1','0','6','4'],
+            ['9','8','1','5', '6', '7', '#','1', '5', '6', '9','#','#','#','#'],
+            ['1','1','8','4', '#', '1', '5','9', '1', '5', '8','9','8','1','1'],
+            ['2','9','8','2', '#', '4', '8','0', '9', '#', '1','1','5','9','7'],
+            ['9','2','2','8', '#', '7', '6','1', '9', '#', '2','1','9','0','7'],
+            ['1','5','4','8', '#', '1', '2','9', '8', '#', '4','6','9','9','8']
+        ];
+
+        // 2. STARTER CONFIGURATION (The "Default Numbers")
+        // Format: "row,col"
+        const starterCoords = new Set([
+             // Top left '3'
+            "9,5",
+            "10,5",
+            "11,5",
+            "12,5",
+            "13,5",
+            "14,5",
+        ]);
+
+        const gridElement = document.getElementById('grid');
+        const listContainer = document.getElementById('word-list-container');
+        let solutionWords = {}; // Stores all solution words grouped by length
+
+        // --- INITIALIZATION ---
+
+        function init() {
+            createGrid();
+            const words = extractWordsFromSolution();
+            renderWordList(words);
+            checkStrikethrough(); // Check initially in case of starters
+        }
+
+        // --- GRID CREATION ---
+
+        function createGrid() {
+            gridElement.innerHTML = '';
+            
+            for (let r = 0; r < 15; r++) {
+                for (let c = 0; c < 15; c++) {
+                    const value = puzzleData[r][c];
+                    
+                    if (value === '#') {
+                        const div = document.createElement('div');
+                        div.className = 'cell blocked';
+                        gridElement.appendChild(div);
+                    } else {
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.className = 'cell';
+                        input.maxLength = 1;
+                        input.dataset.row = r;
+                        input.dataset.col = c;
+                        input.dataset.answer = value; // Store answer for verification
+                        
+                        // Check if this is a pre-filled "Starter" number
+                        if (starterCoords.has(`${r},${c}`)) {
+                            input.value = value;
+                            input.readOnly = true;
+                            input.classList.add('starter');
+                        }
+
+                        // Events
+                        input.addEventListener('keydown', handleKeyDown);
+                        input.addEventListener('input', (e) => {
+                            e.target.classList.remove('correct', 'incorrect'); // Clear verify status
+                            
+                            // Validate input is number
+                            if (!e.target.value.match(/[0-9]/)) {
+                                e.target.value = '';
+                                return;
+                            }
+                            
+                            checkStrikethrough(); // Update sidebar list
+                            moveFocus(e.target, 0, 1); // Auto-advance
+                        });
+
+                        gridElement.appendChild(input);
+                    }
+                }
+            }
+        }
+
+        // --- NAVIGATION ---
+
+        function handleKeyDown(e) {
+            const current = e.target;
+            if (e.key === 'ArrowUp') moveFocus(current, -1, 0);
+            else if (e.key === 'ArrowDown') moveFocus(current, 1, 0);
+            else if (e.key === 'ArrowLeft') moveFocus(current, 0, -1);
+            else if (e.key === 'ArrowRight') moveFocus(current, 0, 1);
+            else if (e.key === 'Backspace' && current.value === '') moveFocus(current, 0, -1);
+        }
+
+        function moveFocus(current, dRow, dCol) {
+            let r = parseInt(current.dataset.row) + dRow;
+            let c = parseInt(current.dataset.col) + dCol;
+
+            // Try to find the next input. If it's a block, skip it? 
+            // For simple navigation, we just look for valid inputs in range.
+            if (r >= 0 && r < 15 && c >= 0 && c < 15) {
+                const nextInput = document.querySelector(`input[data-row="${r}"][data-col="${c}"]`);
+                if (nextInput) {
+                    nextInput.focus();
+                    nextInput.select(); // Highlight content
+                }
+            }
+        }
+
+        // --- WORD LIST LOGIC ---
+
+        function extractWordsFromSolution() {
+            // Helper to get number strings from grid
+            let foundWords = [];
+
+            // Horizontal
+            for (let r = 0; r < 15; r++) {
+                let currentWord = "";
+                for (let c = 0; c < 15; c++) {
+                    if (puzzleData[r][c] !== '#') {
+                        currentWord += puzzleData[r][c];
+                    } else {
+                        if (currentWord.length > 1) foundWords.push(currentWord);
+                        currentWord = "";
+                    }
+                }
+                if (currentWord.length > 1) foundWords.push(currentWord);
+            }
+
+            // Vertical
+            for (let c = 0; c < 15; c++) {
+                let currentWord = "";
+                for (let r = 0; r < 15; r++) {
+                    if (puzzleData[r][c] !== '#') {
+                        currentWord += puzzleData[r][c];
+                    } else {
+                        if (currentWord.length > 1) foundWords.push(currentWord);
+                        currentWord = "";
+                    }
+                }
+                if (currentWord.length > 1) foundWords.push(currentWord);
+            }
+
+            // Group by length
+            const grouped = {};
+            foundWords.forEach(w => {
+                const len = w.length;
+                if (!grouped[len]) grouped[len] = [];
+                grouped[len].push(w);
+            });
+            
+            // Sort keys
+            return grouped;
+        }
+
+        function renderWordList(groupedWords) {
+            listContainer.innerHTML = '';
+            
+            // Sort lengths (3, 4, 5...)
+            const lengths = Object.keys(groupedWords).map(Number).sort((a,b) => a - b);
+
+            lengths.forEach(len => {
+                const groupDiv = document.createElement('div');
+                groupDiv.className = 'word-group';
+                
+                const title = document.createElement('h4');
+                title.innerText = `${len} Digits`;
+                groupDiv.appendChild(title);
+
+                const list = document.createElement('ul');
+                list.className = 'word-list';
+                
+                // Sort numbers within the group numerically
+                groupedWords[len].sort().forEach(num => {
+                    const item = document.createElement('li');
+                    item.className = 'word-item';
+                    item.innerText = num;
+                    item.dataset.number = num; // For easy finding later
+                    list.appendChild(item);
+                });
+
+                groupDiv.appendChild(list);
+                listContainer.appendChild(groupDiv);
+            });
+        }
+
+        // --- STRIKETHROUGH LOGIC ---
+
+        function checkStrikethrough() {
+            // 1. Get all words currently entered by user in the grid
+            const userWords = getUserEnteredWords();
+
+            // 2. Get all list items from DOM
+            const listItems = document.querySelectorAll('.word-item');
+            
+            // Reset all first
+            listItems.forEach(li => li.classList.remove('crossed-off'));
+
+            // 3. Mark matches
+            // We need to handle duplicates: if user wrote "123" once, strike "123" once.
+            // Create a copy of userWords to "consume" as we match
+            const availableUserWords = [...userWords];
+
+            listItems.forEach(li => {
+                const val = li.dataset.number;
+                const index = availableUserWords.indexOf(val);
+                
+                if (index > -1) {
+                    li.classList.add('crossed-off');
+                    availableUserWords.splice(index, 1); // Remove so it doesn't match again
+                }
+            });
+        }
+
+        function getUserEnteredWords() {
+            let found = [];
+            
+            // Scan Horizontal
+            for (let r = 0; r < 15; r++) {
+                let currentWord = "";
+                let isComplete = true; // Is the current slot fully filled?
+                for (let c = 0; c < 15; c++) {
+                    const input = document.querySelector(`input[data-row="${r}"][data-col="${c}"]`);
+                    if (input) {
+                        if (input.value === "") isComplete = false;
+                        currentWord += input.value;
+                    } else {
+                        // Hit a block or end
+                        if (currentWord.length > 1 && isComplete) found.push(currentWord);
+                        currentWord = "";
+                        isComplete = true;
+                    }
+                }
+                if (currentWord.length > 1 && isComplete) found.push(currentWord);
+            }
+
+            // Scan Vertical
+            for (let c = 0; c < 15; c++) {
+                let currentWord = "";
+                let isComplete = true;
+                for (let r = 0; r < 15; r++) {
+                    const input = document.querySelector(`input[data-row="${r}"][data-col="${c}"]`);
+                    if (input) {
+                        if (input.value === "") isComplete = false;
+                        currentWord += input.value;
+                    } else {
+                        if (currentWord.length > 1 && isComplete) found.push(currentWord);
+                        currentWord = "";
+                        isComplete = true;
+                    }
+                }
+                if (currentWord.length > 1 && isComplete) found.push(currentWord);
+            }
+
+            return found;
+        }
+
+        // --- BUTTONS ---
+
+        function verifyAnswers() {
+            const inputs = document.querySelectorAll('input.cell');
+            inputs.forEach(input => {
+                if (!input.readOnly && input.value !== '') {
+                    if (input.value === input.dataset.answer) {
+                        input.classList.add('correct');
+                    } else {
+                        input.classList.add('incorrect');
+                    }
+                }
+            });
+        }
+
+        function revealSolution() {
+            if (!confirm("Reveal solution?")) return;
+            const inputs = document.querySelectorAll('input.cell');
+            inputs.forEach(input => {
+                input.value = input.dataset.answer;
+                input.classList.remove('incorrect');
+            });
+            checkStrikethrough();
+        }
+
+        function resetGrid() {
+            if (!confirm("Clear grid?")) return;
+            const inputs = document.querySelectorAll('input.cell');
+            inputs.forEach(input => {
+                if (!input.readOnly) {
+                    input.value = '';
+                    input.classList.remove('correct', 'incorrect');
+                }
+            });
+            checkStrikethrough();
+        }
+
+        // Start
+        init();
+
+    </script>
+  </body>
+</html>
