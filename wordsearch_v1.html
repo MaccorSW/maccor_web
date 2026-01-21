@@ -49,43 +49,11 @@
         --hl2: #90caf9;
         --text: #1f2937;
       }
-      @media (max-width: 900px) {
-        /* 1. Shrink cell size to fit more on screen */
-        :root {
-          --cell-size: 20px; /* Reduced from 34px */
-        }
-
-        /* 2. Switch to single column layout (You already had this) */
-        .wrap {
-          grid-template-columns: 1fr; 
-        }
-
-        /* 3. CRITICAL: Allow the puzzle itself to scroll horizontally */
-        .puzzle {
-          position: static;
-          overflow-x: auto;   /* Enables sideways scrolling for just the grid */
-          display: block;     /* Ensures the scroll container behaves correctly */
-          width: 100%;        /* Forces it to respect screen width */
-        }
-
-        /* 4. Adjust font size for the smaller cells */
-        table.wordsearch td {
-          font-size: 10px;
-        }
-
-        /* 5. Adjust word bank height */
-        .wordbank {
-          max-height: 250px;
-        }
-      }
-      /* Note: Removed body styles to prevent conflict with main site layout */
 
       .wrap {
-        /* max-width: 1200px;  Removed max-width to let Bootstrap container handle it */
         margin: 24px auto;
         padding: 16px;
         display: grid;
-        /* 1fr for puzzle, 300px for wordbank */
         grid-template-columns: 1fr 300px; 
         gap: 24px;
         align-items: start;
@@ -107,23 +75,21 @@
       /* Word search grid */
       table.wordsearch {
         border-collapse: collapse;
-        margin: 0 auto; /* Center the table inside the card */
+        margin: 0 auto; 
         user-select: none;
       }
 
-      /* Puzzle Card: Sticky ensures it stays in view if the page scrolls */
       .puzzle {
         position: sticky;
-        top: 86px; /* Adjusted for Maccor fixed navbar (70px + padding) */
+        top: 86px; 
         text-align: center; 
       }
       
-      /* Word Bank Card: Fixed height with internal scrolling */
       .wordbank {
         max-height: calc(100vh - 100px); 
         overflow-y: auto; 
         position: sticky;
-        top: 86px; /* Adjusted for Maccor fixed navbar */
+        top: 86px; 
       }
       
       table.wordsearch td {
@@ -148,7 +114,6 @@
         background: var(--hl2);
       }
 
-      /* Word bank list styles */
       .wordbank .hint {
         font-size: 13px;
         color: #6b7280;
@@ -188,7 +153,6 @@
         font-weight: 600;
       }
 
-      /* Custom Scrollbar for the word bank */
       .wordbank::-webkit-scrollbar {
         width: 8px;
       }
@@ -200,16 +164,76 @@
         border-radius: 4px;
       }
 
-      /* Responsive: Stack vertically on small screens */
+      /* --- MOBILE OPTIMIZATION --- */
       @media (max-width: 900px) {
+        :root {
+          /* Reduce cell size slightly, but keep it tap-friendly */
+          --cell-size: 26px; 
+        }
+
         .wrap {
-          grid-template-columns: 1fr; /* Single column */
+          display: flex;
+          flex-direction: column; /* Stack elements */
+          padding: 10px;
+          gap: 15px;
         }
+
+        /* Move Word Bank ABOVE the puzzle on mobile */
         .wordbank {
-          max-height: 300px; 
+          order: -1; 
+          width: 100%;
+          position: static;
+          max-height: 200px; /* Limit height */
+          padding: 10px;
         }
+
+        /* Make the grid scrollable horizontally */
         .puzzle {
-          position: static; 
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+          position: static;
+          padding: 5px;
+          
+          /* Add a visual hint (shadow) on the right to indicate scrolling */
+          background: 
+            linear-gradient(to right, white 30%, rgba(255,255,255,0)),
+            linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%,
+            radial-gradient(farthest-side at 0 50%, rgba(0,0,0,.2), rgba(0,0,0,0)),
+            radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+          background-repeat: no-repeat;
+          background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+          background-position: 0 0, 100% 0, 0 0, 100% 0;
+          background-attachment: local, local, scroll, scroll;
+        }
+
+        table.wordsearch {
+            margin: 0; /* Align left to allow correct scroll start */
+        }
+        
+        table.wordsearch td {
+            font-size: 11px; /* Smaller font for mobile cells */
+        }
+
+        /* Change Word Bank list to "Pills" layout */
+        .words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .words li {
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 15px; /* Rounded pills */
+            width: auto;
+            flex-grow: 1; /* Expand to fill space */
+            justify-content: center;
+            text-align: center;
+        }
+
+        .words li .dir {
+            margin-left: 6px; /* Spacing for arrow */
         }
       }
     </style>
@@ -281,9 +305,15 @@
                 <a class="nav-link" href="events.html">News &amp; Events</a>
             </li>
  			
-             <li class="nav-item active">
-                <a class="nav-link" href="cg_v1.html">Puzzles</a>
-            </li>            
+             <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Puzzles </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                    <li><a class="dropdown-item" href="wordsearch_v1.html">Word Search</a></li>
+					<li><a class="dropdown-item" href="teasers_v1.html">Brain Teasers</a></li>
+                    <li><a class="dropdown-item" href="cg_v1.html">Cryptograms</a></li>
+					<li><a class="dropdown-item" href="sudoku_v1.html">Sudoku</a></li>
+					</ul>
+            </li>           
         </ul>
 
     </div>
@@ -293,11 +323,11 @@
     
     <div class="container-fluid">
       <div class="container">  
-        <a href="fusion.html">
+        <a href="index.html">
           <picture>
             <source media="(max-width: 768px)" srcset="images/banners/empower_banner_mobile.png">
 
-            <img src="images/banners/banner_a.png" alt="Fusion Series" class="img-fluid"/>
+            <img src="images/banners/banner_a.png" alt="Empowring" class="img-fluid"/>
           </picture>
         </a>
       </div>
@@ -313,13 +343,13 @@
 
             <div class="card wordbank">
             <h1>Word Bank</h1>
-            <div class="hint">Hover (or tap) a word to highlight its letters in the puzzle.</div>
+            <div class="hint">Tap a word to highlight it in the puzzle.</div>
             <ul id="wordList" class="words"></ul>
             </div>
         </div>
         <div class="row mb-5">
             <div class="col-6 text-left">
-                <a href="cg_v1.html" class="btn btn-secondary">&laquo; Prev</a>
+                <a href="cross_numbers_v1.html" class="btn btn-secondary">&laquo; Prev</a>
             </div>
             <div class="col-6 text-right">
                 <a href="sudoku_v1.html" class="btn btn-primary">Next &raquo;</a>

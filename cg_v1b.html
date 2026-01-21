@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cryptogram Challenge</title>
+    <title>CryptoQuote Vol 1</title>
     <link rel="canonical" href="https://www.maccor.com/crypto.html" /> 
     <meta name="Description" content="Maccor Crypto Quote Puzzle">
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
@@ -30,7 +30,6 @@
             --input-bg: #fff;
             --input-border: #ccc;
             --highlight: #e0f7fa;
-            --maccor-blue: #0056b3;
         }
 
         /* Applied only to the puzzle wrapper to avoid breaking Navbar/Footer */
@@ -50,46 +49,16 @@
         #puzzle-area h1 {
             color: var(--accent-color);
             margin-bottom: 20px;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', Courier, monospace; /* Override bootstrap font */
             font-weight: bold;
-            text-align: center;
         }
 
         .instructions {
             font-family: sans-serif;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: #666;
             max-width: 600px;
             text-align: center;
-        }
-
-        /* Puzzle Selector Buttons */
-        .puzzle-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .puz-btn {
-            background-color: #e9ecef;
-            border: 1px solid #ced4da;
-            padding: 8px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: sans-serif;
-            font-size: 1rem;
-            transition: all 0.2s;
-            color: #555;
-        }
-
-        .puz-btn:hover { background-color: #dde2e6; }
-        
-        .puz-btn.active {
-            background-color: var(--maccor-blue);
-            color: white;
-            border-color: var(--maccor-blue);
         }
 
         /* Puzzle Container */
@@ -97,7 +66,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 15px 30px; /* Row gap, Word gap */
-            max-width: 100%;
+            max-width: 100%; /* Changed to fit container */
             justify-content: center;
             margin-bottom: 40px;
         }
@@ -170,15 +139,23 @@
             opacity: 0.9;
         }
 
-        .controls button.reset { background-color: #c0392b; }
-        .controls button.hint { background-color: #f39c12; }
-        .controls button.solve { background-color: #8e44ad; }
+        .controls button.reset {
+            background-color: #c0392b; /* Red */
+        }
+        
+        .controls button.hint {
+            background-color: #f39c12; /* Orange */
+        }
+
+        .controls button.solve {
+            background-color: #8e44ad; /* Purple */
+        }
         
         #status-msg {
             margin-top: 15px;
             font-family: sans-serif;
             font-weight: bold;
-            min-height: 24px;
+            height: 20px;
             color: #27ae60;
             text-align: center;
         }
@@ -249,14 +226,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="events.html">Events</a>
             </li>
-            <li class="nav-item dropdown active">
-              <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Puzzles </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
-                    <li><a class="dropdown-item" href="wordsearch_v1.html">Word Search</a></li>
-					<li><a class="dropdown-item" href="teasers_v1.html">Brain Teasers</a></li>
-                    <li><a class="dropdown-item" href="cg_v1.html">Cryptograms</a></li>
-					<li><a class="dropdown-item" href="sudoku_v1.html">Sudoku</a></li>
-					</ul>
+             <li class="nav-item">
+                <a class="nav-link" href="press.html">Press</a>
+            </li> 			
+             <li class="nav-item active">
+                <a class="nav-link" href="ws_v1.html">Puzzles</a>
             </li>          
         </ul>
 
@@ -265,31 +239,27 @@
   </div>  
   </div>
       
+      
     <div class="container-fluid">
       <div class="container">  
-        <a href="index.html">
+        <a href="fusion.html">
           <picture>
             <source media="(max-width: 768px)" srcset="images/banners/exp_banner_mobile.png">
+
             <img src="images/banners/banner_b.png" alt="Fusion Series" class="img-fluid"/>
           </picture>
         </a>
       </div>
-    </div>
+    </div>      
       
   <div class="container">
       <div id="puzzle-area">
-        <h1>Cryptogram Challenge</h1>
-        
-        <div class="puzzle-selector">
-            <button class="puz-btn active" onclick="loadPuzzle(0)">Quote 1</button>
-            <button class="puz-btn" onclick="loadPuzzle(1)">Quote 2</button>
-        </div>
-
+        <h1>Cryptogram Puzzle (v1)</h1>
         <p class="instructions">Decipher the quote by typing the correct letters in the boxes. <br>Changing one letter will update all identical symbols in the puzzle.</p>
     
         <div id="puzzle-container"></div>
         
-        <div id="puzzle-author" style="margin-top: 30px; display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; font-weight: bold; font-size: 1.2em;"></div>
+        <div id="puzzle-author" style="margin-top: 30px; display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;"></div>
     
         <div id="status-msg"></div>
     
@@ -305,7 +275,7 @@
                 <a href="sudoku_v1.html" class="btn btn-secondary">&laquo; Prev</a>
             </div>
             <div class="col-6 text-right">
-                <a href="teasers_v1.html" class="btn btn-primary">Next &raquo;</a>
+                <a href="ws_v1.html" class="btn btn-primary">Next &raquo;</a>
             </div>
         </div>
       </div>
@@ -338,81 +308,45 @@
     </footer>  	
 
     <script>
-        // --- DATA SECTION ---
-        const puzzles = [
-            {
-                // Puzzle 1 (Mark Twain)
-                text: "TWENTY YEARS FROM NOW YOU WILL BE MORE DISAPPOINTED BY THE THINGS THAT YOU DIDN’T DO THAN BY THE ONES YOU DID DO. SO THROW OFF THE BOWLINES. SAIL AWAY FROM THE SAFE HARBOR. CATCH THE TRADE WINDS IN YOUR SAILS. EXPLORE. DREAM. DISCOVER.” ",
-                author: "MARK TWAIN",
-                key: {
-                    'A': 'H', 'B': 'T', 'C': 'W', 'D': 'S', 'E': 'N', 
-                    'F': 'A', 'G': 'D', 'H': 'C', 'I': 'G', 'J': 'B', 
-                    'K': 'Y', 'L': 'J', 'M': 'O', 'N': 'M', 'O': 'R', 
-                    'P': 'U', 'Q': 'P', 'R': 'E', 'S': 'V', 'T': 'L', 
-                    'U': 'I', 'V': 'X', 'W': 'Z', 'X': 'Q', 'Y': 'K', 
-                    'Z': 'F'
-                }
-            },
-            {
-                // Puzzle 2 (Isaac Newton)
-                text: "IF I HAVE SEEN FURTHER THAN OTHERS, IT IS BY STANDING UPON THE SHOULDERS OF GIANTS.",
-                author: "ISAAC NEWTON",
-                key: {
-                    'A': 'D', 'B': 'U', 'C': 'N', 'D': 'F', 'E': 'X', 
-                    'F': 'A', 'G': 'C', 'H': 'L', 'I': 'E', 'J': 'W', 
-                    'K': 'G', 'L': 'K', 'M': 'Y', 'N': 'I', 'O': 'M', 
-                    'P': 'J', 'Q': 'Z', 'R': 'Q', 'S': 'T', 'T': 'V', 
-                    'U': 'R', 'V': 'B', 'W': 'H', 'X': 'P', 'Y': 'S', 
-                    'Z': 'O'  
-                }
-            }
-        ];
-
-        // Global State
-        let currentPuzzleIndex = 0;
-        let currentText = "";
-        let currentAuthor = "";
-        let currentKey = {};
-        let currentPlainToCipher = {};
+        // 1. Data Setup based on your PDF
+        const PLAIN_TEXT = "IF I HAVE SEEN FURTHER THAN OTHERS, IT IS BY STANDING UPON THE SHOULDERS OF GIANTS.";
+        const AUTHOR = "ISAAC NEWTON";
+        
+        // Mapping from PDF Answer Key 
+        const CIPHER_KEY = {
+            'A': 'D', 'B': 'U', 'C': 'N', 'D': 'F', 'E': 'X', 
+			'F': 'A', 'G': 'C', 'H': 'L', 'I': 'E', 'J': 'W', 
+			'K': 'G', 'L': 'K', 'M': 'Y', 'N': 'I', 'O': 'M', 
+			'P': 'J', 'Q': 'Z', 'R': 'Q', 'S': 'T', 'T': 'V', 
+			'U': 'R', 'V': 'B', 'W': 'H', 'X': 'P', 'Y': 'S', 
+			'Z': 'O'        
+        };
+    
+        // Reverse map for generating the puzzle text logically
+        const PLAIN_TO_CIPHER = {};
+        for (let cipher in CIPHER_KEY) {
+            PLAIN_TO_CIPHER[CIPHER_KEY[cipher]] = cipher;
+        }
+    
+        // State
         let userGuesses = {}; 
-
-        // --- INIT & LOAD LOGIC ---
-        function loadPuzzle(index) {
-            currentPuzzleIndex = index;
-            const puzzle = puzzles[index];
-            
-            // Set Current Data
-            currentText = puzzle.text;
-            currentAuthor = puzzle.author;
-            currentKey = puzzle.key;
-            
-            // Update Active Button State
-            const buttons = document.querySelectorAll('.puz-btn');
-            buttons.forEach((btn, idx) => {
-                if(idx === index) btn.classList.add('active');
-                else btn.classList.remove('active');
-            });
-
-            // Generate Reverse Map (Plain -> Cipher) for DOM generation
-            currentPlainToCipher = {};
-            for (let cipher in currentKey) {
-                currentPlainToCipher[currentKey[cipher]] = cipher;
-            }
-
-            // Reset Game Board
+    
+        // 2. Initialize Puzzle
+        function init() {
             const container = document.getElementById('puzzle-container');
             const authorContainer = document.getElementById('puzzle-author');
             
             container.innerHTML = '';
             authorContainer.innerHTML = '';
             userGuesses = {};
-            document.getElementById('status-msg').textContent = "";
-
+    
             // Render Quote
-            renderText(currentText, container);
+            renderText(PLAIN_TEXT, container);
             
             // Render Author
-            renderText(currentAuthor, authorContainer);
+            renderText(AUTHOR, authorContainer);
+            
+            document.getElementById('status-msg').textContent = "";
         }
     
         // Helper to render text into the DOM
@@ -427,30 +361,22 @@
                     const upperChar = char.toUpperCase();
                     
                     if (/[A-Z]/.test(upperChar)) {
-                        // Look up the symbol that REPRESENTS this plain letter
-                        const cipherChar = currentPlainToCipher[upperChar];
+                        const cipherChar = PLAIN_TO_CIPHER[upperChar];
                         
-                        // Safety check in case a letter isn't in the key
-                        if (!cipherChar) {
-                            console.warn("Letter not found in key:", upperChar);
-                        }
-
-                        const displayChar = cipherChar || "?";
-
                         const letterBox = document.createElement('div');
                         letterBox.className = 'letter-box';
     
                         const cipherLabel = document.createElement('div');
                         cipherLabel.className = 'cipher-char';
-                        cipherLabel.textContent = displayChar;
+                        cipherLabel.textContent = cipherChar;
     
                         const input = document.createElement('input');
                         input.className = 'user-input';
                         input.maxLength = 1;
-                        input.dataset.cipher = displayChar; 
-                        input.value = userGuesses[displayChar] || '';
+                        input.dataset.cipher = cipherChar; 
+                        input.value = userGuesses[cipherChar] || '';
                         
-                        input.addEventListener('input', (e) => handleInput(e, displayChar));
+                        input.addEventListener('input', (e) => handleInput(e, cipherChar));
     
                         letterBox.appendChild(cipherLabel);
                         letterBox.appendChild(input);
@@ -466,7 +392,7 @@
             });
         }
     
-        // --- GAMEPLAY LOGIC ---
+        // 3. Handle Logic
         function handleInput(e, cipherChar) {
             const val = e.target.value.toUpperCase();
             
@@ -487,14 +413,11 @@
         function checkWin() {
             let isComplete = true;
             let isCorrect = true;
-            const status = document.getElementById('status-msg');
-
-            // Iterate over the keys present in the DOM
-            for (let cipher in currentKey) {
-                // Only check keys that actually appear in this specific puzzle
+    
+            for (let cipher in CIPHER_KEY) {
                 if (document.querySelector(`input[data-cipher="${cipher}"]`)) {
                     const guess = userGuesses[cipher];
-                    const correct = currentKey[cipher];
+                    const correct = CIPHER_KEY[cipher];
     
                     if (!guess) {
                         isComplete = false;
@@ -504,6 +427,7 @@
                 }
             }
     
+            const status = document.getElementById('status-msg');
             if (isComplete && isCorrect) {
                 status.textContent = "CORRECT! Great job.";
                 status.style.color = "#27ae60";
@@ -516,18 +440,16 @@
         }
     
         function giveHint() {
-            // Find cipher chars that are currently on screen
-            const availableCipherChars = Object.keys(currentKey).filter(c => document.querySelector(`input[data-cipher="${c}"]`));
+            const availableCipherChars = Object.keys(CIPHER_KEY).filter(c => document.querySelector(`input[data-cipher="${c}"]`));
             
             for (let char of availableCipherChars) {
-                // If user input is empty OR wrong
-                if (userGuesses[char] !== currentKey[char]) {
-                    userGuesses[char] = currentKey[char];
+                if (userGuesses[char] !== CIPHER_KEY[char]) {
+                    userGuesses[char] = CIPHER_KEY[char];
                     
                     const inputs = document.querySelectorAll(`input[data-cipher="${char}"]`);
                     inputs.forEach(i => {
-                        i.value = currentKey[char];
-                        i.style.backgroundColor = "#fff3cd"; // Flash yellow
+                        i.value = CIPHER_KEY[char];
+                        i.style.backgroundColor = "#fff3cd";
                         setTimeout(() => i.style.backgroundColor = "", 1000);
                     });
                     
@@ -537,12 +459,15 @@
             }
         }
         
+        // NEW: Solve Function
         function solvePuzzle() {
             if(!confirm("Are you sure you want to reveal the solution?")) return;
     
-            for (let cipher in currentKey) {
+            // Iterate over the answer key
+            for (let cipher in CIPHER_KEY) {
+                // Only update if this character is actually in the DOM
                 if (document.querySelector(`input[data-cipher="${cipher}"]`)) {
-                    const correctChar = currentKey[cipher];
+                    const correctChar = CIPHER_KEY[cipher];
                     userGuesses[cipher] = correctChar;
     
                     const inputs = document.querySelectorAll(`input[data-cipher="${cipher}"]`);
@@ -556,14 +481,11 @@
     
         function resetPuzzle() {
             if(confirm("Clear all your work?")) {
-                loadPuzzle(currentPuzzleIndex);
+                init();
             }
         }
     
-        // Initialize with Puzzle 1
-        window.onload = function() {
-            loadPuzzle(0);
-        };
+        window.onload = init;
     </script>
 
   </body>
