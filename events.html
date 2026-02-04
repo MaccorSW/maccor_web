@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-048RD5EJRN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -10,908 +9,592 @@
       gtag('config', 'G-048RD5EJRN');
     </script>
     <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Events</title>
-	<link rel="canonical" href="https://www.maccor.com/events.html" /> 
-	<meta name="Description" content="Visit our expert Sales Staff at any one of the upcoming events listed. Maccor attaends many conferences each year. Find out which ones here.">
-    <!-- Bootstrap -->
-	<link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-	<link href="css/myStyle.css" rel="stylesheet" type="text/css">
-    <html>
-  <div id="sticky-button">
-   <a href="contact.html"> 
-  Request a Quote</a>
-  </div>
-</html>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Events - Maccor</title>
+    <link rel="canonical" href="https://www.maccor.com/events.html" /> 
+    <meta name="Description" content="Visit our expert Sales Staff at any one of the upcoming events listed. Maccor attends many conferences each year. Find out which ones here.">
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/myStyle.css" rel="stylesheet" type="text/css">
+    
+    <style>
+      /* --- MODERN EVENTS STYLING --- */
+      
+      /* Hero Section */
+      .event-hero {
+        background: linear-gradient(135deg, #0056b3 0%, #004494 100%); /* Adjust to match Maccor Blue */
+        color: white;
+        padding: 60px 0;
+        margin-bottom: 40px;
+        text-align: center;
+        border-radius: 0 0 10px 10px;
+      }
+      .event-hero h1 {
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .event-hero p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      /* Upcoming Cards */
+      .event-card {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        height: 100%; /* Equal height */
+        background-color: #fff;
+        overflow: hidden;
+      }
+      .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      .event-card-img-wrapper {
+        height: 180px; /* Fixed height for consistency */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+      }
+      .event-card-img-wrapper img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+      .event-card-body {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+      }
+      .event-date {
+        color: #0056b3;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+      }
+      .event-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        line-height: 1.3;
+        color: #333;
+      }
+      .event-location {
+        color: #666;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        flex-grow: 1; /* Pushes button to bottom */
+      }
+      .btn-event {
+        background-color: #0056b3;
+        color: white;
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-weight: 600;
+        text-decoration: none;
+        align-self: flex-start;
+        transition: background 0.2s;
+      }
+      .btn-event:hover {
+        background-color: #004494;
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Past Events List */
+      .past-events-section {
+        background-color: #f9f9f9;
+        padding: 40px 0;
+        margin-top: 50px;
+        border-top: 1px solid #eee;
+      }
+      .past-event-item {
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        transition: background 0.2s;
+      }
+      .past-event-item:hover {
+        background-color: #f1f7ff;
+      }
+      .past-date {
+        min-width: 150px;
+        font-weight: 600;
+        color: #666;
+      }
+      .past-title {
+        flex-grow: 1;
+        font-weight: 600;
+        color: #333;
+      }
+      .past-location {
+        color: #888;
+        font-size: 0.9rem;
+      }
+      
+      @media (max-width: 768px) {
+        .past-event-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .past-date {
+          margin-bottom: 5px;
+          font-size: 0.85rem;
+          color: #0056b3;
+        }
+      }
+    </style>
   </head>
+  
   <body style="padding-top: 70px">
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/popper.min.js"></script> 
-  <script src="js/bootstrap-4.4.1.js"></script>
+    <div id="sticky-button">
+      <a href="contact.html">Request a Quote</a>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script> 
+    <script src="js/bootstrap-4.4.1.js"></script>
+
   <div class="container-fluid">
     <div class="container">
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="index.html"><img src="images/Logo.png" width="200" class="img-fluid" alt="Maccor Logo"> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Products </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="products.html">Overview</a></li>
-					<li><hr></li>
-					<li><a class="dropdown-item" href="fusion.html"><strong>FUSION</strong> Integrated Test System</a></li>
-          <li><a class="dropdown-item" href="series6k.html">NextGen</a></li>
-          <li><a class="dropdown-item" href="desktops.html">Desktops</a></li>
-					<li><a class="dropdown-item" href="automatedbatterytester.html">Cell and Module</a></li>
-                    <!-- <li><a class="dropdown-item" href="ev_pack_tester.html">EV, Module, Pack</a></li> -->
-					<li><a class="dropdown-item" href="compact_temperature_chamber.html">Temperature Chamber</a></li>
-					<li><a class="dropdown-item" href="high_volume_battery_tester.html">High Volume</a></li><li><a class="dropdown-item" href="batteryformation.html">Formation</a></li>
-					<li><a class="dropdown-item" href="m22.html">Virtual Machine</a></li>
-					<li><a class="dropdown-item" href="cell_balancer.html">Cell Balancer</a></li>					
-					<li><a class="dropdown-item" href="accessories.html">Accessories</a></li>
-					<li><a class="dropdown-item" href="options.html">Options</a></li>
-                </ul>
-            </li>
-			<li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Software </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                    <li><a class="dropdown-item" href="software.html">Overview</a></li>
-					<li><hr></li>
-                    <li><a class="dropdown-item" href="mactest.html">MacTest</a></li>
-					<li><a class="dropdown-item" href="build_test.html">Build Test</a></li>
-                    <li><a class="dropdown-item" href="mims_client.html">MIMS Client</a></li>
-					<li><a class="dropdown-item" href="mims_server.html">MIMS Server</a></li>
-					<li><a class="dropdown-item" href="view_data.html">Data Viewer</a></li>
-					<li><a class="dropdown-item" href="export_data.html">Export</a></li>
-					<li><a class="dropdown-item" href="can_dbc_editor.html">CAN Edit</a></li>
-					<!-- <li><a class="dropdown-item" href="macnet.html">MacNet</a></li> -->
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="aboutus.html">About Us</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="worldwide.html">Worldwide</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="support.html">Support</a>
-            </li>
-			<li class="nav-item active">
-                <a class="nav-link" href="events.html">News &amp; Events</a>
-            </li>
-        </ul>
-
-      </div>
-    </nav>
-  </div>  
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html"><img src="images/Logo.png" width="200" class="img-fluid" alt="Maccor Logo"> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Products </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="products.html">Overview</a></li>
+                        <li><hr></li>
+                        <li><a class="dropdown-item" href="fusion.html"><strong>FUSION</strong> Integrated Test System</a></li>
+                        <li><a class="dropdown-item" href="series6k.html">NextGen</a></li>
+                        <li><a class="dropdown-item" href="desktops.html">Desktops</a></li>
+                        <li><a class="dropdown-item" href="automatedbatterytester.html">Cell and Module</a></li>
+                        <li><a class="dropdown-item" href="compact_temperature_chamber.html">Temperature Chamber</a></li>
+                        <li><a class="dropdown-item" href="high_volume_battery_tester.html">High Volume</a></li><li><a class="dropdown-item" href="batteryformation.html">Formation</a></li>
+                        <li><a class="dropdown-item" href="m22.html">Virtual Machine</a></li>
+                        <li><a class="dropdown-item" href="cell_balancer.html">Cell Balancer</a></li>					
+                        <li><a class="dropdown-item" href="accessories.html">Accessories</a></li>
+                        <li><a class="dropdown-item" href="options.html">Options</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Software </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                        <li><a class="dropdown-item" href="software.html">Overview</a></li>
+                        <li><hr></li>
+                        <li><a class="dropdown-item" href="mactest.html">MacTest</a></li>
+                        <li><a class="dropdown-item" href="build_test.html">Build Test</a></li>
+                        <li><a class="dropdown-item" href="mims_client.html">MIMS Client</a></li>
+                        <li><a class="dropdown-item" href="mims_server.html">MIMS Server</a></li>
+                        <li><a class="dropdown-item" href="view_data.html">Data Viewer</a></li>
+                        <li><a class="dropdown-item" href="export_data.html">Export</a></li>
+                        <li><a class="dropdown-item" href="can_dbc_editor.html">CAN Edit</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="worldwide.html">Worldwide</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="support.html">Support</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="events.html">Events</a>
+                </li>
+            </ul>
+        </div>
+      </nav>
+    </div>  
   </div>
-	  
-  <div class="container-fluid">
-    <div class="container">	  
-	  <h1 style="text-align: center;"><strong>Events</strong></h1>
+  <div class="container">	  
+    <div class="event-hero">
+       <h1 style="color: #FFFFFF;">Upcoming Events</h1>
+       <p style="color: #DDDDDD;"><b>Meet with us live and in-person at these premier industry events.</b></p>
     </div>
   </div>	  
-  <div class="container-fluid">
-    <div class="container">	  
-      <h2 style="text-align: center;">Future</h2>
-      <p id="i4b4f8" style="text-align: center;">Meet with us live and in-person at any of the following events.</p>
-      <div id="acc_upcomming" role="tablist">
-      		
-	  
 
-        
-	  
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="h_bssC">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_bssC" role="button" aria-expanded="false" aria-controls="c_bssC">NASA Aerospace Battery Workshop, January 20-22, 2026, Houston, TX </a> </h5>
-        </div>
-        <div id="c_bssC" class="collapse show" role="tabpanel" aria-labelledby="h_bssC" data-parent="#acc_upcomming">
-          <div class="card-body">
-			 <div class="row">
-                  <div class="col-lg-4"><a href="https://www.nasa.gov/batteryworkshop/" target="_blank">
-                    <img src="images/nasabatteryworkshop.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">2026 NASA Aerospace Battery Workshop</h3>
-                  <p>January 20-22, 2026<br>
-	                 NASA-Johnson Space Center,<br>
-				     Houston, TX</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="nattbatt_2026">
-             <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#id_nattbatt_2026" role="button" aria-expanded="false" aria-controls="c_bss8"> NAATBatt 2026 - Charging Innovation, February 9-12, Tucson, AZ </a> </h5>
-        </div>
-        <div id="id_nattbatt_2026" class="collapse" role="tabpanel" aria-labelledby="h_bss8-2" data-parent="#acc_upcomming">
-          <div class="card-body">
-		    <div class="row">
-              <div class="col-lg-4"><a href="https://nac.naatbatt.org/" target="_blank">
-                  <img src="images/events/nattbatt_2026.png" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">NAATBatt 2026 - Charging Innovation</h3>
-                  <p>February 9-12<br>Tucson, AZ</p>
-                <p></p>
-              </div>
-            </div>	  
-		  </div>					  
-		</div>
-      </div>   
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="h_bss8-2">
-             <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_bss8-2" role="button" aria-expanded="false" aria-controls="c_bss8"> The Battery Show - Asia, March 10-12, 2026, Hong Kong </a> </h5>
-        </div>
-        <div id="c_bss8-2" class="collapse" role="tabpanel" aria-labelledby="h_bss8-2" data-parent="#acc_upcomming">
-          <div class="card-body">
-		    <div class="row">
-              <div class="col-lg-4"><a href="https://www.thebatteryshow.asia/" target="_blank">
-                  <img src="images/bsa2025.png" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">The Battery Show - Asia</h3>
-                  <p>March 10-12, 2026<br>
-					  Asia World Expo<br>
-		             Hong Kong</p><p></p>
-              </div>
-            </div>	  
-		  </div>					  
-		</div>
-      </div> 
-        
-        <div class="card">
-            <div class="card-header" role="tab" id="h_ibs2026">
-              <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_ibs2026" role="button" aria-expanded="false" aria-controls="c_ibs2026"> International Battery Seminar &amp; Exhibit, March 23-26, 2026, Orlando, FL </a> </h5>
-            </div>
-            <div id="c_ibs2026" class="collapse" role="tabpanel" aria-labelledby="h_ibs2025" data-parent="#acc_upcomming">
-              <div class="card-body">
-			     <div class="row">
-                  <div class="col-lg-4"><a href="https://www.internationalbatteryseminar.com/" target="_blank">
-                    <img src="images/events/ibs2026.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                    <h3 class="text-left">International Battery Seminar &amp; Exhibit</h3>
-                    <p>March 23-26, 2026<br>
-	                Orlando, FL</p>  
-				   </div>
-		        </div>
-              </div>
-            </div>
-        </div>
-        
-        <div class="card">
-          <div class="card-header" role="tab" id="abp2026">
-            <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseabp2026" role="button" aria-expanded="false" aria-controls="collapsebss">Advanced Battery Power, April 14-16, 2026, Munster, Germany </a> </h5>
-          </div>
-          <div id="collapseabp2026" class="collapse" role="tabpanel" aria-labelledby="abp2026" data-parent="#acc_upcomming">
-            <div class="card-body">
-			   <div class="row">
-                <div class="col-lg-4"><a href="https://battery-power.eu/en/" target="_blank">
-                    <img src="images/events/advanced-battery-power_2026.webp" alt="" class="img-fluid"/></a>
-                </div>
-                <div class="col-lg-8">
-                  <h3 class="text-left">Advanced Battery Power </h3>
-                  <p>April 14-16, 2026<br>
-	               Munster, Germany</p>  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>        
-        
-        <div class="card">
-          <div class="card-header" role="tab" id="bss2026">
-            <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapsebss2026" role="button" aria-expanded="false" aria-controls="collapsebss"> The Battery Show - South, April 22-23, 2026, Charlotte, NC </a> </h5>
-          </div>
-          <div id="collapsebss2026" class="collapse" role="tabpanel" aria-labelledby="bss2026" data-parent="#acc_upcomming">
-            <div class="card-body">
-			   <div class="row">
-                <div class="col-lg-4"><a href="https://www.thebatteryshow.com/lp/2024/tbs-south.html" target="_blank">
-                    <img src="images/batteryShowSouth2025/bss2025.png" alt="" class="img-fluid"/></a>
-                </div>
-                <div class="col-lg-8">
-                  <h3 class="text-left">The Battery Show - South</h3>
-                  <p>April 22-23, 2026<br>
-	               Charlotte Convention Center<br>
-				    Charlotte, NC</p>  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card">
-          <div class="card-header" role="tab" id="mainz2026">
-            <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapsemainz2026" role="button" aria-expanded="false" aria-controls="collapsebss">Advanced Automotive Battery Conference, May 18-21, 2026, Mainz Germany </a> </h5>
-          </div>
-          <div id="collapsemainz2026" class="collapse" role="tabpanel" aria-labelledby="mainz2026" data-parent="#acc_upcomming">
-            <div class="card-body">
-			   <div class="row">
-                <div class="col-lg-4"><a href="https://www.advancedautobat.com/europe" target="_blank">
-                    <img src="images/events/aabc_eu_2026.png" alt="" class="img-fluid"/></a>
-                </div>
-                <div class="col-lg-8">
-                  <h3 class="text-left">Advanced Automotive Battery Conference</h3>
-                  <p>May 18-21, 2026<br>
-	               Mainz, Germany</p>  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card">
-        <div class="card-header" role="tab" id="bseu20266">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#id_bseu2026" role="button" aria-expanded="false" aria-controls="c_bss"> The Battery Show - Europe, June 9-11, 2026, Stuttgart Germany </a> </h5>
-        </div>
-        <div id="id_bseu2026" class="collapse" role="tabpanel" aria-labelledby="h_bss1" data-parent="#acc_upcomming">
-          <div class="card-body">
-			  <div class="row">
-                  <div class="col-lg-4"><a href="https://www.thebatteryshow.eu/en/home.html" target="_blank">
-                    <img src="images/bse2025.webp" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">The Battery Show - Europe</h3>
-                  <p>June 9-11, 2026<br>
-	              Messe Stuttgart<br>
-				  Stuttgart, Germany</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="evs39">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#id_evs39" role="button" aria-expanded="false" aria-controls="c_bss9"> 39th Electric Vehicle Symposium &amp; Exhibition, June 21 - 24, 2026, Long Beach, CA </a> </h5>
-        </div>
-        <div id="id_evs39" class="collapse" role="tabpanel" aria-labelledby="h_bss9" data-parent="#acc_upcomming">
-          <div class="card-body">
-			<div class="row">
-              <div class="col-lg-4"><a href="https://www.evs39.com" target="_blank">
-                <img src="images/events/evs_39.svg" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">39th Electric Vehicle Symposium &amp; Exhibition </h3>
-                  <p>June 21 - 24, 2026<br>
-				   39th Electric Vehicle Symposium &amp; Exhibitione<br>
-				  Long Beach, CA</p>  
-				<p></p>
-              </div>
-            </div>	
-		  </div>
-        </div>
-       </div>
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="solidstate2026">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#id_solidstate2026" role="button" aria-expanded="false" aria-controls="c_bss9"> Solid State Battery Summit, August 11-12, 2026, Chicago, IL </a> </h5>
-        </div>
-        <div id="id_solidstate2026" class="collapse" role="tabpanel" aria-labelledby="h_bss9" data-parent="#acc_upcomming">
-          <div class="card-body">
-			<div class="row">
-              <div class="col-lg-4"><a href="https://www.cambridgeenertech.com/solid-state-batteries" target="_blank">
-                <img src="images/events/solid_state2026.jpg" alt="" class="img-fluid"/></a>
-              </div>
-               <div class="col-lg-8">
-                  <h3 class="text-left">Solid State Battery Summit</h3>
-                  <p>August 11-12, 2026<br>
-				   Intercontinental Chicago Magnificent Mile<br>
-				  Chicago, IL</p>  
-				<p></p>
-              </div>
-            </div>	
-		  </div>
-        </div>
-       </div>        
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="battshow2026">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#id_battshow2026" role="button" aria-expanded="false" aria-controls="c_bss9">The Battery Show, October 12-15, 2026, Detroit, MI </a> </h5>
-        </div>
-        <div id="id_battshow2026" class="collapse" role="tabpanel" aria-labelledby="h_battshow2026" data-parent="#acc_upcomming">
-          <div class="card-body">
-			<div class="row">
-              <div class="col-lg-4"><a href="https://www.thebatteryshow.com/en/home.html" target="_blank">
-                <img src="images/events/batt_show_2026.png" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">The Battery Show</h3>
-                  <p>October 12-15, 2026<br>
-				   Huntington Place<br>
-				  Detroit, MI</p>  
-				<p></p>
-              </div>
-            </div>	
-		  </div>
-        </div>
-       </div>  
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="battevent2026">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#id_battevent2026" role="button" aria-expanded="false" aria-controls="c_bss9">Batteries Event 2026, November 16-18, 2026, Lyon, France </a> </h5>
-        </div>
-        <div id="id_battevent2026" class="collapse" role="tabpanel" aria-labelledby="h_battevent2026" data-parent="#acc_upcomming">
-          <div class="card-body">
-			<div class="row">
-              <div class="col-lg-4"><a href="https://batteries-event.com/" target="_blank">
-                <img src="images/events/BattEvent26.png" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">Batteries Event 2026 </h3>
-                  <p>November 16-18, 2026<br>
-	              Lyon, France</p>  
-				<p></p>
-              </div>
-            </div>	
-		  </div>
-        </div>
-       </div>  
-        
-		</div> 
-	  </div>
-		
-	  </div>
- <!-- </div>-->
-	  <br><br>
-
-  <!--  -->
-  
-  
-  <div class="container-fluid">
-    <div class="container">	  
-	  <h2 style="text-align: center;">Past</h2>
-      <div id="accordion1" role="tablist">
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="h_bssE">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_bssE" role="button" aria-expanded="false" aria-controls="c_bssE"> Advanced Automotive Battery Conference, December 8-11, 2025, Las Vegas </a> </h5>
-        </div>
-        <div id="c_bssE" class="collapse show" role="tabpanel" aria-labelledby="h_bssE" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-                <div class="col-lg-4"><a href="https://www.advancedautobat.com/us"  target="_blank">
-                  <img src="images/events/aabc-vegas-2025.png" alt="" width="1921" height="458" class="img-fluid"/></a>
-                </div>
-                <div class="col-lg-8">
-                  <h3 class="text-left">Advanced Automotive Battery Conference</h3>               
-	              <p>December 8-11, 2025<br>
-	              Caesars Palace<br>
-	              Las Vegas, NV	</p>  
-               </div>
-             </div>
-		  </div>
-        </div>
-      </div>  
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="h_naat_zinc">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#id_naat_zinc" role="button" aria-expanded="false" aria-controls="c_bssC"> NAATBatt International - Sodium Zinc Battery Workshop, Nov. 18–19, 2025, Los Angeles, CA </a> </h5>
-        </div>
-        <div id="id_naat_zinc" class="collapse" role="tabpanel" aria-labelledby="h_bssC" data-parent="#accordion1">
-          <div class="card-body">
-			 <div class="row">
-                  <div class="col-lg-4"><a href="https://events.naatbatt.org/" target="_blank">
-                    <img src="images/events/naatbatt_logo.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">NAATBatt International - Sodium Zinc Battery Workshop</h3>
-                  <p>Nov. 18–19, 2025<br>
-	                 Los Angeles, CA</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="h_bssD">
-          <h5 class="mb-0"> 
-            <a class="collapsed" data-toggle="collapse" href="#c_bssD" role="button" aria-expanded="false" aria-controls="c_bssD"> International Battery Materials Association, November 9-14, 2025, Signapore </a> </h5>
-        </div>
-        <div id="c_bssD" class="collapse" role="tabpanel" aria-labelledby="h_bssD" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-                  <div class="col-lg-4"><a href="https://www.iba2025.com" target="_blank">
-                    <img src="images/iba_2025.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">INTERNATIONAL BATTERY MATERIALS ASSOCIATION</h3>
-                  <p>November 9-14, 2025<br>
-	              Signapore</p>  
-                </div>
-              </div>
-			</div>
-        </div>
-      </div>
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="h_bss2025">
-          <h5 class="mb-0"> 
-            <a class="collapsed" data-toggle="collapse" href="#c_bssB" role="button" aria-expanded="false" aria-controls="c_bssB"> 15th Annual Battery Safety Summit, November 12-13, 2025, Bethesda, MD </a> </h5>
-        </div>
-        <div id="c_bss2025" class="collapse" role="tabpanel" aria-labelledby="h_bssB" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-                  <div class="col-lg-4"><a href="https://www.cambridgeenertech.com/battery-safety#" target="_blank">
-                    <img src="images/events/batt_safety2025.jpg" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">15th Annual Battery Safety Summit</h3>
-                  <p>November 12-13, 2025<br>
-	              Bethesda, MD </p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>  
+  <div class="container mb-5">
+    <div class="row">
       
-      <div class="card">
-        <div class="card-header" role="tab" id="battevent">
-          <h5 class="mb-0"> 
-            <a class="collapsed" data-toggle="collapse" href="#id_battevent" role="button" aria-expanded="false" aria-controls="c_bssB"> Batteries Event 2025, November 4-6, 2025, Lyon, France </a> </h5>
-        </div>
-        <div id="id_battevent" class="collapse " role="tabpanel" aria-labelledby="h_bssB" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-                  <div class="col-lg-4"><a href="https://batteries-event.com/" target="_blank">
-                    <img src="images/events/battevent.jpg" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">Batteries Event 2025 </h3>
-                  <p>November 4-6, 2025<br>
-	              Lyon, France</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>  
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="abaa">
-          <h5 class="mb-0"> 
-            <a class="collapsed" data-toggle="collapse" href="#id_abaa" role="button" aria-expanded="false" aria-controls="c_bssB"> International Conference on Advanced Lithium Batteries for Automotive Applications, November 3-5, 2025, Padova, Italy </a> </h5>
-        </div>
-        <div id="id_abaa" class="collapse" role="tabpanel" aria-labelledby="h_bssB" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-                  <div class="col-lg-4"><a href="https://abaa-meeting.org/" target="_blank">
-                    <img src="images/events/abaa-16.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">International Conference on Advanced Lithium Batteries for Automotive Applications </h3>
-                  <p>November 3-5, 2025<br>
-	              Padova, Italy</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>  
-        
-      <div class="card">
-        <div class="card-header" role="tab" id="lieu">
-          <h5 class="mb-0"> 
-            <a class="collapsed" data-toggle="collapse" href="#id_lieu" role="button" aria-expanded="false" aria-controls="c_bssB"> 3rd Li-Ion Battery Europe 2025, November 3-4, 2025, Spain </a> </h5>
-        </div>
-        <div id="id_lieu" class="collapse" role="tabpanel" aria-labelledby="h_bssB" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-                  <div class="col-lg-4"><a href="https://li-ion-battery-europe.metal.com/home" target="_blank">
-                    <img src="images/events/li_europe.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">3rd Li-Ion Battery Europe 2025</h3>
-                  <p>November 3-4, 2025<br>
-	              Barcelona, Spain</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>  
-        
-        
-  	  <div class="card">
-        <div class="card-header" role="tab" id="iwlime">
-          <h5 class="mb-0"> 
-            <a class="collapsed" data-toggle="collapse" href="#id_iwlime" role="button" aria-expanded="false" aria-controls="c_bssB"> International Conference on Lithium, Industrial Minerals and Energy , October 21-23, 2025, Antofagasta, Chile </a> </h5>
-        </div>
-        <div id="id_iwlime" class="collapse" role="tabpanel" aria-labelledby="h_bssB" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-                  <div class="col-lg-4"><a href="https://www.celimin.com/conference-lithium-and-energy-2025" target="_blank">
-                    <img src="images/events/Celimin.avif" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">International Conference on Lithium, Industrial Minerals and Energy</h3>
-                  <p>October 21-23, 2025<br>
-	              Antofagasta, Chile</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>
-                
-        <div class="card">
-        <div class="card-header" role="tab" id="h_bssA">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_bssA" role="button" aria-expanded="false" aria-controls="c_bssa"> The Battery Show - North America, October 6 - 9, 2025 - Detroit, MI </a> </h5>
-        </div>
-        <div id="c_bssA" class="collapse" role="tabpanel" aria-labelledby="h_bssA" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-              <div class="col-lg-4"><a href="https://www.thebatteryshow.com/en/home.html" target="_blank">
-                <img src="images/bs_na_2025.webp" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">The Battery Show - North America</h3>
-                  <p>October 6 - 9, 2025<br>
-					  Huntington Place<br>
-				  Detroit, MI</p>  
-				<p></p>
-              </div>
-            </div>	
-		  </div>
-        </div>
-          
-        <div class="card">
-        <div class="card-header" role="tab" id="h_bss9">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_bss9" role="button" aria-expanded="false" aria-controls="c_bss9"> Solid State Summit - Sodium Ion - Lithium Sulfer, August 12-13, 2025 - Chicago, IL </a> </h5>
-        </div>
-        <div id="c_bss9" class="collapse" role="tabpanel" aria-labelledby="h_bss9" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-              <div class="col-lg-4"><a href="https://www.cambridgeenertech.com/solid-state-batteries" target="_blank">
-                <img src="images/ss_bat_2024.png" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">Solid State Summit - Sodium Ion - Lithium Sulfer</h3>
-                  <p>August 12-13, 2025<br>
-					  <br>
-				  Chicago, IL</p>  
-				<p></p>
-              </div>
-            </div>	
-		  </div>
-        </div>
-      </div>
-          
-         <div class="card">
-           <div class="card-header" role="tab" id="h_bss8">
-             <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_bss8" role="button" aria-expanded="false" aria-controls="c_bss8"> The Battery Show - Asia, July 15-17, 2025 - Hong Kong </a> </h5>
-           </div>
-           <div id="c_bss8" class="collapse" role="tabpanel" aria-labelledby="h_bss8" data-parent="#accordion1">
-             <div class="card-body">
-		       <div class="row">
-                <div class="col-lg-4"><a href="https://www.thebatteryshow.asia/" target="_blank">
-                  <img src="images/bsa2025.png" alt="" class="img-fluid"/></a>
-                </div>
-                <div class="col-lg-8">
-                  <h3 class="text-left">The Battery Show - Asia</h3>
-                  <p>July 15-17, 2025<br>
-					  Asia World Expo<br>
-				  Hong Kong</p><p></p>
-                </div>
-              </div>	  
-		      </div>					  
-		    </div>
-          </div> 
-          
-          
-       
-        
-        <div class="card">
-        <div class="card-header" role="tab" id="h_bss6">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_bss6" role="button" aria-expanded="false" aria-controls="c_bss6"> Advanced Automotive Battery Conference - Europe, June 23-26, 2025 - Mainz, Germany </a> </h5>
-        </div>
-        <div id="c_bss6" class="collapse" role="tabpanel" aria-labelledby="h_bss6" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-              <div class="col-lg-4"><a href="https://www.advancedautobat.com/Europe" target="_blank">
-                    <img src="images/aabce2025.png" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">Advanced Automotive Battery Conference - Europe</h3>
-                  <p>June 23-26, 2025<br>Mainz, Germany</p>  
-				<p>Booth: 605</p>
-              </div>
-            </div>
-		  </div>
-        </div>
-      </div>
-        
-        <div class="card">
-        <div class="card-header" role="tab" id="h_bss1">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_bss" role="button" aria-expanded="false" aria-controls="c_bss"> The Battery Show - Europe, June 3-5, 2025 - Stuttgart, Germany </a> </h5>
-        </div>
-        <div id="c_bss" class="collapse" role="tabpanel" aria-labelledby="h_bss1" data-parent="#accordion1">
-          <div class="card-body">
-			  <div class="row">
-                  <div class="col-lg-4"><a href="https://www.thebatteryshow.eu/en/home.html" target="_blank">
-                    <img src="images/bse2025.webp" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">The Battery Show - Europe</h3>
-                  <p>June 3-5, 2025<br>
-	              Messe Stuttgart<br>
-				  Stuttgart, Germany</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>
-        
-        <div class="card">
-        <div class="card-header" role="tab" id="bss1">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapsebss" role="button" aria-expanded="false" aria-controls="collapsebss"> The Battery Show - South, April 16-17, 2025 - Atlanta, GA </a> </h5>
-        </div>
-        <div id="collapsebss" class="collapse" role="tabpanel" aria-labelledby="bss1" data-parent="#accordion1">
-          <div class="card-body">
-			<div class="row">
-              <div class="col-lg-4"><a href="https://www.thebatteryshow.com/lp/2024/tbs-south.html" target="_blank">
-                    <img src="images/batteryShowSouth2025/bss2025.png" alt="" class="img-fluid"/></a>
-              </div>
-              <div class="col-lg-8">
-                  <h3 class="text-left">The Battery Show - South</h3>
-                  <p>April 16-17, 2025<br>
-	              Georgia World Congress Center<br>
-				  Atlanta, GA</p>  
-              </div>
-            </div>
-		  </div>
-        </div>
-      </div>
-        
-        
-          <div class="card">
-            <div class="card-header" role="tab" id="h_ibs2025">
-              <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_ibs2025" role="button" aria-expanded="false" aria-controls="c_ibs2025"> International Battery Seminar &amp; Exhibit, March 17-20, 2025 - Orlando, FL </a> </h5>
-            </div>
-            <div id="c_ibs2025" class="collapse" role="tabpanel" aria-labelledby="h_ibs2025" data-parent="#accordion1">
-              <div class="card-body">
-			     <div class="row">
-                  <div class="col-lg-4"><a href="https://www.internationalbatteryseminar.com/" target="_blank">
-                    <img src="images/ibs2025.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                    <h3 class="text-left">International Battery Seminar &amp; Exhibit</h3>
-                    <p>March 17-20, 2025<br>Orlando, FL</p>  
-				   </div>
-		        </div>
-              </div>
-            </div>
-        </div>
-                
-        
-	<div class="card">
-        <div class="card-header" role="tab" id="h_naatbatt">
-          <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#c_naatbatt" role="button" aria-expanded="false" aria-controls="c_naatbatt"> NAATBATT 2025, February 17–20, 2025 - Orlando, FL  </a> </h5>
-        </div>
-        <div id="c_naatbatt" class="collapse" role="tabpanel" aria-labelledby="h_naatbatt" data-parent="#accordion1">
-          <div class="card-body">
-	    	  <div class="row">
-                  <div class="col-lg-4"><a href="https://nac.naatbatt.org/" target="_blank">
-                    <img src="images/nac-2025_graphic.jpg" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">NAATBatt 2025 Extending Range</h3>
-				  <p>February 17–20, 2025</p>
-                  <p>Omni Championsgate<br>
-	              Orlando, FL</p>  
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>	  
-		  
-	<div class="card">
-        <div class="card-header" role="tab" id="h_mdm">
-          <h5 class="mb-0"> <a data-toggle="collapse" href="#mdm1" role="button" aria-expanded="true" aria-controls="mdm1"> MD&amp;M West, February 4–6, 2025 - Anaheim, CA</a> </h5>
-        </div>
-        <div id="mdm1" class="collapse" role="tabpanel" aria-labelledby="h_mdm" data-parent="#accordion1">
-          <div class="card-body">
-			  <div class="row">
-                  <div class="col-lg-4"><a href="https://www.mdmwest.com/en/home.html" target="_blank">
-                    <img src="images/mdmwest25_logo.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">MD&amp;M West</h3>
-					  
-                  <p>February 4–6, 2025<br>Anaheim, CA</p>  
-				 <p>Booth: 363 - Medical Battery West</p>
-                </div>
-              </div>
-		  </div>
-        </div>
-      </div>
-		  
-	 <div class="card">
-          <div class="card-header" role="tab" id="headingThree2">
-            <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseThree2" role="button" aria-expanded="false" aria-controls="collapseThree2"> Advanced Automotive Battery Conference, December 9-12, 2024 - Las Vegas, NV </a> </h5>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+             <a href="https://nac.naatbatt.org/" target="_blank">
+               <img src="images/events/nattbatt_2026.png" alt="NAATBatt 2026">
+             </a>
           </div>
-          <div id="collapseThree2" class="collapse" role="tabpanel" aria-labelledby="headingThree2" data-parent="#accordion1">
-            <div class="card-body">
-			  <div class="row">
-                <div class="col-lg-4"><a href="https://www.advancedautobat.com/us"  target="_blank">
-                  <img src="images/conf_AABC24.png" alt="" width="1921" height="458" class="img-fluid"/></a>
-                </div>
-                <div class="col-lg-8">
-                  <h3 class="text-left">Advanced Automotive Battery Conference</h3>
-                  <p>Booth 500<br>
-	              December 9-12, 2024<br>Mandalay Bay Resort &amp; Casino<br>Las Vegas, NV	</p>  
-               </div>
-             </div>
-		   </div>
-          </div>
-        </div>
-	  <div class="card">
-          <div class="card-header" role="tab" id="headingnasaworkshop">
-            <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#nasaworkshop" role="button" aria-expanded="false" aria-controls="collapseNasa"> 2024 NASA Aerospace Battery Workshop, November 19-21, 2024 - Holiday Inn – Research Park, Huntsville, AL </a> </h5>
-          </div>
-          <div id="nasaworkshop" class="collapse" role="tabpanel" aria-labelledby="nasaworkshop" data-parent="#accordion1">
-            <div class="card-body">
-				<div class="row">
-                  <div class="col-lg-4"><a href="https://www.nasa.gov/batteryworkshop/" target="_blank">
-                    <img src="images/nasabatteryworkshop.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">2024 NASA Aerospace Battery Workshop</h3>
-                  <p>November 19-21, 2024<br>Holiday Inn – Research Park, Huntsville, AL</p>  
-                </div>
-              </div>
-			</div>
-          </div>
-        </div>
-	  <div class="card">
-          <div class="card-header" role="tab" id="headingbatterysafety">
-            <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#batterysafety" role="button" aria-expanded="false" aria-controls="collapseNasa"> 14th Annual Battery Safety Summit, November 4-5, 2024 - Alexandria, VA </a> </h5>
-          </div>
-          <div id="batterysafety" class="collapse" role="tabpanel" aria-labelledby="batterysafety" data-parent="#accordion1">
-            <div class="card-body">
-				<div class="row">
-                  <div class="col-lg-4"><a href="https://www.cambridgeenertech.com/battery-safety#" target="_blank">
-                    <img src="images/batterysafetysummit.svg" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">14th Annual Battery Safety Summit</h3>
-                  <p>November 4-5, 2024<br>Alexandria, VA </p>  
-                </div>
-              </div>
-			</div>
-          </div>
-        </div>  
-		  
-	  <div class="card">
-          <div class="card-header" role="tab" id="headingTwo2">
-            <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseTwo2" role="button" aria-expanded="false" aria-controls="collapseTwo2"> The Battery Show - North America, October 7-10, 2024 Detroit, MI </a> </h5>
-          </div>
-          <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2" data-parent="#accordion1">
-            <div class="card-body">
-			  <div class="row">
-                
-                  <div class="col-lg-4"><img src="images/battShowNA2024/IMG_6789.jpg" class="img-fluid" alt=""/></div>
-                  <div class="col-lg-4"><img src="images/battShowNA2024/IMG_6783.jpg" class="img-fluid" alt=""/></div>
-                  <div class="col-lg-4"><img src="images/battShowNA2024/IMG_6785.jpg" class="img-fluid" alt=""/></div>
+          <div class="event-card-body">
+            <div class="event-date">Feb 9-12, 2026</div>
+            <h3 class="event-title">NAATBatt 2026 - Charging Innovation</h3>
+            <div class="event-location">Tucson, AZ</div>
+            <h4 class="event-title">Booth 26</h4>
             
-			  </div>
-				<br>
-				<div class="row">
-                
-                  <div class="col-lg-4"><img src="images/battShowNA2024/IMG_6790.jpg" class="img-fluid" alt=""/></div>
-                  <div class="col-lg-4"><img src="images/battShowNA2024/day2.png" class="img-fluid" alt=""/></div>
-                  <div class="col-lg-4"><img src="images/battShowNA2024/tht_maccor.jpg" class="img-fluid" alt=""/></div>
-            
-			  </div>
-		   </div>
           </div>
         </div>
-	<div class="card">
-          <div class="card-header" role="tab" id="headingOne2">
-            <h5 class="mb-0"> <a data-toggle="collapse" href="#collapseOne2" role="button" aria-expanded="false" aria-controls="collapseOne2"> International Batterey Battery Materials Association, September 8-13, 2024 - Nova Scotia, Canada </a> </h5>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.thebatteryshow.asia/" target="_blank">
+              <img src="images/bsa2025.png" alt="The Battery Show Asia">
+            </a>
           </div>
-          <div id="collapseOne2" class="collapse" role="tabpanel" aria-labelledby="headingOne2" data-parent="#accordion1">
-            <div class="card-body">
-				<div class="row">
-                  <div class="col-lg-4"><a href="https://www.iba2024.com" target="_blank">
-                    <img src="images/IBA_2024.png" alt="" class="img-fluid"/></a>
-                  </div>
-                  <div class="col-lg-8">
-                  <h3 class="text-left">INTERNATIONAL BATTERY MATERIALS ASSOCIATION</h3>
-                  <p>September 8-13, 2024<br>
-	              Halifax, Nova Scotia, Canada</p>  
-                </div>
-              </div>
-			</div>
+          <div class="event-card-body">
+            <div class="event-date">March 10-12, 2026</div>
+            <h3 class="event-title">The Battery Show - Asia</h3>
+            <div class="event-location">Asia World Expo<br>Hong Kong</div>
           </div>
         </div>
-	
-      <div class="card">
-	      <div class="card-header" role="tab" id="headingOne1">
-	        <h5 class="mb-0"> <a data-toggle="collapse" href="#collapseOne1" role="button" aria-expanded="false" aria-controls="collapseOne1">Solid State Battery Summit, August 13-15, 2024 - Chicago, IL</a> </h5>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.internationalbatteryseminar.com/" target="_blank">
+              <img src="images/events/ibs2026.png" alt="International Battery Seminar">
+            </a>
           </div>
-	      <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordion1">
-	        <div class="card-body">
-		 	  <div class="row">
-                <div class="col-lg-4"><a href="https://www.cambridgeenertech.com/solid-state-batteries"  target="_blank">
-                  <img src="images/conf_ssbs.png" alt="" width="770" height="770" class="img-fluid"/></a>
-                </div>
-                <div class="col-lg-8">
-                  <h2 class="text-left">Solid State Battery Summit</h2>
-                  <p>Booth 21<br>
-	              August 13-15, 2024<br>
-	              InterContinental Chicago Miracle Mile<br>
-  	              Chicago, IL </p>  
-               </div>
-              </div>	
-			</div>
+          <div class="event-card-body">
+            <div class="event-date">March 23-26, 2026</div>
+            <h3 class="event-title">International Battery Seminar &amp; Exhibit</h3>
+            <div class="event-location">Orlando, FL</div>
+            <h4 class="event-title">Booth 514</h4>
           </div>
         </div>
-	    <div class="card">
-	      <div class="card-header" role="tab" id="headingTwo1">
-	        <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseTwo1" role="button" aria-expanded="false" aria-controls="collapseTwo1"> Advance Automotive Battery Conference, May 13-16, 2024 - Strasbourg, France</a> </h5>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://battery-power.eu/en/" target="_blank">
+              <img src="images/events/advanced-battery-power_2026.webp" alt="Advanced Battery Power">
+            </a>
           </div>
-	      <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1" data-parent="#accordion1">
-	        <div class="card-body">
-				<div class="row">
-                <div class="col-lg-6">
-                  <img src="images/aabceuro2024.png" alt=""  class="img-fluid"/>
-                </div>
-                <div class="col-lg-6">
-                  <img src="images/aabc_euro_02.jpg" alt="" width="770" height="770" class="img-fluid"/>
-                </div>
-				
-              </div>
-			</div>
+          <div class="event-card-body">
+            <div class="event-date">April 14-16, 2026</div>
+            <h3 class="event-title">Advanced Battery Power</h3>
+            <div class="event-location">Munster, Germany</div>
           </div>
         </div>
-	    <div class="card">
-	      <div class="card-header" role="tab" id="headingThree1">
-	        <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> The Battery Show - Europe, June 18-20, 2024 - Stuttgart, Germany </a> </h5>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.thebatteryshow.com/lp/2024/tbs-south.html" target="_blank">
+              <img src="images/batteryShowSouth2025/bss2025.png" alt="The Battery Show South">
+            </a>
           </div>
-	      <div id="collapseThree1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
-	        <div class="card-body">
-			  <div class="row">	
-				<div class="col-lg-4">
-                  <img src="images/bse01.jpg" alt="" width="770" height="770" class="img-fluid"/>
-                </div>
-			  </div>	  
-			</div>
-          </div>
-        </div>
-		<div class="card">
-	      <div class="card-header" role="tab" id="headingFour1">
-	        <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseFour1" role="button" aria-expanded="false" aria-controls="collapseThree1"> International Battery Seminar &amp; Exhibit, March 11-24, 2024 - Orlando, Florida </a> </h5>
-          </div>
-	      <div id="collapseFour1" class="collapse" role="tabpanel" aria-labelledby="headingFour1" data-parent="#accordion1">
-	        <div class="card-body">
-			  <div class="row">	
-				<div class="col-lg-4">
-                  <img src="images/ibs01.jpg" alt="" width="770" height="770" class="img-fluid"/>
-                </div>
-			  </div>	  
-			</div>
+          <div class="event-card-body">
+            <div class="event-date">April 22-23, 2026</div>
+            <h3 class="event-title">The Battery Show - South</h3>
+            <div class="event-location">Charlotte Convention Center<br>Charlotte, NC</div>
+            <h4 class="event-title">Booth 1724</h4>
           </div>
         </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.advancedautobat.com/europe" target="_blank">
+              <img src="images/events/aabc_eu_2026.png" alt="AABC Europe">
+            </a>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">May 18-21, 2026</div>
+            <h3 class="event-title">Advanced Automotive Battery Conference</h3>
+            <div class="event-location">Mainz, Germany</div>
+            <h4 class="event-title">Booth 605</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.thebatteryshow.eu/en/home.html" target="_blank">
+              <img src="images/bse2025.webp" alt="The Battery Show Europe">
+            </a>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">June 9-11, 2026</div>
+            <h3 class="event-title">The Battery Show - Europe</h3>
+            <div class="event-location">Messe Stuttgart<br>Stuttgart, Germany</div>
+            <h4 class="event-title">Booth Hall 1 - C66</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.evs39.com" target="_blank">
+              <img src="images/events/evs_39.png" alt="EVS39">
+            </a>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">June 21-24, 2026</div>
+            <h3 class="event-title">39th Electric Vehicle Symposium &amp; Exhibition</h3>
+            <div class="event-location">Long Beach, CA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.cambridgeenertech.com/solid-state-batteries" target="_blank">
+              <img src="images/events/solid_state2026.jpg" alt="Solid State Battery Summit">
+            </a>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">August 11-12, 2026</div>
+            <h3 class="event-title">Solid State Battery Summit</h3>
+            <div class="event-location">Intercontinental Chicago Magnificent Mile<br>Chicago, IL</div>
+            <h4 class="event-title">Booth 5</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.thebatteryshow.com/en/home.html" target="_blank">
+              <img src="images/events/batt_show_2026.png" alt="The Battery Show">
+            </a>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">October 12-15, 2026</div>
+            <h3 class="event-title">The Battery Show</h3>
+            <div class="event-location">Huntington Place<br>Detroit, MI</div>
+            <h4 class="event-title">Booth 3026</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://batteries-event.com/" target="_blank">
+              <img src="images/events/BattEvent26.png" alt="Batteries Event 2026">
+            </a>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">November 16-18, 2026</div>
+            <h3 class="event-title">Batteries Event 2026</h3>
+            <div class="event-location">Lyon, France</div>
+          </div>
+        </div>
+      </div>
+        
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <a href="https://www.advancedautobat.com/us" target="_blank">
+              <img src="images/events/aabc-vegas-2026.png" alt="Advanced Automotive Battery Conference">
+            </a>
+          </div>
+          <div class="event-card-body">
+            <div class="event-date">December 7-10, 2026</div>
+            <h3 class="event-title">Advanced Automotive Battery Conference</h3>
+            <div class="event-location">San Diego Convention Center<br>San Diego, CA</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="past-events-section">
+    <div class="container">
+      <h2 class="text-center mb-4 text-muted">Past Events</h2>
+      
+      <div class="past-event-item">
+         <div class="past-date">Jan 20-22, 2026</div>
+         <div class="past-title"><a href="https://www.nasa.gov/batteryworkshop/" target="_blank">2026 NASA Aerospace Battery Workshop</a></div>
+         <div class="past-location">Houston, TX</div>
       </div>
       
+      <div class="past-event-item">
+         <div class="past-date">Dec 8-11, 2025</div>
+         <div class="past-title"><a href="https://www.advancedautobat.com/us" target="_blank">Advanced Automotive Battery Conference</a></div>
+         <div class="past-location">Las Vegas, NV</div>
+      </div>
+      
+      <div class="past-event-item">
+         <div class="past-date">Nov 18-19, 2025</div>
+         <div class="past-title"><a href="https://events.naatbatt.org/" target="_blank">NAATBatt Sodium Zinc Battery Workshop</a></div>
+         <div class="past-location">Los Angeles, CA</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">Nov 9-14, 2025</div>
+        <div class="past-title"><a href="https://www.iba2025.com" target="_blank">International Battery Materials Association</a></div>
+        <div class="past-location">Singapore</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">Nov 12-13, 2025</div>
+        <div class="past-title"><a href="https://www.cambridgeenertech.com/battery-safety#" target="_blank">15th Annual Battery Safety Summit</a></div>
+        <div class="past-location">Bethesda, MD</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">Nov 4-6, 2025</div>
+        <div class="past-title"><a href="https://batteries-event.com/" target="_blank">Batteries Event 2025</a></div>
+        <div class="past-location">Lyon, France</div>
+      </div>
+      
+      <div class="past-event-item">
+        <div class="past-date">Nov 3-5, 2025</div>
+        <div class="past-title"><a href="https://abaa-meeting.org/" target="_blank">Int'l Conf. on Advanced Lithium Batteries (ABAA)</a></div>
+        <div class="past-location">Padova, Italy</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">Nov 3-4, 2025</div>
+        <div class="past-title"><a href="https://li-ion-battery-europe.metal.com/home" target="_blank">3rd Li-Ion Battery Europe 2025</a></div>
+        <div class="past-location">Barcelona, Spain</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">Oct 21-23, 2025</div>
+        <div class="past-title"><a href="https://www.celimin.com/conference-lithium-and-energy-2025" target="_blank">Int'l Conf. on Lithium, Industrial Minerals and Energy</a></div>
+        <div class="past-location">Antofagasta, Chile</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">Oct 6-9, 2025</div>
+        <div class="past-title"><a href="https://www.thebatteryshow.com/en/home.html" target="_blank">The Battery Show - North America</a></div>
+        <div class="past-location">Detroit, MI</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">Aug 12-13, 2025</div>
+        <div class="past-title"><a href="https://www.cambridgeenertech.com/solid-state-batteries" target="_blank">Solid State Summit</a></div>
+        <div class="past-location">Chicago, IL</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">July 15-17, 2025</div>
+        <div class="past-title"><a href="https://www.thebatteryshow.asia/" target="_blank">The Battery Show - Asia</a></div>
+        <div class="past-location">Hong Kong</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">June 23-26, 2025</div>
+        <div class="past-title"><a href="https://www.advancedautobat.com/Europe" target="_blank">Advanced Automotive Battery Conference - Europe</a></div>
+        <div class="past-location">Mainz, Germany</div>
+      </div>
+
+      <div class="past-event-item">
+        <div class="past-date">June 3-5, 2025</div>
+        <div class="past-title"><a href="https://www.thebatteryshow.eu/en/home.html" target="_blank">The Battery Show - Europe</a></div>
+        <div class="past-location">Stuttgart, Germany</div>
+      </div>
+      
+      <div class="text-center mt-3">
+        <button class="btn btn-outline-secondary btn-sm" type="button" data-toggle="collapse" data-target="#olderEvents" aria-expanded="false" aria-controls="olderEvents">
+          Show Older Events
+        </button>
+      </div>
+
+      <div class="collapse mt-3" id="olderEvents">
+        <div class="past-event-item">
+          <div class="past-date">Apr 16-17, 2025</div>
+          <div class="past-title">The Battery Show - South</div>
+          <div class="past-location">Atlanta, GA</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Mar 17-20, 2025</div>
+          <div class="past-title">International Battery Seminar &amp; Exhibit</div>
+          <div class="past-location">Orlando, FL</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Feb 17-20, 2025</div>
+          <div class="past-title">NAATBATT 2025</div>
+          <div class="past-location">Orlando, FL</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Feb 4-6, 2025</div>
+          <div class="past-title">MD&amp;M West</div>
+          <div class="past-location">Anaheim, CA</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Dec 9-12, 2024</div>
+          <div class="past-title">Advanced Automotive Battery Conference</div>
+          <div class="past-location">Las Vegas, NV</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Nov 19-21, 2024</div>
+          <div class="past-title">NASA Aerospace Battery Workshop</div>
+          <div class="past-location">Huntsville, AL</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Nov 4-5, 2024</div>
+          <div class="past-title">14th Annual Battery Safety Summit</div>
+          <div class="past-location">Alexandria, VA</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Oct 7-10, 2024</div>
+          <div class="past-title">The Battery Show - North America</div>
+          <div class="past-location">Detroit, MI</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Sept 8-13, 2024</div>
+          <div class="past-title">International Battery Materials Association</div>
+          <div class="past-location">Nova Scotia, Canada</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Aug 13-15, 2024</div>
+          <div class="past-title">Solid State Battery Summit</div>
+          <div class="past-location">Chicago, IL</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">May 13-16, 2024</div>
+          <div class="past-title">Advanced Automotive Battery Conference</div>
+          <div class="past-location">Strasbourg, France</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">June 18-20, 2024</div>
+          <div class="past-title">The Battery Show - Europe</div>
+          <div class="past-location">Stuttgart, Germany</div>
+        </div>
+        <div class="past-event-item">
+          <div class="past-date">Mar 11-14, 2024</div>
+          <div class="past-title">International Battery Seminar &amp; Exhibit</div>
+          <div class="past-location">Orlando, FL</div>
+        </div>
       </div>
     </div>
-  </div>	  
-	  
-    <footer>  
+  </div>
+
+  <footer>  
       <div class="container-fluid" id="padding">
         <div class="container"  style="background-color: #ebebeb">	 
       
@@ -935,6 +618,6 @@
   
         </div>
       </div>
-    </footer>  	
+  </footer>  	
   </body>
 </html>
