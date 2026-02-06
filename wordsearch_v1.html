@@ -45,8 +45,8 @@
         --cell-size: 34px;
         --border: #cfd4dc;
         --bg: #f7f8fb;
-        --hl: #ffeb3b;
-        --hl2: #90caf9;
+        --hl-hover: #fff9c4; /* Light yellow for hover */
+        --hl-selected: #90caf9; /* Blue for selected */
         --text: #1f2937;
       }
 
@@ -83,8 +83,14 @@
         position: sticky;
         top: 86px; 
         text-align: center; 
+        overflow: hidden; 
       }
       
+      #gridMount {
+        width: 100%;
+        overflow-x: auto;
+      }
+
       .wordbank {
         max-height: calc(100vh - 100px); 
         overflow-y: auto; 
@@ -103,15 +109,17 @@
         font-size: 16px;
         cursor: default;
         background: white;
-        transition: background 120ms ease;
+        transition: background 150ms ease;
       }
 
-      table.wordsearch td.highlight {
-        background: var(--hl);
+      /* Hover state (Yellow) */
+      table.wordsearch td.highlight-hover {
+        background: var(--hl-hover);
       }
 
-      table.wordsearch td.highlight-secondary {
-        background: var(--hl2);
+      /* Selected state (Blue) - Overrides hover */
+      table.wordsearch td.highlight-selected {
+        background: var(--hl-selected) !important;
       }
 
       .wordbank .hint {
@@ -135,7 +143,7 @@
         border-radius: 10px;
         cursor: pointer;
         background: #fff;
-        transition: transform 100ms ease, background 120ms ease;
+        transition: all 120ms ease;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -147,19 +155,27 @@
         border-color: #b0b8c4;
       }
 
+      /* Style for the word in the list when selected */
+      .words li.active {
+        background: #e0f2fe;
+        border-color: #90caf9;
+        color: #0c4a6e;
+      }
+
       .words li .dir {
         font-size: 12px;
         color: #6b7280;
         font-weight: 600;
       }
 
-      .wordbank::-webkit-scrollbar {
+      .wordbank::-webkit-scrollbar, #gridMount::-webkit-scrollbar {
         width: 8px;
+        height: 8px;
       }
-      .wordbank::-webkit-scrollbar-track {
+      .wordbank::-webkit-scrollbar-track, #gridMount::-webkit-scrollbar-track {
         background: transparent;
       }
-      .wordbank::-webkit-scrollbar-thumb {
+      .wordbank::-webkit-scrollbar-thumb, #gridMount::-webkit-scrollbar-thumb {
         background-color: #cfd4dc;
         border-radius: 4px;
       }
@@ -167,81 +183,97 @@
       /* --- MOBILE OPTIMIZATION --- */
       @media (max-width: 900px) {
         :root {
-          /* Reduce cell size slightly, but keep it tap-friendly */
-          --cell-size: 26px; 
+          --cell-size: 28px; 
         }
 
         .wrap {
           display: flex;
-          flex-direction: column; /* Stack elements */
-          padding: 10px;
+          flex-direction: column; 
+          padding: 0;
           gap: 15px;
+          margin-top: 10px;
         }
 
-        /* Move Word Bank ABOVE the puzzle on mobile */
-        .wordbank {
-          order: -1; 
-          width: 100%;
-          position: static;
-          max-height: 200px; /* Limit height */
-          padding: 10px;
-        }
-
-        /* Make the grid scrollable horizontally */
         .puzzle {
-          width: 100%;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
-          position: static;
-          padding: 5px;
-          
-          /* Add a visual hint (shadow) on the right to indicate scrolling */
-          background: 
-            linear-gradient(to right, white 30%, rgba(255,255,255,0)),
-            linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%,
-            radial-gradient(farthest-side at 0 50%, rgba(0,0,0,.2), rgba(0,0,0,0)),
-            radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
-          background-repeat: no-repeat;
-          background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
-          background-position: 0 0, 100% 0, 0 0, 100% 0;
-          background-attachment: local, local, scroll, scroll;
+            order: 1; 
+            width: 100%;
+            position: static;
+            padding: 10px 0;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+        }
+
+        #gridMount {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; 
+            padding-bottom: 10px;
+            
+            background: 
+                linear-gradient(to right, white 30%, rgba(255,255,255,0)),
+                linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%,
+                radial-gradient(farthest-side at 0 50%, rgba(0,0,0,.2), rgba(0,0,0,0)),
+                radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+            background-repeat: no-repeat;
+            background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+            background-position: 0 0, 100% 0, 0 0, 100% 0;
+            background-attachment: local, local, scroll, scroll;
         }
 
         table.wordsearch {
-            margin: 0; /* Align left to allow correct scroll start */
+            margin: 0 5px; 
         }
         
         table.wordsearch td {
-            font-size: 11px; /* Smaller font for mobile cells */
+            font-size: 12px;
         }
 
-        /* Change Word Bank list to "Pills" layout */
+        .wordbank {
+            order: 2; 
+            width: 100%;
+            position: static;
+            max-height: none; 
+            overflow: visible;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+        }
+        
+        .wordbank h1 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #4b5563;
+        }
+
         .words {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
+            justify-content: center;
         }
 
         .words li {
-            padding: 6px 10px;
-            font-size: 12px;
-            border-radius: 15px; /* Rounded pills */
+            padding: 8px 12px;
+            font-size: 13px;
+            border-radius: 20px; 
             width: auto;
-            flex-grow: 1; /* Expand to fill space */
-            justify-content: center;
-            text-align: center;
+            flex-grow: 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            margin: 0;
         }
 
         .words li .dir {
-            margin-left: 6px; /* Spacing for arrow */
+            margin-left: 8px; 
         }
       }
     </style>
+
+  </head>
+  <body style="padding-top: 70px">
     <div id="sticky-button">
       <a href="contact.html">Request a Quote</a>
     </div>
-  </head>
-  <body style="padding-top: 70px">
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/popper.min.js"></script> 
   <script src="js/bootstrap-4.4.1.js"></script>
@@ -338,14 +370,14 @@
     <div class="container">	
         <div class="wrap">
             <div class="card puzzle">
-            <h1>Word Search Puzzle</h1>
-            <div id="gridMount"></div>
+                <h1>Word Search Puzzle</h1>
+                <div id="gridMount"></div>
             </div>
 
             <div class="card wordbank">
-            <h1>Word Bank</h1>
-            <div class="hint">Tap a word to highlight it in the puzzle.</div>
-            <ul id="wordList" class="words"></ul>
+                <h1>Word Bank</h1>
+                <div class="hint">Tap a word below to highlight it in the puzzle.</div>
+                <ul id="wordList" class="words"></ul>
             </div>
         </div>
         <div class="row mb-5">
@@ -460,6 +492,9 @@
           { word: "VOLTAGE",  start: [9,16], end: [9,10]},
           { word: "WORKHORSE",  start: [19,18], end: [19,10]},
         ];
+        
+        // Track which words are currently "selected"
+        const activeWordIndices = new Set();
     
         function renderGrid() {
           const table = document.createElement("table");
@@ -500,44 +535,67 @@
           }
           return cells;
         }
-    
-        function highlightCells(cells, secondary = false) {
-          clearHighlights();
-          const className = secondary ? "highlight-secondary" : "highlight";
-          for (const [r, c] of cells) {
-            const el = document.getElementById(`cell-${r}-${c}`);
-            if (el) el.classList.add(className);
-          }
+        
+        // Handles temporary hover highlight
+        function hoverHighlight(cells, isActive) {
+            cells.forEach(([r,c]) => {
+                const el = document.getElementById(`cell-${r}-${c}`);
+                if (el) {
+                    if (isActive) el.classList.add('highlight-hover');
+                    else el.classList.remove('highlight-hover');
+                }
+            });
         }
     
-        function clearHighlights() {
-          document.querySelectorAll("td.highlight, td.highlight-secondary")
-            .forEach(td => td.classList.remove("highlight", "highlight-secondary"));
+        // Re-paints the grid based on what words are selected in the list
+        function paintGrid() {
+            // 1. Clear all "selected" styling
+            document.querySelectorAll('td.highlight-selected').forEach(td => {
+                td.classList.remove('highlight-selected');
+            });
+            
+            // 2. Loop through all active words and add styling
+            activeWordIndices.forEach(idx => {
+                const w = WORDS[idx];
+                const cells = getPathCells(w.start, w.end);
+                cells.forEach(([r,c]) => {
+                    const el = document.getElementById(`cell-${r}-${c}`);
+                    if (el) el.classList.add('highlight-selected');
+                });
+            });
         }
     
         function renderWordBank() {
           const ul = document.getElementById("wordList");
           ul.innerHTML = "";
     
-          WORDS.forEach((w) => {
+          WORDS.forEach((w, index) => {
             const li = document.createElement("li");
+            li.id = `word-item-${index}`;
             li.innerHTML = `
               <span>${w.word}</span>
               <span class="dir">${directionLabel(w.start, w.end)}</span>
             `;
     
             const cells = getPathCells(w.start, w.end);
+            
+            // Mouse Enter/Leave for desktop hover effect
+            li.addEventListener("mouseenter", () => hoverHighlight(cells, true));
+            li.addEventListener("mouseleave", () => hoverHighlight(cells, false));
     
-            li.addEventListener("mouseenter", () => highlightCells(cells));
-            li.addEventListener("mouseleave", clearHighlights);
-    
+            // Click to toggle persistent selection
             li.addEventListener("click", () => {
-              const anyHighlighted = cells.some(([r,c]) => {
-                const el = document.getElementById(`cell-${r}-${c}`);
-                return el && el.classList.contains("highlight");
-              });
-              if (anyHighlighted) clearHighlights();
-              else highlightCells(cells, true);
+                if (activeWordIndices.has(index)) {
+                    // Deselect
+                    activeWordIndices.delete(index);
+                    li.classList.remove('active');
+                } else {
+                    // Select
+                    activeWordIndices.add(index);
+                    li.classList.add('active');
+                }
+                // Update grid visual state
+                paintGrid();
             });
     
             ul.appendChild(li);
