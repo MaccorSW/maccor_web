@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Claude mock up -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maccor | Battery Testing Solutions That Drive Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #D94A1A;
+            --secondary: #004E89;
+            --secondary-dark: #003559;
+            --accent: #00D9FF;
+            --dark: #0A0E1A;
+            --mid-dark: #1A1F2E;
+            --grey: #64748B;
+            --light-grey: #CBD5E1;
+            --off-white: #F8FAFC;
+            --success: #10B981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--dark);
+            color: var(--off-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light-grey);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 78, 137, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridFloat 20s linear infinite;
+        }
+
+        @keyframes gridFloat {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(60px); }
+        }
+
+        .hero .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content h1 .accent {
+            color: var(--accent);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.4rem;
+            color: var(--light-grey);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.8s backwards;
+        }
+
+        .stat-card {
+            background: rgba(26, 31, 46, 0.6);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            color: var(--light-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-label {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: var(--light-grey);
+            font-weight: 300;
+        }
+
+        .solutions-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, var(--mid-dark) 0%, rgba(26, 31, 46, 0.8) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--off-white);
+        }
+
+        .solution-card p {
+            color: var(--light-grey);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .solution-features li {
+            padding: 0.5rem 0;
+            color: var(--light-grey);
+            display: flex;
+            align-items: start;
+            gap: 0.8rem;
+        }
+
+        .solution-features li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .solution-link {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+        }
+
+        .solution-link:hover {
+            gap: 1rem;
+        }
+
+        /* Industries Section */
+        .industries {
+            padding: 8rem 2rem;
+            background: var(--mid-dark);
+            position: relative;
+        }
+
+        .industries::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .industries-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .industry-card {
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(255, 107, 53, 0.15);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .industry-card:hover {
+            background: rgba(255, 107, 53, 0.05);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .industry-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            filter: grayscale(0.3);
+        }
+
+        .industry-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .industry-card p {
+            color: var(--grey);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 8rem 2rem;
+            background: var(--dark);
+        }
+
+        .tech-showcase {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tech-visual {
+            background: linear-gradient(135deg, rgba(0, 78, 137, 0.2), rgba(255, 107, 53, 0.1));
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-visual::before {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border: 2px dashed rgba(0, 217, 255, 0.3);
+            border-radius: 8px;
+        }
+
+        .tech-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .spec-item {
+            background: rgba(26, 31, 46, 0.6);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .spec-item .spec-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-item .spec-label {
+            font-size: 0.9rem;
+            color: var(--light-grey);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tech-content h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .tech-content p {
+            color: var(--light-grey);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .tech-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .tech-features li {
+            padding: 1rem 0;
+            color: var(--light-grey);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 900;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.2), transparent);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-content p {
+            font-size: 1.4rem;
+            color: var(--light-grey);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--mid-dark);
+            padding: 5rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            color: var(--grey);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--grey);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--grey);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .tech-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo"><img class="img-fluid" src="images/logo_white.png" width="250"> </div>
+            <ul class="nav-links">
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#contact" class="cta-button">Request a Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Power the <span class="highlight">Future</span> of<br>
+                    Battery <span class="accent">Innovation</span>
+                </h1>
+                <p class="subtitle">
+                    Precision battery testing solutions for R&amp;D, manufacturing, and quality control. From coin cells to EV packs, we accelerate your path to breakthrough battery technology.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#solutions" class="btn-primary">Explore Solutions →</a>
+                    <a href="#contact" class="btn-secondary">Talk to an Expert</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="number">50+</div>
+                    <div class="label">Countries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">1000+</div>
+                    <div class="label">Facilities</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">38+</div>
+                    <div class="label">Years Leading</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
+        <div class="section-header">
+            <div class="section-label">// SOLUTIONS</div>
+            <h2>Built for Your Testing Challenge</h2>
+            <p>Chemistry-agnostic systems engineered for precision, reliability, and scalability across every battery testing application.</p>
+        </div>
+
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-icon">🔬</div>
+                <h3>Research & Development</h3>
+                <p>Accelerate innovation with ultra-precise testing systems designed for breakthrough battery research and materials development.</p>
+                <ul class="solution-features">
+                    <li>Series 6000 next-gen testers with 1μs resolution</li>
+                    <li>Advanced Multi-Level Pulse (AMLP) profiling</li>
+                    <li>Desktop systems for agile R&amp;D environments</li>
+                    <li>Frequency response analysis down to sub-mHz</li>
+                </ul>
+                <a href="#" class="solution-link">Learn More →</a>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">🏭</div>
+                <h3>Manufacturing & Formation</h3>
+                <p>Streamline production with automated formation systems that scale from pilot lines to high-volume manufacturing.</p>
+                <ul class="solution-features">
+                    <li>Series 5302 formation systems up to 2,048 positions</li>
+                    <li>100% duty cycle for continuous operation</li>
+                    <li>Automated cell fault detection and sorting</li>
+                    <li>Real-time quality control and data analytics</li>
+                </ul>
+                <a href="#" class="solution-link">Learn More →</a>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">⚡</div>
+                <h3>EV &mp; Energy Storage</h3>
+                <p>Validate high-voltage battery packs and modules with systems designed for real-world performance simulation.</p>
+                <ul class="solution-features">
+                    <li>Series 8500 for EV components and grid storage</li>
+                    <li>Drive cycle simulation with imported waveforms</li>
+                    <li>Regenerative testing returns energy to grid</li>
+                    <li>Up to 480V DC and 2000A current capability</li>
+                </ul>
+                <a href="#" class="solution-link">Learn More →</a>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">🔧</div>
+                <h3>Quality Control Testing</h3>
+                <p>Ensure consistent product quality with automated multi-channel systems for cycle life and performance validation.</p>
+                <ul class="solution-features">
+                    <li>Series 4000/4000H industry-standard platforms</li>
+                    <li>1 to 192 independent test channels</li>
+                    <li>0.02% voltage accuracy across full scale</li>
+                    <li>Flexible configurations for any cell format</li>
+                </ul>
+                <a href="#" class="solution-link">Learn More →</a>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">🎯</div>
+                <h3>FUSION Integrated Systems</h3>
+                <p>Eliminate integration headaches with pre-validated, turnkey systems combining cycler, chamber, and safety controls.</p>
+                <ul class="solution-features">
+                    <li>Pre-integrated cycler and thermal chamber</li>
+                    <li>Single purchase order, unified support</li>
+                    <li>Deploy in days, not weeks</li>
+                    <li>Up to 90% regenerative efficiency</li>
+                </ul>
+                <a href="#" class="solution-link">Learn More →</a>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">💻</div>
+                <h3>Software & Data Analytics</h3>
+                <p>Powerful, intuitive software suite for test creation, real-time monitoring, and comprehensive data analysis.</p>
+                <ul class="solution-features">
+                    <li>MacTest32 for hardware control and monitoring</li>
+                    <li>Build Test drag-and-drop test creation</li>
+                    <li>Advanced plotting and data visualization</li>
+                    <li>Custom features and API integration available</li>
+                </ul>
+                <a href="#" class="solution-link">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries" id="industries">
+        <div class="section-header">
+            <div class="section-label">// INDUSTRIES</div>
+            <h2>Powering Innovation Across Sectors</h2>
+            <p>From implantable medical devices to grid-scale energy storage, our testing solutions drive advancement in every battery-powered application.</p>
+        </div>
+
+        <div class="industries-grid">
+            <div class="industry-card">
+                <div class="icon">🚗</div>
+                <h3>Electric Vehicles</h3>
+                <p>Battery pack testing, cycle life validation, and drive cycle simulation</p>
+            </div>
+            <div class="industry-card">
+                <div class="icon">🔋</div>
+                <h3>Energy Storage</h3>
+                <p>Grid-scale systems, renewable integration, peak shaving solutions</p>
+            </div>
+            <div class="industry-card">
+                <div class="icon">💊</div>
+                <h3>Medical Devices</h3>
+                <p>Ultra-precise testing for life-enhancing implantable power sources</p>
+            </div>
+            <div class="industry-card">
+                <div class="icon">📱</div>
+                <h3>Consumer Electronics</h3>
+                <p>Portable devices, wearables, IoT sensors, and smart products</p>
+            </div>
+            <div class="industry-card">
+                <div class="icon">✈️</div>
+                <h3>Aerospace & Defense</h3>
+                <p>Mission-critical battery testing for space and aviation applications</p>
+            </div>
+            <div class="industry-card">
+                <div class="icon">🏗️</div>
+                <h3>Industrial Equipment</h3>
+                <p>Heavy machinery, robotics, material handling, backup power</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="section-header">
+            <div class="section-label">// TECHNOLOGY</div>
+            <h2>Engineering Excellence in Every Detail</h2>
+        </div>
+
+        <div class="tech-showcase">
+            <div class="tech-content">
+                <h2>Series 6000: Next-Generation Precision</h2>
+                <p>
+                    Our newest platform combines industry-leading accuracy with breakthrough speed and flexibility. Advanced Multi-Level Pulse technology enables complex test profiles with unprecedented precision.
+                </p>
+                <ul class="tech-features">
+                    <li>Ultra-fast pulse profiling with 1-microsecond resolution</li>
+                    <li>1 kHz data logging across multiple channels simultaneously</li>
+                    <li>20 kHz sampling for capturing critical transient events</li>
+                    <li>Test steps as short as 750 microseconds</li>
+                    <li>Setpoint stabilization in just 1 millisecond</li>
+                    <li>Programmable waveforms with 15,000-level complexity</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Request Technical Specs →</a>
+            </div>
+
+            <div class="tech-visual">
+                <div class="tech-specs">
+                    <div class="spec-item">
+                        <div class="spec-value">1μs</div>
+                        <div class="spec-label">Resolution</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">20kHz</div>
+                        <div class="spec-label">Sampling Rate</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">0.02%</div>
+                        <div class="spec-label">Accuracy</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">480V</div>
+                        <div class="spec-label">Max Voltage</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">2000A</div>
+                        <div class="spec-label">Max Current</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">192</div>
+                        <div class="spec-label">Test Channels</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Ready to Advance Your Battery Testing?</h2>
+            <p>
+                Partner with the industry leader trusted by over 1,000 facilities worldwide. Let's discuss your specific testing requirements.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Schedule Consultation →</a>
+                <a href="#" class="btn-secondary">Download Product Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="images/logo_white.png" width="200"> </div>
+                <p>
+                    Since 1986, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#">Research & Development</a></li>
+                    <li><a href="#">Manufacturing</a></li>
+                    <li><a href="#">EV & Energy Storage</a></li>
+                    <li><a href="#">Quality Control</a></li>
+                    <li><a href="#">FUSION Systems</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">Series 6000</a></li>
+                    <li><a href="#">Series 4000/4000H</a></li>
+                    <li><a href="#">Series 8500</a></li>
+                    <li><a href="#">Desktop Testers</a></li>
+                    <li><a href="#">Software Suite</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Maccor</a></li>
+                    <li><a href="#">Leadership Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© 2026 Maccor, Inc. All rights reserved.</div>
+            <div>Tulsa, Oklahoma, USA</div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.solution-card, .industry-card').forEach((card) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Dynamic nav background on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
