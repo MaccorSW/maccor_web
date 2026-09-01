@@ -121,8 +121,11 @@
                     <p class="contact-intro">Tell us about your testing requirements and our applications team will reach out with a tailored configuration.</p>
                 </div>
 
-                <form id="contact" class="contact-form" action="https://public.herotofu.com/v1/e32ba2d0-a53a-11f1-812e-538f62f7a04d" method="post" accept-charset="UTF-8">
+               <!-- <form id="contact" class="contact-form" action="https://public.herotofu.com/v1/e32ba2d0-a53a-11f1-812e-538f62f7a04d" method="post" accept-charset="UTF-8"> -->
+                <form id="contact" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="68ddd945-5011-449a-9bd5-4b77857990b3">
                     <!-- <input type="text" name="_honey" style="display:none"> -->
+
                     
 
                     <div class="form-section-label">Contact Details</div>
@@ -251,12 +254,15 @@
 -->
                     
                     <div>
-                        <p>By clicking Submit, you agree that the information you provide will be used to respond to your inquiry and will be transmitted to us through our third-party form processor, as described in our <a href="privacy.html">Privacy Statement</a>.</p>
+                        <div class="h-captcha" data-captcha="true"></div>
+                        <p>By clicking Submit, you agree that the information you provide will be used to respond to your inquiry and transmitted to us through our third-party form processor, Web3Forms. This form is protected against spam and abuse using hCaptcha. See our <a href="privacy.html">Privacy Statement</a> for details.</p>
                         <input type="submit" value="Submit" />
+                        <!--
                         <div style="text-indent:-99999px; white-space:nowrap; overflow:hidden; position:absolute;" aria-hidden="true">
                           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
                         </div>
-                      </div>
+                        --> 
+                    </div>
                 </form>
             </div>
 
@@ -344,15 +350,16 @@
         (function () {
         // Maps the ?interest= value in the URL to a checkbox name on the form
         var map = {
-        '4000':        'cbInterest_4000',          // Cell & Module (Series 4000/4000H)
-        'fusion':      'cbInterest_fusion',        // FUSION
-        'desktop':     'cbInterest_desktops',      // Desktop / R&D
-        'rnd':         'cbInterest_6000',
-        'formation':   'cbInterest_formation',
-        'balancer':    'cbInterest_balancer',
-        'options':     'cbInterest_options',
-        'accessories': 'cbInterest_accessories',
-        'chamber':     'cbInterest_chamber'
+                  '4000':        'Series-4000/4000H',
+                  'fusion':      'Fusion',
+                  'desktop':     'Desktops',
+                  'rnd':         'Series-6000/6000H',
+                  'formation':   'Formation',
+                  'balancer':    'Cell Balancer',
+                  'options':     'Options',
+                  'accessories': 'Accessories',
+                  'chamber':     'Chamber'
+
         };
 
         var interest = new URLSearchParams(window.location.search).get('interest');
@@ -372,5 +379,21 @@
         })();
     </script>
     <script src="cookie-consent.js" data-privacy="privacy.html"></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contact');
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                const captchaField = form.querySelector('textarea[name="h-captcha-response"]');
+
+                if (!captchaField || !captchaField.value) {
+                    e.preventDefault();
+                    alert('Please complete the CAPTCHA.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
