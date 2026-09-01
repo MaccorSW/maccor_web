@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Pack Testing vs Cell Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="Battery pack testing vs. single-cell testing: voltage differences, current scaling, BMS integration, SMBus monitoring, and multi-channel safety" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/systems/battery-pack-testing-vs-cell-testing.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Pack Testing vs Cell Testing | Maccor" />
+    <meta property="og:description" content="Understand the key differences between cell-level and pack-level battery testing — voltage range, current demands, BMS interaction, SMBus monitoring, and how to configure the test system for each." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/systems/battery-pack-testing-vs-cell-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Pack Testing vs Cell Testing",
+      "description": "A technical comparison of battery pack testing and cell testing: voltage range differences, current requirements, BMS interaction, SMBus monitoring, combined channels, and safety considerations.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/systems/battery-pack-testing-vs-cell-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../systems.html">Battery Test Systems</a> / <span>Battery Pack Testing vs Cell Testing</span>
+                </div>
+                <div class="kicker">Systems — Article</div>
+                <h1>Battery Pack Testing <span class="highlight">vs Cell Testing</span></h1>
+                <p>A practical comparison of cell-level and pack-level battery testing — covering voltage range, current demands, BMS interaction, SMBus monitoring, combined-channel configuration, and safety considerations for each.</p>
+            </div>
+        </section>
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">PACK vs CELL</span>
+                <h2>Pack Testing vs Cell Testing: Key Differences</h2>
+                <p>From voltage windows and current capacity to BMS integration and safety — a structured guide to configuring battery test systems for both cell-level and pack-level work.</p>
+            </div>
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>Why the Distinction Matters</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Cell testing and pack testing share the same fundamental goal — characterize electrical behavior under controlled conditions — but the practical requirements diverge significantly. Pack testing involves higher voltages, higher currents, BMS interaction, cell-level monitoring within the pack, and more complex safety considerations. Understanding these differences before configuring the test system prevents hardware mismatches, measurement errors, and safety incidents.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">VOLTAGE & CURRENT</span></div>
+                    <h3>Voltage Range and Current Demands</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">The most immediate hardware differences between cell and pack testing are electrical:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Cell voltage:</strong> Typically 2.5–4.35 V per cell depending on chemistry. Single-channel, standard voltage range.</li>
+                      <li><strong>Module voltage:</strong> Cells in series multiply voltage — a 12S module reaches 50+ V. Verify channel Vmax supports the full pack voltage before connecting.</li>
+                      <li><strong>Pack voltage:</strong> EV pack strings can reach 400–800 V or more. Requires specialized high-voltage hardware — standard Maccor channels are not rated for these voltages.</li>
+                      <li><strong>Cell current:</strong> 0.1–50 A typical for standard cylindrical and prismatic cells.</li>
+                      <li><strong>Pack current:</strong> Proportional to pack capacity. Large packs require combined-channel configurations or dedicated high-current hardware.</li>
+                      <li><strong>Vsafe and Isafe:</strong> Must be configured specifically for the pack voltage and current ratings — not cell-level defaults.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BMS INTERACTION</span></div>
+                    <h3>BMS Integration and SMBus Monitoring</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Packs with an integrated Battery Management System add a communication and control layer that cell testing does not require:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>SMBus (Smart Battery) interface:</strong> Maccor supports SMBus communication via SetSMB and GetSMB step types and SMB Val End Type conditions. Up to 41 SMBus functions can be monitored.</li>
+                      <li><strong>Key SMBus parameters:</strong> Voltage (0x09), Current (0x0a), RelSOC (0x0d), AbsSOC (0x0e), RemainingCapacity (0x0f), BatteryStatus (0x16), CycleCount (0x17), and individual cell voltages VCELL1–VCELL4 (0x3c–0x3f).</li>
+                      <li><strong>BMS end conditions:</strong> Use SMB Val End Types to end a step when the BMS reports a specific status register value — for example, ending charge when RelSOC reaches 100% as reported by the BMS itself.</li>
+                      <li><strong>Passive Smart Battery mode:</strong> For packs that require open-circuit detection. Set in Board Configuration under Special Devices; minimum open time 50 ms.</li>
+                      <li><strong>Charging current/voltage from BMS:</strong> GetSMB can read the BMS's requested ChargingCurrent (0x14) and ChargingVoltage (0x15) to implement BMS-directed charging protocols.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">CELL MONITORING IN PACKS</span></div>
+                    <h3>Monitoring Individual Cells Within a Pack</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">One of the most important aspects of pack testing is monitoring individual cell voltages to detect imbalance, weak cells, or failure modes that are invisible at the pack terminal:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Auxiliary inputs for cell voltage:</strong> Route individual cell tap leads to auxiliary voltage inputs. Up to 48 aux inputs per channel support comprehensive cell-level monitoring.</li>
+                      <li><strong>Aux Volt End Types:</strong> Terminate the test step if any individual cell voltage exceeds Vmax or falls below Vmin — before the pack terminal voltage trips.</li>
+                      <li><strong>SMBus VCELL registers:</strong> For packs with SMBus BMS, individual cell voltages are available via GetSMB without additional wiring.</li>
+                      <li><strong>Global AUX Monitoring:</strong> Embed a selected auxiliary reading (e.g., hottest cell temperature) into the standard EV Temp column for automatic MIMS visibility.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">SAFETY</span></div>
+                    <h3>Safety Considerations for Pack Testing</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Pack testing carries elevated risk relative to cell testing due to higher stored energy and voltage:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Hardware voltage rating:</strong> Verify channel Vmax exceeds the fully charged pack voltage with margin. Never connect a pack whose voltage approaches the channel hardware limit.</li>
+                      <li><strong>P Bat safe:</strong> Set conservatively — pack power can be very high. The firmware will shut down in ~30 ms if exceeded, but the energy involved in a pack fault is much greater than a cell fault.</li>
+                      <li><strong>Fusing and disconnects:</strong> Install appropriate fuses and manual disconnects in the test circuit independent of the Maccor safety system.</li>
+                      <li><strong>Temperature monitoring:</strong> Monitor both pack surface temperature and, if accessible, individual cell temperatures via auxiliary inputs.</li>
+                      <li><strong>FailSafe relay:</strong> Confirm the isolation relay is rated for pack voltage and current — standard relays may not be rated for higher-voltage configurations.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Choosing the Right Testing Level</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Cell and pack testing answer different questions. Both are typically needed across a complete product development program.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                          <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Test Level</th>
+                          <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Best For</th>
+                        </tr></thead>
+                        <tbody style="color: var(--light-grey);">
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">Cell testing</td>
+                            <td style="padding: 0.6rem 0.75rem;">Chemistry development, cell screening, formation, cycling statistics</td>
+                          </tr>
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">Module testing</td>
+                            <td style="padding: 0.6rem 0.75rem;">Assembly process validation, balance verification, thermal mapping</td>
+                          </tr>
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">Pack testing</td>
+                            <td style="padding: 0.6rem 0.75rem;">BMS integration, system-level performance, compliance testing</td>
+                          </tr>
+                          <tr style="">
+                            <td style="padding: 0.6rem 0.75rem;">Combined cell + pack</td>
+                            <td style="padding: 0.6rem 0.75rem;">Correlating cell-level degradation to pack-level performance loss</td>
+                          </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Can I test a high-voltage pack on a standard Maccor channel?</p>
+                    <p style="color: var(--light-grey);">Only if the pack voltage is within the channel's rated Vmax. Standard Maccor channels are designed for cell and small module voltages. Large EV packs at 400–800 V require dedicated high-voltage test hardware. Never exceed the channel's hardware voltage rating — the risk is catastrophic hardware failure and personnel hazard.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What is the SMB Val End Type used for in pack testing?</p>
+                    <p style="color: var(--light-grey);">SMB Val End Type ends a test step when a specified SMBus register value meets a defined condition. For example, end the charge step when the BMS reports RelSOC &gt;= 100%, or end a rest step when BatteryStatus indicates the pack is ready. This allows the test procedure to respond to BMS-reported state rather than relying solely on terminal voltage and current.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Should I test cells before assembly into a pack?</p>
+                    <p style="color: var(--light-grey);">Yes — cell-level testing before assembly is the most cost-effective way to identify weak or out-of-spec cells. Replacing a failed cell after pack assembly is far more expensive than sorting at the cell level. Cell-level data also provides the baseline needed to interpret pack-level degradation later in the product's life.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="pulse-testing-for-battery-research.html" class="link-primary">Pulse Testing for Battery Research →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="high-accuracy-battery-measurement.html" class="link-primary">High-Precision Battery Measurement →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="high-current-battery-testing.html" class="link-primary">High-Current Battery Testing →</a></li>
+                      <li style="padding: 0.5rem 0; "><a href="../systems.html" class="link-primary">← Back to Battery Test Systems</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

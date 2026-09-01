@@ -1,0 +1,45 @@
+old_url,new_url,status,confidence,note
+/automatedbatterytester.html,/cell-battery-module-test-systems.html,301,high,
+/ev_pack_tester.html,/cell-battery-module-test-systems.html,301,high,
+/high_volume_battery_tester.html,/cell-battery-module-test-systems.html,301,med,High-density cell tester folded into the cell/battery/pack systems page
+/desktops.html,/desktop-battery-testers.html,301,high,
+/inventory.html,/desktop-battery-testers.html,301,med,Old page was a duplicate of desktops.html (same title)
+/series6k.html,/series-6000.html,301,high,
+/fusion.html,/fusion-integrated-systems.html,301,high,
+/compact_temperature_chamber.html,/compact-temperature-chamber.html,301,high,
+/batteryformation.html,/manufacturing-formation.html,301,high,
+/madeinamerica.html,/quality-control-testing.html,301,med,'Made in America' content now lives under quality-control; could also fit manufacturing-formation
+/products.html,/cell-battery-module-test-systems.html,301,low,No single 'products' page now; sent to flagship systems page. Consider index.html instead
+/cell_balancer.html,/accessories.html,301,low,Cell balancer (1205a) has no dedicated page; treated as accessory. Could fit options.html
+/m22.html,/software-data-analytics.html,301,low,'Virtual Machine Solution' has no equivalent; sent to software hub. Review
+/software.html,/software-data-analytics.html,301,high,Main software nav page
+/mactest.html,/software/mactest.html,301,high,
+/build_test.html,/software/build-test.html,301,high,
+/export_data.html,/software/data-export.html,301,high,
+/view_data.html,/software/data-export.html,301,high,New data-export page explicitly covers Export + View Data
+/mims_client.html,/software/mims-client.html,301,high,
+/mims_server.html,/software/mims-server.html,301,high,
+/can_dbc_editor.html,/software/advanced-tools.html,301,high,CAN editor folded into Advanced Tools
+/smbus.html,/software/advanced-tools.html,301,high,SMBus config folded into Advanced Tools
+/waveform_edit.html,/software/advanced-tools.html,301,high,Waveform editor folded into Advanced Tools
+/macnet.html,/software-data-analytics.html,301,low,No MacNet page now; sent to software hub. Review
+/events.html,/battery-testing-events.html,301,high,
+/worldwide.html,/global-representatives.html,301,high,
+/partners.html,/global-representatives.html,301,med,Partners/distributors now under global-representatives
+/press.html,/aboutus.html,301,low,No press/news page now; sent to About. Review
+/thankyou.html,/contact.html,301,med,Form 'thank you' page; verify your form doesn't still target it
+/Sandbox.html,/index.html,301,med,Dev/sandbox page; redirect to home (or 410)
+/cg_v1.html,/index.html,301,low,Brain-teaser game; no equivalent. Redirect home or return 410
+/cross_numbers_v1.html,/index.html,301,low,Brain-teaser game; no equivalent. Redirect home or return 410
+/sudoku_v1.html,/index.html,301,low,Brain-teaser game; no equivalent. Redirect home or return 410
+/teasers_v1.html,/index.html,301,low,Brain-teaser hub; no equivalent. Redirect home or return 410
+/wordsearch_v1.html,/index.html,301,low,Brain-teaser game; no equivalent. Redirect home or return 410
+/aboutus.html,/aboutus.html,unchanged (no redirect),high,
+/accessories.html,/accessories.html,unchanged (no redirect),high,
+/contact.html,/contact.html,unchanged (no redirect),high,
+/index.html,/index.html,unchanged (no redirect),high,
+/options.html,/options.html,unchanged (no redirect),high,
+/privacy.html,/privacy.html,unchanged (no redirect),high,
+/support.html,/support.html,unchanged (no redirect),high,
+/404.html,/404.html,leave as-is,high,404 page / search-engine verification file
+/google017ed4aef8dcec4e.html,/google017ed4aef8dcec4e.html,leave as-is,high,404 page / search-engine verification file

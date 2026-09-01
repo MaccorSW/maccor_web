@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Internal Resistance Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="Maccor guide to measuring DCIR and AC impedance: pulse methods, EIS, resistance growth with aging, and performance implications" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-internal-resistance-testing.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Internal Resistance Testing | Maccor" />
+    <meta property="og:description" content="Measure DCIR and AC impedance to quantify power capability, diagnose aging, and predict how a battery will perform under real-world load conditions." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-internal-resistance-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Internal Resistance Testing",
+      "description": "A technical guide to measuring DC internal resistance (DCIR) and AC impedance in batteries: pulse methods, EIS, how resistance grows with age, and what it means for performance.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-internal-resistance-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Request Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../fundamentals.html">Fundamentals</a> / <span>Battery Internal Resistance Testing</span>
+                </div>
+                <div class="kicker"></div>
+                <h1>Battery Internal <span class="highlight">Resistance Testing</span></h1>
+                <p>Measuring DC internal resistance and AC impedance to quantify power capability, diagnose aging mechanisms, and predict battery behavior under real-world high-rate loads.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">RESISTANCE & IMPEDANCE</span>
+                <h2>Understanding Battery Internal Resistance Testing</h2>
+                <p>From DCIR pulse methods to AC impedance spectroscopy — a practical guide to measuring, tracking, and interpreting battery internal resistance.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>Why Internal Resistance Matters</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Internal resistance is a fundamental indicator of battery power capability and state of health. A low-resistance cell delivers more voltage to the load at high currents and wastes less energy as heat. As a battery ages, resistance grows — first at interfaces (SEI, cathode surface), then through electrolyte depletion and active material loss. Tracking resistance over a battery's life provides an early warning of degradation before capacity fade becomes significant.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">MEASUREMENT METHODS</span></div>
+                    <h3>DCIR vs. AC Impedance</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Two complementary methods are used in battery testing, each revealing different aspects of resistance:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>DC Internal Resistance (DCIR):</strong> A short current pulse is applied and the voltage response is measured. DCIR = ΔV ÷ ΔI. This captures ohmic resistance plus short-timescale polarization. It is the most common in-cycle resistance metric.</li>
+                      <li><strong>AC Impedance (EIS):</strong> A small sinusoidal current is swept across a frequency range. The impedance spectrum separates ohmic resistance, charge-transfer resistance, and diffusion contributions. Maccor supports EIS via the ACImp and EDA/FRA step types.</li>
+                      <li><strong>DCIR from discharge step:</strong> Resistance can also be estimated from the voltage drop at the start of a discharge step at a known current.</li>
+                      <li><strong>Pulse Resistance:</strong> MIMS Client cycle-based charts can plot pulse resistance directly from embedded pulse steps.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>Measuring DCIR During Cycling</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">DCIR measurement is typically embedded directly in the cycling procedure:</p>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li>After the rest step, insert a short pulse discharge step (e.g., 10-second pulse at 1C or 2C).</li>
+                      <li>Set the End Type to Step Time = 10 seconds.</li>
+                      <li>Follow the pulse with a rest step to allow voltage recovery before continuing the cycle.</li>
+                      <li>The DCIR value is computed from ΔV ÷ ΔI and stored in the data file.</li>
+                      <li>In MIMS Client, add DCIR or Pulse Resistance to a cycle-based chart to track the trend over life.</li>
+                      <li>Optionally, run a full EIS sweep at each Reference Performance Test interval for deeper diagnostics.</li>
+                    </ol>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Internal Resistance Testing Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Resistance is a more sensitive aging indicator than capacity for many failure modes, especially in power-focused applications.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                      <thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Environment</th>
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Primary Goal</th>
+                      </tr></thead>
+                      <tbody style="color: var(--light-grey);">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">R&amp;D Laboratories</td>
+                          <td style="padding: 0.6rem 0.75rem;">Separate ohmic and kinetic resistance contributions to guide material design</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Validation Programs</td>
+                          <td style="padding: 0.6rem 0.75rem;">Verify power capability meets pulse discharge requirements at end-of-life</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Production & QA</td>
+                          <td style="padding: 0.6rem 0.75rem;">Detect high-resistance cells that indicate formation or welding defects</td>
+                        </tr>
+                        <tr style="">
+                          <td style="padding: 0.6rem 0.75rem;">Field & Reliability</td>
+                          <td style="padding: 0.6rem 0.75rem;">Track resistance growth as a predictor of remaining power capability</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Engineers and Technical Buyers</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Internal resistance measurement adds diagnostic depth to any cycling or characterization program.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Earlier degradation signal:</strong> Resistance growth often precedes capacity fade, giving more lead time for intervention.</li>
+                      <li><strong>Power-focused validation:</strong> For EV and power-tool applications, DCIR at end-of-life determines whether pulse power requirements are still met.</li>
+                      <li><strong>EIS for root-cause analysis:</strong> Nyquist plots separate ohmic resistance, SEI resistance, and charge-transfer resistance — enabling more targeted design improvements.</li>
+                      <li><strong>No extra channels required:</strong> DCIR is collected inline with the cycling procedure using standard pulse steps.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How long should a DCIR pulse be?</p>
+                    <p style="color: var(--light-grey);">Typical pulse durations range from 2 to 30 seconds. Shorter pulses (2–5 s) capture primarily ohmic resistance; longer pulses include polarization contributions. The pulse duration should be standardized across all measurements in a study for consistent comparison.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">At what SoC should DCIR be measured?</p>
+                    <p style="color: var(--light-grey);">DCIR is SoC-dependent — it is typically highest at very low and very high SoC, and lowest in the mid-SoC range. Most programs measure DCIR at 50% SoC as the standard reference point, with additional measurements at other SoC levels for characterization.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What does a rising Nyquist semicircle indicate?</p>
+                    <p style="color: var(--light-grey);">Growth of the high-frequency semicircle typically indicates increasing SEI or cathode interface resistance. Growth of the lower-frequency feature suggests worsening charge-transfer kinetics at the electrode surface — often associated with active material degradation.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-efficiency-testing.html" class="link-primary">Battery Efficiency Testing →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-degradation-analysis.html" class="link-primary">Battery Degradation Analysis →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-safety-testing.html" class="link-primary">Battery Safety Testing →</a></li>
+                      <li style="padding: 0.5rem 0; "><a href="../fundamentals.html" class="link-primary">← Back to Fundamentals</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        // Dynamic nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Scroll animation for cards
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

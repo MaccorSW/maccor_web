@@ -1,233 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Optional Equipment Available from Maccor</title>
-	  <link rel="canonical" href="https://www.maccor.com/options.html" /> 
-	<meta name="Description" content="Add optional Temperature, Voltage, pressure, etc. inputs at the time of purchase or have one of our trained service engineers add them in the field. You will get more out your test data."> 
-    <!-- Bootstrap -->
-	<link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-	<link href="css/myStyle.css" rel="stylesheet" type="text/css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  </head>
-  <body style="padding-top: 70px">
-    <div id="sticky-button">
-      <a href="contact.html">Request a Quote</a>
-    </div>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <div class="container-fluid">
-    <div class="container">
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="index.html"><img src="images/Logo.png" width="200" class="img-fluid" alt="Maccor Logo"> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Products </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="products.html">Overview</a></li>
-					<li><hr></li>
-					<li><a class="dropdown-item" href="fusion.html"><strong>FUSION</strong> Integrated Test System</a></li>
-          <li><a class="dropdown-item" href="series6k.html">NextGen</a></li>
-          <li><a class="dropdown-item" href="desktops.html">Desktops</a></li>
-					<li><a class="dropdown-item" href="automatedbatterytester.html">Cell and Module</a></li>
-                    <!-- <li><a class="dropdown-item" href="ev_pack_tester.html">EV, Module, Pack</a></li> -->
-					<li><a class="dropdown-item" href="compact_temperature_chamber.html">Temperature Chamber</a></li>
-					<li><a class="dropdown-item" href="high_volume_battery_tester.html">High Volume</a></li><li><a class="dropdown-item" href="batteryformation.html">Formation</a></li>
-					<li><a class="dropdown-item" href="m22.html">Virtual Machine</a></li>
-					<li><a class="dropdown-item" href="cell_balancer.html">Cell Balancer</a></li>					
-					<li><a class="dropdown-item" href="accessories.html">Accessories</a></li>
-					<li><a class="dropdown-item" href="options.html">Options</a></li>
-                </ul>
-            </li>
-			<li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Software </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                    <li><a class="dropdown-item" href="software.html">Overview</a></li>
-					<li><hr></li>
-                    <li><a class="dropdown-item" href="mactest.html">MacTest</a></li>
-					<li><a class="dropdown-item" href="build_test.html">Build Test</a></li>
-                    <li><a class="dropdown-item" href="mims_client.html">MIMS Client</a></li>
-					<li><a class="dropdown-item" href="mims_server.html">MIMS Server</a></li>
-					<li><a class="dropdown-item" href="view_data.html">Data Viewer</a></li>
-					<li><a class="dropdown-item" href="export_data.html">Export</a></li>
-					<li><a class="dropdown-item" href="can_dbc_editor.html">CAN Edit</a></li>
-					<!-- <li><a class="dropdown-item" href="macnet.html">MacNet</a></li> -->
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="aboutus.html">About Us</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="worldwide.html">Worldwide</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="support.html">Support</a>
-            </li>
-			<li class="nav-item">
-                <a class="nav-link" href="events.html">Events</a>
-            </li>
-        </ul>
+    <!-- ═══ PRIMARY SEO META ═══ -->
+    <title>Battery Tester Options: Auxiliary Inputs, CAN, EIS | Maccor</title>
+    <meta name="description" content="Expand any Maccor battery test system with factory or field-installed options — auxiliary voltage, temperature, pressure, CAN bus, SMBus, EIS, digital I/O, and external charge/load controllers." />
+    <meta name="keywords" content="battery tester options, auxiliary voltage input, temperature monitoring battery tester, CAN bus battery test, SMBus I2C battery tester, EIS impedance analyzer interface, Maccor options, battery test accessories, digital I/O battery tester, external charge controller" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://www.maccor.com/options.html" />
 
-      </div>
-    </nav>
-  </div>  
-  </div>	  
-	  
-  <div class="container-fluid">
-    <div class="container">	  
-  <h2 class="text-center"><strong>Options</strong></h2>
-<p class="text-center"><strong>Experience the power of our optional add-ons and take your capabilities to the next level! Measured values are stored permanently in the data file for the assigned channel, empowering you to have full control over the test flow. Most inputs are grouped in blocks of sixteen. Assign one, all, or as many inputs as you need to a test channel.</strong></p>
+    <!-- ═══ OPEN GRAPH ═══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Tester Options &amp; Add-Ons | Maccor" />
+    <meta property="og:description" content="Auxiliary voltage, temperature, pressure, CAN, SMBus, EIS, digital I/O — factory or field-installed options for every Maccor battery test system." />
+    <meta property="og:url" content="https://www.maccor.com/options.html" />
+    <meta property="og:site_name" content="Maccor" />
 
-<span class="anchor" id="s1100"></span>
-<div id="Series1100" name="s1100" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center;"><b>Series 1100</b></h3>
-      <p style="text-align: center;">No more room in your battery test system? No problem! The Series 1100 is the perfect vessel for placing up tp six (6) auxiliary input panels per Series 1100. Easily install the Series 1100 closer to the test subjects and reduce cable clutter. The 1100 connects With a single cable to your Maccor Battery Test System.<br></p>
-    </div>
-  </div>
-</div>
-<hr>		
-		
-<span class="anchor" id="AuxV"></span>
-<div id="landing" name="AuxV" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center;"><b>Auxiliary Voltage Inputs</b></h3>
-      <p style="text-align: center;">Enhance your testing capabilities with the option to add fully-isolated high impedance software-assignable voltage inputs in blocks of sixteen. Customize your test channels by assigning any combination of voltage inputs, and seamlessly integrate the measured data into the test channel's data record. Voltages measured by these inputs can control operation of the test and display real time values.<br></p>
-    </div>
-  </div>
-</div>
-<hr>
-<span class="anchor" id="AuxT"></span>
-<div id="AuxT-" name="AuxT" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center;"><b>Temperature Inputs&nbsp;</b></h3>
-      <p style="text-align: center;">Optimize your system by seamlessly integrating software-assignable temperature inputs in blocks of sixteen. Assign these inputs to channels to access a comprehensive historical temperature record. Leverage temperature functions to effectively control tests conducted on channels featuring thermocouple inputs, providing options such as absolute temperature, ∆T/δt, ∆T, and more. <br><br>Explore a variety of available inputs including <b>thermocouple</b> types (K, T, or J), <b>thermistors</b>, and <b>RTD</b>s.</p>
-    </div>
-  </div>
-  
-</div>
-<hr>
-<span class="anchor" id="pressure"></span>
-<div id="pressure-" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center;"><b>Pressure Inputs&nbsp;</b></h3>
-      <p style="text-align: center;">Streamline your testing process by assigning Pressure Inputs via the software to any test channel, conveniently grouped in blocks of sixteen. Capture and analyze historical pressure data to gain valuable information. Utilize the data to accurately control a test channel using absolute pressure, ∆P/δt, ∆P, and various other parameters.<br></p>
-    </div>
-  </div>
-  
-</div>
-<hr>
-<span class="anchor" id="smb_"></span>
-<div id="smb_x" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center;">
-        <b>SMBus (I<sup>2</sup>C) Interface</b>
-      </h3>
-      <p style="text-align: center;">The SMB interface allows for the reading of data from battery packs fitted with SMB electronics. The data read from the battery becomes a permanent part of the data file’s record. Comparisons between measured values and data from the pack can be made.
-		</p>
-    </div>
-  </div>
-</div>
-<hr>
-<span class="anchor" id="canIt"></span>
-<div id="canIt-" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center; color:"><b>CAN Interface</b></h3>
-      <p style="text-align: center; color:">CAN Interface allows capability for test systems to receive CAN communications from the battery modules and store the CAN data in the data file. The details of the specifications for the CAN communications is by mutual agreement.</p>
-    </div>
-  </div>
-</div>
-<hr>
-<span class="anchor" id="m_option"></span>
-<div id="m_optionx" name="m_option"></div>
-<div class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center;"><b>EIS Electrochemical Interface</b></h3>
-      <p style="text-align: center;">
-        Connect test channels to a Princeton Applied Reasearch or Solartron Impedance Analyzer.&nbsp;This integrated solution results in increased productivity by letting the test channel automatically switch in the EIS hardware when the specified step is reached.<br>
-        Currently supported devices: Versastat 4, Versastat 3, Parstat 4000, Solartron 1260/1287, and Solartron Energylab.
-      </p>
-    </div>
-  </div>
-</div>
-<hr>
-<span class="anchor" id="DigIn"></span>
-<div id="DigIn-" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center;">
-        <b>Digital Inputs and Outputs</b>
-      </h3>
-      <p style="text-align: center;">
-        Control the flow based on an external signal with the Digital Inputs. <br>
-        Each Digital Input/Output Board has 16-Opto-Isolated Bipolar inputs with factory-settable voltage threshold and 16 Normally Open dry contact outputs rated 2A. Control a Normally Open dry contactor rated 2A with the Digital Outputs.
-      </p>
-      <p style="text-align: center;">With this hardware added to your system, you can branch to other steps in the testing profile or close a relay to activate an external device.</p>
-    </div>
-  </div>
-</div>
-<hr>
-<span class="anchor" id="ecc_elc"></span>
-<div id="ecc_elc-" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
-  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
-    <div class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word; margin: 0px; padding: 16px;">
-      <h3 style="text-align: center;"><b style="position: relative;">ECC and ELC</b></h3>
-      <p style="text-align: center;"><b>E</b>xternal <b>C</b>harge <b>C</b>ontrollers can be added to any or all of the test channels. These devices work as follows: The test channel retains all of the capabilities it normally has. In addition, tests run on the channel can connect to an external charger during a particular step. During such connection, all the data-gathering capabilities and all the step end conditions of the test channel can still be used.</p>
-      <p style="text-align: center;"><b>E</b>xternal <b>L</b>oad <b>C</b>ontrollers can be added to any or all of the test channels. These devices work as follows: The test channel retains all of the capabilities it normally has. In addition, tests run on the channel can connect to an external load during a particular step. During such connection, all the data-gathering capabilities and all the step end conditions of the test channel can still be used.</p>
-    </div>
-  </div>
-</div>
-<hr>
+    <!-- ═══ STRUCTURED DATA ═══ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://www.maccor.com/"},
+            {"@type":"ListItem","position":3,"name":"Options & Add-Ons","item":"https://www.maccor.com/options.html"}
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "name": "Maccor Battery Tester Options",
+          "description": "Optional hardware add-ons for Maccor battery test systems",
+          "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"Series 1100 Auxiliary Input Expansion","url":"https://www.maccor.com/options.html#s1100"},
+            {"@type":"ListItem","position":2,"name":"Auxiliary Voltage Inputs","url":"https://www.maccor.com/options.html#AuxV"},
+            {"@type":"ListItem","position":3,"name":"Temperature Inputs","url":"https://www.maccor.com/options.html#AuxT"},
+            {"@type":"ListItem","position":4,"name":"Pressure Inputs","url":"https://www.maccor.com/options.html#pressure"},
+            {"@type":"ListItem","position":5,"name":"SMBus (I2C) Interface","url":"https://www.maccor.com/options.html#smb_"},
+            {"@type":"ListItem","position":6,"name":"CAN Bus Interface","url":"https://www.maccor.com/options.html#canIt"},
+            {"@type":"ListItem","position":7,"name":"EIS Electrochemical Interface","url":"https://www.maccor.com/options.html#m_option"},
+            {"@type":"ListItem","position":8,"name":"Digital Inputs and Outputs","url":"https://www.maccor.com/options.html#DigIn"},
+            {"@type":"ListItem","position":9,"name":"External Charge & Load Controllers","url":"https://www.maccor.com/options.html#ecc_elc"}
+          ]
+        }
+      ]
+    }
+    </script>
 
- 
-    </div>
-  </div>
-	  
-    <footer>  
-      <div class="container-fluid" id="padding">
-        <div class="container"  style="background-color: #ebebeb">	 
-      
-	      <div class="row">
-	        <div class="col-xl-8"><br>
-		      <img src="images/Logo.png" width="200" class="img-fluid" alt="Maccor Logo"><br><p><strong id="Footy1">Maccor is the trusted partner for professionals in cutting-edge, innovation-focused settings, offering unparalleled support for the unique challenges faced by laboratories.</strong></p>
-	        </div>
-	        <div class="col-xl-2">&nbsp;</div>
-          </div>
+    <!-- ═══ ANALYTICS ═══ -->
+    <script>
+      /* Google Analytics / Ads is loaded ONLY after the visitor accepts cookies
+         (see cookie-consent.js). Until then no GA/Ads network request is made and
+         no analytics cookie is set. The gtag() calls below queue inertly in
+         dataLayer and are processed by GA only once it loads post-consent. */
+      (function () {
+        var GA_ID = 'G-048RD5EJRN';
+        function loadGA() {
+          if (window.__maccorGaLoaded) return;
+          window.__maccorGaLoaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(s);
+        }
+        function register() {
+          if (window.MaccorConsent && typeof window.MaccorConsent.onAccept === 'function') {
+            window.MaccorConsent.onAccept(loadGA);
+            return true;
+          }
+          return false;
+        }
+        if (!register()) {
+          document.addEventListener('DOMContentLoaded', function () {
+            if (!register()) {
+              var n = 0, t = setInterval(function () {
+                if (register() || ++n > 40) clearInterval(t);
+              }, 50);
+            }
+          });
+        }
+      })();
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-048RD5EJRN');
+    </script>
 
-	      <div class="row">
-            <div class="col-lg-6 col-xl-4">
-		      <p>4322 South 49th W Ave&nbsp;Tulsa, OK 74107 USA<br><a href="mailto:sales@maccor.com">sales@maccor.com</a><br><a href="tel:+19184461874">+1 918 446-1874</a></p><p>&nbsp;</p></div>
-            <div class="col-lg-6 col-xl-4"></div>
-          </div>
-	 	    
-	      <div class="row">
-	        <div class="col-xl-6"><p>Copyright&#169; 2025, Maccor, Inc., All Rights Reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Statement</a></p></div>
-	        <div class="col-xl-6"><a href="https://www.linkedin.com/company/maccor-inc-"><img src="images/In-Blue.png" alt="" width="25"/></a>&nbsp;</div>
-          </div>
-  
+    <!-- ═══ FONTS & DESIGN SYSTEM ═══ -->
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+   
+
+
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ══════════ NAV ══════════ -->
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="index.html#industries">Industries</a></li>
+                <li><a href="index.html#technology">Technology</a></li>
+                <li><a href="battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
         </div>
-      </div>
-    </footer>  		  
-    
-  </body>
+    </nav>
+
+    <main id="main">
+
+        <!-- ══════════ HERO ══════════ -->
+        <section class="page-hero" style="background: radial-gradient(circle at 20% 40%, rgba(37,99,235,0.16) 0%, transparent 55%), radial-gradient(circle at 80% 75%, rgba(0,217,255,0.1) 0%, transparent 55%), linear-gradient(180deg, var(--deep-navy) 0%, var(--dark) 100%);">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a> / Options &amp; Add-Ons
+                </div>
+                <div class="options-badge">🔧 Factory &amp; Field Installable</div>
+                <h1>Options &amp;<br><span style="color:var(--primary)">Add-Ons</span></h1>
+                <p>Extend any Maccor battery test system with purpose-built optional hardware. All measured values are stored permanently in the data file for the assigned channel — giving you complete control over test flow and a richer, more actionable data record. Most inputs are grouped in blocks of sixteen and can be assigned freely across channels.</p>
+                <div class="badges">
+                    <span class="badge">Factory Installed</span>
+                    <span class="badge">Field Upgradeable</span>
+                    <span class="badge">All Series 4000 Platforms</span>
+                    <span class="badge">Data Logged Automatically</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════ QUICK-JUMP NAV ══════════ -->
+        <nav class="options-nav" aria-label="Jump to option">
+            <a href="#s1100"    class="options-nav-btn">Series 1100</a>
+            <a href="#AuxV"     class="options-nav-btn">Auxiliary Voltage</a>
+            <a href="#AuxT"     class="options-nav-btn">Temperature</a>
+            <a href="#pressure" class="options-nav-btn">Pressure</a>
+            <a href="#smb_"     class="options-nav-btn">SMBus (I²C)</a>
+            <a href="#canIt"    class="options-nav-btn">CAN Bus</a>
+            <a href="#m_option" class="options-nav-btn">EIS Interface</a>
+            <a href="#DigIn"    class="options-nav-btn">Digital I/O</a>
+            <a href="#ecc_elc"  class="options-nav-btn">ECC &amp; ELC</a>
+        </nav>
+
+        <!-- ══════════ OPTIONS LISTING ══════════ -->
+        <section style="padding:4rem 0 6rem;" aria-labelledby="options-heading">
+            <div class="options-wrap">
+                <p id="options-heading" style="text-align:center;color:var(--grey);font-size:0.9rem;max-width:700px;margin:0 auto 3rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;">All options available factory-installed or field-upgraded by a Maccor service engineer</p>
+
+                <!-- ── EXPANSION HARDWARE ── -->
+                <div class="section-divider">
+                    <div class="section-divider-inner">
+                        <span>Expansion Hardware</span>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- Series 1100 -->
+                <div class="options-wrap">
+                    <div id="s1100" class="option-block" aria-labelledby="opt-s1100-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">🗄️</div>
+                            <span class="option-anchor-tag">#s1100</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-s1100-title">Series 1100 — Auxiliary Input Expander</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p>Running out of auxiliary input slots in your battery test system? The Series 1100 is a dedicated auxiliary input expansion unit that holds up to <strong>six auxiliary input panels</strong> per enclosure. Install the Series 1100 physically close to your test subjects to minimise cable runs and eliminate clutter — a single cable connects it back to your Maccor battery test system.</p>
+                            <p>The Series 1100 is compatible with all auxiliary voltage, temperature, pressure, and digital I/O option boards, making it the most flexible way to scale auxiliary sensing capacity without modifying the host cycler.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">Up to 6 panels</span>
+                                <span class="option-chip">Single cable connection</span>
+                                <span class="option-chip">Locate near DUT</span>
+                                <span class="option-chip">Reduces cable clutter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── SENSING INPUTS ── -->
+                <div class="section-divider">
+                    <div class="section-divider-inner">
+                        <span>Sensing Inputs</span>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="options-wrap">
+
+                    <!-- Auxiliary Voltage -->
+                    <div id="AuxV" class="option-block" aria-labelledby="opt-auxv-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">⚡</div>
+                            <span class="option-anchor-tag">#AuxV</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-auxv-title">Auxiliary Voltage Inputs</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p>Add fully-isolated, high-impedance, software-assignable voltage inputs in <strong>blocks of sixteen</strong>. Assign any combination of voltage inputs to any test channel — measured values are seamlessly integrated into the channel's data record in real time.</p>
+                            <p>Auxiliary voltage inputs are ideal for logging <strong>reference electrode voltage</strong>, monitoring <strong>individual cell voltages within a pack</strong>, or capturing any external voltage signal you need to correlate with the cycling data. Measured values can drive test-flow branching decisions — step to any other step in the procedure based on an auxiliary voltage reading.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">Blocks of 16</span>
+                                <span class="option-chip">Fully isolated</span>
+                                <span class="option-chip">High impedance</span>
+                                <span class="option-chip">Software assignable</span>
+                                <span class="option-chip">Real-time display</span>
+                                <span class="option-chip">Test-flow control</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Temperature -->
+                    <div id="AuxT" class="option-block" aria-labelledby="opt-auxt-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">🌡️</div>
+                            <span class="option-anchor-tag">#AuxT</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-auxt-title">Temperature Inputs</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p>Integrate software-assignable temperature inputs in <strong>blocks of sixteen</strong>. Assign inputs to any channel to build a complete historical temperature record alongside your cycling data — no post-processing or synchronization required.</p>
+                            <p>Temperature functions allow you to control test flow using <strong>absolute temperature</strong>, <strong>∆T/δt</strong> (rate of change), <strong>∆T</strong> (differential), and additional parameters. Branch to any test step based on a temperature condition — essential for thermal characterization, abuse testing, and safety protocols.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">Thermocouple K, T, J</span>
+                                <span class="option-chip">Thermistors</span>
+                                <span class="option-chip">RTDs</span>
+                                <span class="option-chip">Absolute temp control</span>
+                                <span class="option-chip">∆T / ∆T per time</span>
+                                <span class="option-chip">Blocks of 16</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pressure -->
+                    <div id="pressure" class="option-block" aria-labelledby="opt-pressure-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">🔵</div>
+                            <span class="option-anchor-tag">#pressure</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-pressure-title">Pressure Inputs</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p>Assign pressure inputs via software to any test channel, conveniently grouped in <strong>blocks of sixteen</strong>. Capture and analyse historical pressure data alongside your electrochemical measurements — particularly valuable for solid-state cell research and pouch cell swelling characterisation.</p>
+                            <p>Pressure readings can actively control test flow using <strong>absolute pressure</strong>, <strong>∆P/δt</strong>, <strong>∆P</strong>, and additional parameters — enabling pressure-triggered safety cutoffs, conditional charge/discharge sequences, and full pressure-correlated cycle-life datasets.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">Blocks of 16</span>
+                                <span class="option-chip">Software assignable</span>
+                                <span class="option-chip">Absolute pressure</span>
+                                <span class="option-chip">∆P / ∆P per time</span>
+                                <span class="option-chip">Test-flow control</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /sensing inputs -->
+
+                <!-- ── COMMUNICATION INTERFACES ── -->
+                <div class="section-divider">
+                    <div class="section-divider-inner">
+                        <span>Communication Interfaces</span>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="options-wrap">
+
+                    <!-- SMBus -->
+                    <div id="smb_" class="option-block" aria-labelledby="opt-smb-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">🔗</div>
+                            <span class="option-anchor-tag">#smb_</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-smb-title">SMBus (I²C) Interface</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p>The SMBus interface reads data directly from <strong>battery packs fitted with SMB electronics</strong> — the BMS data stream becomes a permanent part of the channel's data file record alongside all other cycling measurements.</p>
+                            <p>This enables direct comparison between Maccor's independently measured values and the data reported by the pack's own battery management system — invaluable for BMS validation, state-of-charge accuracy testing, and pack qualification. No separate data capture or post-processing merge is required.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">I²C protocol</span>
+                                <span class="option-chip">BMS data capture</span>
+                                <span class="option-chip">Permanent data record</span>
+                                <span class="option-chip">BMS vs measured comparison</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CAN -->
+                    <div id="canIt" class="option-block" aria-labelledby="opt-can-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">📡</div>
+                            <span class="option-anchor-tag">#canIt</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-can-title">CAN Bus Interface</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p>The CAN interface enables Maccor test systems to <strong>send and receive CAN communications</strong> from battery modules, packs, and BMS units throughout the test procedure. All CAN frame data is stored directly in the data file — no external logging hardware required.</p>
+                            <p>CAN message specifications are configured by mutual agreement with Maccor engineering, supporting custom DBC definitions and flexible frame mapping. Combine with MacTest32's conditional step logic to branch test flow based on CAN-sourced values — for example, BMS-reported state-of-health, temperature limits, or fault flags.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">Send &amp; receive frames</span>
+                                <span class="option-chip">DBC configuration</span>
+                                <span class="option-chip">Stored in data file</span>
+                                <span class="option-chip">CAN-triggered step logic</span>
+                                <span class="option-chip">Custom frame mapping</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /comm interfaces -->
+
+                <!-- ── EXTERNAL INSTRUMENT INTEGRATION ── -->
+                <div class="section-divider">
+                    <div class="section-divider-inner">
+                        <span>External Instrument Integration</span>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="options-wrap">
+
+                    <!-- EIS -->
+                    <div id="m_option" class="option-block" aria-labelledby="opt-eis-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">📈</div>
+                            <span class="option-anchor-tag">#m_option</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-eis-title">EIS Electrochemical Interface — AC Impedance Multiplexer</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p>Connect Maccor test channels directly to a supported <strong>impedance analyser</strong>. When a test procedure reaches the designated EIS step, the channel automatically switches in the impedance analyser hardware — no manual intervention, no test interruption, no separate data session to merge.</p>
+                            <p>This integrated approach dramatically increases EIS throughput: multiple channels share a single analyser through the multiplexer, and impedance spectra are collected at precisely the right state-of-charge or cycle count as defined in the MacTest32 procedure. Results are correlated directly with the concurrent cycling data.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">Versastat 4</span>
+                                <span class="option-chip">Versastat 3</span>
+                                <span class="option-chip">Parstat 4000</span>
+                                <span class="option-chip">Solartron 1260/1287</span>
+                                <span class="option-chip">Solartron Energylab</span>
+                                <span class="option-chip">Auto step-triggered</span>
+                                <span class="option-chip">Multi-channel mux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /external instrument -->
+
+                <!-- ── CONTROL I/O ── -->
+                <div class="section-divider">
+                    <div class="section-divider-inner">
+                        <span>Control I/O &amp; External Controllers</span>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="options-wrap">
+
+                    <!-- Digital I/O -->
+                    <div id="DigIn" class="option-block" aria-labelledby="opt-digin-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">🔀</div>
+                            <span class="option-anchor-tag">#DigIn</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-digin-title">Digital Inputs &amp; Outputs</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p>Each Digital I/O board provides <strong>16 opto-isolated bipolar inputs</strong> with a factory-settable voltage threshold and <strong>16 normally-open dry-contact outputs</strong> rated at 2A. Use the digital inputs to receive signals from external safety systems, thermal chambers, or custom test fixtures and branch the test procedure accordingly. Use the digital outputs to activate relays, contactors, or external devices at any step.</p>
+                            <p>With Digital I/O added to your system, you can <strong>branch to any test step based on an external signal</strong> or <strong>close a relay to activate an external device</strong> — enabling tight integration with lab automation, environmental chambers, and safety interlock systems.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">16 opto-isolated inputs</span>
+                                <span class="option-chip">16 N.O. relay outputs</span>
+                                <span class="option-chip">2A output rating</span>
+                                <span class="option-chip">Step-flow branching</span>
+                                <span class="option-chip">External device activation</span>
+                                <span class="option-chip">Safety interlock ready</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ECC / ELC -->
+                    <div id="ecc_elc" class="option-block" aria-labelledby="opt-ecc-title">
+                        <div class="option-icon-col">
+                            <div class="option-icon-wrap" aria-hidden="true">🔌</div>
+                            <span class="option-anchor-tag">#ecc_elc</span>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h2 id="opt-ecc-title">External Charge &amp; Load Controllers (ECC / ELC)</h2>
+                                <span class="field-badge">✓ Field Installable</span>
+                            </div>
+                            <p><strong>External Charge Controllers (ECC)</strong> can be added to any or all test channels. When a test step calls for it, the channel connects to an external charger — while retaining all of its own data-gathering capabilities, voltage and current monitoring, and all step end conditions. The ECC is ideal for verifying the performance of a third-party charger while Maccor records the full current/voltage/time dataset as if it were an internal step.</p>
+                            <p><strong>External Load Controllers (ELC)</strong> work on the same principle for discharge. Switch in your own external load during a designated step while the Maccor channel continues logging all parameters and enforcing all end conditions. This is particularly useful for validating custom discharge electronics or testing cells under application-specific load profiles that fall outside the cycler's native current range.</p>
+                            <div class="option-chips">
+                                <span class="option-chip">Add to any channel</span>
+                                <span class="option-chip">Full data logging retained</span>
+                                <span class="option-chip">All end conditions active</span>
+                                <span class="option-chip">3rd-party charger validation</span>
+                                <span class="option-chip">Custom load integration</span>
+                                <span class="option-chip">Per-step switching</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /control io -->
+
+            </div><!-- /options-wrap outer -->
+        </section>
+
+        <!-- ══════════ RELATED ══════════ -->
+        <section style="padding:6rem 5%;background:var(--mid-dark);" aria-labelledby="related-heading">
+            <div style="max-width:1400px;margin:0 auto;">
+                <div class="section-header" style="text-align:left;margin-bottom:3rem;">
+                    <span class="section-tag">COMPATIBLE SYSTEMS</span>
+                    <h2 id="related-heading" style="font-size:2rem;margin-top:1rem;">Options Work Across the Maccor Platform</h2>
+                    <p>All options listed are compatible with the Series 4000, 4000H, 6500, and applicable desktop configurations.</p>
+                </div>
+                <div class="solutions-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+                    <div class="solution-card">
+                        <div class="solution-icon">⚙️</div>
+                        <h3>Cell &amp; Module Testers</h3>
+                        <p>Series 4000, 4000H, and 6500 — the full options suite is available on all three platforms, factory or field installed.</p>
+                        <a href="cell-battery-module-test-systems.html" class="link-primary" style="display:inline-block;margin-top:1rem;">View Systems →</a>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🖥️</div>
+                        <h3>Desktop Testers</h3>
+                        <p>Select options are available on Series 4300, 4200, and 4200H desktop configurations. See the desktop page for the per-model matrix.</p>
+                        <a href="desktop-battery-testers.html" class="link-primary" style="display:inline-block;margin-top:1rem;">View Options Matrix →</a>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🔗</div>
+                        <h3>FUSION Integrated Systems</h3>
+                        <p>FUSION systems ship with safety controls and thermal integration pre-installed — additional options can be specified at order.</p>
+                        <a href="fusion-integrated-systems.html" class="link-primary" style="display:inline-block;margin-top:1rem;">Learn More →</a>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🧩</div>
+                        <h3>Accessories</h3>
+                        <p>Cell fixtures, cable assemblies, custom connection hardware, and lab accessories to complete your test setup.</p>
+                        <a href="accessories.html" class="link-primary" style="display:inline-block;margin-top:1rem;">View Accessories →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════ CTA ══════════ -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Expand Your System?</h2>
+                <p>Options can be added at time of purchase or retrofitted in the field by a Maccor service engineer. Contact us to discuss which options are right for your application.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-primary">Contact Our Team</a>
+                    <a href="cell-battery-module-test-systems.html" class="btn-secondary">View Test Systems</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="software/software.html">Software Suite</a></li>
+                    <li><a href="options.html">Options</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="aboutus.html">About Maccor</a></li>
+                    <li><a href="leadership-team.html">Leadership Team</a></li>
+                    <li><a href="global-representatives.html">Worldwide</a></li>
+                    <li><a href="battery-testing-events.html">Events</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+
+    <script>
+        // ── Mobile nav ──
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        // ── Scroll-aware nav ──
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (!nav) return;
+            nav.style.background = window.pageYOffset > 100
+                ? 'rgba(10, 14, 26, 0.98)'
+                : 'rgba(10, 14, 26, 0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100
+                ? '0 4px 20px rgba(0,0,0,0.3)'
+                : 'none';
+        });
+
+        // ── Smooth anchor scrolling ──
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ── Highlight active anchor in nav on scroll ──
+        const anchors = ['s1100','AuxV','AuxT','pressure','smb_','canIt','m_option','DigIn','ecc_elc'];
+        const navBtns = document.querySelectorAll('.options-nav-btn');
+
+        function updateActiveNav() {
+            let current = '';
+            anchors.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && window.scrollY >= el.offsetTop - 140) current = id;
+            });
+            navBtns.forEach(btn => {
+                const href = btn.getAttribute('href').replace('#','');
+                btn.style.borderColor = (href === current) ? 'var(--accent)' : '';
+                btn.style.color = (href === current) ? 'var(--accent)' : '';
+                btn.style.background = (href === current) ? 'rgba(0,217,255,0.05)' : '';
+            });
+        }
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        updateActiveNav();
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="cookie-consent.js" data-privacy="privacy.html"></script>
+</body>
 </html>

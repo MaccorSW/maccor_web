@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Degradation Analysis | Knowledge Center | Maccor</title>
+    <meta name="description" content="Identify the root causes of battery performance loss through precise monitoring of capacity fade, resistance growth, and efficiency decline over hundreds of cycles." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-degradation-analysis.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Degradation Analysis | Maccor" />
+    <meta property="og:description" content="Track capacity fade, resistance growth, and efficiency loss over time to understand how and why batteries age — and predict when they will reach end-of-life." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-degradation-analysis.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Degradation Analysis",
+      "description": "Identify the root causes of battery performance loss through precise monitoring of capacity fade, resistance growth, and efficiency decline over hundreds of cycles.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-degradation-analysis.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../fundamentals.html">Fundamentals</a> / <span>Battery Degradation Analysis</span>
+                </div>
+                <div class="kicker"></div>
+                <h1>Battery <span class="highlight">Degradation Analysis</span></h1>
+                <p>Identifying the root causes of performance loss by precisely monitoring resistance growth, capacity fade, and efficiency decline over the full life of a battery program.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">DEGRADATION</span>
+                <h2>Understanding Battery Degradation Analysis</h2>
+                <p>From fade mechanisms to data-driven end-of-life prediction — a technical guide to measuring and interpreting battery aging.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Battery Degradation Analysis Is</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Battery degradation analysis tracks how electrical performance changes over time and use. The three primary degradation signatures — capacity fade, internal resistance growth, and efficiency decline — are measured through controlled cycling tests and analyzed to identify underlying failure mechanisms. Accurate degradation analysis supports lifetime warranties, warranty reserves, product comparisons, and design improvements.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">DEGRADATION MODES</span></div>
+                    <h3>Primary Degradation Signatures</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Each mode is measurable through standard test protocols and reflects distinct physical or chemical processes:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Capacity fade:</strong> Discharge Ah decreases as active material is lost or becomes electrochemically inaccessible.</li>
+                      <li><strong>Resistance growth:</strong> DC internal resistance (DCIR) and AC impedance increase as interfaces degrade and electrolyte is consumed.</li>
+                      <li><strong>Efficiency decline:</strong> Coulombic efficiency (discharge Ah ÷ charge Ah) falls as side reactions consume more charge per cycle.</li>
+                      <li><strong>Voltage depression:</strong> Mean discharge voltage drops as resistance losses increase, reducing usable energy.</li>
+                      <li><strong>Rate capability loss:</strong> High-rate capacity decreases faster than low-rate capacity as transport limitations worsen.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>Running a Degradation Study</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">A well-structured degradation program alternates stress cycles with periodic reference tests:</p>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li>Define the stress protocol: rate, temperature, depth of discharge, and cycle count between checkpoints.</li>
+                      <li>Design the Reference Performance Test (RPT): low-rate capacity check, DCIR pulse, and optional EIS.</li>
+                      <li>Build the procedure using Do/Loop steps for stress cycles, with the RPT inserted at defined intervals.</li>
+                      <li>Use Global AUX Monitoring or chamber integration to track and log temperature throughout.</li>
+                      <li>Collect MIMS Client cycle-based data: capacity, DCIR, efficiency, and mean voltage per cycle.</li>
+                      <li>Plot fade curves and fit degradation models to predict remaining useful life.</li>
+                    </ol>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Degradation Analysis Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Understanding how and why a battery ages is critical at every stage, from early material selection to post-field failure investigation.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                      <thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Environment</th>
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Primary Goal</th>
+                      </tr></thead>
+                      <tbody style="color: var(--light-grey);">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">R&amp;D Laboratories</td>
+                          <td style="padding: 0.6rem 0.75rem;">Compare electrolyte, electrode, and formation process effects on aging rate</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Validation Programs</td>
+                          <td style="padding: 0.6rem 0.75rem;">Prove cycle life against warranty thresholds with statistical confidence</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Production & QA</td>
+                          <td style="padding: 0.6rem 0.75rem;">Detect accelerated aging in specific lots or formation batches</td>
+                        </tr>
+                        <tr style="">
+                          <td style="padding: 0.6rem 0.75rem;">Field & Reliability</td>
+                          <td style="padding: 0.6rem 0.75rem;">Recreate failure conditions and link electrical signatures to root causes</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Engineers and Technical Buyers</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Systematic degradation analysis turns long-cycle test data into actionable engineering intelligence.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Early warning:</strong> Coulombic efficiency trends and DCIR growth often signal problems dozens of cycles before capacity fade becomes visible.</li>
+                      <li><strong>Design feedback:</strong> Comparative degradation curves across cell variants guide material and process improvements.</li>
+                      <li><strong>Failure mode identification:</strong> Combining capacity fade rate, resistance growth, and voltage behavior narrows the root cause to lithium plating, SEI growth, active material loss, or mechanical degradation.</li>
+                      <li><strong>Statistical confidence:</strong> MIMS Statistics charts compute mean, standard deviation, and range across replicate cells automatically.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What is the most sensitive early indicator of degradation?</p>
+                    <p style="color: var(--light-grey);">Coulombic efficiency is typically the earliest indicator. A drop from 99.9% to 99.7% per cycle may look small, but it compounds significantly over hundreds of cycles and often reflects parasitic reactions that precede visible capacity loss.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How is DCIR measured during a cycling test?</p>
+                    <p style="color: var(--light-grey);">A short current pulse is applied at a defined SoC and the voltage response is measured. DCIR = ΔV ÷ ΔI. The pulse step is typically embedded in the procedure at the start of each cycle or RPT interval.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What end-of-life threshold is typically used?</p>
+                    <p style="color: var(--light-grey);">The most common threshold is 80% of initial discharge capacity (20% fade). For applications with tighter requirements — aerospace, medical — a lower threshold such as 90% may be specified. The test procedure should define this as an EndOnCycle or Function end condition.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-cycling-testing-explained.html" class="link-primary">Battery Cycling Testing Explained →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-internal-resistance-testing.html" class="link-primary">Battery Internal Resistance Testing →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-safety-testing.html" class="link-primary">Battery Safety Testing →</a></li>
+                      <li style="padding: 0.5rem 0; "><a href="../fundamentals.html" class="link-primary">← Back to Fundamentals</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        // Dynamic nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Scroll animation for cards
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

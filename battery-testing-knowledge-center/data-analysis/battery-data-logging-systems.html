@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Data Logging Systems | Knowledge Center | Maccor</title>
+    <meta name="description" content="Battery data logging: time-based, event-based, derivative-triggered conditions, report configuration, file management, and logging strategies." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-data-logging-systems.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Data Logging Systems | Maccor" />
+    <meta property="og:description" content="Time-based, voltage-triggered, and derivative-driven logging — a practical guide to configuring battery data logging for accuracy, resolution, and manageable file sizes." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-data-logging-systems.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Data Logging Systems",
+      "description": "A practical guide to battery data logging — time-based, event-based, and derivative-triggered record conditions, report type configuration, file size management, and logging strategy for different test program types.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-data-logging-systems.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Request Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../data-analysis.html">Data &amp; Analysis</a> / <span>Battery Data Logging Systems</span>
+                </div>
+                <h1>Battery Data <span class="highlight">Logging Systems</span></h1>
+                <p>A practical guide to configuring battery test data logging — covering time-based, event-based, and derivative-triggered report conditions, the trade-off between resolution and file size, and how logging strategy shapes the quality of downstream analysis.</p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <div class="content-wrap">
+
+                <div class="article-shell">
+                    <div class="article-body">
+
+                        <h2>How Battery Data Logging Works</h2>
+                        <p>Battery test data logging is controlled by <strong>report types</strong> — conditions defined within each procedure step that instruct the system to store a data record when a specified event occurs. Up to seven report conditions can be active simultaneously within a single step, each triggering independently.</p>
+                        <p>Every stored record captures the full channel state at that moment: cycle number, step, elapsed time, capacity, energy, current, voltage, mode, event code, timestamp, AC impedance if measured, any assigned auxiliary inputs, SMB data if applicable, and loop counter values. The composition of the data file is a direct function of how often logging conditions are met during test execution.</p>
+
+                        <h2>Available Report Type Conditions</h2>
+                        <p>Each report type triggers a data record when a different kind of change occurs in the test:</p>
+                        <ul>
+                            <li><strong>Step Time:</strong> Stores a record whenever elapsed step time exceeds the configured interval since the last record. Intervals as short as 0:0:00.01 (10 ms) are supported. The most common base logging condition; small intervals generate very large files rapidly.</li>
+                            <li><strong>Voltage:</strong> Stores a record whenever voltage changes by more than the specified amount since the last record. Concentrates data density during voltage transitions; produces sparse records during flat plateaus. Ideal for dQ/dV analysis.</li>
+                            <li><strong>Current:</strong> Stores a record whenever current changes by more than the specified amount. Useful for variable-current steps and waveform programs.</li>
+                            <li><strong>Amp Hour:</strong> Stores a record whenever accumulated Amp-hours changes by more than the specified amount. Provides capacity-domain resolution independent of time or voltage behaviour.</li>
+                            <li><strong>Watt Hour:</strong> As above, triggered by Watt-hour accumulation. Useful for energy-domain resolution in grid storage and efficiency programs.</li>
+                            <li><strong>Aux Volt / Thermocouple / Thermistor / Pressure:</strong> Stores a record when the specified auxiliary input changes by the configured amount. Allows auxiliary physical measurements to drive logging density independent of electrical parameters.</li>
+                            <li><strong>Loop Count:</strong> Stores a record each time a specified loop counter value is reached. Supports nested-loop programs where periodic summary records are needed at cycle-count milestones.</li>
+                        </ul>
+
+                        <h2>Matching Logging Strategy to Test Type</h2>
+                        <p>The optimal logging configuration differs substantially between test types. Using a single approach for all programs produces either inadequate resolution or unmanageably large files over long programs.</p>
+
+                        <table>
+                            <thead>
+                                <tr><th>Test Type</th><th>Recommended Report Types</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Routine cycle life</td><td>Step Time (15–60 s) + Voltage (5–10 mV) to capture transitions without over-logging plateaus</td></tr>
+                                <tr><td>dQ/dV characterisation</td><td>Voltage (1–5 mV) primary; Step Time (60–300 s) as backstop for flat regions</td></tr>
+                                <tr><td>HPPC / pulse power</td><td>Step Time (0.1–0.5 s) during pulse steps; standard time interval during rest and capacity steps</td></tr>
+                                <tr><td>Thermal monitoring</td><td>Thermocouple (1–5°C) + Step Time (60 s) to capture temperature events without continuous high-rate logging</td></tr>
+                                <tr><td>Grid storage efficiency</td><td>Watt Hour (fixed interval) to track round-trip energy accumulation; Step Time as backstop</td></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="callout"><strong>File size note:</strong> Step Time intervals below 1 second generate files that can grow to hundreds of megabytes per channel per day. For long programs, use event-triggered report types as the primary logging mechanism and reserve high-frequency time-based logging for the specific steps — pulse steps, RPT cycles — where it is actually needed.</div>
+
+                        <h2>Managing Data File Size and Archive</h2>
+                        <p>Large data files slow MIMS processing, complicate sharing, and consume storage. Several options manage file size without losing analytical value:</p>
+                        <ul>
+                            <li><strong>Split-up ASCII files:</strong> ASCII export can be split by maximum record count (minimum 5,000 records) or by maximum elapsed time in whole hours (minimum 5 hours), allowing large datasets to be processed in smaller chunks.</li>
+                            <li><strong>End-of-cycle files:</strong> A separate ASCII export containing only the last record of each cycle — far smaller than the full time-series and directly usable for trend analysis.</li>
+                            <li><strong>End-of-step files:</strong> Captures the last record of each step across all cycles. Useful when step-level metrics — charge cut-off voltage, rest recovery voltage — are the primary analytical interest.</li>
+                            <li><strong>Archive housekeeping:</strong> MIMS Server can delete archive files from the tester hard drive after copying to external storage. Perform this regularly on high-channel-count systems running long programs.</li>
+                        </ul>
+
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>Can multiple report types be active simultaneously in the same step?</h3>
+                        <p>Yes — up to seven report conditions can be configured per step, and each triggers independently. A common combination for characterisation cycles is a voltage-triggered report type for dQ/dV resolution plus a step-time backstop to ensure records are stored even if voltage is stable for an extended period.</p>
+
+                        <h3>What is the minimum supported logging interval?</h3>
+                        <p>The minimum Step Time report interval is 0:0:00.01 — 10 milliseconds. At this rate, a single channel generates 6,000 records per minute. This rate is appropriate for short pulse steps where transient voltage response must be captured with high fidelity; it should not be applied to full charge or discharge steps in long-duration programs.</p>
+
+                        <h3>How does the "No AUX units" export option affect logging?</h3>
+                        <p>It does not affect which data is logged or when — it only removes the engineering unit column header from the auxiliary input columns in the ASCII export file. The underlying data is unchanged. This option is useful when importing into tools that expect a fixed column structure without unit label rows.</p>
+
+                    </div><!-- /article-body -->
+
+                    <aside class="article-aside">
+                        <div class="panel">
+                            <h3>Key Numbers</h3>
+                            <div class="stat-strip" style="grid-template-columns: 1fr;">
+                                <div class="stat-pill">
+                                    <strong>7</strong>
+                                    <span>Max report types per step</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>10 ms</strong>
+                                    <span>Minimum Step Time interval</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>5,000</strong>
+                                    <span>Minimum records for split-file mode</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>5 hrs</strong>
+                                    <span>Minimum time split for ASCII output</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Report Types at a Glance</h3>
+                            <ul class="topic-list">
+                                <li><a href="#">Step Time<span>Interval-based; most common base condition</span></a></li>
+                                <li><a href="#">Voltage<span>Voltage-domain density; essential for dQ/dV</span></a></li>
+                                <li><a href="#">Amp Hour / Watt Hour<span>Capacity and energy domain triggers</span></a></li>
+                                <li><a href="#">Aux / Thermocouple<span>Temperature and physical event triggers</span></a></li>
+                                <li><a href="#">Loop Count<span>Milestone-based summary records</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>In This Section</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="analyzing-battery-cycle-data.html">Analyzing Battery Cycle Data<span>Half-cycles, CycleP, CycleC, dQ/dV</span></a></li>
+                                <li><a href="battery-performance-metrics.html">Battery Performance Metrics<span>CE, EE, DCIR, capacity retention</span></a></li>
+                                <li><a href="battery-data-visualization-techniques.html">Visualization Techniques<span>MIMS chart modes and dQ/dV</span></a></li>
+                                <li><a href="exporting-battery-test-data.html">Exporting Battery Test Data<span>ASCII, Excel, and summary files</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Related Topics</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="../software/auxiliary-inputs-for-battery-testing.html">Auxiliary Inputs in Battery Testing<span>Software section</span></a></li>
+                                <li><a href="battery-test-reporting.html">Battery Test Reporting<span>Data &amp; Analysis section</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div><!-- /article-shell -->
+
+                <div class="cta-band">
+                    <div>
+                        <h2>Need Help Configuring Logging?</h2>
+                        <p>Maccor applications engineers can review your test programs and recommend logging strategies that balance data resolution with manageable file sizes.</p>
+                    </div>
+                    <div class="cta-band-actions">
+                        <a href="../../contact.html" class="cta-button">Contact Applications</a>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0 2rem;">
+                    <h2 style="font-size:1.6rem; margin-bottom:1.5rem; color:var(--off-white);">Continue in Data &amp; Analysis</h2>
+                    <div class="quick-links-grid">
+                        <div class="quick-link-card current">
+                            <span class="tag">Current</span>
+                            <h3>Battery Data Logging Systems</h3>
+                            <p>Report types, logging strategy, and file management.</p>
+                        </div>
+                        <a href="battery-performance-metrics.html" style="text-decoration:none;"> </a>
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Performance Metrics</h3>
+                                <p>CE, EE, capacity retention, DCIR, and round-trip Wh efficiency.</p>
+                                <a href="battery-performance-metrics.html" class="link-primary">Read Article →</a>
+                            </div>
+                       
+                        <a href="exporting-battery-test-data.html" style="text-decoration:none;"> </a>
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Exporting Battery Test Data</h3>
+                                <p>ASCII, Excel, CSV field selection and format masking.</p>
+                                <a href="exporting-battery-test-data.html" class="link-primary">Read Article →</a>
+                            </div>
+                       
+                        <a href="../software/auxiliary-inputs-for-battery-testing.html" style="text-decoration:none;"></a>
+                            <div class="quick-link-card">
+                                <span class="tag">Software</span>
+                                <h3>Auxiliary Inputs in Battery Testing</h3>
+                                <p>Thermocouples, thermistors, pressure, and reference electrodes.</p>
+                                <a href="../software/auxiliary-inputs-for-battery-testing.html" class="link-primary">Read Article →</a>
+                            </div>
+                        
+                    </div>
+                </div>
+
+            </div><!-- /content-wrap -->
+        </div><!-- /content-section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.pageYOffset > 100 ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.quick-link-card, .stat-pill, .panel').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            obs.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

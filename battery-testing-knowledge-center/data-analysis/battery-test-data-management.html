@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Test Data Management | Knowledge Center | Maccor</title>
+    <meta name="description" content="Maccor battery test data management: store, organize, backup, index, export, and prepare records for analysis from raw binary files to archives." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-test-data-management.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Test Data Management | Maccor" />
+    <meta property="og:description" content="From raw binary tester output to indexed archives and ASCII exports — a practical guide to managing battery test data in Maccor systems." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-test-data-management.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Test Data Management",
+      "description": "A practical guide to battery test data management — how Maccor systems store, organise, back up, and surface test records from raw binary files through to indexed archives, ASCII exports, and analysis-ready datasets.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-test-data-management.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Request Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../data-analysis.html">Data &amp; Analysis</a> / <span>Battery Test Data Management</span>
+                </div>
+                <h1>Battery Test <span class="highlight">Data Management</span></h1>
+                <p>A practical guide to how Maccor test systems store, organise, back up, and surface battery test records — from the raw binary file written during execution through to indexed archives, ASCII exports, and analysis-ready datasets accessible across an entire lab network.</p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <div class="content-wrap">
+
+                <div class="article-shell">
+                    <div class="article-body">
+
+                        <h2>The Data Path from Test Execution to Analysis</h2>
+                        <p>Every Maccor test channel writes data continuously to a raw binary <code>.DAT</code> file on the tester PC during execution. This file is the primary record — it captures every logged data point at the exact moment the tester firmware writes it, before any conversion or processing. The composition of the file — how many records it contains per unit of time — is a direct result of the report types configured in the procedure.</p>
+                        <p>Once the test completes or progresses past a logging threshold, MIMS Server picks up the binary file, converts it to an indexed format that MIMS Client can chart and query, and optionally generates a parallel ASCII text file for external analysis tools. All original binary files are archived on the server as the authoritative backup. This separation — tester PC holds the active file, server holds the archive — means that a tester PC failure does not result in data loss for any test that has already been gathered.</p>
+
+                        <h2>File Types in the Maccor Data Pipeline</h2>
+                        <p>Understanding the four file types in the Maccor pipeline is the foundation of any data management strategy:</p>
+                        <ul>
+                            <li><strong>Raw binary (.DAT):</strong> Written by the tester firmware in real time. Contains every logged record at full resolution. Not human-readable directly but is the source of truth for all downstream formats.</li>
+                            <li><strong>Indexed file:</strong> Created by MIMS Server from the binary. Optimised for fast random-access queries — MIMS Client uses this format to render cycle-based charts, compute statistics, and navigate large datasets without loading the full time series into memory.</li>
+                            <li><strong>ASCII text (.txt / .csv):</strong> Created by MIMS Server or the Data Export tool. Tab- or comma-delimited, with user-selected columns. Directly readable by Excel, Python, R, MATLAB, and any other analysis environment. Field selection, numeric format, and file-splitting are all configurable.</li>
+                            <li><strong>End-of-cycle / end-of-step summary files:</strong> Reduced ASCII exports containing only the final record from each cycle or step. Far smaller than the full time-series export, and directly consumable for trend analysis without requiring the caller to reduce the data.</li>
+                        </ul>
+
+                        <h2>Active Directory, Archive Directory, and the Server</h2>
+                        <p>The Maccor tester PC maintains two local directories: <strong>Active</strong> and <strong>Archive</strong>. Tests in progress write to the Active directory. When a test completes, the file moves to Archive. Both directories are monitored by MIMS Server over the network.</p>
+                        <p>On the server, files are stored in tester-named subdirectories under the Raw Backup path. The server also maintains separate paths for indexed files and ASCII output, each potentially on different storage volumes. For large multi-channel labs running long programs, keeping the ASCII output path on high-capacity network-attached storage — rather than the server's local drive — is a practical approach to managing total data volume.</p>
+                        <p>MIMS Server can be configured to delete files from the tester Active/Archive directories after confirmed backup, with a minimum enforced delay of 24 hours. This housekeeping keeps tester PC hard drives clear without sacrificing data. The server is the long-term store; the tester PC is the buffer.</p>
+
+                        <h2>What Every Data Record Contains</h2>
+                        <p>Each individual data record in a Maccor data file captures the full channel state at the moment it was logged. Standard fields available in every record include:</p>
+                        <ul>
+                            <li>Cycle number (CycleP and CycleC), step number, report type code</li>
+                            <li>Test time and step time (to millisecond resolution)</li>
+                            <li>Voltage (V), current (A), capacity (Ah), energy (Wh)</li>
+                            <li>Mode (charge, discharge, rest, etc.) and status flags</li>
+                            <li>Loop counter values (up to 4 loops)</li>
+                            <li>All assigned auxiliary inputs — thermocouple temperatures, thermistor temperatures, auxiliary voltage channels, pressure readings</li>
+                            <li>SMBus fields — up to 41 standard SBS registers if a smart battery is assigned</li>
+                            <li>CAN bus signal values if a CAN module is configured</li>
+                            <li>AC impedance if an EIS measurement was triggered</li>
+                            <li>ESR (equivalent series resistance) calculated automatically at step transitions</li>
+                        </ul>
+                        <p>The full record is always written to the binary file. ASCII exports contain only the columns the operator selects — the rest remain in the binary and can be extracted later via the Data Export tool if additional fields are needed after the fact.</p>
+
+                        <h2>Multi-System Data Consolidation</h2>
+                        <p>A single MIMS Server instance can monitor multiple tester PCs simultaneously. Each tester PC is added to the server's input path list by network path or IP address; the server then polls all of them on the configured schedule and collects data independently into tester-named subdirectories on the server. From an analyst's perspective, this means all data from all testers in the lab is accessible from MIMS Client via a single server connection — there is no need to navigate to individual tester PCs or manage per-tester file stores manually.</p>
+                        <p>For labs with multiple buildings or remote sites, MIMS Client can be installed on any networked PC and connected to a central server, enabling cross-site data access without transferring files manually. The only requirement is network visibility to the server machine.</p>
+
+                        <h2>Procedure Files as Part of the Data Record</h2>
+                        <p>At the moment a test is started, Maccor embeds a copy of the procedure file (.bt2) into the data record header. This means every data file carries a complete record of exactly which procedure was running at the time the data was collected — even if the original procedure file is later edited or deleted from the server. MIMS Client can display this embedded procedure in the same grid view as Build Test, and it can be extracted and saved as a .bt2 file for re-use.</p>
+                        <p>This embedded snapshot is a critical feature for regulated and audited environments, where demonstrating that a specific, known procedure was executed on a specific date is a documentation requirement. The data file itself becomes the provenance record, not just the results.</p>
+                        <div class="callout"><strong>Traceability note:</strong> For quality systems and regulatory submissions, the combination of the embedded procedure snapshot, continuous data logging, and MIMS Server's timestamped archive creates a complete, tamper-evident test record without requiring separate document management tooling.</div>
+
+                        <h2>Data Volume Planning</h2>
+                        <p>Data volume is a function of channel count, logging rate, and program duration — and it scales quickly. A single channel logging at 1-second intervals for 6 months generates roughly 15 million records. At 100 ms intervals, that becomes 150 million. For a 32-channel system, these numbers multiply accordingly.</p>
+                        <p>Practical volume management strategies for long programs include using event-triggered report types (voltage, Amp-hour, temperature) as the primary logging mechanism rather than continuous time-based logging; generating end-of-cycle summary exports and archiving the full time-series binary separately; and configuring MIMS Server to split ASCII output into manageable file sizes (minimum 5,000 records or 5 hours per file).</p>
+
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>What happens to data if the tester PC loses power during a test?</h3>
+                        <p>The tester firmware continues running the procedure locally on the controller board even if the host PC loses power. Data accumulated in the controller board's internal buffer is appended to the data file when the host PC restarts and MacTest reconnects. A small amount of data from the period immediately before the power failure may be lost, but the test itself does not stop and no unsafe condition results — the channel moves to a fail-safe discharge-zero-current state if the PC is offline beyond a configurable timeout.</p>
+
+                        <h3>Can data from different channels be merged into a single export file?</h3>
+                        <p>Yes. The Data Export tool has a merge option that combines records from multiple channels into a single ASCII output file, with a channel identifier column added. This is useful when analysing multi-cell test matrix results where the per-cycle summary data from all cells needs to be in one table for statistical processing.</p>
+
+                        <h3>How long can a single data file grow during a long-term program?</h3>
+                        <p>There is no hard limit imposed by the software on binary file size. In practice, files from year-long cycle life programs with moderate logging rates commonly reach several gigabytes. MIMS handles files of this size without issue. For ASCII exports, the split-file option should be used for any program expected to exceed a few hundred thousand records per export.</p>
+
+                    </div><!-- /article-body -->
+
+                    <aside class="article-aside">
+                        <div class="panel">
+                            <h3>Key Numbers</h3>
+                            <div class="stat-strip" style="grid-template-columns: 1fr;">
+                                <div class="stat-pill">
+                                    <strong>4</strong>
+                                    <span>File types in the data pipeline</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>24 hr</strong>
+                                    <span>Minimum delay before server deletes tester files</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>5,000</strong>
+                                    <span>Minimum records for ASCII split-file mode</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>41</strong>
+                                    <span>SBS SMBus fields available per record</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>The Data Pipeline</h3>
+                            <ul class="topic-list">
+                                <li><a href="#">Raw binary (.DAT)<span>Written by firmware; source of truth</span></a></li>
+                                <li><a href="#">Indexed file<span>MIMS Server conversion; used by MIMS Client</span></a></li>
+                                <li><a href="#">ASCII export<span>Configurable columns; Excel / Python ready</span></a></li>
+                                <li><a href="#">Summary files<span>End-of-cycle / end-of-step reduced exports</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>In This Section</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="analyzing-battery-cycle-data.html">Analyzing Battery Cycle Data<span>Half-cycles, CycleP, CycleC, dQ/dV</span></a></li>
+                                <li><a href="battery-data-logging-systems.html">Data Logging Systems<span>Report types and logging strategy</span></a></li>
+                                <li><a href="battery-data-visualization-techniques.html">Visualization Techniques<span>MIMS chart modes</span></a></li>
+                                <li><a href="battery-performance-metrics.html">Battery Performance Metrics<span>CE, EE, DCIR, capacity retention</span></a></li>
+                                <li><a href="exporting-battery-test-data.html">Exporting Battery Test Data<span>ASCII, Excel, CSV field selection</span></a></li>
+                                <li><a href="battery-test-reporting.html">Battery Test Reporting<span>Report structure and outputs</span></a></li>
+                                <li><a href="long-term-battery-lifecycle-analysis.html">Long-Term Lifecycle Analysis<span>RPT strategy and fade modelling</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Related Topics</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="../../software/mims-server.html">MIMS Server Software<span>Automated collection and backup</span></a></li>
+                                <li><a href="../software/real-time-battery-test-monitoring.html">Real-Time Test Monitoring<span>Software section</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div><!-- /article-shell -->
+
+                <div class="cta-band">
+                    <div>
+                        <h2>Build a Reliable Data Pipeline</h2>
+                        <p>Maccor applications engineers can help you design a data management architecture that scales from a single tester to a multi-site lab network.</p>
+                    </div>
+                    <div class="cta-band-actions">
+                        <a href="../../contact.html" class="cta-button">Talk to an Engineer</a>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0 2rem;">
+                    <h2 style="font-size:1.6rem; margin-bottom:1.5rem; color:var(--off-white);">Continue in Data &amp; Analysis</h2>
+                    <div class="quick-links-grid">
+                        <div class="quick-link-card current">
+                            <span class="tag">Current</span>
+                            <h3>Battery Test Data Management</h3>
+                            <p>File types, pipeline architecture, and multi-system consolidation.</p>
+                        </div>
+                        <a href="exporting-battery-test-data.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Exporting Battery Test Data</h3>
+                                <p>Field selection, format options, and summary file generation.</p>
+                                <a href="exporting-battery-test-data.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="battery-test-reporting.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Test Reporting</h3>
+                                <p>Structuring results for engineering review and formal submissions.</p>
+                                <a href="battery-test-reporting.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="battery-data-visualization-techniques.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Visualization Techniques</h3>
+                                <p>Time-based, cycle-based, dQ/dV, and auxiliary overlays.</p>
+                                <a href="battery-data-visualization-techniques.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div><!-- /content-wrap -->
+        </div><!-- /content-section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.pageYOffset > 100 ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.quick-link-card, .stat-pill, .panel').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            obs.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

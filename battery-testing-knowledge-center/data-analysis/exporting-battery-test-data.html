@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exporting Battery Test Data | Knowledge Center | Maccor</title>
+    <meta name="description" content="Maccor data export guide: field selection, output formats, masks, split files, end-of-cycle summaries, and channel merging via MIMS tools." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/exporting-battery-test-data.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Exporting Battery Test Data | Maccor" />
+    <meta property="og:description" content="Field selection, ASCII / Excel / CSV output, format masks, split files, and summary exports — a complete guide to exporting battery test data from Maccor systems." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/exporting-battery-test-data.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Exporting Battery Test Data",
+      "description": "A practical guide to exporting battery test data from Maccor systems — field selection, output formats, format masks, split files, end-of-cycle summaries, and channel merging via the Data Export tool and MIMS Server.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/data-analysis/exporting-battery-test-data.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Request Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../data-analysis.html">Data &amp; Analysis</a> / <span>Exporting Battery Test Data</span>
+                </div>
+                <h1>Exporting Battery <span class="highlight">Test Data</span></h1>
+                <p>A practical guide to converting Maccor binary test records into the formats your analysis workflow needs — covering field selection, output format options, numeric format masks, file splitting, end-of-cycle summaries, and channel merging via both the Data Export tool and MIMS Server's automated ASCII pipeline.</p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <div class="content-wrap">
+
+                <div class="article-shell">
+                    <div class="article-body">
+
+                        <h2>Two Export Paths: Manual and Automatic</h2>
+                        <p>Maccor provides two routes to exported data. Understanding the difference helps in choosing the right one for each workflow:</p>
+                        <ul>
+                            <li><strong>MIMS Server automated export:</strong> Runs on a schedule, collecting data from every connected tester and generating ASCII files automatically in the background. Configured once; fires continuously without operator intervention. The right choice for routine archiving pipelines where every test on every channel should produce an ASCII file with a fixed column set.</li>
+                            <li><strong>Data Export tool (manual):</strong> A standalone application for on-demand conversion of specific binary files. Provides finer control — per-file field selection, numeric format masks, file splitting, channel merging, summary file generation. The right choice for custom one-off extracts, preparing data for a specific analysis script, or exporting fields that differ from the routine archive configuration.</li>
+                        </ul>
+                        <p>Both paths convert the same underlying binary data. Data Export gives more per-export control; MIMS Server gives automation at scale.</p>
+
+                        <h2>Available Output Formats</h2>
+                        <p>Both export routes support multiple output formats:</p>
+                        <ul>
+                            <li><strong>ASCII text (.txt):</strong> Tab-separated or comma-separated plain text. Opens directly in Excel, readable by every programming language and analysis tool. The most portable format.</li>
+                            <li><strong>Excel workbook (.xlsx or .xls):</strong> Exported as a native Excel file. When exporting cycle-level data, MIMS places per-cycle summary metrics on a separate sheet from the full time-series, making it easier to work with both views in the same file.</li>
+                            <li><strong>CSV (.csv):</strong> Comma-separated values. Distinguished from the ASCII option by having no configurable delimiter — always commas, which suits downstream tools that require strict CSV rather than tab-delimited text.</li>
+                        </ul>
+
+                        <h2>Field Selection</h2>
+                        <p>The Data Export tool presents two lists — Available and Output — and the operator moves fields between them to define the export column set. Fields available for export include:</p>
+                        <ul>
+                            <li>Cycle number (CycleP), step number, report type code</li>
+                            <li>Test time, step time (elapsed within the step)</li>
+                            <li>Voltage (V), current (A), capacity (Ah), energy (Wh)</li>
+                            <li>ESR / DC internal resistance (calculated at step transitions)</li>
+                            <li>Auxiliary input channels — each thermocouple, thermistor, auxiliary voltage, or pressure sensor as a separate column</li>
+                            <li>SMBus data fields — individual SBS register values logged during the test</li>
+                            <li>CAN bus signal values — each configured signal as a separate column</li>
+                            <li>Loop counter values (loops 1–4)</li>
+                            <li>AC impedance values if EIS steps were executed</li>
+                            <li>Date and time stamp (absolute wall-clock time)</li>
+                        </ul>
+                        <p>Selecting only the fields needed for a specific analysis task significantly reduces file size. A typical cycle life export — cycle, step, voltage, current, capacity, energy, two temperatures — is far smaller than a full-field export for the same dataset.</p>
+
+                        <h2>Numeric Format Masks</h2>
+                        <p>For each selected output field, a format mask can be applied that controls how the numeric value is written to the file. The mask syntax follows standard C printf conventions:</p>
+                        <ul>
+                            <li><code>%.4f</code> — fixed-point notation with 4 decimal places (e.g., 3.8471 V)</li>
+                            <li><code>%.6f</code> — 6 decimal places; useful for current measurements on small cells where resolution below 1 mA is meaningful</li>
+                            <li><code>%e</code> — scientific notation; useful for impedance values that span several orders of magnitude</li>
+                            <li><code>%d</code> — integer; appropriate for cycle number, step number, loop counters</li>
+                        </ul>
+                        <p>Matching the format mask precision to the actual instrument resolution avoids false precision in exported files while preserving the significant figures that the measurement actually supports.</p>
+
+                        <h2>Splitting Large Files</h2>
+                        <p>For long-duration programs, full-resolution exports can grow to hundreds of megabytes or more. Two split options are available:</p>
+                        <ul>
+                            <li><strong>Split by record count:</strong> Creates a new file every N records, with a minimum of 5,000 records per file. Consistent file sizes regardless of time domain.</li>
+                            <li><strong>Split by elapsed time:</strong> Creates a new file every N whole hours of test time, with a minimum of 5 hours per file. Consistent time windows regardless of logging rate.</li>
+                        </ul>
+                        <p>Split files are numbered sequentially and share the same column headers. Analysis scripts should be written to concatenate split files before processing, or to loop over all files in the export directory.</p>
+
+                        <h2>End-of-Cycle and End-of-Step Summary Files</h2>
+                        <p>Summary files are the most useful export type for routine trend analysis. Instead of exporting every logged record, summary files capture only the last record from each cycle or each step. The result is a compact table where each row represents one cycle or one step, containing the final values of all selected fields at that moment.</p>
+                        <p>End-of-cycle summary files typically contain a few hundred to a few thousand rows for most cycle life programs, compared to millions of rows in the full time-series export. They load instantly in Excel or Python and are directly usable for capacity fade plots, efficiency trend lines, and ESR growth curves without any data reduction step.</p>
+                        <div class="callout"><strong>Workflow recommendation:</strong> For routine cycle life monitoring, configure MIMS Server to generate end-of-cycle summary ASCII files automatically alongside the full binary archive. Use the full time-series export only when detailed waveform inspection is needed — this keeps routine analysis fast and file transfers manageable.</div>
+
+                        <h2>Merging Multiple Channels</h2>
+                        <p>The Data Export tool can combine records from multiple channels into a single output file, with a channel identifier column prepended to each row. This is particularly useful for test matrix analysis where results from 10 or 20 cells running in parallel need to be consolidated into a single table for statistical comparison. The merged file can be sorted or filtered on the channel column to isolate individual cells, or processed as a whole to compute population statistics.</p>
+
+                        <h2>Export Profiles</h2>
+                        <p>Any field selection, format mask configuration, and output option combination can be saved as a named export profile. Opening the Data Export tool and selecting the profile name instantly applies all saved settings — no manual reconfiguration needed. Profiles should be defined for each standard analysis type used in the lab: one for cycle life trend exports, one for HPPC pulse analysis, one for formation quality screening, and so on. This ensures consistency across analysts and over time.</p>
+
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>Can I export data from a test that is still running?</h3>
+                        <p>Yes. MIMS Server can be triggered to gather and convert data from active channels — the "Gather active channels" option must be enabled in the server settings. The Data Export tool can also open and export from a binary file that is currently being written, reading the records that have been flushed to disk at the time of export. Records still in the controller board's internal buffer will not appear until the next flush.</p>
+
+                        <h3>What delimiter should I use for ASCII exports?</h3>
+                        <p>Tab-separated is the most compatible choice for files that will be opened in Excel, as Excel auto-detects tab delimiters without a manual import wizard. Use comma separation if the downstream tool requires strict CSV format. Avoid space-delimited files unless the analysis environment specifically requires them, as variable-width numeric values create alignment ambiguity.</p>
+
+                        <h3>Why does my exported file have extra columns I didn't select?</h3>
+                        <p>Check whether a previously saved export profile is being applied — the profile may include fields added by a previous user. Also verify that the MIMS Server ASCII configuration is not producing the file rather than the manual Data Export tool; the server has its own field selection that operates independently of the Data Export tool's settings.</p>
+
+                    </div><!-- /article-body -->
+
+                    <aside class="article-aside">
+                        <div class="panel">
+                            <h3>Export at a Glance</h3>
+                            <div class="stat-strip" style="grid-template-columns: 1fr;">
+                                <div class="stat-pill">
+                                    <strong>3</strong>
+                                    <span>Output formats: ASCII, Excel, CSV</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>2</strong>
+                                    <span>Export routes: manual tool vs MIMS Server auto</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>5,000</strong>
+                                    <span>Minimum records per split file</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>EoC / EoS</strong>
+                                    <span>Summary files: fastest path to trend data</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Format Mask Reference</h3>
+                            <ul class="topic-list">
+                                <li><a href="#"><code>%.4f</code> — 4 decimal places fixed<span>Typical for voltage columns</span></a></li>
+                                <li><a href="#"><code>%.6f</code> — 6 decimal places fixed<span>High-resolution current / capacity</span></a></li>
+                                <li><a href="#"><code>%e</code> — scientific notation<span>Impedance; wide-range values</span></a></li>
+                                <li><a href="#"><code>%d</code> — integer<span>Cycle, step, loop counter columns</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>In This Section</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="battery-test-data-management.html">Battery Test Data Management<span>File types and pipeline architecture</span></a></li>
+                                <li><a href="analyzing-battery-cycle-data.html">Analyzing Battery Cycle Data<span>Half-cycles, metrics, dQ/dV</span></a></li>
+                                <li><a href="battery-data-logging-systems.html">Data Logging Systems<span>Report types and logging strategy</span></a></li>
+                                <li><a href="battery-performance-metrics.html">Battery Performance Metrics<span>CE, EE, DCIR, capacity retention</span></a></li>
+                                <li><a href="battery-test-reporting.html">Battery Test Reporting<span>Report structure and outputs</span></a></li>
+                                <li><a href="long-term-battery-lifecycle-analysis.html">Long-Term Lifecycle Analysis<span>RPT strategy and fade modelling</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Related Topics</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="../../software/data-export.html">Data Export Software<span>Full software reference</span></a></li>
+                                <li><a href="../../software/mims-server.html">MIMS Server<span>Automated export configuration</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div><!-- /article-shell -->
+
+                <div class="cta-band">
+                    <div>
+                        <h2>Get Your Data Into Your Workflow</h2>
+                        <p>Contact Maccor to discuss how the export pipeline can be configured to feed your existing analysis environment — Python, R, MATLAB, Excel, or custom tooling.</p>
+                    </div>
+                    <div class="cta-band-actions">
+                        <a href="../../contact.html" class="cta-button">Talk to an Engineer</a>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0 2rem;">
+                    <h2 style="font-size:1.6rem; margin-bottom:1.5rem; color:var(--off-white);">Continue in Data &amp; Analysis</h2>
+                    <div class="quick-links-grid">
+                        <a href="battery-test-data-management.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Test Data Management</h3>
+                                <p>File types, pipeline architecture, and multi-system consolidation.</p>
+                                <a href="battery-test-data-management.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <div class="quick-link-card current">
+                            <span class="tag">Current</span>
+                            <h3>Exporting Battery Test Data</h3>
+                            <p>Field selection, format masks, split files, and summary exports.</p>
+                        </div>
+                        <a href="battery-data-visualization-techniques.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Visualization Techniques</h3>
+                                <p>Time-based, cycle-based, dQ/dV, and auxiliary overlays.</p>
+                                <a href="battery-data-visualization-techniques.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="analyzing-battery-cycle-data.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Analyzing Battery Cycle Data</h3>
+                                <p>Per-cycle metrics, half-cycle definitions, and dQ/dV workflow.</p>
+                                <a href="analyzing-battery-cycle-data.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div><!-- /content-wrap -->
+        </div><!-- /content-section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.pageYOffset > 100 ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.quick-link-card, .stat-pill, .panel').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            obs.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

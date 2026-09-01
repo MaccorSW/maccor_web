@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Reliability Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="Practical guide to battery reliability testing: cycle life, calendar aging, stress testing, capacity fade analysis, and automated execution." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/applications/battery-reliability-testing.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Reliability Testing | Maccor" />
+    <meta property="og:description" content="From cycle life to calendar aging — a practical guide to battery reliability testing for engineering teams running long-horizon automated test programs." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/applications/battery-reliability-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Reliability Testing",
+      "description": "A practical guide to battery reliability testing for engineers and reliability programs — covering cycle life, calendar aging, accelerated stress testing, capacity fade analysis, and long-duration automated test execution.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/applications/battery-reliability-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../applications.html">Applications</a> / <span>Battery Reliability Testing</span>
+                </div>
+                <h1>Battery <span class="highlight">Reliability Testing</span></h1>
+                <p>A practical guide to long-horizon battery reliability programs — covering cycle life, calendar aging, accelerated stress testing, capacity fade tracking, and the automated test infrastructure that keeps programs running over months and years.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">APPLICATIONS</span>
+                <h2>Understanding Battery Reliability Testing</h2>
+                <p>Reliability data does not arrive quickly — the systems that collect it must run without interruption.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Battery Reliability Testing Is</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Battery reliability testing quantifies how a cell or pack degrades over time and use. Unlike characterization or acceptance testing — which answer questions about a battery's present state — reliability testing answers questions about its future: how many cycles before capacity drops below 80%? How much capacity remains after two years on the shelf? How does performance change when cycling at elevated temperature?</p>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">These programs run for months or years, often on large populations of cells simultaneously, and generate data sets that must remain coherent across the entire duration. The test infrastructure must be as reliable as the batteries it is evaluating.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">PLANNING</span></div>
+                    <h3>Defining the Reliability Test Objective</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Reliability programs typically target one or more of these questions. Naming the primary question before building the procedure prevents scope creep and ensures the data collected actually answers what the program was started to learn.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Test objective:</strong> Cycle life, calendar life, rate capability degradation, or failure mode identification?</li>
+                        <li><strong>Control variables:</strong> Depth of discharge, C-rate, temperature, state-of-charge storage level, rest duration?</li>
+                        <li><strong>Measured outputs:</strong> Capacity fade per cycle, energy efficiency trend, impedance growth, coulombic efficiency trajectory?</li>
+                        <li><strong>Data resolution:</strong> Full-resolution characterization cycles at defined intervals vs. compressed logging during routine cycling?</li>
+                        <li><strong>Operational risk:</strong> Which safeties protect cells, channels, and the facility during unattended overnight and weekend operation?</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>How Battery Reliability Testing Works in Practice</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Long-duration reliability programs follow a structured pattern that alternates between routine cycling and periodic reference performance tests (RPTs):</p>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li>Define DUT population, target end-of-life criterion, and RPT schedule (e.g., every 100 cycles).</li>
+                        <li>Build the cycling procedure using nested loops — inner loops for routine cycles, outer loops for RPT insertion at defined intervals.</li>
+                        <li>Assign channels; configure auxiliary temperature monitoring and any environmental chamber association.</li>
+                        <li>Enable global channel safeties and procedure-defined error handling for unattended operation.</li>
+                        <li>Start the program; use periodic real-time checks and automated alerts to confirm correct execution.</li>
+                        <li>Export capacity, energy, and coulombic efficiency data at each RPT interval for trend analysis.</li>
+                    </ol>
+                    <div class="callout" style="margin-top: 1rem;"><strong>Long-duration note:</strong> The Advanced Start feature allows a test to be restarted at a specific procedure step and appended to the existing archived data file, preserving continuity if a channel needs to be restarted after a planned maintenance window.</div>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Battery Reliability Testing Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Every industry that ships a product containing a battery has a reliability testing problem. The specific metrics and end-of-life definitions differ, but the infrastructure challenge is the same: keep a large number of channels running accurately and unattended for a very long time.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Market</th>
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Reliability Metric</th>
+                            </tr>
+                        </thead>
+                        <tbody style="color: var(--light-grey);">
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Electric vehicles</td>
+                                <td style="padding: 0.6rem 0.75rem;">Capacity retention over 1,000+ cycles; warranty life demonstration</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Grid storage</td>
+                                <td style="padding: 0.6rem 0.75rem;">Round-trip efficiency trend over multi-year cycling; calendar aging at float voltage</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Medical devices</td>
+                                <td style="padding: 0.6rem 0.75rem;">End-of-life capacity under worst-case discharge profile; shelf life at body temperature</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem;">Cell development</td>
+                                <td style="padding: 0.6rem 0.75rem;">Coulombic efficiency trajectory; failure mode identification at accelerated conditions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">KEY REQUIREMENTS</span></div>
+                    <h3>What Reliability Programs Demand from Test Systems</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Unattended operation stability:</strong> Global channel safeties, automatic problem-state handling, and procedure-defined error recovery keep programs running safely without constant operator oversight.</li>
+                        <li><strong>Nested loop support:</strong> Four available loop levels allow complex RPT-plus-cycling structures — hundreds or thousands of routine cycles interrupted by periodic full characterization — to be encoded in a single procedure.</li>
+                        <li><strong>Consistent data resolution:</strong> Event-based and derivative-triggered logging concentrate data density at transitions while keeping routine cycle file sizes manageable across programs lasting months or years.</li>
+                        <li><strong>Multi-channel parallel execution:</strong> Statistical confidence in reliability data requires large cell populations. Independent per-channel procedures and batch operations make it practical to run dozens or hundreds of cells simultaneously.</li>
+                        <li><strong>Data continuity on restart:</strong> Advanced Start appends resumed tests to the original archive, keeping the complete cycling history in a single data record for trend analysis.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Reliability Engineers and Program Managers</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Longer program continuity:</strong> Automated safety handling and restart-with-archive support reduce the risk of losing months of accumulated cycling data to a single recoverable fault.</li>
+                        <li><strong>Larger statistical populations:</strong> Multi-channel infrastructure makes it economically practical to test the population sizes that reliability statistics actually require.</li>
+                        <li><strong>Cleaner trend data:</strong> Consistent procedure execution cycle-over-cycle removes operator-introduced variation from capacity fade curves, making degradation trends easier to interpret.</li>
+                        <li><strong>Earlier design decisions:</strong> Accelerated stress test data collected on a well-controlled platform translates more reliably into service life predictions.</li>
+                        <li><strong>Defensible results:</strong> Complete, timestamped, procedure-linked data records support warranty claims, field failure investigations, and regulatory submissions.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How are reference performance tests inserted into a long cycling program?</p>
+                    <p style="color: var(--light-grey);">Nested loop structures allow an RPT block — a defined sequence of capacity check steps — to be inserted at regular cycle-count intervals within the outer cycling loop. The loop counter value in the data export identifies exactly which RPT each data point belongs to, making it straightforward to extract and trend capacity at each checkpoint.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What happens if a channel faults during an unattended weekend program?</p>
+                    <p style="color: var(--light-grey);">The channel enters a Problem state, stops the test safely, and logs the fault event with a timestamp. Data collected up to the fault is preserved. The operator can review the cause on return, clear the condition, and use Advanced Start to resume from the appropriate procedure step, appending the new data to the existing file.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How is coulombic efficiency tracked across a long program?</p>
+                    <p style="color: var(--light-grey);">Coulombic efficiency is computed from the charge and discharge Amp-hour values in each cycle's data record. MIMS can calculate and plot CE as a function of cycle number across the full dataset, making efficiency trajectory one of the most accessible long-horizon metrics in the analysis environment.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="aerospace-battery-testing.html" class="link-primary">Aerospace Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-temperature-monitoring.html" class="link-primary">Battery Temperature Monitoring →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../software/multi-channel-test-management.html" class="link-primary">Multi-Channel Test Management →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../fundamentals/battery-safety-testing.html" class="link-primary">Battery Safety Testing →</a></li>
+                        <li style="padding: 0.5rem 0;"><a href="../applications.html" class="link-primary">← Back to Applications</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

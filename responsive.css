@@ -1,0 +1,226 @@
+/* =====================================================================
+   Maccor — Responsive / mobile & tablet layer
+   Loaded AFTER styles.css (and any page CSS) so these rules win.
+   Goals: no horizontal overflow, readable type, and multi-column
+   layouts that collapse gracefully on tablet and phone.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. Global safety net — stop horizontal scroll and let flex/grid
+      children shrink below their content width (the #1 cause of overflow).
+   --------------------------------------------------------------------- */
+html { -webkit-text-size-adjust: 100%; }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Media never forces the page wider than the screen */
+img, svg, video, canvas, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Long strings (URLs, part numbers) wrap instead of pushing width out */
+p, li, a, h1, h2, h3, h4, td, th, blockquote, .subtitle {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Allow grid/flex items to shrink inside their tracks. Without this,
+   a nested fixed grid (e.g. the hero stat cards) sets a min-content
+   width that blows out its parent column on small screens. */
+.hero-content,
+.hero-stats,
+.hero-stats > *,
+.solutions-grid > *,
+.tech-showcase > *,
+.footer-content > *,
+[class*="-grid"] > *,
+[class*="-layout"] > * {
+    min-width: 0;
+}
+
+/* ---------------------------------------------------------------------
+   2. Fluid headline typography — scales with the viewport so big
+      display type can never overflow a narrow screen. Desktop sizes
+      are preserved at the top of each clamp() range.
+   --------------------------------------------------------------------- */
+.hero-content h1 { font-size: clamp(2rem, 7.5vw, 4.5rem); }
+.hero-content .subtitle { font-size: clamp(1.05rem, 2.4vw, 1.4rem); }
+.section-header h2,
+.section-tag + h2 { font-size: clamp(1.9rem, 5vw, 3.5rem); }
+.page-hero h1 { font-size: clamp(2rem, 6vw, 3.75rem); }
+
+/* =====================================================================
+   3. TABLET  (≤ 1024px)
+   ===================================================================== */
+@media (max-width: 1024px) {
+    /* Any auto-fit card grid: relax the min track so 3-up becomes 2-up
+       cleanly without overflow. */
+    .solutions-grid,
+    .values-grid,
+    .reach-list,
+    [class*="-cards"],
+    [class*="card-grid"] {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    /* Common section padding is often 8rem side; ease it in. */
+    section { padding-left: clamp(1rem, 4vw, 4rem); padding-right: clamp(1rem, 4vw, 4rem); }
+}
+
+/* =====================================================================
+   4. PHONE  (≤ 768px)
+   ===================================================================== */
+@media (max-width: 768px) {
+    /* Vertical rhythm: pull big vertical paddings in so sections aren't
+       enormous on a phone. */
+    .hero { padding-top: 110px; min-height: auto; padding-bottom: 3rem; }
+
+    /* Hero container already collapses to 1 col at 1024; make sure the
+       stat row goes to a compact 3-across that can actually shrink, then
+       stacks on very small screens (handled at 480). */
+    .hero-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+    .stat-card { padding: 1rem 0.75rem; }
+    .stat-card .number { font-size: clamp(1.4rem, 6vw, 2.5rem); }
+    .stat-card .label { font-size: 0.72rem; letter-spacing: 0.03em; }
+
+    /* Collapse the common multi-column grids to a single column. */
+    .solutions-grid,
+    .tech-showcase,
+    .values-grid,
+    .story-visual,
+    .reach-list,
+    .reach-stats,
+    .usa-band,
+    [class*="-cards"],
+    [class*="card-grid"],
+    [class*="-layout"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Buttons stack full-width and are easy to tap. */
+    .hero-buttons { flex-direction: column; align-items: stretch; }
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary { width: 100%; text-align: center; }
+
+    .btn-primary, .btn-secondary { padding: 1rem 1.5rem; font-size: 1rem; }
+
+    /* Footer to a single column, centered. */
+    .footer-content { grid-template-columns: 1fr !important; gap: 2rem; text-align: center; }
+    .footer-content .footer-brand p { margin-left: auto; margin-right: auto; }
+    .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+    .footer-bottom p { line-height: 1.9; }
+
+    /* Tables scroll horizontally inside their own box instead of the page. */
+    table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* Decorative background glows shouldn't create scroll width. */
+    [class*="-glow"],
+    [class*="glow-"],
+    .hero-grid { pointer-events: none; }
+}
+
+/* =====================================================================
+   5. SMALL PHONE  (≤ 480px)
+   ===================================================================== */
+@media (max-width: 480px) {
+    /* Stat cards stack for legibility on the narrowest screens. */
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+
+    /* Reduce heavy display type a touch more. */
+    .hero-content h1 { font-size: clamp(1.75rem, 8.5vw, 2.4rem); }
+
+    /* Tighten default side padding used throughout the site. */
+    .hero .container,
+    .page-hero .container,
+    nav .container { padding-left: 1rem; padding-right: 1rem; }
+
+    section { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* =====================================================================
+   6. Series-6000 page specifics (style-6k.css)
+   ===================================================================== */
+@media (max-width: 768px) {
+    /* Horizontal-scroll subnav: clip to its own box so it scrolls
+       internally rather than widening the page. */
+    .s6k-subnav { max-width: 100%; overflow: hidden; }
+    .s6k-subnav-inner {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+    }
+    .s6k-specs-grid { grid-template-columns: 1fr !important; }
+    .s6k-features-grid,
+    .s6k-feature-tiles { grid-template-columns: 1fr !important; }
+    .s6k-hero-glow-left,
+    .s6k-hero-glow-right { max-width: 60vw; }
+}
+
+/* =====================================================================
+   7. Touch niceties
+   ===================================================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Give interactive targets a comfortable minimum tap size. */
+    .nav-links a,
+    .btn-primary,
+    .btn-secondary,
+    .cta-button { min-height: 44px; }
+}
+
+/* =====================================================================
+   8. COMPACT DESKTOP  (769px – 1280px)   — a.k.a. "reduced" / laptop
+   ---------------------------------------------------------------------
+   The full-width nav (250px logo + 6 links at 3rem gaps + pill CTA)
+   only fits comfortably above ~1280px. Below that — but still ABOVE the
+   768px hamburger threshold — the row gets cramped and the items start
+   to overlap when the window isn't maximized.
+
+   This layer keeps the nav HORIZONTAL (no hamburger) and fluidly shrinks
+   the logo, link font, letter-spacing, gaps and CTA padding with the
+   viewport width so everything stays on one tidy line at any width in
+   this range. Nothing here affects phone/tablet (≤768px) or the roomy
+   desktop layout (>1280px).
+   ===================================================================== */
+@media (min-width: 769px) and (max-width: 1280px) {
+    /* Tighten the outer nav padding and guarantee a little breathing
+       room between the logo and the link group. */
+    nav .container {
+        padding-top: 1.1rem;
+        padding-bottom: 1.1rem;
+        padding-left: clamp(0.85rem, 1.8vw, 2rem);
+        padding-right: clamp(0.85rem, 1.8vw, 2rem);
+        gap: clamp(0.5rem, 2.4vw, 2rem);
+    }
+
+    /* Logo scales from 250px (wide) down to 132px (narrow). */
+    .logo img { width: clamp(132px, 15.5vw, 250px); }
+
+    /* Keep all links on one row; never wrap a single label. */
+    .nav-links {
+        gap: clamp(0.5rem, 1.5vw, 3rem);
+        flex-wrap: nowrap;
+    }
+
+    /* THE FONT REDUCTION: link type shrinks with the window, from the
+       full 0.95rem down to 0.7rem at the narrow end. */
+    .nav-links a {
+        font-size: clamp(0.7rem, 1.1vw, 0.95rem);
+        letter-spacing: 0.015em;
+        white-space: nowrap;
+    }
+
+    /* CTA pill: trim its horizontal padding so it doesn't crowd the row. */
+    .cta-button {
+        padding: 0.5rem clamp(0.7rem, 1.35vw, 1.8rem);
+        white-space: nowrap;
+    }
+}

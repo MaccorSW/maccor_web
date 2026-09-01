@@ -1,0 +1,169 @@
+/* =====================================================================
+   puzzles.css — shared styling for the Brain-Teaser pages and the 404
+   page. Inherits the site design tokens from styles.css (:root vars) and
+   only adds: a themed hero, a light "play surface" that keeps the legacy
+   game boards readable on the dark site, a small GRID/UTILITY shim that is
+   SCOPED to .puzzle-surface (so the original Bootstrap-classed game markup
+   works untouched without colliding with the new nav/footer), and a 404
+   layout. Load AFTER styles.css and responsive.css.
+   ===================================================================== */
+
+/* Global, harmless helper the legacy markup relies on */
+.img-fluid { max-width: 100%; height: auto; }
+
+/* ---- Page scaffold ------------------------------------------------ */
+.puzzle-main { padding-top: 90px; }            /* clears the fixed nav */
+
+/* ---- Hero --------------------------------------------------------- */
+.puzzle-hero {
+    position: relative;
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    background:
+        radial-gradient(1200px 400px at 50% -10%, rgba(0, 217, 255, 0.10), transparent 60%),
+        linear-gradient(180deg, var(--mid-dark) 0%, var(--dark) 100%);
+    border-bottom: 1px solid rgba(0, 217, 255, 0.12);
+    overflow: hidden;
+}
+.puzzle-hero .eyebrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.puzzle-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--off-white);
+    margin: 0 auto 0.75rem;
+    max-width: 18ch;
+}
+.puzzle-hero h1 .accent { color: var(--accent); }
+.puzzle-hero p {
+    max-width: 60ch;
+    margin: 0 auto;
+    color: var(--light-grey);
+    font-size: 1.05rem;
+}
+
+/* ---- Body + light play surface ------------------------------------ */
+.puzzle-body { padding: 3rem 1.25rem 4.5rem; }
+.puzzle-surface {
+    max-width: 1080px;
+    margin: 0 auto;
+    background: var(--off-white);
+    color: #0A0E1A;
+    border: 1px solid rgba(0, 217, 255, 0.10);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    padding: 2.5rem clamp(1rem, 3vw, 2.5rem);
+}
+.puzzle-surface h1, .puzzle-surface h2, .puzzle-surface h3,
+.puzzle-surface h4, .puzzle-surface h5 { color: var(--secondary-dark); }
+.puzzle-surface a { color: var(--primary-dark); }
+
+/* ---- Grid + utility shim (SCOPED to the play surface) -------------- */
+.puzzle-surface .container-fluid { width: 100%; padding: 0; }
+.puzzle-surface .container { width: 100%; max-width: 100%; margin: 0 auto; }
+.puzzle-surface .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+    align-items: stretch;
+}
+.puzzle-surface [class*="col-"] { padding: 0 12px; width: 100%; }
+.puzzle-surface .mb-5 { margin-bottom: 2.5rem; }
+.puzzle-surface .p-4 { padding: 1.5rem; }
+.puzzle-surface .text-center { text-align: center; }
+.puzzle-surface .text-left  { text-align: left; }
+.puzzle-surface .text-right { text-align: right; }
+
+@media (min-width: 576px) {
+    .puzzle-surface .col-6  { width: 50%; }
+}
+@media (min-width: 768px) {
+    .puzzle-surface .col-md-6 { width: 50%; }
+}
+@media (min-width: 992px) {
+    .puzzle-surface .col-lg-3 { width: 25%; }
+    .puzzle-surface .col-lg-6 { width: 50%; }
+}
+@media (min-width: 1200px) {
+    .puzzle-surface .col-xl-2 { width: 16.6667%; }
+    .puzzle-surface .col-xl-4 { width: 33.3333%; }
+    .puzzle-surface .col-xl-6 { width: 50%; }
+    .puzzle-surface .col-xl-8 { width: 66.6667%; }
+}
+
+/* ---- Themed prev/next + generic Bootstrap buttons in the surface --- */
+.puzzle-surface .btn {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+}
+.puzzle-surface .btn:hover { transform: translateY(-2px); }
+.puzzle-surface .btn-primary {
+    background: var(--primary); color: #fff; border-color: var(--primary);
+}
+.puzzle-surface .btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); color:#fff; }
+.puzzle-surface .btn-secondary {
+    background: transparent; color: var(--secondary); border-color: var(--secondary);
+}
+.puzzle-surface .btn-secondary:hover { background: var(--secondary); color: #fff; }
+
+/* A tidy footer row for the prev/next puzzle links */
+.puzzle-surface .puzzle-pager {
+    display: flex; justify-content: space-between; gap: 1rem;
+    margin-top: 2.25rem; flex-wrap: wrap;
+}
+
+/* ---- 404 ----------------------------------------------------------- */
+.error-hero {
+    min-height: calc(100vh - 90px - 120px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 4rem 1.5rem;
+    background:
+        radial-gradient(900px 380px at 50% 0%, rgba(0, 217, 255, 0.10), transparent 60%),
+        var(--dark);
+}
+.error-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(5rem, 20vw, 12rem);
+    font-weight: 700; line-height: 0.9;
+    letter-spacing: -0.04em;
+    background: linear-gradient(180deg, var(--accent), var(--primary));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+.error-hero h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 800; color: var(--off-white); margin-bottom: 0.75rem; }
+.error-hero p  { color: var(--light-grey); max-width: 52ch; margin: 0 auto 2rem; font-size: 1.05rem; }
+.error-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.error-actions a {
+    display: inline-block; padding: 0.85rem 1.9rem; border-radius: 12px;
+    font-weight: 700; text-decoration: none; transition: transform 0.15s ease, background 0.2s ease;
+}
+.error-actions a:hover { transform: translateY(-2px); }
+.error-actions .primary { background: var(--primary); color: #fff; }
+.error-actions .primary:hover { background: var(--primary-dark); }
+.error-actions .ghost { border: 2px solid var(--accent); color: var(--accent); }
+.error-actions .ghost:hover { background: rgba(0, 217, 255, 0.12); }
+
+/* ---- Motion / small screens --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .puzzle-surface .btn, .error-actions a { transition: none; }
+}
+@media (max-width: 640px) {
+    .puzzle-surface { padding: 1.5rem 1rem; border-radius: 14px; }
+    .puzzle-body { padding: 2rem 0.75rem 3rem; }
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Test Reporting | Knowledge Center | Maccor</title>
+    <meta name="description" content="Battery test reporting: MIMS report generation, chart and table export, embedded procedure records, and structuring deliverables for formal review." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-test-reporting.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Test Reporting | Maccor" />
+    <meta property="og:description" content="What a complete battery test report contains, how MIMS generates outputs, and how to structure deliverables for engineering review and formal submissions." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-test-reporting.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Test Reporting",
+      "description": "A practical guide to battery test reporting — what a complete test report contains, how MIMS generates report outputs, chart export, statistical tables, embedded procedure records, and structuring deliverables for engineering review and formal submissions.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-test-reporting.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Request Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../data-analysis.html">Data &amp; Analysis</a> / <span>Battery Test Reporting</span>
+                </div>
+                <h1>Battery Test <span class="highlight">Reporting</span></h1>
+                <p>A practical guide to what a complete battery test report contains, how MIMS Client generates charts and statistical outputs, the role of the embedded procedure record in formal documentation, and how to structure deliverables for different audiences — from internal engineering review to customer submissions and regulatory packages.</p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <div class="content-wrap">
+
+                <div class="article-shell">
+                    <div class="article-body">
+
+                        <h2>What a Battery Test Report Must Document</h2>
+                        <p>A complete battery test report is more than a chart of capacity versus cycle number. To be useful for engineering decisions, reproducible by another lab, or defensible in a regulatory or contractual context, a report needs to document four things unambiguously: what was tested, how it was tested, what the results were, and whether those results meet the applicable requirements.</p>
+                        <ul>
+                            <li><strong>Test identification:</strong> Cell or pack identifier, serial number, test program name, tester ID, channel number, test start and end date/time.</li>
+                            <li><strong>Procedure documentation:</strong> The complete procedure that was executed — ideally as an embedded snapshot extracted from the data file itself, not a separate document that may have been edited after the fact.</li>
+                            <li><strong>Test conditions:</strong> Temperature setpoints and actual temperature record, C-rate used, voltage limits, rest periods, cycle count, and any protocol deviations noted.</li>
+                            <li><strong>Results:</strong> Per-cycle and summary metrics — capacity, energy, coulombic efficiency, energy efficiency, ESR trends, and any auxiliary measurements relevant to the test objective.</li>
+                            <li><strong>Pass/fail determination:</strong> Which specification or acceptance criterion was applied, and whether the result meets, exceeds, or fails it.</li>
+                        </ul>
+
+                        <h2>MIMS Client Report Outputs</h2>
+                        <p>MIMS Client generates several report-relevant outputs directly from the data file:</p>
+                        <ul>
+                            <li><strong>Charts:</strong> Any chart configured in MIMS Client — capacity fade, dQ/dV, efficiency trend, temperature overlay, multi-cell comparison — can be printed or exported as an image. Charts include configurable header and footer text fields for report identification, and axis labels with engineering units.</li>
+                            <li><strong>Statistical tables:</strong> For multi-cell test matrices, MIMS can generate statistical summary tables showing mean, standard deviation, minimum, maximum, and range for any selected metric across the cell population. These tables are print-ready and export to the same chart output.</li>
+                            <li><strong>Data tables:</strong> The View Data screen can display filtered subsets of the raw data record — specific cycle ranges, specific report types, specific channels — and print or save as text. This is useful for including selected data tables in formal reports without exporting the full time series.</li>
+                            <li><strong>Embedded procedure view:</strong> MIMS Client can display the procedure embedded in the data file in full Build Test grid format, and this view can be printed as part of the report package. The embedded snapshot is tied to the data — it reflects the exact procedure state at test start, regardless of any subsequent edits to the procedure file.</li>
+                        </ul>
+
+                        <h2>The Embedded Procedure as a Traceability Record</h2>
+                        <p>In validated environments — aerospace, medical, grid storage bankability programs — proving that a specific procedure was applied to a specific cell on a specific date is a fundamental documentation requirement. The Maccor data file satisfies this automatically because the procedure is embedded at the moment the test starts.</p>
+                        <p>This means the data file is simultaneously the results record and the provenance record. Extracting the embedded procedure from the data file and including it in the test report package provides a single, coherent document set where the test conditions and the results are permanently linked — without relying on a separate version control system for the procedure file.</p>
+                        <div class="callout"><strong>For regulated programs:</strong> Request an embedded procedure extract from each data file as part of the standard report package. The extract can be saved as a .bt2 file and re-opened in Build Test for verification, or printed from MIMS Client for inclusion in the physical report.</div>
+
+                        <h2>Report Structure by Audience</h2>
+                        <p>The depth and format of a battery test report varies substantially depending on who will read it and what decisions it needs to support:</p>
+
+                        <table>
+                            <thead>
+                                <tr><th>Audience</th><th>Core Content</th><th>Typical Format</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Internal engineering review</td><td>Capacity fade curves, CE trend, anomaly flags, comparison to previous builds</td><td>MIMS chart exports in a shared folder or slide deck; informal</td></tr>
+                                <tr><td>Programme milestone review</td><td>Summary metrics vs. specification, statistical spread, RPT checkpoint results</td><td>Formal report document with embedded charts and data tables</td></tr>
+                                <tr><td>Customer / OEM submission</td><td>Full test conditions, procedure documentation, all required metrics per agreed test plan</td><td>Formatted PDF with traceability appendix</td></tr>
+                                <tr><td>Regulatory / certification body</td><td>Test conditions, pass/fail against cited standard, instrument calibration records, data integrity statement</td><td>Controlled document with revision history; may require raw data submission</td></tr>
+                                <tr><td>Grid storage bankability</td><td>RTE over full program, partial SoC protocol, instrument calibration, complete cycle-by-cycle record</td><td>Formal deliverable specified in the financing term sheet</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h2>Chart Templates for Consistent Reporting</h2>
+                        <p>MIMS Client's chart template system is particularly valuable in reporting workflows. A template saves the complete chart configuration — axis selections, scale ranges, channel pairings, header/footer text, annotation styles, and statistical options. Opening any data file and applying the template instantly produces a chart formatted identically to all previous reports.</p>
+                        <p>For labs that run recurring test types — formation cycles, cycle life programs, HPPC matrices — defining a template per test type ensures that all reports across the program are directly comparable, even when produced by different analysts on different days. Template files can be shared across MIMS Client installations, so the same formatting applies on every workstation in the lab.</p>
+
+                        <h2>Annotations and Comments in the Data Record</h2>
+                        <p>MIMS Client supports annotations that are attached directly to specific points or regions in the data record — a cycle number, a time range, a specific data point. These annotations persist in the MIMS database and appear on charts whenever that region is displayed. Common uses include flagging the cycle where a procedure restart occurred, marking cycles excluded from analysis due to a chamber fault, noting a thermal event, or identifying the RPT cycles within a long cycling program.</p>
+                        <p>Because annotations are tied to the data rather than to a specific chart file, they appear automatically in any future chart that covers the annotated region — including charts produced by other analysts using the same data file. This makes annotations a useful shared communication layer within a team working on the same dataset.</p>
+
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>Can MIMS Client produce a report automatically at the end of a test?</h3>
+                        <p>MIMS Server can be configured to generate ASCII exports automatically at the end of a test, and these can be fed into a scripted report generation workflow. MIMS Client itself is an interactive tool rather than a batch report generator — charts, statistical tables, and data views are produced on demand by the analyst rather than triggered automatically. For high-throughput labs, the ASCII end-of-cycle export pipeline combined with a Python or R script is a practical approach to automated report production.</p>
+
+                        <h3>How do I include temperature data in a capacity fade report?</h3>
+                        <p>Auxiliary thermocouple or thermistor inputs are co-logged in the data record with the same time and cycle index as the electrical data. In MIMS Client, add the relevant auxiliary channel to the second Y-axis of a cycle-based chart. Temperature versus cycle number can then be plotted alongside capacity versus cycle number on the same chart, making any temperature excursions that correlate with capacity anomalies immediately visible.</p>
+
+                        <h3>What should I provide as raw data if a customer or regulator asks for it?</h3>
+                        <p>The raw binary .DAT file is the authoritative record. For a customer or regulator who cannot read the binary format directly, an ASCII export of the full time series with all relevant fields is the appropriate deliverable — this is the complete record in a universally accessible format. The end-of-cycle summary file alone is not sufficient for this purpose, as it does not contain the full resolution record. Include the embedded procedure extract alongside the ASCII export to provide a complete, self-contained submission.</p>
+
+                    </div><!-- /article-body -->
+
+                    <aside class="article-aside">
+                        <div class="panel">
+                            <h3>Report Essentials</h3>
+                            <div class="stat-strip" style="grid-template-columns: 1fr;">
+                                <div class="stat-pill">
+                                    <strong>5</strong>
+                                    <span>Core report components</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>Embedded</strong>
+                                    <span>Procedure snapshot in every data file</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>Templates</strong>
+                                    <span>Consistent chart format across all analysts</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>Annotations</strong>
+                                    <span>Persistent per-cycle / per-region notes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>MIMS Report Outputs</h3>
+                            <ul class="topic-list">
+                                <li><a href="#">Charts with header/footer<span>Any MIMS view; configurable labels</span></a></li>
+                                <li><a href="#">Statistical tables<span>Mean, SD, min, max across cell population</span></a></li>
+                                <li><a href="#">View Data filtered subsets<span>Print specific cycles or step ranges</span></a></li>
+                                <li><a href="#">Embedded procedure extract<span>Proof of test conditions at execution time</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>In This Section</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="battery-test-data-management.html">Battery Test Data Management<span>File types and pipeline architecture</span></a></li>
+                                <li><a href="exporting-battery-test-data.html">Exporting Battery Test Data<span>ASCII, Excel, CSV field selection</span></a></li>
+                                <li><a href="battery-data-logging-systems.html">Data Logging Systems<span>Report types and logging strategy</span></a></li>
+                                <li><a href="battery-performance-metrics.html">Battery Performance Metrics<span>CE, EE, DCIR, capacity retention</span></a></li>
+                                <li><a href="long-term-battery-lifecycle-analysis.html">Long-Term Lifecycle Analysis<span>RPT strategy and fade modelling</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Related Topics</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="../applications/battery-reliability-testing.html">Battery Reliability Testing<span>Applications section</span></a></li>
+                                <li><a href="../fundamentals/battery-safety-testing.html">Battery Safety Testing<span>Fundamentals section</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div><!-- /article-shell -->
+
+                <div class="cta-band">
+                    <div>
+                        <h2>Build Report-Ready Test Programs</h2>
+                        <p>Maccor applications engineers can help structure your test procedures and data pipeline to produce the documentation your customers, auditors, or financing teams require.</p>
+                    </div>
+                    <div class="cta-band-actions">
+                        <a href="../../contact.html" class="cta-button">Talk to an Engineer</a>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0 2rem;">
+                    <h2 style="font-size:1.6rem; margin-bottom:1.5rem; color:var(--off-white);">Continue in Data &amp; Analysis</h2>
+                    <div class="quick-links-grid">
+                        <a href="battery-test-data-management.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Test Data Management</h3>
+                                <p>File types, pipeline architecture, and multi-system consolidation.</p>
+                                <a href="battery-test-data-management.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="exporting-battery-test-data.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Exporting Battery Test Data</h3>
+                                <p>Field selection, format masks, split files, and summary exports.</p>
+                                <a href="exporting-battery-test-data.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <div class="quick-link-card current">
+                            <span class="tag">Current</span>
+                            <h3>Battery Test Reporting</h3>
+                            <p>Report content, MIMS outputs, embedded procedures, and templates.</p>
+                        </div>
+                        <a href="long-term-battery-lifecycle-analysis.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Long-Term Lifecycle Analysis</h3>
+                                <p>RPT strategy, degradation trends, and end-of-life determination.</p>
+                                <a href="long-term-battery-lifecycle-analysis.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div><!-- /content-wrap -->
+        </div><!-- /content-section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.pageYOffset > 100 ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.quick-link-card, .stat-pill, .panel').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            obs.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

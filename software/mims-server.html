@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIMS Server — Battery Test Data Management Software | Maccor</title>
+    <meta name="description" content="MIMS Server automatically collects, backs up, and converts battery test data from every Maccor tester on your network — binary archive, automatic ASCII export, and procedure synchronisation from one dedicated PC." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/software/mims-server.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MIMS Server — Data Management | Maccor" />
+    <meta property="og:description" content="Centralised battery test data collection, backup, and ASCII export across your entire Maccor lab — fully automatic, network-based, zero operator intervention." />
+    <meta property="og:url" content="https://www.maccor.com/software/mims-server.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../fonts.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "MIMS Server — Battery Test Data Management Software",
+      "description": "MIMS Server automatically collects, backs up, and converts battery test data from every Maccor tester on your network — binary archive, automatic ASCII export, and procedure synchronisation from one dedicated PC.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Windows",
+      "offers": {"@type":"Offer","seller":{"@type":"Organization","name":"Maccor, Inc."}},
+      "url": "https://www.maccor.com/software/mims-server.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../index.html#solutions">Solutions</a></li>
+                <li><a href="../index.html#industries">Industries</a></li>
+                <li><a href="../index.html#technology">Technology</a></li>
+                <li><a href="../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../support.html">Support</a></li>
+                <li><a href="../contact.html" class="cta-button">Request a Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a> / <a href="software.html">Software Suite</a> / <span>MIMS Server</span>
+                </div>
+                <h1>MIMS Server — <span class="highlight">Data Management</span></h1>
+                <p>The centralised backbone of the Maccor data pipeline. MIMS Server runs on a dedicated network PC, automatically gathering raw binary data from every connected tester, creating safe backups, generating ASCII exports, and keeping procedure files synchronised — without operator intervention.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">MIMS Server</span>
+                <h2>Automatic, Secure, Network-Wide Data Collection</h2>
+                <p>One dedicated server PC handles backup and conversion for every Maccor tester in the lab — up to hundreds of channels across multiple systems.</p>
+            </div>
+            <div class="card-grid">
+
+                <!-- Full-width architecture diagram -->
+                <div class="mini-card" style="grid-column: 1 / -1;">
+                    <div class="topline"><span class="tag">ARCHITECTURE DIAGRAM</span></div>
+                    <h3>Lab Network Architecture — MIMS Server in Context</h3>
+                    <div class="image-full-width-container">
+                        <img class="img-fluid full-width-capture" src="assets/mims-server-.png" alt="Build Test Interface" loading="eager">
+                    </div>                    
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What MIMS Server Does</h3>
+                    <p style="color:var(--light-grey)">MIMS Server performs fully automatic, safe, and secure collection of data from multiple battery test systems over a local area network. It must be installed on a dedicated PC separate from any tester PC — the server software requires compute resources that would conflict with the real-time demands of test execution. Once configured and running, it operates in the background without operator intervention, gathering data from all connected testers on a user-defined schedule ranging from once per day down to twice per minute.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">DATA PIPELINE</span></div>
+                    <h3>What the Server Collects and Stores</h3>
+                    <ul style="color:var(--light-grey);padding-left:1.25rem;line-height:2.1;">
+                        <li><strong>Raw binary data files:</strong> Verbatim copy of every .DAT file from every tester's Active and Archive directories — the primary backup, stored in tester-named subdirectories</li>
+                        <li><strong>Configuration files:</strong> System.cfg / System.ini files from each tester, enabling full recovery if a tester PC fails</li>
+                        <li><strong>Calibration files:</strong> Calibration records backed up alongside configuration data</li>
+                        <li><strong>ASCII exports (optional):</strong> Tab-separated text files generated automatically from the binary data — field selection is configurable; files land in a network-accessible ASCII Data directory</li>
+                        <li><strong>Formation tray summary (optional):</strong> ASCII summary of grade, capacity, energy, and impedance per cell for Model 5300 formation systems</li>
+                        <li><strong>Indexed data files:</strong> Converted binary format that MIMS Client reads for charting and statistical analysis</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">CONFIGURATION</span></div>
+                    <h3>Setting Up the Server</h3>
+                    <p style="color:var(--light-grey);margin-bottom:0.75rem;">Configuration is done once through the Settings dialog and stored in MIMSserver2.ini. Key setup parameters:</p>
+                    <ul style="color:var(--light-grey);padding-left:1.25rem;line-height:2.1;">
+                        <li><strong>Timing:</strong> Base time (fixed daily anchor point) and frequency — up to 2,880 gathers per 24 hours (2 per minute)</li>
+                        <li><strong>Partial gathering:</strong> Server adds only new data appended since the last gather — minimises network traffic on active channels</li>
+                        <li><strong>Delete archived files:</strong> Optionally removes raw data from tester PCs after confirmed copy to the server (24-hour minimum delay enforced)</li>
+                        <li><strong>Gather active channels:</strong> Enables live channel collection — recommended for R&amp;D labs, typically disabled for formation systems</li>
+                        <li><strong>Minimum free HD space:</strong> Server halts gathering and alerts when disk space falls below threshold</li>
+                        <li><strong>ASCII field selection:</strong> Move fields from the Available list to the Output list to define exactly which columns appear in the ASCII export</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">ASCII OUTPUT</span></div>
+                    <h3>Configuring the ASCII Export</h3>
+                    <p style="color:var(--light-grey);margin-bottom:0.75rem;">When ASCII output is enabled, the server produces tab-separated text files that any spreadsheet can open directly. Available configuration options include:</p>
+                    <ul style="color:var(--light-grey);padding-left:1.25rem;line-height:2.1;">
+                        <li>Individual field selection: Cycle, Step, Date-Time, Voltage, Current, Capacity (Ah), Energy (Wh), all auxiliary channels, SMBus fields, loop counters</li>
+                        <li>Header and units row formatting per field</li>
+                        <li>Comma as decimal separator option for European locale compatibility</li>
+                        <li>Formation ASCII output for Model 5300 tray data</li>
+                        <li>Use raw file date option — ASCII files inherit the date of the source binary, keeping both file types grouped under the same month folder</li>
+                        <li>ODBC-compatible output for direct connection to MS Excel Query, MS Access, and third-party statistical packages</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">PROCEDURE SYNC</span></div>
+                    <h3>Centralised Procedure Management</h3>
+                    <p style="color:var(--light-grey)">MIMS Server can be configured to maintain a master repository of Build Test procedure files (.bt2) and synchronise them automatically to all connected tester PCs. When a procedure is updated on the server, all tester clients receive the new version at the next synchronisation — eliminating version drift across a multi-tester lab and ensuring every channel is running the approved procedure. This feature is particularly valuable in regulated environments where procedure traceability is required.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color:var(--accent);font-weight:700;margin-bottom:0.25rem;margin-top:1rem;">Can MIMS Server run on the same PC as the tester software?</p>
+                    <p style="color:var(--light-grey)">No — MIMS Server requires a dedicated PC separate from any Maccor tester system PC. The server software requires compute resources that conflict with the real-time demands of test execution. MIMS Client, by contrast, can be installed on the tester PC or any networked PC.</p>
+                    <p style="color:var(--accent);font-weight:700;margin-bottom:0.25rem;margin-top:1rem;">What happens if the server PC is offline during a test?</p>
+                    <p style="color:var(--light-grey)">Nothing — the testers continue running normally and accumulate data locally. When the server comes back online, it performs a catch-up gather and picks up all data generated during the outage. The Partial Gathering option ensures only new records are transferred, keeping the sync efficient.</p>
+                    <p style="color:var(--accent);font-weight:700;margin-bottom:0.25rem;margin-top:1rem;">How do clients access the data?</p>
+                    <p style="color:var(--light-grey)">MIMS Client connects to the server over the network and accesses both the indexed data files for graphing and the ASCII directory for spreadsheet import. Read access to the ASCII Data directory can be granted to any network user, making test data accessible to analysts without MIMS Client installed.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue in the Suite</h3>
+                    <ul style="list-style:none;padding:0;margin-top:1rem;">
+                        <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.07);"><a href="mactest.html" class="link-primary">MacTest — Test Execution</a></li>
+                        <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.07);"><a href="build-test.html" class="link-primary">Build Test — Procedure Editor</a></li>
+                        <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.07);"><a href="mims-client.html" class="link-primary">MIMS Client - Data Analysis</a></li>
+                        <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span class="link-primary" aria-current="page" style="opacity:0.45;cursor:default;pointer-events:none;">MIMS Server — Data Management</span></li>
+                        <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.07);"><a href="data-export.html" class="link-primary">Data Export — Convert Data to ASCII</a></li>
+                        <li style="padding:0.5rem 0;"><a href="software.html" class="link-primary">Software Suite</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../software/software.html">Software Suite</a></li>
+                    <li><a href="../options.html">Options</a></li>
+                    <li><a href="../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../aboutus.html">About Maccor</a></li>
+                    <li><a href="../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../battery-testing-events.html">Events</a></li>
+                    <li><a href="../support.html">Support</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+    <script>
+        const toggle=document.querySelector('.nav-toggle'),navLinks=document.querySelector('.nav-links');
+        if(toggle&&navLinks)toggle.addEventListener('click',()=>{const o=navLinks.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(o));});
+        window.addEventListener('scroll',()=>{const n=document.querySelector('nav');n.style.background=window.pageYOffset>100?'rgba(10,14,26,0.98)':'rgba(10,14,26,0.95)';n.style.boxShadow=window.pageYOffset>100?'0 4px 20px rgba(0,0,0,0.3)':'none';});
+        const obs=new IntersectionObserver((e)=>e.forEach((en,i)=>{if(en.isIntersecting)setTimeout(()=>{en.target.style.opacity='1';en.target.style.transform='translateY(0)';},i*100);}),{threshold:0.08});
+        document.querySelectorAll('.mini-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(28px)';el.style.transition='all 0.55s ease-out';obs.observe(el);});
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../cookie-consent.js" data-privacy="../privacy.html"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Efficiency Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="Maccor battery efficiency measurement: Coulombic and energy efficiency, charge-discharge ratios, Wh efficiency, and temperature/rate effects" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-efficiency-testing.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Efficiency Testing | Maccor" />
+    <meta property="og:description" content="Evaluate the ratio of charge extracted to charge injected as a primary indicator of battery health, chemical stability, and energy system performance." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-efficiency-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Efficiency Testing",
+      "description": "Learn how to measure battery Coulombic and energy efficiency: charge-discharge ratios, Wh round-trip efficiency, and how efficiency changes with rate, temperature, and age.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-efficiency-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../fundamentals.html">Fundamentals</a> / <span>Battery Efficiency Testing</span>
+                </div>
+                <div class="kicker"></div>
+                <h1>Battery <span class="highlight">Efficiency Testing</span></h1>
+                <p>Evaluating Coulombic and energy efficiency — the ratio of charge or energy extracted to charge or energy injected — as a primary indicator of battery health, chemistry stability, and system performance.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">EFFICIENCY</span>
+                <h2>Understanding Battery Efficiency Testing</h2>
+                <p>From Coulombic efficiency to round-trip energy loss — a practical guide to measuring and interpreting battery efficiency across operating conditions.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Battery Efficiency Testing Measures</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Battery efficiency testing quantifies how much of the energy or charge put into a battery is recovered during discharge. Two metrics dominate: Coulombic Efficiency (CE) — discharge Ah ÷ charge Ah — and Energy Efficiency (EE) — discharge Wh ÷ charge Wh. CE reflects chemical side-reaction losses; EE captures both charge losses and voltage hysteresis. Both are essential for understanding battery health, chemistry quality, and system-level energy economics.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">KEY METRICS</span></div>
+                    <h3>Coulombic vs. Energy Efficiency</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Understanding the difference between CE and EE is critical for interpreting results correctly:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Coulombic Efficiency (CE):</strong> Discharge Ah ÷ Charge Ah. A CE below 100% means charge was consumed by side reactions — lithium plating, SEI formation, or electrolyte decomposition. Healthy Li-ion cells typically exceed 99.9% CE per cycle.</li>
+                      <li><strong>Energy Efficiency (EE):</strong> Discharge Wh ÷ Charge Wh. EE is always lower than CE because charge voltage &gt; discharge voltage. EE is the relevant metric for grid storage and EV range efficiency calculations.</li>
+                      <li><strong>Voltage efficiency:</strong> EE ÷ CE — isolates the voltage hysteresis component from charge losses.</li>
+                      <li><strong>Rate dependence:</strong> Both CE and EE decrease at higher C-rates due to increased overpotentials and joule heating.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>Running an Efficiency Test</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Efficiency is derived automatically from standard charge-discharge procedures — no special step types are needed:</p>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li>Build a CC-CV charge step followed by a rest, then a constant-current discharge step.</li>
+                      <li>Set Amp-Hour and Watt-Hour Report Types to log capacity and energy throughout each step.</li>
+                      <li>Run the procedure at the desired C-rate and temperature.</li>
+                      <li>In MIMS Client, open a cycle-based chart and plot charge capacity, discharge capacity, charge energy, and discharge energy.</li>
+                      <li>Efficiency = discharge value ÷ charge value for each cycle.</li>
+                      <li>Repeat at multiple C-rates and temperatures to characterize the efficiency map.</li>
+                    </ol>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Efficiency Testing Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Efficiency data is relevant across development, validation, and production — and directly connects to system-level energy economics.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                      <thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Environment</th>
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Primary Goal</th>
+                      </tr></thead>
+                      <tbody style="color: var(--light-grey);">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">R&amp;D Laboratories</td>
+                          <td style="padding: 0.6rem 0.75rem;">Compare electrolyte and electrode formulations by CE at the cell level</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Validation Programs</td>
+                          <td style="padding: 0.6rem 0.75rem;">Verify round-trip efficiency against system energy balance requirements</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Production & QA</td>
+                          <td style="padding: 0.6rem 0.75rem;">Flag low-CE cells that indicate formation defects or contamination</td>
+                        </tr>
+                        <tr style="">
+                          <td style="padding: 0.6rem 0.75rem;">Grid & EV Systems</td>
+                          <td style="padding: 0.6rem 0.75rem;">Calculate real-world energy losses and thermal loads from EE data</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Engineers and Technical Buyers</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Efficiency testing adds a sensitive diagnostic layer to standard capacity and cycling programs.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Early defect detection:</strong> CE below specification on the first few cycles often indicates contamination, moisture ingress, or formation process problems.</li>
+                      <li><strong>Aging sensitivity:</strong> CE trends across hundreds of cycles reveal degradation mechanisms before visible capacity fade.</li>
+                      <li><strong>System sizing accuracy:</strong> Measured EE values improve energy balance models and reduce oversizing margins in pack design.</li>
+                      <li><strong>No extra hardware required:</strong> Efficiency is derived from the same Ah and Wh data collected during standard cycling.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What is a typical Coulombic efficiency for a healthy Li-ion cell?</p>
+                    <p style="color: var(--light-grey);">Fresh Li-ion cells typically exhibit CE above 99.9% per cycle during normal cycling. Formation cycles may show lower CE (98–99.5%) as the SEI layer stabilizes. Sustained CE below 99.5% in mature cycling usually indicates a problem.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Why is energy efficiency always lower than Coulombic efficiency?</p>
+                    <p style="color: var(--light-grey);">Because charge voltage is always higher than discharge voltage due to internal resistance and thermodynamic hysteresis. The voltage gap means some energy is dissipated as heat even when charge is fully recovered. Reducing internal resistance improves EE.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How does temperature affect efficiency?</p>
+                    <p style="color: var(--light-grey);">Lower temperatures increase internal resistance, widening the charge-discharge voltage gap and reducing EE. CE can also drop at low temperatures if lithium plating occurs during charge. Always specify and control temperature when reporting efficiency data.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-capacity-testing-methods.html" class="link-primary">Battery Capacity Testing Methods →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-internal-resistance-testing.html" class="link-primary">Battery Internal Resistance Testing →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-cycling-testing-explained.html" class="link-primary">Battery Cycling Testing Explained →</a></li>
+                      <li style="padding: 0.5rem 0; "><a href="../fundamentals.html" class="link-primary">← Back to Fundamentals</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        // Dynamic nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Scroll animation for cards
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

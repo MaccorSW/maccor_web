@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Current Battery Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="A technical guide to high-current battery testing: combined-channel configuration, power safety limits, thermal management, and procedure design for EV cells, modules, and packs." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/systems/high-current-battery-testing.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="High-Current Battery Testing | Maccor" />
+    <meta property="og:description" content="Scale current capacity using combined-channel operation, configure power safety limits, and manage thermal effects when testing EV cells, modules, and battery packs at high rates." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/systems/high-current-battery-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "High-Current Battery Testing",
+      "description": "A technical guide to high-current battery testing: combined-channel configuration, power safety limits, thermal management, and procedure design for EV cells, modules, and packs.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/systems/high-current-battery-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../systems.html">Battery Test Systems</a> / <span>High-Current Battery Testing</span>
+                </div>
+                <div class="kicker">Systems — Article</div>
+                <h1>High-Current <span class="highlight">Battery Testing</span></h1>
+                <p>Scaling current capacity through combined-channel operation, configuring multi-layer power safety limits, and managing thermal effects when testing large-format cells, modules, and battery packs.</p>
+            </div>
+        </section>
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">HIGH CURRENT</span>
+                <h2>High-Current Battery Testing in Practice</h2>
+                <p>From combined-channel configuration to power safety and thermal management — a practical guide to testing large-format cells and packs at elevated currents.</p>
+            </div>
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What High-Current Testing Requires</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Testing large-format cells, modules, and packs demands higher current capacity than standard single-channel operation provides. High-current battery testing involves either selecting a system with higher per-channel ratings or combining multiple channels in parallel to multiply current capacity. Both approaches require careful attention to power safety limits, thermal management, and measurement accuracy at elevated currents.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">COMBINED CHANNELS</span></div>
+                    <h3>Scaling Current with Combined Channels</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Maccor supports combining channels on the same controller board to multiply current capacity:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Configurations:</strong> 1+1 (two channels), 1+3 (four channels), or 1+7 (eight channels) in parallel.</li>
+                      <li><strong>Primary / secondary roles:</strong> The primary channel runs the test procedure. Secondary channels carry proportional current but are controlled entirely by the primary. Secondary channels show as Blocked in the software.</li>
+                      <li><strong>Same board requirement:</strong> All combined channels must reside on the same controller board — cross-board combining is not supported.</li>
+                      <li><strong>UPS required:</strong> Combined-channel configurations require an uninterruptible power supply. A power loss mid-test can corrupt data and leave the DUT in an undefined state.</li>
+                      <li><strong>Pulsing limitation:</strong> Pulsing is only available on combined channels when using 10 ms boards.</li>
+                      <li><strong>Configuration:</strong> Enable via System.ini (Combined_Channels=1) and configure in Setup and Check Channels.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">POWER SAFETY</span></div>
+                    <h3>Power Safety Limits for High-Current Work</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">High-current tests require carefully set power safety parameters. Configure all of the following in Setup and Check Channels before running any high-current test:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Isafe:</strong> Maximum safe current — hardware trips if exceeded.</li>
+                      <li><strong>P Bat safe:</strong> Maximum battery power (V × I). Prevents excessive power dissipation in the cell.</li>
+                      <li><strong>P Ch safe:</strong> Maximum charge power limit — separately controlled from discharge.</li>
+                      <li><strong>PS V:</strong> Power supply voltage rating for the channel or combined group.</li>
+                      <li><strong>Firmware Brick Power Safety:</strong> Independent hardware shutdown in ~30 ms if power limit is exceeded — operates regardless of software state.</li>
+                      <li><strong>Procedure limits:</strong> Add a Power Limit to each charge and discharge step as a secondary software-level backstop.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">THERMAL MANAGEMENT</span></div>
+                    <h3>Managing Heat in High-Current Tests</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">High-current operation generates significant heat in both the DUT and the test leads. Proper thermal management is essential for accurate data and safe operation:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Auxiliary temperature monitoring:</strong> Assign thermocouples or thermistors to the channel and set Thermocouple End Types on every charge and discharge step.</li>
+                      <li><strong>Temperature thresholds in procedures:</strong> Define maximum allowable cell surface or tab temperature as a step end condition.</li>
+                      <li><strong>Chamber integration:</strong> Use chamber-controlled environments to hold cell temperature stable during high-rate testing, eliminating temperature as a confounding variable.</li>
+                      <li><strong>Lead resistance:</strong> At high currents, even small lead resistance causes significant voltage error. Use 4-wire (Kelvin) connections and minimize lead length.</li>
+                      <li><strong>Rest steps:</strong> Insert rest steps between high-rate charge and discharge to allow thermal equilibration before the next step begins.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where High-Current Testing Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">High-current capability is required whenever the DUT operates at rates beyond single-channel capacity.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                          <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Application</th>
+                          <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Typical Current Range</th>
+                        </tr></thead>
+                        <tbody style="color: var(--light-grey);">
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">Large cylindrical cells (21700, 46800)</td>
+                            <td style="padding: 0.6rem 0.75rem;">10–50 A per channel</td>
+                          </tr>
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">Prismatic / pouch cells</td>
+                            <td style="padding: 0.6rem 0.75rem;">50–200 A combined</td>
+                          </tr>
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">EV module testing</td>
+                            <td style="padding: 0.6rem 0.75rem;">200–500 A combined</td>
+                          </tr>
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">Battery pack testing</td>
+                            <td style="padding: 0.6rem 0.75rem;">500 A+ combined or dedicated high-current system</td>
+                          </tr>
+                          <tr style="">
+                            <td style="padding: 0.6rem 0.75rem;">Fast-charge validation</td>
+                            <td style="padding: 0.6rem 0.75rem;">2C–4C of rated capacity</td>
+                          </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Engineers and Technical Buyers</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Combined-channel operation leverages existing hardware investments to reach higher current levels without a separate high-current system.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Flexible scaling:</strong> Combine 2, 4, or 8 channels as needed — reconfigure for standard cell testing when the high-current DUT program is complete.</li>
+                      <li><strong>Same procedure language:</strong> Combined channels run standard Maccor procedures — no special step types or software changes needed.</li>
+                      <li><strong>Multi-layer safety:</strong> Firmware power safety, hardware Isafe limits, and procedure-level power limits all operate independently at high current.</li>
+                      <li><strong>Integrated data:</strong> Combined-channel data flows through the same MIMS Server pipeline as standard channel data — no separate analysis workflow.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Why is a UPS required for combined-channel operation?</p>
+                    <p style="color: var(--light-grey);">When channels are combined in parallel, an unexpected power loss can leave cells partially charged with no graceful shutdown. Without a UPS, the FailSafe relay may not have enough power to open properly, and data files may be corrupted mid-write. The UPS ensures the system can complete a safe shutdown sequence.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Can I pulse a combined-channel configuration?</p>
+                    <p style="color: var(--light-grey);">Pulsing in combined-channel configurations is only supported on 10 ms board types. Standard 50 ms boards and GSM pulse modes are not available for combined operation. Check your board specification before designing a pulse-intensive procedure for a combined-channel setup.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How do I verify that both channels in a combined pair are contributing equally?</p>
+                    <p style="color: var(--light-grey);">Check the Setup and Check Channels screen for each channel in the combined group. The Manual Channel Operation mode (Constant Current) can be used to verify that each brick responds correctly before running a full test. Any significant current imbalance indicates a wiring or brick issue.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="multi-channel-battery-testing-systems.html" class="link-primary">Multi-Channel Battery Testing Systems →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-test-power-electronics.html" class="link-primary">Battery Test Power Electronics →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-pack-testing-vs-cell-testing.html" class="link-primary">Battery Pack Testing vs Cell Testing →</a></li>
+                      <li style="padding: 0.5rem 0; "><a href="../systems.html" class="link-primary">← Back to Battery Test Systems</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+        
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

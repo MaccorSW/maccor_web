@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Battery Test Monitoring | Knowledge Center | Maccor</title>
+    <meta name="description" content="Maccor real-time test monitoring: live status screens, alert configuration, chart views, and in-progress data review." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/software/real-time-battery-test-monitoring.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Real-Time Battery Test Monitoring | Maccor" />
+    <meta property="og:description" content="Watch voltage, current, and temperature live as tests run — a practical guide to real-time battery test monitoring for engineering and lab teams." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/software/real-time-battery-test-monitoring.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Real-Time Battery Test Monitoring",
+      "description": "A practical guide to real-time battery test monitoring for engineers, lab managers, and technical buyers — covering live status screens, alert configuration, chart views, and in-progress data review.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/software/real-time-battery-test-monitoring.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../software.html">Software</a> / <span>Real-Time Battery Test Monitoring</span>
+                </div>
+                <h1>Real-Time <span class="highlight">Battery Test Monitoring</span></h1>
+                <p>A practical, engineer-focused guide to watching tests as they run — covering live status displays, chart screens, alert configuration, and what to look for when a channel behaves unexpectedly.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">SOFTWARE</span>
+                <h2>Understanding Real-Time Battery Test Monitoring</h2>
+                <p>From the keyboard to the lab — quality and reliable data is the goal.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Real-Time Battery Test Monitoring Means</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Real-time monitoring is the continuous display of live test data — voltage, current, capacity, temperature, step status, and time — as a test executes. Rather than waiting until a test completes to review data, engineers can observe cell behavior as it happens, catch anomalies early, and confirm that procedures are executing as designed.</p>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">On multi-channel systems, real-time monitoring extends to a consolidated view across all active channels, so a single operator can oversee many simultaneous tests without switching between separate interfaces.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">PLANNING</span></div>
+                    <h3>Defining What to Monitor</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Effective monitoring starts with knowing which signals matter for the test objective:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Test objective:</strong> What business or engineering decision will the data support?</li>
+                        <li><strong>Control variables:</strong> Which parameters are fixed — current, voltage, time, cycle count, temperature?</li>
+                        <li><strong>Measured outputs:</strong> Which values matter most — capacity, energy, impedance, temperature rise?</li>
+                        <li><strong>Data resolution:</strong> How often should data be logged, and which events should trigger records?</li>
+                        <li><strong>Operational risk:</strong> Which safeties, interlocks, and alerts protect the DUT and equipment?</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>How Real-Time Monitoring Works in Practice</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">The software provides multiple screen views suited to different monitoring needs:</p>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li>Define the DUT, target operating window, and acceptance criteria.</li>
+                        <li>Create or select the procedure that enforces current, voltage, timing, and end conditions.</li>
+                        <li>Assign the procedure to the appropriate channel or group of channels.</li>
+                        <li>Enable supporting features — auxiliary inputs, chamber association, digital I/O — if required.</li>
+                        <li>Start the test; use the Normal, Intermediate, Detailed, or Quick screens to monitor channel status in real time.</li>
+                        <li>Use the Chart screen to view live voltage, current, and temperature plots; switch to tabular or exported data for post-test analysis.</li>
+                    </ol>
+                    <div class="callout" style="margin-top: 1rem;"><strong>Note:</strong> The Chart screen is dedicated to monitoring and cannot be used to start tests. Each view — Normal, Intermediate, Detailed, Quick — shows different levels of per-channel detail, from a high-level status summary to full step-by-step parameter readouts.</div>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Real-Time Monitoring Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">The role of real-time monitoring shifts depending on how long tests run and how closely the team needs to watch them. Short formation cycles in production and multi-week life tests in R&amp;D both benefit, but for different reasons.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Environment</th>
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Primary Goal</th>
+                            </tr>
+                        </thead>
+                        <tbody style="color: var(--light-grey);">
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">R&amp;D Laboratories</td>
+                                <td style="padding: 0.6rem 0.75rem;">Catch unexpected behavior early and avoid wasted test time</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Validation Programs</td>
+                                <td style="padding: 0.6rem 0.75rem;">Confirm that formal test conditions are being maintained</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Production &amp; QA</td>
+                                <td style="padding: 0.6rem 0.75rem;">Detect process drift before it affects downstream units</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem;">Long-Term Cycling</td>
+                                <td style="padding: 0.6rem 0.75rem;">Monitor gradual degradation trends without constant manual checks</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Engineers and Technical Buyers</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Earlier anomaly detection:</strong> Live data lets engineers intervene before a test failure becomes a data loss or safety event.</li>
+                        <li><strong>Better repeatability:</strong> Monitoring confirms procedure execution is unfolding as designed, not just that it finished.</li>
+                        <li><strong>Faster troubleshooting:</strong> Visible step transitions and parameter trends narrow down root causes without waiting for post-test export.</li>
+                        <li><strong>Stronger communication:</strong> Live screens give lab managers and visiting stakeholders immediate, credible visibility into test status.</li>
+                        <li><strong>Reduced oversight burden:</strong> Consolidated multi-channel views allow one operator to responsibly watch many tests at once.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What parameters are visible in real time?</p>
+                    <p style="color: var(--light-grey);">Voltage, current, capacity, energy, elapsed time, step number, and any configured auxiliary inputs — including temperature channels — are all available as live readouts depending on the monitoring screen selected.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Can I change a test while it is running?</p>
+                    <p style="color: var(--light-grey);">Adjustments to running tests are made through controlled software actions — not by editing the underlying procedure live. This preserves data integrity and keeps the record of what the cell experienced unambiguous.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How does monitoring relate to data logging?</p>
+                    <p style="color: var(--light-grey);">Monitoring displays data that is being logged concurrently. The sampling rate for display and the rate for storage can differ — high-frequency logging captures more detail than is practical to render on screen continuously.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="digital-io-integration-in-battery-testing.html" class="link-primary">Digital I/O Integration in Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../data-analysis/battery-test-data-management.html" class="link-primary">Battery Test Data Management →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../data-analysis/long-term-battery-lifecycle-analysis.html" class="link-primary">Long-Term Battery Lifecycle Analysis →</a></li>
+                        <li style="padding: 0.5rem 0;"><a href="../software.html" class="link-primary">← Back to Software</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

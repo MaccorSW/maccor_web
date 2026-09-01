@@ -1,0 +1,47 @@
+# =====================================================================
+# 301 redirects: old flat URLs -> new site structure  (maccor.com)
+# Generated for the site relaunch. Uses mod_alias RedirectMatch (exact,
+# anchored) so each rule matches only the intended path.
+# Place ABOVE any other rewrite rules in the site-root .htaccess.
+# =====================================================================
+
+<IfModule mod_alias.c>
+
+    # ---- Products (hardware) ----
+    RedirectMatch 301 ^/automatedbatterytester\.html$        /cell-battery-module-test-systems.html
+    RedirectMatch 301 ^/ev_pack_tester\.html$                /cell-battery-module-test-systems.html
+    RedirectMatch 301 ^/high_volume_battery_tester\.html$    /cell-battery-module-test-systems.html   # [med] High-density cell tester folded into the cell/battery/pack systems page
+    RedirectMatch 301 ^/desktops\.html$                      /desktop-battery-testers.html
+    RedirectMatch 301 ^/inventory\.html$                     /desktop-battery-testers.html   # [med] Old page was a duplicate of desktops.html (same title)
+    RedirectMatch 301 ^/series6k\.html$                      /series-6000.html
+    RedirectMatch 301 ^/fusion\.html$                        /fusion-integrated-systems.html
+    RedirectMatch 301 ^/compact_temperature_chamber\.html$   /compact-temperature-chamber.html
+    RedirectMatch 301 ^/batteryformation\.html$              /manufacturing-formation.html
+    RedirectMatch 301 ^/madeinamerica\.html$                 /quality-control-testing.html   # [med] 'Made in America' content now lives under quality-control; could also fit manufacturing-formation
+    RedirectMatch 301 ^/products\.html$                      /cell-battery-module-test-systems.html   # [low] No single 'products' page now; sent to flagship systems page. Consider index.html instead
+    RedirectMatch 301 ^/cell_balancer\.html$                 /accessories.html   # [low] Cell balancer (1205a) has no dedicated page; treated as accessory. Could fit options.html
+    RedirectMatch 301 ^/m22\.html$                           /software-data-analytics.html   # [low] 'Virtual Machine Solution' has no equivalent; sent to software hub. Review
+
+    # ---- Software ----
+    RedirectMatch 301 ^/software\.html$         /software-data-analytics.html   # [high] Main software nav page
+    RedirectMatch 301 ^/mactest\.html$          /software/mactest.html
+    RedirectMatch 301 ^/build_test\.html$       /software/build-test.html
+    RedirectMatch 301 ^/export_data\.html$      /software/data-export.html
+    RedirectMatch 301 ^/view_data\.html$        /software/data-export.html   # [high] New data-export page explicitly covers Export + View Data
+    RedirectMatch 301 ^/mims_client\.html$      /software/mims-client.html
+    RedirectMatch 301 ^/mims_server\.html$      /software/mims-server.html
+    RedirectMatch 301 ^/can_dbc_editor\.html$   /software/advanced-tools.html   # [high] CAN editor folded into Advanced Tools
+    RedirectMatch 301 ^/smbus\.html$            /software/advanced-tools.html   # [high] SMBus config folded into Advanced Tools
+    RedirectMatch 301 ^/waveform_edit\.html$    /software/advanced-tools.html   # [high] Waveform editor folded into Advanced Tools
+    RedirectMatch 301 ^/macnet\.html$           /software-data-analytics.html   # [low] No MacNet page now; sent to software hub. Review
+
+    # ---- Company / content ----
+    RedirectMatch 301 ^/events\.html$      /battery-testing-events.html
+    RedirectMatch 301 ^/worldwide\.html$   /global-representatives.html
+    RedirectMatch 301 ^/partners\.html$    /global-representatives.html   # [med] Partners/distributors now under global-representatives
+    RedirectMatch 301 ^/press\.html$       /aboutus.html   # [low] No press/news page now; sent to About. Review
+
+    # ---- Retired utility & game pages ----
+
+
+</IfModule>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Capacity Testing Methods | Knowledge Center | Maccor</title>
+    <meta name="description" content="Maccor's guide to battery capacity testing: discharge protocols, C-rate relationships, measurement methods, and automated system support" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-capacity-testing-methods.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Capacity Testing Methods | Maccor" />
+    <meta property="og:description" content="Understand how to measure real-world runtime, energy density, and capacity fade using standardized discharge protocols on automated battery test equipment." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-capacity-testing-methods.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Capacity Testing Methods",
+      "description": "A complete guide to battery capacity testing: measurement methods, discharge protocols, C-rate relationships, and how automated systems support accurate, repeatable capacity data.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/fundamentals/battery-capacity-testing-methods.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../fundamentals.html">Fundamentals</a> / <span>Battery Capacity Testing Methods</span>
+                </div>
+                <div class="kicker"></div>
+                <h1>Battery Capacity <span class="highlight">Testing Methods</span></h1>
+                <p>Measuring total Amp-hours and Watt-hours to determine real-world runtime, energy density, and capacity fade — with standardized discharge protocols for reliable, comparable results.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">CAPACITY TESTING</span>
+                <h2>Understanding Battery Capacity Testing</h2>
+                <p>From rated capacity to real-world runtime — a structured guide to measuring what a battery can actually deliver.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Battery Capacity Testing Measures</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Battery capacity testing quantifies the total charge a battery can deliver under defined conditions. The primary output is Amp-hours (Ah) — the integral of current over discharge time. Watt-hours (Wh) adds the voltage dimension to capture actual energy delivery. Both metrics are essential because a cell's rated capacity is always a nominal figure; actual deliverable capacity depends on discharge rate, temperature, state of health, and cutoff voltage.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">KEY CONCEPTS</span></div>
+                    <h3>Core Variables in Capacity Testing</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Every capacity test must control the same fundamental inputs:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Discharge current:</strong> Higher rates reduce measurable capacity — a 1C discharge delivers less Ah than a C/5 discharge for the same cell.</li>
+                      <li><strong>Voltage cutoff:</strong> The lower voltage limit at which discharge stops and capacity accumulation ends.</li>
+                      <li><strong>Temperature:</strong> Capacity is temperature-dependent; tests should specify and control cell temperature.</li>
+                      <li><strong>Rest periods:</strong> Time allowed between charge and discharge affects the starting state of each test.</li>
+                      <li><strong>State of charge (SoC):</strong> Capacity tests require a consistent, fully charged starting condition.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>Typical Capacity Test Workflow</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">On automated platforms, capacity testing follows a repeatable software-driven sequence:</p>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li>Define the DUT, target discharge rate (C-rate), and voltage cutoff.</li>
+                      <li>Create or select a procedure: charge step → rest → discharge step with voltage end condition.</li>
+                      <li>Assign the procedure to the appropriate channel(s) and enter the C-Rate[Amps] value.</li>
+                      <li>Start the test and monitor real-time capacity accumulation on the operational screens.</li>
+                      <li>Use MIMS Client cycle-based charts or View Data to extract Ah and Wh per cycle.</li>
+                      <li>Track capacity across cycles to identify fade trends and end-of-life thresholds.</li>
+                    </ol>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Capacity Testing Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Capacity measurement is the most common battery test across every stage of the product lifecycle.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                      <thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Environment</th>
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Primary Goal</th>
+                      </tr></thead>
+                      <tbody style="color: var(--light-grey);">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">R&amp;D Laboratories</td>
+                          <td style="padding: 0.6rem 0.75rem;">Characterize new chemistries and compare cell designs</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Validation Programs</td>
+                          <td style="padding: 0.6rem 0.75rem;">Confirm rated capacity and verify datasheet claims</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Production &amp; QA</td>
+                          <td style="padding: 0.6rem 0.75rem;">Screen units and catch out-of-spec cells before shipment</td>
+                        </tr>
+                        <tr style="">
+                          <td style="padding: 0.6rem 0.75rem;">Field &amp; Reliability</td>
+                          <td style="padding: 0.6rem 0.75rem;">Track capacity fade over cycles to predict end-of-life</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Engineers and Technical Buyers</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Rigorous capacity testing compresses risk across design, validation, and production.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Standardized comparison:</strong> Normalize results by C-rate and temperature to compare cells across suppliers and lots.</li>
+                      <li><strong>Early fade detection:</strong> Cycle-by-cycle capacity tracking surfaces degradation trends before they reach the field.</li>
+                      <li><strong>Automated throughput:</strong> Batch start across dozens of channels simultaneously using test files or initialization screens.</li>
+                      <li><strong>Exportable data:</strong> MIMS Server ASCII output feeds directly into Excel, Python, or lab data management systems.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What is the difference between Ah capacity and Wh energy?</p>
+                    <p style="color: var(--light-grey);">Ah measures charge — the integral of current over time. Wh measures energy — the integral of power (current × voltage) over time. Wh is more useful for applications where voltage variation matters, such as comparing chemistries or evaluating system efficiency.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Why does measured capacity differ from the rated value?</p>
+                    <p style="color: var(--light-grey);">Rated capacity is typically measured at a low C-rate under ideal temperature conditions. Actual deliverable capacity depends on discharge rate, temperature, age, and the voltage cutoff used — all of which should be specified when reporting results.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How often should capacity checks be run during cycling?</p>
+                    <p style="color: var(--light-grey);">Best practice is to run a reference performance test (RPT) at a fixed, low C-rate every 50–100 cycles. This separates aging trends from rate-dependent effects and gives clean capacity fade data.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="understanding-c-rate-in-battery-testing.html" class="link-primary">Understanding C-Rate in Battery Testing →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-efficiency-testing.html" class="link-primary">Battery Efficiency Testing →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-cycling-testing-explained.html" class="link-primary">Battery Cycling Testing Explained →</a></li>
+                      <li style="padding: 0.5rem 0; "><a href="../fundamentals.html" class="link-primary">← Back to Fundamentals</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        // Dynamic nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Scroll animation for cards
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

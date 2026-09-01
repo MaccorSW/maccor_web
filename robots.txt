@@ -1,5 +1,12 @@
+# robots.txt — maccor.com
+# Updated 2026-09-01
+
 User-agent: *
-Disallow: 
 Allow: /
-Disallow: /cgi-bin/
+
+# Product screenshots and other bulk image assets. Remove this line to let
+# crawlers (and Google Images) into that folder.
+Disallow: /software/assets/
+
+# Sitemap location
 Sitemap: https://www.maccor.com/sitemap.xml

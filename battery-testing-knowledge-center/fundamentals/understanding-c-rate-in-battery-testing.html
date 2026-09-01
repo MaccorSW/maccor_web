@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding C-Rate in Battery Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="A clear explanation of C-rate in battery testing: what it means, how to calculate it, why it matters for capacity and power tests, and how automated test systems use it." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/understanding-c-rate-in-battery-testing.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Understanding C-Rate in Battery Testing | Maccor" />
+    <meta property="og:description" content="C-rate normalizes charge and discharge current relative to rated capacity — enabling fair comparison across cells of different sizes, chemistries, and test conditions." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/fundamentals/understanding-c-rate-in-battery-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Understanding C-Rate in Battery Testing",
+      "description": "A clear explanation of C-rate in battery testing: what it means, how to calculate it, why it matters for capacity and power tests, and how automated test systems use it.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/fundamentals/understanding-c-rate-in-battery-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../fundamentals.html">Fundamentals</a> / <span>Understanding C-Rate in Battery Testing</span>
+                </div>
+                <div class="kicker"></div>
+                <h1>Understanding <span class="highlight">C-Rate </span>in Battery Testing</h1>
+                <p>Normalizing charge and discharge currents relative to rated capacity — enabling consistent cell comparison across sizes, chemistries, test conditions, and test sites.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">C-RATE</span>
+                <h2>Understanding C-Rate in Battery Testing</h2>
+                <p>From definition to procedure design — a practical guide to using C-rate correctly in battery characterization, cycling, and rate-capability testing.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What C-Rate Is</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">C-rate is a normalized expression of charge or discharge current relative to a battery's rated capacity. A 1C rate for a 3 Ah cell is 3 A — a current that would theoretically charge or discharge the cell in one hour. C/5 (0.2C) would take five hours; 2C would take thirty minutes. C-rate notation allows test conditions to be specified independently of cell size, making it the universal language of battery testing across chemistries, formats, and suppliers.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">CALCULATION</span></div>
+                    <h3>Calculating C-Rate Current</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">The relationship between C-rate and current is straightforward:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Formula:</strong> Current (A) = C-rate × Rated Capacity (Ah)</li>
+                      <li><strong>Example:</strong> A 5 Ah cell at 0.5C = 5 Ah × 0.5 = 2.5 A discharge current.</li>
+                      <li><strong>C/10 (0.1C):</strong> Very low rate used for reference capacity tests — minimizes rate-dependent losses.</li>
+                      <li><strong>1C:</strong> Standard rate — one-hour theoretical discharge. Common for cycling benchmarks.</li>
+                      <li><strong>2C–5C:</strong> Medium-high rates used for power and fast-charge testing.</li>
+                      <li><strong>10C and above:</strong> High-rate pulse testing for power cells, EV acceleration simulation.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">SYSTEM WORKFLOW</span></div>
+                    <h3>How Maccor Uses C-Rate</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">In Maccor software, C-Rate is entered as an Amps value in the Start Test Setup screen (C-Rate [Amps] field). This value is the denominator — the capacity the multiplier is applied against:</p>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li>In the test procedure, set the step Mode to C-Rate and enter the multiplier (e.g., 0.5 for C/2).</li>
+                      <li>At test start, enter the cell's rated capacity in the C-Rate [Amps] field.</li>
+                      <li>The system computes the actual current: multiplier × C-Rate[Amps].</li>
+                      <li>Different channels can use different C-Rate[Amps] values for cells of different capacity — same procedure file.</li>
+                      <li>C-Rate mode works with Current End Type conditions, but is not compatible with Current Limits or pulsing steps.</li>
+                      <li>For formation procedures, the C-Rate[Amps] field can be set per-channel via the Test Initialization Screen.</li>
+                    </ol>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where C-Rate Knowledge Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Correct C-rate usage is essential for producing comparable, reportable battery test data.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                      <thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Test Type</th>
+                        <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Typical C-Rate</th>
+                      </tr></thead>
+                      <tbody style="color: var(--light-grey);">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Reference capacity test</td>
+                          <td style="padding: 0.6rem 0.75rem;">C/5 or C/10</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Standard cycling</td>
+                          <td style="padding: 0.6rem 0.75rem;">0.5C charge / 1C discharge</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Fast-charge evaluation</td>
+                          <td style="padding: 0.6rem 0.75rem;">2C–4C charge</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">Rate capability study</td>
+                          <td style="padding: 0.6rem 0.75rem;">C/5, C/2, 1C, 2C, 5C sweep</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                          <td style="padding: 0.6rem 0.75rem;">DCIR pulse measurement</td>
+                          <td style="padding: 0.6rem 0.75rem;">1C–2C, 10–30 second pulse</td>
+                        </tr>
+                        <tr style="">
+                          <td style="padding: 0.6rem 0.75rem;">Abuse / high-rate test</td>
+                          <td style="padding: 0.6rem 0.75rem;">5C–20C depending on cell spec</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Engineers and Technical Buyers</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">C-rate notation makes battery test programs scalable, portable, and comparable.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Chemistry-agnostic comparison:</strong> The same C-rate protocol applied to different cell chemistries or sizes produces directly comparable results.</li>
+                      <li><strong>Single procedure, multiple cell sizes:</strong> One procedure file can be used across a full cell family by entering each cell's capacity as the C-Rate[Amps] value at start.</li>
+                      <li><strong>Standardized reporting:</strong> Specify test conditions in C-rate terms to comply with IEC, UL, and internal documentation standards.</li>
+                      <li><strong>Rate-capability mapping:</strong> Sweep a cell from C/10 to 5C to build a complete discharge curve family for design and datasheet work.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What capacity value should I enter in the C-Rate[Amps] field?</p>
+                    <p style="color: var(--light-grey);">Use the rated nominal capacity from the cell datasheet — typically the capacity measured at C/5 or C/10 by the manufacturer. Using a measured capacity from your own testing is also acceptable and may be more accurate for aged or off-spec cells.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Why does actual discharge time differ from what C-rate predicts?</p>
+                    <p style="color: var(--light-grey);">C-rate is a theoretical relationship based on nominal capacity. Real discharge time depends on the actual deliverable capacity at that rate and temperature, which is always less than or equal to nominal capacity. Higher rates deliver less total charge due to increased polarization losses.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Can C-rate mode be used with voltage limits?</p>
+                    <p style="color: var(--light-grey);">Yes — C-Rate mode controls the current magnitude, and a voltage limit can still be applied to the same step. The voltage limit will override current control when reached, transitioning the step to constant-voltage mode. C-Rate mode cannot be combined with Current Limit or pulsing configurations.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-cycling-testing-explained.html" class="link-primary">Battery Cycling Testing Explained →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-capacity-testing-methods.html" class="link-primary">Battery Capacity Testing Methods →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="what-is-battery-testing.html" class="link-primary">What Is Battery Testing? →</a></li>
+                      <li style="padding: 0.5rem 0; "><a href="../fundamentals.html" class="link-primary">← Back to Fundamentals</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        // Dynamic nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Scroll animation for cards
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

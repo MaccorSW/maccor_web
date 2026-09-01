@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Temperature Monitoring | Knowledge Center | Maccor</title>
+    <meta name="description" content="Battery temperature monitoring guide: thermocouple and thermistor inputs, thermal runaway detection, chamber integration, and temperature triggers." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/applications/battery-temperature-monitoring.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Temperature Monitoring | Maccor" />
+    <meta property="og:description" content="Thermocouple inputs, thermal runaway detection, and temperature-based end conditions — a practical guide to battery temperature monitoring for engineering and lab teams." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/applications/battery-temperature-monitoring.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Temperature Monitoring",
+      "description": "A practical guide to battery temperature monitoring for engineers and lab managers — covering thermocouple and thermistor inputs, thermal runaway detection, chamber integration, and temperature-triggered end conditions.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/applications/battery-temperature-monitoring.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../applications.html">Applications</a> / <span>Battery Temperature Monitoring</span>
+                </div>
+                <h1>Battery Temperature <span class="highlight">Monitoring</span></h1>
+                <p>A practical guide to measuring, logging, and acting on temperature data during battery testing — covering thermocouple and thermistor auxiliary inputs, thermal runaway detection, environmental chamber integration, and temperature-driven end conditions and safety limits.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">APPLICATIONS</span>
+                <h2>Understanding Battery Temperature Monitoring</h2>
+                <p>Temperature is not just an environmental condition — it is a primary variable that shapes every aspect of battery performance and safety.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>Why Battery Temperature Monitoring Matters</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Temperature affects battery capacity, power, efficiency, aging rate, and safety margin simultaneously. A cell that performs well at 25°C may deliver significantly less capacity at −20°C, age twice as fast at 45°C, or enter thermal runaway if internal heat generation exceeds the cell's ability to dissipate it. None of these behaviors are visible in voltage and current data alone.</p>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Effective battery temperature monitoring integrates thermal measurement directly into the test record — same timestamp, same data file, same export — so engineers can correlate electrical behavior with thermal conditions without manually merging data from separate instruments.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">SENSOR TYPES</span></div>
+                    <h3>Thermocouple vs. Thermistor: Choosing the Right Sensor</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Both sensor types connect to the test system through auxiliary input boards and are assigned to test channels through the same workflow, but they suit different measurement situations:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Thermocouples</strong> are the standard choice for laboratory cell testing. They are compact, durable, fast-responding, and easy to place on cell surfaces or inside fixtures. The system supports both standard and T-type thermocouple boards. Up to 48 thermocouple inputs can be assigned to a single channel, allowing temperature to be measured at multiple locations simultaneously.</li>
+                        <li><strong>Thermistors</strong> are commonly embedded in commercial battery packs and BMS assemblies. Using thermistor auxiliary inputs allows the system to read the pack's own internal temperature sensors during electrical testing, enabling direct correlation between BMS-reported temperature and measured electrical behavior.</li>
+                    </ul>
+                    <p style="color: var(--light-grey); margin-top: 0.75rem;">Both types support the same end condition operators, report types, and derivative-based detection logic within the test procedure.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>How Battery Temperature Monitoring Works in Practice</h3>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li>Configure thermocouple or thermistor inputs in the Setup and Calibration program; calibrate against a reference standard.</li>
+                        <li>Assign the configured inputs to the target test channel through the Assign Auxiliary Inputs screen — up to 48 inputs per channel.</li>
+                        <li>In the procedure, add thermocouple or thermistor end conditions to any Charge, Discharge, or Rest step where temperature should influence test flow.</li>
+                        <li>Set the channel-level Temp Max safety as a backstop: if any assigned temperature input exceeds the configured maximum regardless of procedure state, the channel stops immediately.</li>
+                        <li>Configure temperature-triggered report types to log data whenever temperature changes by a defined amount, concentrating record density at thermally active moments.</li>
+                        <li>Monitor live temperature readings in the Detailed screen's Actual Readings panel alongside electrical parameters during test execution.</li>
+                    </ol>
+                    <div class="callout" style="margin-top: 1rem;"><strong>Global AUX monitoring:</strong> A single thermocouple can be designated as a global environmental temperature input, embedded in all associated data files as ambient or chamber temperature — useful for monitoring room temperature or cabinet conditions across a large multi-channel program.</div>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">THERMAL RUNAWAY</span></div>
+                    <h3>Detecting Thermal Runaway with Derivative End Conditions</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">A simple temperature threshold end condition — stop when temperature exceeds 60°C — protects against overtemperature but does not detect the accelerating pattern that precedes thermal runaway. By the time a fixed threshold triggers, the event may already be uncontrollable.</p>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Derivative end condition operators on thermocouple inputs provide earlier, more sensitive detection:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>+d1 (first derivative):</strong> Ends the step when the rate of temperature rise exceeds a threshold — for example, more than 20°C over 45 minutes. Detects sustained abnormal heating before an absolute limit is reached.</li>
+                        <li><strong>+d2 (second derivative):</strong> Ends the step when the acceleration of temperature rise — the rate at which the rate is increasing — exceeds a threshold. This is the classical thermal runaway signature: not just rising temperature, but a rising rate of rise. The system checks whether the difference between two consecutive slope measurements exceeds the configured value.</li>
+                    </ul>
+                    <p style="color: var(--light-grey); margin-top: 0.75rem;">These operators can be combined with a procedure-defined error step, triggering a controlled abort sequence — opening the circuit, logging the event, and alerting operators — while preserving the thermal data that helps diagnose what happened.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Temperature Monitoring Adds Value</h3>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Application</th>
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Temperature Role</th>
+                            </tr>
+                        </thead>
+                        <tbody style="color: var(--light-grey);">
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Cell characterization</td>
+                                <td style="padding: 0.6rem 0.75rem;">Correlate capacity and efficiency with surface temperature at different C-rates</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Formation</td>
+                                <td style="padding: 0.6rem 0.75rem;">Monitor cabinet temperature; stop channels if any cell exceeds safe limit</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Safety / abuse testing</td>
+                                <td style="padding: 0.6rem 0.75rem;">Detect thermal runaway onset using derivative end conditions</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Environmental testing</td>
+                                <td style="padding: 0.6rem 0.75rem;">Integrate chamber temperature steps with electrical procedure for combined thermal/electrical profiles</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem;">Pack / BMS validation</td>
+                                <td style="padding: 0.6rem 0.75rem;">Read embedded thermistor sensors alongside electrical measurements during charge/discharge</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Engineers and Lab Managers</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Integrated thermal record:</strong> Temperature data in the same file as voltage, current, and capacity eliminates manual correlation and timeline alignment.</li>
+                        <li><strong>Earlier safety response:</strong> Derivative-based thermal detection stops a test before an absolute limit is reached, not after.</li>
+                        <li><strong>Multi-point coverage:</strong> Up to 48 auxiliary inputs per channel allow simultaneous measurement at the cell surface, pack housing, and ambient environment.</li>
+                        <li><strong>Automated temperature-triggered logging:</strong> Report types that trigger on temperature change concentrate data density where the thermal signal is most active, without over-sampling during stable periods.</li>
+                        <li><strong>Consistent thermal conditions:</strong> Environmental chamber integration ensures temperature conditions are part of the automated procedure, not a separately managed manual setup step.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What is the difference between a thermocouple end condition and the Temp Max channel safety?</p>
+                    <p style="color: var(--light-grey);">A thermocouple end condition is step-specific — it ends the current step and sends the procedure to the configured Go To step when the temperature threshold is met. The Temp Max safety is a channel-level global setting that immediately stops the channel and raises a Problem status regardless of which step is running, operating independently of the procedure.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Can temperature data be used to trigger data logging without ending the step?</p>
+                    <p style="color: var(--light-grey);">Yes. The thermocouple and thermistor report types instruct the system to store a data point whenever the specified input changes by a configured amount — without affecting procedure flow. This is entirely independent of end conditions and can be combined with other report types in the same step.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How many temperature sensors can be monitored per channel?</p>
+                    <p style="color: var(--light-grey);">Up to 48 auxiliary inputs of any type can be assigned to a single test channel, and they can be a mix of thermocouples, thermistors, voltage inputs, and pressure inputs. Channels assigned an Active Smart Battery interface are limited to 8 total auxiliary inputs.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../software/auxiliary-inputs-for-battery-testing.html" class="link-primary">Auxiliary Inputs in Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="aerospace-battery-testing.html" class="link-primary">Aerospace Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="consumer-electronics-battery-testing.html" class="link-primary">Consumer Electronics Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../fundamentals/battery-efficiency-testing.html" class="link-primary">Battery Efficiency Testing →</a></li>
+                        <li style="padding: 0.5rem 0;"><a href="../applications.html" class="link-primary">← Back to Applications</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

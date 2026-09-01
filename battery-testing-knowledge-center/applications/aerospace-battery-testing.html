@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerospace Battery Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="Practical guide to aerospace battery testing: DO-311A and MIL-spec compliance, environmental simulation, abuse testing, and automated cycling." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/applications/aerospace-battery-testing.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Aerospace Battery Testing | Maccor" />
+    <meta property="og:description" content="From DO-311A qualification to long-duration LEO cycling — a practical guide to aerospace battery testing for engineering and certification teams." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/applications/aerospace-battery-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Aerospace Battery Testing",
+      "description": "A practical guide to aerospace battery testing for engineers and program managers — covering DO-311A and MIL-spec compliance, environmental simulation, abuse testing, and long-duration cycling on automated platforms.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/applications/aerospace-battery-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../applications.html">Applications</a> / <span>Aerospace Battery Testing</span>
+                </div>
+                <h1>Aerospace <span class="highlight">Battery Testing</span></h1>
+                <p>A practical guide to battery testing for aerospace programs — covering qualification standards, environmental simulation, abuse testing, long-duration cycling, and the data traceability requirements that accompany flight-critical certification.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">APPLICATIONS</span>
+                <h2>Understanding Aerospace Battery Testing</h2>
+                <p>Flight-critical power demands the most rigorous test programs in the industry — and the data to prove it.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Makes Aerospace Battery Testing Different</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Aerospace battery testing operates under constraints that do not exist in most commercial programs: mandatory qualification standards, stringent traceability requirements, extreme environmental envelopes, and failure consequences that justify unusually long and expensive test campaigns. A battery that powers an aircraft emergency system, a satellite bus, or an unmanned aerial vehicle must be proven — not assumed — capable across every condition it will encounter in service.</p>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">The test program must produce data that satisfies both the engineering team and the certifying authority. That means procedures, limits, and results must be documented with the same rigor applied to the hardware itself.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">PLANNING</span></div>
+                    <h3>Defining the Aerospace Test Objective</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Aerospace programs typically layer multiple test objectives across a single campaign. Defining each clearly before starting prevents the common problem of discovering mid-program that the data collected does not meet the standard being submitted against.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Test objective:</strong> Qualification, acceptance, life demonstration, or failure mode characterization?</li>
+                        <li><strong>Control variables:</strong> Which parameters are fixed — current, voltage, temperature, pressure, cycle count?</li>
+                        <li><strong>Measured outputs:</strong> Capacity, energy, impedance, temperature rise, and any auxiliary inputs required by the standard?</li>
+                        <li><strong>Data resolution:</strong> What logging frequency and triggered record conditions satisfy the certifying authority's data requirements?</li>
+                        <li><strong>Operational risk:</strong> Which safeties, interlocks, and abort criteria protect the DUT, the equipment, and the test facility?</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>How Aerospace Battery Testing Works in Practice</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Aerospace programs move through a structured sequence that emphasizes traceability at every step:</p>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li>Define the DUT, operating envelope, and acceptance criteria aligned to the applicable standard.</li>
+                        <li>Build the procedure to enforce the required charge and discharge profiles, rest periods, temperature conditions, and end conditions.</li>
+                        <li>Assign channels, configure auxiliary temperature inputs, and associate environmental chambers where required.</li>
+                        <li>Enable digital I/O interlocks and any abuse test triggers needed by the test plan.</li>
+                        <li>Execute and monitor in real time; confirm each step transitions correctly before leaving the lab.</li>
+                        <li>Export and archive data in the format required for the certification package.</li>
+                    </ol>
+                    <div class="callout" style="margin-top: 1rem;"><strong>Traceability note:</strong> Aerospace programs typically require that procedure files, calibration records, and data exports be version-controlled and archived together. The test system's data file links directly to the procedure name and start timestamp, supporting this chain of evidence.</div>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Aerospace Battery Testing Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">The aerospace market spans a wide range of platforms and power requirements, but the test infrastructure challenge is consistent: the same cell chemistry may need to be proven across radically different mission profiles.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Platform</th>
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Primary Test Focus</th>
+                            </tr>
+                        </thead>
+                        <tbody style="color: var(--light-grey);">
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Commercial aviation (DO-311A)</td>
+                                <td style="padding: 0.6rem 0.75rem;">Qualification cycling, overcharge, short-circuit, and venting characterization</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Low Earth orbit satellites</td>
+                                <td style="padding: 0.6rem 0.75rem;">LEO cycle simulation (90-min period), depth-of-discharge optimization, multi-year life demonstration</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Defense / UAV</td>
+                                <td style="padding: 0.6rem 0.75rem;">MIL-spec acceptance testing, wide-temperature performance, pulse discharge capability</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem;">Launch vehicles</td>
+                                <td style="padding: 0.6rem 0.75rem;">High-rate discharge validation, vibration-concurrent electrical monitoring, post-shock capacity verification</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">KEY REQUIREMENTS</span></div>
+                    <h3>What Aerospace Programs Demand from Test Systems</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Environmental integration:</strong> Chamber association ties temperature conditions directly to the test procedure, allowing the software to sequence electrical and thermal steps together and log chamber temperature alongside cell measurements.</li>
+                        <li><strong>Thermocouple and thermistor monitoring:</strong> Up to 48 auxiliary temperature inputs per channel capture surface temperature at multiple locations simultaneously, with thermocouple end conditions capable of triggering test abort if any point exceeds the configured safety limit.</li>
+                        <li><strong>High-resolution data logging:</strong> Time-based, event-based, and derivative-triggered record conditions ensure data density is concentrated at transitions — charge termination, rest recovery, temperature events — without generating unmanageable file sizes during stable plateaus.</li>
+                        <li><strong>Digital I/O interlocks:</strong> External safety signals — pressure relief indicators, facility fire suppression triggers, test stand abort lines — can be wired as digital inputs that immediately halt the test when asserted.</li>
+                        <li><strong>Long-duration unattended operation:</strong> Procedures with nested loops, global channel safeties, and automatic problem-state handling allow multi-week or multi-month programs to run with minimal operator intervention.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Aerospace Engineers and Program Managers</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Certification-ready data:</strong> Timestamped, procedure-linked data files provide the chain of evidence needed for FAA, ESA, or DoD submissions.</li>
+                        <li><strong>Repeatable test execution:</strong> Automated procedures eliminate operator-introduced variation across shifts, sites, and multiple test articles.</li>
+                        <li><strong>Early anomaly detection:</strong> Real-time monitoring and derivative end conditions catch unexpected temperature or voltage behavior before it becomes a safety event or a data loss.</li>
+                        <li><strong>Scalable infrastructure:</strong> Multi-channel systems support concurrent testing of qualification units, flight units, and life-test articles on the same platform.</li>
+                        <li><strong>Long-horizon program support:</strong> Procedures, calibration records, and archived data remain accessible and re-runnable across the full life of a certification program.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How does the test system handle a fault during an unattended overnight test?</p>
+                    <p style="color: var(--light-grey);">Global channel safeties and procedure-defined end conditions move the channel to a rest or open-circuit state and log a Problem status when a limit is exceeded. The test pauses safely, preserves the data collected to that point, and waits for operator review before resuming — without requiring a manual watchperson.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Can a single procedure cover the full qualification campaign?</p>
+                    <p style="color: var(--light-grey);">Yes, within procedure length limits. Nested loops, subroutine calls, and Advanced Cycle steps allow complex multi-phase programs — formation, capacity characterization, life cycling, and end-of-life capacity check — to be encoded in a single procedure with automatic transitions.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How is temperature monitoring integrated into the electrical test record?</p>
+                    <p style="color: var(--light-grey);">Thermocouple and thermistor auxiliary inputs assigned to the test channel are logged to the same data file as voltage, current, and capacity. No manual correlation between separate instruments is needed — the complete thermal and electrical history of each cycle is in a single exportable record.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-reliability-testing.html" class="link-primary">Battery Reliability Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-temperature-monitoring.html" class="link-primary">Battery Temperature Monitoring →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../software/auxiliary-inputs-for-battery-testing.html" class="link-primary">Auxiliary Inputs in Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../fundamentals/understanding-c-rate-in-battery-testing.html" class="link-primary">Understanding C-Rate in Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0;"><a href="../applications.html" class="link-primary">← Back to Applications</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Vehicle Battery Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="EV battery testing guide: drive cycle simulation, pack-level validation, DCIR testing, thermal management, and cycle life program optimization." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/applications/electric-vehicle-battery-testing.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Electric Vehicle Battery Testing | Maccor" />
+    <meta property="og:description" content="From drive cycle simulation to multi-year cycle life — a practical guide to EV battery testing for engineering and validation teams." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/applications/electric-vehicle-battery-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Electric Vehicle Battery Testing",
+      "description": "A practical guide to electric vehicle battery testing for engineers and program teams — covering drive cycle simulation, pack-level validation, DCIR pulse testing, thermal management, and long-duration cycle life programs.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/applications/electric-vehicle-battery-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../applications.html">Applications</a> / <span>Electric Vehicle Battery Testing</span>
+                </div>
+                <h1>Electric Vehicle <span class="highlight">Battery Testing</span></h1>
+                <p>A practical guide to battery testing for EV programs — covering cell and pack characterization, drive cycle simulation, DCIR and pulse power validation, thermal management testing, and the long-duration cycling infrastructure that underpins warranty and lifetime claims.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">APPLICATIONS</span>
+                <h2>Understanding Electric Vehicle Battery Testing</h2>
+                <p>EV batteries operate at extreme power, across wide temperature ranges, for hundreds of thousands of miles — the test program must prove every dimension of that.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What EV Battery Testing Involves</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Electric vehicle battery testing spans the full development and production lifecycle: selecting cell chemistry, validating module and pack designs, characterizing power and thermal behavior across operating conditions, running accelerated aging programs to predict warranty life, and screening production packs for consistency before vehicle assembly.</p>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">The test program must address both energy and power simultaneously. Unlike consumer electronics cells that operate at modest C-rates, EV cells regularly face peak discharge rates of 3–10C during acceleration and regenerative charging pulses of similar magnitude. Capacity, energy efficiency, and internal resistance all need to be characterized at these real-world operating points, not just at gentle reference rates.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">PLANNING</span></div>
+                    <h3>Defining the EV Battery Test Objective</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">EV programs typically layer several test types across the same campaign, often running concurrently on different channel groups. Defining each objective precisely avoids scope creep and ensures the data structure matches what downstream analysis — and regulatory submissions — actually require.</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Test objective:</strong> Cell selection, pack qualification, DCIR characterization, cycle life, drive cycle simulation, or production acceptance?</li>
+                        <li><strong>Control variables:</strong> C-rate, depth of discharge, temperature, rest duration, SoC window?</li>
+                        <li><strong>Measured outputs:</strong> Capacity, energy efficiency, DCIR at multiple SoC points, temperature rise at peak rate, cycle-to-cycle capacity fade?</li>
+                        <li><strong>Data resolution:</strong> High-resolution pulse steps vs. compressed logging during routine cycling?</li>
+                        <li><strong>Operational risk:</strong> Channel wattage limits, thermal runaway detection, combined-channel safety for high-capacity packs?</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>How EV Battery Testing Works in Practice</h3>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li>Define DUT specifications including pack voltage, capacity, peak current, and thermal operating window.</li>
+                        <li>Build the procedure — for DCIR characterization, use pulse steps with short rest periods; for drive cycle simulation, encode the current profile as a sequence of charge, discharge, and scan steps.</li>
+                        <li>For high-capacity packs exceeding a single channel's current rating, use combined channels to aggregate output on a primary channel while automatically enforcing per-brick wattage limits.</li>
+                        <li>Assign thermocouple or thermistor auxiliary inputs for thermal monitoring; configure Temp Max safety and derivative end conditions for thermal runaway detection.</li>
+                        <li>For long-duration cycling, configure nested loops with RPT blocks at defined cycle intervals; enable global safeties for unattended operation.</li>
+                        <li>Export capacity, energy, DCIR, and auxiliary temperature data at each RPT checkpoint for lifetime modeling and warranty prediction.</li>
+                    </ol>
+                    <div class="callout" style="margin-top: 1rem;"><strong>Combined channels note:</strong> When test channels are combined to drive a high-capacity pack, the PCh safe wattage limit protects each power module from overload. The system continuously calculates instantaneous power and enforces the limit in firmware — protecting hardware even if the procedure requests a momentarily excessive operating point.</div>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where EV Battery Testing Adds Value</h3>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Program Type</th>
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Primary Test Focus</th>
+                            </tr>
+                        </thead>
+                        <tbody style="color: var(--light-grey);">
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Cell and chemistry selection</td>
+                                <td style="padding: 0.6rem 0.75rem;">Capacity, energy density, DCIR, and rate capability across candidate chemistries</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Pack-level validation</td>
+                                <td style="padding: 0.6rem 0.75rem;">Combined channel operation, CAN bus BMS monitoring, thermal balance across cells</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Drive cycle simulation</td>
+                                <td style="padding: 0.6rem 0.75rem;">UDDS, WLTP, or custom current profiles encoded in procedure steps</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Cycle life and warranty modeling</td>
+                                <td style="padding: 0.6rem 0.75rem;">Long-duration automated cycling with RPT checkpoints; capacity fade and impedance growth trending</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem;">Production acceptance</td>
+                                <td style="padding: 0.6rem 0.75rem;">Capacity grading, end-of-line impedance check, thermal consistency screening</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">KEY REQUIREMENTS</span></div>
+                    <h3>What EV Programs Demand from Test Systems</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>High current and power capability:</strong> EV cells and packs require test channels rated for the peak currents and voltages of the actual application, with firmware-level brick power safety (30 ms shutdown) protecting hardware during transients.</li>
+                        <li><strong>Channel combining:</strong> Packs that exceed a single channel's current rating can be driven by aggregating multiple channels on a primary channel, with all safety limits maintained per brick.</li>
+                        <li><strong>CAN bus integration:</strong> EV packs communicate BMS data over CAN. The system can read CAN register values — cell voltages, state of charge, fault flags, pack temperature — as end conditions and data record fields within the same procedure that runs the electrical test.</li>
+                        <li><strong>Multi-point thermal monitoring:</strong> Up to 48 auxiliary thermocouple or thermistor inputs per channel support simultaneous temperature measurement at multiple pack locations, with derivative-based thermal runaway detection.</li>
+                        <li><strong>Long-duration unattended operation:</strong> Multi-year cycle life programs require automated RPT scheduling, global channel safeties, problem-state recovery, and Advanced Start continuity on restart.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for EV Engineers and Program Managers</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Complete pack data records:</strong> CAN BMS data, auxiliary cell temperatures, and electrical measurements in a single timestamped file eliminate manual correlation between separate instrumentation systems.</li>
+                        <li><strong>Hardware-safe high-power testing:</strong> Firmware-level wattage protection on combined channels allows high-current pack testing without risking hardware damage from momentary operating point excursions.</li>
+                        <li><strong>Accurate lifetime projections:</strong> Consistent RPT execution across thousands of cycles provides the capacity fade and impedance growth curves that lifetime models and warranty teams depend on.</li>
+                        <li><strong>Faster development cycles:</strong> Parallel multi-channel characterization at multiple C-rates and temperatures simultaneously compresses the cell selection timeline without sacrificing data quality.</li>
+                        <li><strong>Production readiness:</strong> The same test infrastructure used in R&amp;D can scale to production acceptance testing, maintaining data continuity and measurement consistency across the program.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How is DCIR measured in a test procedure?</p>
+                    <p style="color: var(--light-grey);">DCIR is calculated from the voltage step response at a current transition — dV/dI at the moment the step changes. The system computes ESR (Equivalent Series Resistance) at each procedure step change and logs it in the data record. For HPPC-style characterization, pulse charge and discharge steps at multiple SoC points are built directly into the procedure, with rest periods between pulses for voltage recovery.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Can the test system read CAN bus data from an EV pack's BMS?</p>
+                    <p style="color: var(--light-grey);">Yes. CAN end condition and data logging capability allows the system to receive and log BMS-reported data — including cell voltages, SoC, fault flags, and pack temperature — during the electrical test. CAN register values can also be used as end conditions, enabling the procedure to respond to BMS-reported states as well as directly measured electrical parameters.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How does the system handle a pack that requires more current than a single channel provides?</p>
+                    <p style="color: var(--light-grey);">Multiple channels are combined under a primary channel, which then presents a summed current capability to the pack. The procedure is written and run on the primary channel as normal. Each contributing channel enforces its own wattage and current limits independently, and the firmware brick power safety provides rapid per-brick shutdown if any module is overloaded.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-reliability-testing.html" class="link-primary">Battery Reliability Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="grid-storage-battery-testing.html" class="link-primary">Grid Storage Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-temperature-monitoring.html" class="link-primary">Battery Temperature Monitoring →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../software/smart-battery-protocol-testing.html" class="link-primary">Smart Battery Protocol Testing →</a></li>
+                        <li style="padding: 0.5rem 0;"><a href="../applications.html" class="link-primary">← Back to Applications</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

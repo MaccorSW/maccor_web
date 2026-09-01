@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Data Visualization Techniques | Knowledge Center | Maccor</title>
+    <meta name="description" content="Battery visualization: time-based and cycle-based charting, differential capacity (dQ/dV), multi-channel overlays, real-time and post-test analysis." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-data-visualization-techniques.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Data Visualization Techniques | Maccor" />
+    <meta property="og:description" content="From voltage-time waveforms and cycle capacity trends to dQ/dV curves and auxiliary overlays — a practical guide to visualizing battery test data in MIMS." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-data-visualization-techniques.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Data Visualization Techniques",
+      "description": "A practical guide to battery data visualization — time-based and cycle-based charting, differential capacity (dQ/dV), multi-channel overlays, auxiliary data plotting, and MIMS Client tools for real-time and post-test analysis.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-data-visualization-techniques.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Request Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../data-analysis.html">Data &amp; Analysis</a> / <span>Battery Data Visualization Techniques</span>
+                </div>
+                <h1>Battery Data <span class="highlight">Visualization Techniques</span></h1>
+                <p>A practical guide to charting and interpreting battery test data — covering time-based waveform views, cycle-based trend plots, differential capacity analysis, auxiliary channel overlays, and the MIMS Client tools that support both real-time monitoring and post-test analysis.</p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <div class="content-wrap">
+
+                <div class="article-shell">
+                    <div class="article-body">
+
+                        <h2>Two Fundamental Views: Time-Based and Cycle-Based</h2>
+                        <p>MIMS Client organises battery test data into two primary chart modes, each answering a different class of engineering question:</p>
+                        <ul>
+                            <li><strong>Time-based view:</strong> Plots one or more measured channels — voltage, current, capacity, energy, temperature, auxiliary inputs — against elapsed time. Shows the full waveform of a test at whatever logging resolution was configured. Used for waveform inspection, anomaly investigation, step-transition verification, and thermal event correlation.</li>
+                            <li><strong>Cycle-based view:</strong> Plots per-cycle or per-half-cycle summary metrics — charge capacity, discharge capacity, coulombic efficiency, energy efficiency, ESR — against cycle number. Used for trend analysis across the full program duration: capacity fade curves, efficiency decay, impedance growth.</li>
+                        </ul>
+                        <p>Both modes operate on the same underlying data file. Switching between them changes the aggregation level, not the data itself. Most analysis workflows use both: time-based inspection to verify individual cycles, cycle-based trending to assess the program as a whole.</p>
+
+                        <h2>Configuring Charts in MIMS Client</h2>
+                        <p>MIMS Client provides a flexible chart configuration interface with the following controls:</p>
+                        <ul>
+                            <li><strong>Y-axis channel selection:</strong> Up to two independent Y-axes can be configured, each with its own scale range and unit. Common pairings are voltage (left axis) and current (right axis), or capacity (left) and efficiency (right).</li>
+                            <li><strong>X-axis selection:</strong> In time-based mode, the X-axis is elapsed test time. In cycle-based mode, it is cycle number (CycleP or CycleC). Voltage can also be used as the X-axis for plotting capacity versus voltage and for dQ/dV analysis.</li>
+                            <li><strong>Data range:</strong> Charts can be scoped to a specific cycle range, step range, or time window. Narrowing the range to a single cycle shows fine waveform detail; the full range shows long-program trends.</li>
+                            <li><strong>Multi-channel overlay:</strong> Multiple channels from the same data file can be plotted simultaneously. Multiple data files can also be overlaid for direct cell-to-cell comparison.</li>
+                            <li><strong>Zoom and pan:</strong> Interactive zoom focuses on specific regions; pan moves through the dataset without changing the zoom level.</li>
+                        </ul>
+
+                        <h2>Differential Capacity (dQ/dV) Plots</h2>
+                        <p>Differential capacity — incremental charge per unit voltage — is one of the most diagnostic visualisations available from standard battery test data. It requires no additional instrumentation beyond the standard voltage and capacity record. In MIMS, dQ/dV is calculated from the existing data file and plotted with voltage on the X-axis.</p>
+                        <p>What dQ/dV reveals:</p>
+                        <ul>
+                            <li>Peaks correspond to electrochemical phase transitions at specific voltages. Their position, height, and sharpness fingerprint the chemistry.</li>
+                            <li>Peak broadening over cycles indicates kinetic degradation — increased polarisation and resistance.</li>
+                            <li>Peak shift indicates thermodynamic changes — lithium inventory loss or active material degradation.</li>
+                            <li>Peak disappearance indicates loss of a specific electrochemical phase — often irreversible capacity loss or lithium plating.</li>
+                        </ul>
+                        <p>Key MIMS dQ/dV settings: <strong>Min. dV</strong> controls smoothing (5 mV is a typical starting point for Li-ion); <strong>Aux. no.</strong> enables electrode-specific dQ/dV using a reference electrode on an auxiliary voltage input; <strong>Connection polarity</strong> must be set correctly for reference electrode configurations.</p>
+                        <div class="callout"><strong>Logging tip:</strong> dQ/dV quality depends on voltage-domain data density. Voltage-triggered report types (1–5 mV per record) produce substantially better dQ/dV curves than time-based logging alone, because they concentrate data points where voltage changes slowly and electrochemical information is richest.</div>
+
+                        <h2>Plotting Auxiliary and Thermal Data</h2>
+                        <p>Auxiliary inputs — thermocouples, thermistors, auxiliary voltage channels, and pressure sensors — are logged alongside electrical data in the same data record and share the same time index. Any auxiliary channel can be overlaid directly on the same time-based chart as voltage, current, and capacity without manual alignment.</p>
+                        <p>Common auxiliary visualisation patterns:</p>
+                        <ul>
+                            <li><strong>Temperature vs. voltage or time:</strong> Shows the thermal signature of each charge and discharge half-cycle. Used to identify localised heating, self-discharge events, and thermal runaway precursors.</li>
+                            <li><strong>Reference electrode voltage:</strong> Plotted on the second Y-axis alongside full-cell voltage, enabling anode and cathode potential tracking — critical for understanding where capacity is being lost.</li>
+                            <li><strong>Pressure vs. cycle number:</strong> For solid-state and pouch cell programs, pressure trends over cycle number reveal gas evolution, electrode swelling, and electrolyte decomposition.</li>
+                            <li><strong>Calculated voltage (Vref):</strong> MIMS can display a computed full-cell voltage derived from reference electrode inputs — useful for validating the reference electrode measurement against the directly measured terminal voltage.</li>
+                        </ul>
+
+                        <h2>Real-Time Visualisation During Test Execution</h2>
+                        <p>MIMS provides five screen types for monitoring active tests. Three display live data that updates as records are written:</p>
+                        <ul>
+                            <li><strong>Schedule screen:</strong> Tabular view of all active channels — current step, mode, voltage, current, capacity, and status. Primary tool for multi-channel monitoring at a glance.</li>
+                            <li><strong>Channel screen:</strong> Detailed view of a single channel — all electrical and auxiliary values, step progress, end condition thresholds, and loop counters.</li>
+                            <li><strong>Chart screen:</strong> Live strip-chart of selected channels versus time for a single active channel. Monitoring only — does not affect the running test or stored data.</li>
+                        </ul>
+                        <p>MIMS Client connects to MIMS Server to display this live data. The server continues running and logging data regardless of whether the Client is open — disconnecting the client for chart reconfiguration does not affect test execution.</p>
+
+                        <h2>Visualisation by Program Type</h2>
+                        <table>
+                            <thead>
+                                <tr><th>Program Type</th><th>Primary Chart Types</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Cell characterisation</td><td>Voltage vs. capacity; dQ/dV; reference electrode overlays</td></tr>
+                                <tr><td>Cycle life / reliability</td><td>Capacity vs. cycle number; CE vs. cycle number; ESR vs. cycle number</td></tr>
+                                <tr><td>HPPC / pulse power</td><td>Voltage vs. time (high resolution); ESR at step transitions</td></tr>
+                                <tr><td>Thermal / safety</td><td>Temperature vs. time overlaid with voltage; dT/dt derivative traces</td></tr>
+                                <tr><td>Grid storage efficiency</td><td>Round-trip Wh efficiency vs. cycle; partial SoC voltage excursion profiles</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>Can I overlay data from multiple cells on the same chart?</h3>
+                        <p>Yes. MIMS Client allows multiple data files to be loaded simultaneously and plotted on the same chart axes. This is the standard approach for comparing cells from a test matrix — overlaying discharge curves for ten cells at three different temperatures to visualise the spread in capacity and voltage profile.</p>
+
+                        <h3>Does the Chart screen affect what data is stored?</h3>
+                        <p>No. The Chart screen in MIMS is a read-only monitoring view — it displays data as it is written by MIMS Server but cannot alter the logging configuration or the stored data record. Logging is controlled entirely by the report types configured in the test procedure.</p>
+
+                        <h3>My dQ/dV curves look very noisy — what is the cause?</h3>
+                        <p>Noisy dQ/dV curves are almost always a logging resolution issue. The dQ/dV calculation requires sufficient data density in the voltage domain. If the test used time-based logging only, there may be too few data points per millivolt in flat plateau regions. Adding a voltage-triggered report type (1–5 mV threshold) to future test procedures improves dQ/dV quality substantially. For existing data, increasing the Min. dV setting in MIMS smooths the curve at the cost of resolving fine peak structure.</p>
+
+                    </div><!-- /article-body -->
+
+                    <aside class="article-aside">
+                        <div class="panel">
+                            <h3>Chart Mode Quick Guide</h3>
+                            <div class="stat-strip" style="grid-template-columns: 1fr;">
+                                <div class="stat-pill">
+                                    <strong>Time-based</strong>
+                                    <span>Full waveform; anomaly inspection</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>Cycle-based</strong>
+                                    <span>Fade trends; efficiency over lifetime</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>dQ/dV</strong>
+                                    <span>Phase diagnostics; degradation mode ID</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>2 Y-axes</strong>
+                                    <span>Dual-channel overlay per chart</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>dQ/dV Setup Checklist</h3>
+                            <ul class="topic-list">
+                                <li><a href="#">Min. dV setting<span>Start at 5 mV for Li-ion; reduce for detail</span></a></li>
+                                <li><a href="#">Voltage-triggered logging<span>1–5 mV per record for best curve quality</span></a></li>
+                                <li><a href="#">Aux. no. (reference electrode)<span>Enables anode / cathode separate plots</span></a></li>
+                                <li><a href="#">Connection polarity<span>Must match physical wiring configuration</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>In This Section</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="analyzing-battery-cycle-data.html">Analyzing Battery Cycle Data<span>Half-cycles, CycleP, CycleC, dQ/dV</span></a></li>
+                                <li><a href="battery-performance-metrics.html">Battery Performance Metrics<span>CE, EE, DCIR, capacity retention</span></a></li>
+                                <li><a href="battery-data-logging-systems.html">Data Logging Systems<span>Report types and logging strategy</span></a></li>
+                                <li><a href="exporting-battery-test-data.html">Exporting Battery Test Data<span>ASCII, Excel, and summary files</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Related Topics</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="../applications/grid-storage-battery-testing.html">Grid Storage Battery Testing<span>Applications section</span></a></li>
+                                <li><a href="../../software/mims-client.html">MIMS Client Software<span>Software section</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div><!-- /article-shell -->
+
+                <div class="cta-band">
+                    <div>
+                        <h2>See MIMS Visualization Live</h2>
+                        <p>Request a demo to see dQ/dV analysis, multi-cell overlays, and real-time monitoring in action on a running Maccor test system.</p>
+                    </div>
+                    <div class="cta-band-actions">
+                        <a href="../../contact.html" class="cta-button">Request a Demo</a>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0 2rem;">
+                    <h2 style="font-size:1.6rem; margin-bottom:1.5rem; color:var(--off-white);">Continue in Data &amp; Analysis</h2>
+                    <div class="quick-links-grid">
+                        <a href="analyzing-battery-cycle-data.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Analyzing Battery Cycle Data</h3>
+                                <p>Per-cycle metrics, half-cycle definitions, and dQ/dV workflow.</p>
+                                <a href="analyzing-battery-cycle-data.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="battery-data-logging-systems.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Data Logging Systems</h3>
+                                <p>Report types, logging strategy, and file management.</p>
+                                <a href="battery-data-logging-systems.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <div class="quick-link-card current">
+                            <span class="tag">Current</span>
+                            <h3>Battery Data Visualization Techniques</h3>
+                            <p>Time-based, cycle-based, dQ/dV, and auxiliary overlays.</p>
+                        </div>
+                        <a href="exporting-battery-test-data.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Exporting Battery Test Data</h3>
+                                <p>ASCII, Excel, CSV field selection and format masking.</p>
+                                <a href="exporting-battery-test-data.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div><!-- /content-wrap -->
+        </div><!-- /content-section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.pageYOffset > 100 ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.quick-link-card, .stat-pill, .panel').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            obs.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

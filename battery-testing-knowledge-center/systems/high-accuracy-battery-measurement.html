@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Precision Battery Measurement | Knowledge Center | Maccor</title>
+    <meta name="description" content="Research-grade battery measurement: current ranging, voltage accuracy, Kelvin connections, calibration, and precision data collection practices" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/systems/high-accuracy-battery-measurement.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="High-Precision Battery Measurement | Maccor" />
+    <meta property="og:description" content="Achieve research-grade measurement accuracy in battery testing through proper current ranging, Kelvin connections, calibration discipline, and optimized data logging resolution." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/systems/high-accuracy-battery-measurement.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "High-Precision Battery Measurement",
+      "description": "How high-precision battery measurement works: current ranging, voltage accuracy, Kelvin connections, calibration, data resolution settings, and measurement best practices for research-grade results.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/systems/high-accuracy-battery-measurement.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../systems.html">Battery Test Systems</a> / <span>High-Precision Battery Measurement</span>
+                </div>
+                <div class="kicker">Systems — Article</div>
+                <h1>High-Precision <span class="highlight">Battery Measurement</span></h1>
+                <p>Achieving research-grade voltage, current, and capacity measurement accuracy through proper ranging, four-wire connections, calibration discipline, and optimized data logging configuration.</p>
+            </div>
+        </section>
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">PRECISION MEASUREMENT</span>
+                <h2>High-Precision Battery Measurement in Practice</h2>
+                <p>From ranging and Kelvin connections to calibration and data resolution — a practical guide to getting the most accurate data from automated battery test equipment.</p>
+            </div>
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Precision Measurement Requires</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">High-precision battery measurement is not simply a function of buying expensive hardware. It requires matching the measurement range to the signal being measured, using proper wiring techniques, maintaining calibration, and configuring data logging to capture the events that matter. Each layer contributes independently — a misconfigured range or a poorly routed sense lead can undermine otherwise excellent hardware.</p>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">CURRENT RANGING</span></div>
+                    <h3>Current Range Selection and MultiRange</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Measurement accuracy is highest when the signal occupies a large fraction of the selected range. Oversized ranges produce coarse resolution on small signals:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Auto ranging:</strong> The system selects the optimal range dynamically. Suitable for most applications where current varies significantly between steps.</li>
+                      <li><strong>Fixed range (Select Range option):</strong> Forces a specific range for a step — use when Auto switching would introduce a transient or when comparing data across cells requires identical range conditions.</li>
+                      <li><strong>MultiRange bricks:</strong> Up to 4 ranges per channel. The smallest range that spans the full step current provides the best resolution.</li>
+                      <li><strong>Taper current accuracy:</strong> CC-CV charge end conditions based on taper current require the selected range to include the taper value without being so oversized that the taper is lost in noise.</li>
+                      <li><strong>Calibration per range:</strong> Each range is calibrated independently. Print Calibration Dates (Maintenance tab) to verify all ranges are current.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WIRING</span></div>
+                    <h3>Four-Wire (Kelvin) Connection Best Practices</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Lead resistance is the most common source of systematic voltage measurement error at high currents:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Separate force and sense leads:</strong> Force leads carry the full current; sense leads carry negligible current and measure voltage at the cell terminals. Combining them introduces an IR drop error proportional to I × R_lead.</li>
+                      <li><strong>Connect sense leads at the cell terminals:</strong> Not at the connector block or fixture — at the physical cell tab or terminal.</li>
+                      <li><strong>Minimize lead length and resistance:</strong> Especially for force leads at high current. Use adequately rated wire gauge.</li>
+                      <li><strong>Auxiliary inputs for cell monitoring:</strong> For multi-cell packs, route individual cell voltage sense leads to auxiliary inputs to monitor cell-level voltage independently of the pack terminal voltage.</li>
+                      <li><strong>Consistent lead geometry:</strong> Changes in lead routing between tests introduce repeatable errors. Fix lead positions once the setup is validated.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">CALIBRATION</span></div>
+                    <h3>Calibration and Measurement Verification</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Calibration discipline is essential for maintaining measurement accuracy over time:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Print Calibration Dates:</strong> Available under Maintenance tab — shows the last calibration date for each channel and each range.</li>
+                      <li><strong>Calibration interval:</strong> Establish a regular calibration schedule appropriate to your accuracy requirements. High-precision research programs typically calibrate more frequently than production QA.</li>
+                      <li><strong>Simple Cal mode:</strong> Available in Manual Channel Operation — allows field verification of voltage and current output without full recalibration.</li>
+                      <li><strong>Reference standards:</strong> Use NIST-traceable references for calibration to ensure measurement chain traceability.</li>
+                      <li><strong>Environmental stability:</strong> Calibrate at the same ambient temperature used during testing. Significant temperature changes between calibration and use introduce thermal drift errors.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">DATA RESOLUTION</span></div>
+                    <h3>Configuring Data Logging for Precision</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">High-precision measurement is only useful if the data logging captures it correctly:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                      <li><strong>Report type selection:</strong> Use Voltage and Current report types on short time intervals to capture fine features in charge profiles.</li>
+                      <li><strong>Derivative end types:</strong> Use +d1/-d1 (first derivative) and +d2/-d2 (second derivative) end conditions to detect inflection points — for dV/dQ analysis or peak detection.</li>
+                      <li><strong>Display units:</strong> Switch between Volts/mVolts and Amps/mAmps in the Display settings (Maintenance tab) to match measurement scale to the signal magnitude.</li>
+                      <li><strong>Scientific notation:</strong> Enable for very small values (e.g., taper currents in µA range) to prevent display truncation.</li>
+                      <li><strong>MIMS ASCII output precision:</strong> Configure column format in MIMS Server ASCII settings to retain sufficient decimal places for the measurement resolution being claimed.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where High-Precision Measurement Adds Value</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Precision matters most where small differences carry engineering significance.</p>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                          <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Application</th>
+                          <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Key Precision Requirement</th>
+                        </tr></thead>
+                        <tbody style="color: var(--light-grey);">
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">Coulombic efficiency (CE) measurement</td>
+                            <td style="padding: 0.6rem 0.75rem;">Current accuracy &lt; 0.02% for CE &gt; 99.9%</td>
+                          </tr>
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">Capacity fade tracking</td>
+                            <td style="padding: 0.6rem 0.75rem;">Consistent range and conditions across all RPT cycles</td>
+                          </tr>
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">DCIR from pulse</td>
+                            <td style="padding: 0.6rem 0.75rem;">Voltage resolution in mV range; current timing accuracy</td>
+                          </tr>
+                          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 0.6rem 0.75rem;">CC-CV taper current end</td>
+                            <td style="padding: 0.6rem 0.75rem;">Small taper current must be within range; fixed range recommended</td>
+                          </tr>
+                          <tr style="">
+                            <td style="padding: 0.6rem 0.75rem;">Cell-to-cell comparison</td>
+                            <td style="padding: 0.6rem 0.75rem;">Identical range, wiring, and temperature conditions across channels</td>
+                          </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How much error does lead resistance introduce?</p>
+                    <p style="color: var(--light-grey);">The voltage error from force-lead resistance is V_error = I × R_lead. At 10 A through 10 mΩ of lead resistance, the error is 100 mV — a significant fraction of the voltage window for many chemistries. Four-wire (Kelvin) sensing eliminates this error entirely by measuring voltage at the cell terminal rather than at the cable end.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Why does range matter for Coulombic efficiency measurements?</p>
+                    <p style="color: var(--light-grey);">CE = discharge Ah ÷ charge Ah. A 0.1% error in the current measurement of either step produces a 0.1% error in CE. For a cell with 99.9% CE, a 0.1% measurement error completely obscures the signal. Auto ranging may switch ranges mid-step and introduce a small discontinuity — fixed ranging is preferred for CE measurements.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">What is the Simple Cal mode used for?</p>
+                    <p style="color: var(--light-grey);">Simple Cal is a Manual Channel Operation mode that outputs a defined voltage or current and allows the user to compare the actual output to a reference instrument. It is a quick field check — not a replacement for full calibration — but useful for confirming that a channel is performing within specification between scheduled calibration intervals.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-pack-testing-vs-cell-testing.html" class="link-primary">Battery Pack Testing vs Cell Testing →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-test-equipment-overview.html" class="link-primary">Battery Test Equipment Overview →</a></li>
+                      <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="pulse-testing-for-battery-research.html" class="link-primary">Pulse Testing for Battery Research →</a></li>
+                      <li style="padding: 0.5rem 0; "><a href="../systems.html" class="link-primary">← Back to Battery Test Systems</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+        
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

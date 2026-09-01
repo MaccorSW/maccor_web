@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auxiliary Inputs & Sensor Integration | Knowledge Center | Maccor</title>
+    <meta name="description" content="Technical overview of auxiliary inputs in battery testing: Thermocouples, Thermistors, Reference Voltages, and Pressure sensors." />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/software/auxiliary-inputs-for-battery-testing.html" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css"> 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Auxiliary Inputs & Sensor Integration",
+      "description": "Technical overview of auxiliary inputs in battery testing: Thermocouples, Thermistors, Reference Voltages, and Pressure sensors.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/software/auxiliary-inputs-for-battery-testing.html"
+    }
+    </script>
+</head> 
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../software.html">Software</a> / <span>Auxiliary Inputs</span>
+                </div>
+                <h1>Auxiliary Inputs in <span class="highlight">Battery Testing</span></h1>
+                <p>Elevate test capabilities beyond current and voltage to capture thermal, electrochemical, and mechanical data. Integrating environmental and internal cell metrics into a single time-stamped record.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">HARDWARE</span>
+                <h2>Understanding Auxiliary Inputs</h2>
+                <p>Auxiliary inputs extend the tester beyond standard channel voltage and current by allowing additional signals such as temperature, external analog voltage, and pressure to be displayed and logged with the test. Add these inputs at the time of system purchase or let our treainded service engineers field install the hardware.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Auxiliary Inputs Are</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Auxiliary inputs extend a battery test channel beyond its core voltage and current measurements by connecting additional physical sensors — thermocouples, thermistors, reference voltage probes, and pressure transducers — directly into the test data record. Each auxiliary input is assigned to a test channel, sampled during the test, logged alongside electrical measurements, and made available as both a real-time display value and an end condition trigger.</p>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Individual auxiliary inputs can be assigned to a single test channel. They are listed in the Detailed screen's Actual Readings panel in the order assigned, with input type differentiated by unit of measurement. Any channel assigned an Active Smart Battery interface is limited to 8 auxiliary inputs.</p>
+                    
+                </div>
+                
+                
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">THERMAL</span></div>
+                    <h3>Thermocouples &amp; Thermistors</h3>
+                    <p>Accurate temperature monitoring is critical for safety and characterization:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; line-height: 1.8;">
+                        <li><strong>Thermocouples (T, K, J):</strong> Robust sensors for wide temperature ranges and fast response times.</li>
+                        <li><strong>Thermistors:</strong> High-precision NTC/PTC sensors ideal for narrow-range, high-sensitivity requirements.</li>
+                        <li><strong>Software Integration:</strong> Temperature can be used as an end-condition or safety limit.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">ELECTROCHEMICAL</span></div>
+                    <h3>Reference Voltage Inputs</h3>
+                    <p>Isolate electrode performance without cell teardown:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; line-height: 1.8;">
+                        <li><strong>Half-Cell Analysis:</strong> Measure Anode vs. Ref or Cathode vs. Ref independently.</li>
+                        <li><strong>Internal Impedance:</strong> Correlate voltage drops to specific electrode behavior.</li>
+                        <li><strong>High Impedance Inputs:</strong> Specialized circuits prevent the test system from loading the reference electrode.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">MECHANICAL</span></div>
+                    <h3>Pressure & Strain Inputs</h3>
+                    <p>Monitor physical changes during charge/discharge cycles:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; line-height: 1.8;">
+                        <li><strong>Cell Swelling:</strong> Capture expansion data using load cells or displacement transducers.</li>
+                        <li><strong>Internal Pressure:</strong> Monitor gas evolution via integrated pressure transducers.</li>
+                        <li><strong>Analog Scaling:</strong> Software converts 0-100mV, 0-5V, or 0-10V signals into engineering units (PSI, Bar, mm).</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">ADVANTAGES</span></div>
+                    <h3>Why Integrate Auxiliaries?</h3>
+                    <p>Single-platform logging provides distinct engineering advantages:</p>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; line-height: 1.8;">
+                        <li><strong>Time Alignment:</strong> Sensor data is perfectly synchronized with V/I records.</li>
+                        <li><strong>Global Safeties:</strong> Use pressure or temp spikes to trigger immediate system-wide shutdowns.</li>
+                        <li><strong>Complex Control:</strong> Adjust C-rates dynamically based on real-time cell temperature.</li>
+                    </ul>
+                </div>
+                
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">ONSITE INSTALLATION</span></div>
+                    <h3>Your tester did not include Auxiliary Inputs—</h3>
+                    <p>but that's not a problem. We understand that testing requirements can evolve over time, and your equipment needs may change as your projects become more complex. Our highly skilled service engineers can install them in the field, minimizing downtime and getting your system up and running quickly. These field installations are performed efficiently and professionally, ensuring that your tester is upgraded to meet your current specifications without the need to ship equipment back to our facility. Contact Maccor <a href="../../support.html">Support</a> to discuss upgrade options for your tester, including pricing, installation timelines, and technical specifications to ensure compatibility with your existing setup.</p>
+                    
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Performance Metrics | Knowledge Center | Maccor</title>
+    <meta name="description" content="Battery performance metrics: coulombic and energy efficiency, capacity retention, DCIR, ESR, round-trip efficiency—definitions and calculation methods." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-performance-metrics.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Battery Performance Metrics | Maccor" />
+    <meta property="og:description" content="Coulombic efficiency, energy efficiency, capacity retention, DCIR, ESR, and round-trip Wh efficiency — definitions, calculation methods, and how each connects to real test system workflow." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-performance-metrics.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Battery Performance Metrics",
+      "description": "A practical guide to battery performance metrics — coulombic efficiency, energy efficiency, capacity retention, DCIR, ESR, and round-trip Wh efficiency: definitions, calculation methods, and connection to test system workflow.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/data-analysis/battery-performance-metrics.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Request Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../data-analysis.html">Data &amp; Analysis</a> / <span>Battery Performance Metrics</span>
+                </div>
+                <h1>Battery Performance <span class="highlight">Metrics</span></h1>
+                <p>A practical reference for the core quantitative measures of battery behaviour — coulombic efficiency, energy efficiency, capacity retention, DCIR, ESR, and round-trip Wh efficiency — covering definitions, calculation methods, typical values by chemistry, and how each metric is extracted from Maccor test system data.</p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <div class="content-wrap">
+
+                <div class="article-shell">
+                    <div class="article-body">
+
+                        <h2>Coulombic Efficiency (CE)</h2>
+                        <p><strong>Definition:</strong> The ratio of discharge Amp-hours to charge Amp-hours in the same cycle, expressed as a percentage.</p>
+                        <p class="small" style="font-family: 'JetBrains Mono', monospace; background: rgba(0,217,255,0.05); padding: 0.6rem 0.9rem; border-radius: 6px; border-left: 3px solid var(--accent);">CE = (Discharge Ah ÷ Charge Ah) × 100%</p>
+                        <p><strong>What it measures:</strong> The fraction of charge delivered back out of the cell for every unit of charge put in. Any charge not returned represents irreversible losses — SEI layer formation, lithium plating, electrolyte decomposition, or parasitic side reactions.</p>
+                        <p><strong>Typical values:</strong> Mature Li-ion cells in routine cycling: 99.5–99.9% per cycle. Formation cycles: 80–95% as SEI forms. First-cycle CE below 80% typically indicates an electrolyte or anode compatibility issue.</p>
+                        <p><strong>Why it matters:</strong> CE is the most sensitive early-cycle indicator of cell health and chemistry stability. At high cycle counts, even a 0.01% deviation per cycle compounds into measurable capacity loss. CE trajectory in the first 50 cycles has been demonstrated to predict long-term cycle life with high accuracy, making it a powerful screening metric in cell development programs.</p>
+                        <div class="callout"><strong>Measurement note:</strong> Resolving CE to 0.01% or better requires charge measurement accuracy of &lt;0.1% of full scale. For small cells, this demands hardware with appropriate current ranges and high-resolution ADCs — not all test systems can achieve this at small current scales.</div>
+
+                        <h2>Energy Efficiency (EE)</h2>
+                        <p><strong>Definition:</strong> The ratio of discharge Watt-hours to charge Watt-hours in the same cycle, expressed as a percentage.</p>
+                        <p class="small" style="font-family: 'JetBrains Mono', monospace; background: rgba(0,217,255,0.05); padding: 0.6rem 0.9rem; border-radius: 6px; border-left: 3px solid var(--accent);">EE = (Discharge Wh ÷ Charge Wh) × 100%</p>
+                        <p><strong>What it measures:</strong> The fraction of energy returned per unit of energy input. EE is always lower than CE because it incorporates voltage hysteresis — the charge voltage is always higher than the discharge voltage. The gap between CE and EE reflects the average polarisation (internal resistance × current) during charge and discharge.</p>
+                        <p><strong>Typical values:</strong> Lithium-ion at moderate C-rates: 95–99%. Lead-acid: 70–85%. The EE difference between charge and discharge rates is significant — high-rate operation increases polarisation and reduces EE substantially.</p>
+                        <p><strong>Why it matters:</strong> For grid storage and EV applications, EE directly translates to operating cost. A 1% drop in round-trip EE across a 100 MWh installation represents significant annual energy loss, making EE the primary commercial metric for stationary storage bankability analysis.</p>
+                        <p><strong>In MIMS:</strong> Wh accumulates in the test record alongside Ah. Per-cycle Wh values are available directly from cycle-based chart analysis and end-of-cycle ASCII export files.</p>
+
+                        <h2>Capacity Retention and Capacity Fade</h2>
+                        <p><strong>Definition:</strong> Capacity retention is the discharge capacity at cycle N expressed as a percentage of the reference capacity — typically cycle 1 or first RPT. Capacity fade is the complement: (100% − retention).</p>
+                        <p class="small" style="font-family: 'JetBrains Mono', monospace; background: rgba(0,217,255,0.05); padding: 0.6rem 0.9rem; border-radius: 6px; border-left: 3px solid var(--accent);">Retention(N) = (Discharge Ah(N) ÷ Discharge Ah(ref)) × 100%</p>
+                        <p><strong>What it measures:</strong> How much of the original usable capacity the cell retains after N cycles. The shape of the retention curve — linear, knee-point, sudden drop — reveals the dominant degradation mechanism and remaining useful life.</p>
+                        <p><strong>End-of-life convention:</strong> Most specifications define end-of-life at 80% capacity retention. Some aerospace and medical programs use 70% or other thresholds; always confirm with the applicable standard or customer specification.</p>
+                        <p><strong>RPT integration:</strong> In long cycle life programs, capacity retention is typically measured at standardised Reference Performance Test (RPT) intervals rather than from every routine cycle. The RPT protocol — fixed rate, temperature, and cutoffs — ensures that the capacity measurement is comparable across the full program duration regardless of any temperature or protocol drift.</p>
+
+                        <h2>DC Internal Resistance (DCIR) and ESR</h2>
+                        <p><strong>Definition:</strong> DC internal resistance is calculated from the instantaneous voltage response to a step change in current.</p>
+                        <p class="small" style="font-family: 'JetBrains Mono', monospace; background: rgba(0,217,255,0.05); padding: 0.6rem 0.9rem; border-radius: 6px; border-left: 3px solid var(--accent);">DCIR = ΔV ÷ ΔI</p>
+                        <p>Where ΔV is the instantaneous voltage change at the step transition and ΔI is the current step magnitude. ESR (equivalent series resistance) is the same quantity — the terms are used interchangeably in most battery testing contexts, though ESR technically refers to the resistive component at a specific AC frequency.</p>
+                        <p><strong>Measurement requirements:</strong> Accurate DCIR measurement requires capturing the voltage at the moment of the current step — before capacitive and diffusion processes have time to respond. This requires high-frequency data logging (≥10 Hz, ideally ≥100 Hz) at the step transition. At lower logging rates, the measured ΔV includes relaxation contributions and underestimates the true ohmic resistance.</p>
+                        <p><strong>What it tracks:</strong> DCIR rises as a cell ages — SEI thickening, electrolyte decomposition, and contact resistance all contribute. DCIR growth rate correlates closely with capacity fade rate and is a sensitive leading indicator of end-of-life in many chemistries.</p>
+                        <p><strong>In MIMS:</strong> ESR is calculated and logged automatically at each step transition and is available in both the real-time channel display and the ASCII export record.</p>
+
+                        <h2>Round-Trip Wh Efficiency for Grid Storage</h2>
+                        <p>Round-trip energy efficiency is the same as cycle energy efficiency — discharge Wh divided by charge Wh — but in grid storage contexts it carries additional commercial and contractual significance. For a grid storage system, RTE is typically specified at the system level and must be demonstrated over thousands of cycles at realistic partial state-of-charge conditions.</p>
+                        <p><strong>Partial SoC implementation:</strong> Grid storage cells often cycle within a narrow SoC window (e.g., 20–80%) rather than full charge and discharge. In MIMS, this is implemented using LHCAhr or LHCWHr end conditions — stopping charge or discharge when a specified fraction of the previous half-cycle's accumulated capacity has been delivered, rather than at a fixed voltage cutoff.</p>
+                        <div class="callout"><strong>Bankability note:</strong> RTE demonstration data — protocol-controlled, instrument-calibrated, and continuously logged over the full test program — is a key deliverable for project financing. The test report must document not only the RTE value but the complete test conditions under which it was measured.</div>
+
+                        <h2>Metric Quick Reference</h2>
+                        <table>
+                            <thead>
+                                <tr><th>Metric</th><th>Unit</th><th>Primary Use</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Coulombic Efficiency</td><td>%</td><td>Chemistry stability; early lifetime prediction; formation QC</td></tr>
+                                <tr><td>Energy Efficiency</td><td>%</td><td>Operating cost; system-level performance; polarisation tracking</td></tr>
+                                <tr><td>Capacity Retention</td><td>% of reference</td><td>Cycle life; warranty demonstration; end-of-life determination</td></tr>
+                                <tr><td>DCIR / ESR</td><td>mΩ</td><td>Power capability; degradation tracking; end-of-life indicator</td></tr>
+                                <tr><td>Round-Trip Wh Efficiency</td><td>%</td><td>Grid storage bankability; system operating cost; contract compliance</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>Why is coulombic efficiency a better early-cycle predictor than capacity?</h3>
+                        <p>Capacity changes very slowly in the early cycles of a healthy cell — a cell might retain 99.5% capacity after 50 cycles even if it will fail at 300 cycles. CE reflects the rate of parasitic side reactions with much higher sensitivity. A CE of 99.80% versus 99.90% per cycle looks small but corresponds to a large difference in total lithium consumed by side reactions over 1,000 cycles. CE trajectory reveals degradation trends that are invisible in the capacity curve until the cell approaches end-of-life.</p>
+
+                        <h3>How do I measure DCIR accurately on a Maccor system?</h3>
+                        <p>DCIR is calculated from the voltage change at step transitions — the transition from rest to discharge, or charge to rest, for example. To capture the ohmic voltage drop accurately before diffusion and capacitance effects obscure it, the data logging rate at those steps must be ≥10 Hz (0.1 s per record) and ideally ≥100 Hz (10 ms) for small-format cells. Configure a Step Time report type with the appropriate interval on the steps where DCIR measurement is required; ESR is then automatically calculated and logged by MIMS at each step boundary.</p>
+
+                        <h3>Should capacity retention be measured at every cycle or only at RPTs?</h3>
+                        <p>For long cycle life programs, measuring at every routine cycle is impractical — the routine cycle protocol often differs from the standardised capacity measurement protocol. RPT insertion at regular intervals — typically every 100–500 cycles depending on the program — provides a consistent capacity baseline measured under identical conditions each time, ensuring that capacity fade values are comparable across the full program duration.</p>
+
+                    </div><!-- /article-body -->
+
+                    <aside class="article-aside">
+                        <div class="panel">
+                            <h3>Typical Values at a Glance</h3>
+                            <div class="stat-strip" style="grid-template-columns: 1fr;">
+                                <div class="stat-pill">
+                                    <strong>99.5–99.9%</strong>
+                                    <span>CE — mature Li-ion, routine cycling</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>80–95%</strong>
+                                    <span>CE — formation cycles (SEI forming)</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>95–99%</strong>
+                                    <span>EE — Li-ion at moderate C-rates</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>80%</strong>
+                                    <span>Standard end-of-life retention threshold</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>≥10 Hz</strong>
+                                    <span>Minimum logging rate for DCIR accuracy</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Metric Formulas</h3>
+                            <ul class="topic-list">
+                                <li><a href="#">CE = Disch. Ah ÷ Charge Ah × 100<span>Coulombic efficiency per cycle</span></a></li>
+                                <li><a href="#">EE = Disch. Wh ÷ Charge Wh × 100<span>Energy efficiency per cycle</span></a></li>
+                                <li><a href="#">DCIR = ΔV ÷ ΔI<span>DC internal resistance at step transition</span></a></li>
+                                <li><a href="#">Retention = Ah(N) ÷ Ah(ref) × 100<span>Capacity retention at cycle N</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>In This Section</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="analyzing-battery-cycle-data.html">Analyzing Battery Cycle Data<span>Half-cycles, CycleP, CycleC, dQ/dV</span></a></li>
+                                <li><a href="battery-data-logging-systems.html">Data Logging Systems<span>Report types and logging strategy</span></a></li>
+                                <li><a href="battery-data-visualization-techniques.html">Visualization Techniques<span>MIMS chart modes and dQ/dV</span></a></li>
+                                <li><a href="exporting-battery-test-data.html">Exporting Battery Test Data<span>ASCII, Excel, and summary files</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Related Topics</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="../applications/battery-reliability-testing.html">Battery Reliability Testing<span>Applications section</span></a></li>
+                                <li><a href="../fundamentals/battery-efficiency-testing.html">Battery Efficiency Testing<span>Fundamentals section</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div><!-- /article-shell -->
+
+                <div class="cta-band">
+                    <div>
+                        <h2>Measure Every Metric with Confidence</h2>
+                        <p>Maccor test systems log CE, EE, DCIR, and capacity retention automatically on every channel. Contact us to discuss your test requirements.</p>
+                    </div>
+                    <div class="cta-band-actions">
+                        <a href="../../contact.html" class="cta-button">Request a Demo</a>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0 2rem;">
+                    <h2 style="font-size:1.6rem; margin-bottom:1.5rem; color:var(--off-white);">Continue in Data &amp; Analysis</h2>
+                    <div class="quick-links-grid">
+                        <a href="analyzing-battery-cycle-data.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Analyzing Battery Cycle Data</h3>
+                                <p>Per-cycle metrics, half-cycle definitions, and dQ/dV workflow.</p>
+                                <a href="analyzing-battery-cycle-data.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="battery-data-logging-systems.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Data Logging Systems</h3>
+                                <p>Report types, logging strategy, and file management.</p>
+                                <a href="battery-data-logging-systems.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="battery-data-visualization-techniques.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Visualization Techniques</h3>
+                                <p>Time-based, cycle-based, dQ/dV, and auxiliary overlays in MIMS.</p>
+                                <a href="battery-data-visualization-techniques.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <div class="quick-link-card current">
+                            <span class="tag">Current</span>
+                            <h3>Battery Performance Metrics</h3>
+                            <p>CE, EE, DCIR, capacity retention, and round-trip Wh efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /content-wrap -->
+        </div><!-- /content-section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.pageYOffset > 100 ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.quick-link-card, .stat-pill, .panel').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            obs.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

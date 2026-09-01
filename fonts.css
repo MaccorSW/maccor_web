@@ -1,0 +1,62 @@
+/* barlow-300 */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/barlow-v12-latin-300.woff2') format('woff2');
+}
+
+/* barlow-regular (400) */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/barlow-v12-latin-regular.woff2') format('woff2');
+}
+
+/* barlow-600 */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/barlow-v12-latin-600.woff2') format('woff2');
+}
+
+/* barlow-700 */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/barlow-v12-latin-700.woff2') format('woff2');
+}
+
+/* barlow-900 */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/barlow-v12-latin-900.woff2') format('woff2');
+}
+
+/* jetbrains-mono-regular (400) */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/jetbrains-mono-v18-latin-regular.woff2') format('woff2');
+}
+
+/* jetbrains-mono-600 */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/jetbrains-mono-v18-latin-600.woff2') format('woff2');
+}

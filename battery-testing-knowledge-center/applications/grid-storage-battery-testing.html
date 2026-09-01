@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Storage Battery Testing | Knowledge Center | Maccor</title>
+    <meta name="description" content="Grid storage battery testing guide: round-trip efficiency, cycle life, partial state-of-charge cycling, calendar aging, and capacity validation." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/applications/grid-storage-battery-testing.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Grid Storage Battery Testing | Maccor" />
+    <meta property="og:description" content="From round-trip efficiency to multi-year calendar aging — a practical guide to grid storage battery testing for engineering and qualification teams." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/applications/grid-storage-battery-testing.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Grid Storage Battery Testing",
+      "description": "A practical guide to grid storage battery testing for engineers and program teams — covering round-trip efficiency, multi-year cycle life, partial state-of-charge cycling, calendar aging, and high-capacity cell validation.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/applications/grid-storage-battery-testing.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../applications.html">Applications</a> / <span>Grid Storage Battery Testing</span>
+                </div>
+                <h1>Grid Storage <span class="highlight">Battery Testing</span></h1>
+                <p>A practical guide to battery testing for stationary energy storage programs — covering round-trip efficiency characterization, partial state-of-charge cycling, calendar aging, multi-year life demonstration, and the high-capacity cell infrastructure that grid storage programs require.</p>
+            </div>
+        </section>
+
+        <section class="solutions" style="background: var(--dark); padding-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-tag">APPLICATIONS</span>
+                <h2>Understanding Grid Storage Battery Testing</h2>
+                <p>Grid storage systems must last 15–20 years in the field — the test program must compress that lifetime into a credible, data-backed prediction.</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">OVERVIEW</span></div>
+                    <h3>What Grid Storage Battery Testing Involves</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Grid-scale energy storage introduces test requirements that differ substantially from EV and consumer electronics programs. The cells are larger, the operating profiles are slower, and the lifetime expectations are longer — 15 to 20 years of daily cycling is the target for utility-scale systems, making accelerated aging test design and realistic cycle profile simulation the central engineering challenges.</p>
+                    <p style="color: var(--light-grey); margin-bottom: 0.75rem;">Round-trip efficiency is the primary commercial metric for grid storage. A system that loses 10% of energy on every cycle generates measurable revenue loss over a 20-year contract. Test programs must measure and track Watt-hour efficiency precisely across the full aging campaign, not just at beginning-of-life characterization points.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">PLANNING</span></div>
+                    <h3>Defining the Grid Storage Test Objective</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Test objective:</strong> Chemistry selection, cycle life demonstration, round-trip efficiency trending, calendar aging, or partial SoC performance characterization?</li>
+                        <li><strong>Control variables:</strong> Depth of discharge, SoC operating window, C-rate (typically 0.2–0.5C for grid), ambient temperature, float voltage for calendar aging?</li>
+                        <li><strong>Measured outputs:</strong> Watt-hour efficiency per cycle, capacity retention versus cycle number, DCIR growth, temperature rise at operating rate?</li>
+                        <li><strong>Data resolution:</strong> Watt-hour report type for efficiency tracking; periodic full RPT cycles for capacity and impedance trending?</li>
+                        <li><strong>Operational risk:</strong> Large format cell safeties; unattended operation over months or years; facility-level interlocks via digital I/O?</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">WORKFLOW</span></div>
+                    <h3>How Grid Storage Battery Testing Works in Practice</h3>
+                    <ol style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li>Define DUT format, capacity, operating voltage window, and the specific grid dispatch profile (peak shaving, frequency regulation, or daily full cycle) to be simulated.</li>
+                        <li>Build the procedure — for partial SoC cycling, use Amp-hour or Watt-hour end conditions to constrain the operating window rather than voltage limits; for efficiency tracking, enable Watt-hour report types on both charge and discharge steps.</li>
+                        <li>For calendar aging, encode periodic rest steps at a specified SoC with time-based end conditions; insert RPT blocks at defined intervals to track capacity and impedance progression.</li>
+                        <li>Assign auxiliary temperature inputs; configure global channel safeties appropriate for large-format cell operation.</li>
+                        <li>Configure digital I/O outputs for facility fire suppression or thermal management system interlocks where required.</li>
+                        <li>Export Watt-hour efficiency, capacity, and impedance at each RPT for project lifetime modeling and contract performance reporting.</li>
+                    </ol>
+                    <div class="callout" style="margin-top: 1rem;"><strong>Partial SoC note:</strong> Grid storage systems often cycle within a limited SoC window — for example, 20–80% — rather than full charge and discharge. Using Amp-hour or Watt-hour cumulative end conditions rather than voltage limits faithfully replicates this operating profile and prevents the voltage-endpoint artifacts that appear when cells are driven to their limits during routine cycling.</div>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">APPLICATIONS</span></div>
+                    <h3>Where Grid Storage Testing Adds Value</h3>
+                    <table style="width:100%; margin-top: 1rem; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(0,217,255,0.2);">
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Program Type</th>
+                                <th style="text-align:left; padding: 0.5rem 0.75rem; color: var(--off-white); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem;">Primary Test Focus</th>
+                            </tr>
+                        </thead>
+                        <tbody style="color: var(--light-grey);">
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Cell and chemistry selection</td>
+                                <td style="padding: 0.6rem 0.75rem;">Round-trip Wh efficiency, capacity at grid C-rates, calendar aging rate at float SoC</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Partial SoC cycle life</td>
+                                <td style="padding: 0.6rem 0.75rem;">Capacity and efficiency retention under realistic grid dispatch profiles</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Calendar aging</td>
+                                <td style="padding: 0.6rem 0.75rem;">Capacity fade at storage SoC and temperature; combined calendar + cycling interaction</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem 0.75rem;">Frequency regulation simulation</td>
+                                <td style="padding: 0.6rem 0.75rem;">High-rate bidirectional micro-cycling; thermal behavior under rapid current reversal</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem;">System integration qualification</td>
+                                <td style="padding: 0.6rem 0.75rem;">Large-format cell validation; BMS communication; facility interlock testing via digital I/O</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">KEY REQUIREMENTS</span></div>
+                    <h3>What Grid Storage Programs Demand from Test Systems</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Watt-hour tracking and efficiency reporting:</strong> Round-trip efficiency is computed from charge and discharge Watt-hour accumulation. Watt-hour report types and per-cycle summary exports make efficiency trending straightforward across campaigns lasting thousands of cycles.</li>
+                        <li><strong>Amp-hour and Watt-hour end conditions:</strong> Partial SoC cycling requires cumulative capacity end conditions that stop steps based on energy throughput rather than voltage, faithfully replicating grid dispatch profiles without endpoint artifacts.</li>
+                        <li><strong>Long-duration unattended operation:</strong> Grid storage programs run for months or years. Automated safety handling, problem-state recovery, and Advanced Start data continuity are essential for maintaining program integrity without constant operator oversight.</li>
+                        <li><strong>Large-format cell capability:</strong> Grid cells are physically larger and operate at higher voltages than consumer cells. Channel combining, per-brick wattage safety, and appropriate safety limit configuration protect equipment and DUTs during high-energy testing.</li>
+                        <li><strong>Digital I/O facility integration:</strong> Large-format grid cell testing facilities often require hardware interlocks — thermal management system triggers, fire suppression activation, emergency shutdown signals — that connect as digital outputs from the test system.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">BENEFITS</span></div>
+                    <h3>Benefits for Grid Storage Engineers and Program Teams</h3>
+                    <ul style="color: var(--light-grey); padding-left: 1.25rem; margin-top: 0.5rem; line-height: 2.1;">
+                        <li><strong>Accurate efficiency data:</strong> Watt-hour accumulation and per-cycle export produce the round-trip efficiency curves that project finance models and contract performance guarantees depend on.</li>
+                        <li><strong>Realistic aging simulation:</strong> Partial SoC and dispatch-profile procedures produce aging data that is directly comparable to field conditions — not inflated by full-cycle stress that real grid systems rarely see.</li>
+                        <li><strong>Long-program continuity:</strong> Automated safety recovery and Advanced Start mean that a fault during a 2-year campaign does not require restarting from zero — data continuity is maintained, and the program resumes cleanly.</li>
+                        <li><strong>Scalable cell population:</strong> Statistical confidence in lifetime projections requires testing more than a handful of cells. Multi-channel infrastructure running hundreds of cells in parallel is practical with automated procedure assignment and consolidated monitoring.</li>
+                        <li><strong>Defensible project submissions:</strong> Timestamped, procedure-linked, calibration-traceable data records support the bankability documentation that project finance and off-take agreement counterparties require.</li>
+                    </ul>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">FAQ</span></div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How is round-trip Watt-hour efficiency calculated from test data?</p>
+                    <p style="color: var(--light-grey);">Round-trip efficiency is the ratio of Watt-hours discharged to Watt-hours charged in the same cycle: Wh_discharge / Wh_charge × 100%. Both values are accumulated per cycle in the data record and are available in per-cycle summary exports, making it straightforward to trend efficiency across thousands of cycles. The MIMS analysis environment can plot this directly versus cycle number.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">How is partial SoC cycling implemented in the procedure?</p>
+                    <p style="color: var(--light-grey);">Partial SoC cycling uses Amp-hour or Watt-hour cumulative end conditions with the LHCAhr or LHCWHr end type, which ends the step based on a percentage of the energy passed in the previous half-cycle. Alternatively, fixed Amp-hour end conditions can be set based on the target DoD for the dispatch profile being simulated. Both approaches constrain the SoC window without relying on voltage limits that may cause artifacts as cells age.</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; margin-top: 1rem;">Can the test system trigger an external thermal management system?</p>
+                    <p style="color: var(--light-grey);">Yes. Digital I/O output steps in the procedure — or digital output end conditions triggered by temperature auxiliary inputs — can assert external signals that activate cooling systems, ventilation interlocks, or facility-level emergency responses. These signals are logged in the procedure execution record alongside the electrical and thermal data.</p>
+                </div>
+
+                <div class="mini-card">
+                    <div class="topline"><span class="tag">RELATED</span></div>
+                    <h3>Continue Learning</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="electric-vehicle-battery-testing.html" class="link-primary">Electric Vehicle Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="battery-reliability-testing.html" class="link-primary">Battery Reliability Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../software/digital-io-integration-in-battery-testing.html" class="link-primary">Digital I/O Integration in Battery Testing →</a></li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);"><a href="../fundamentals/battery-cycling-testing-explained.html" class="link-primary">Battery Cycling Testing Explained →</a></li>
+                        <li style="padding: 0.5rem 0;"><a href="../applications.html" class="link-primary">← Back to Applications</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(10, 14, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 26, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.mini-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

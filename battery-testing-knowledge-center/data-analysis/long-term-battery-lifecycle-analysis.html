@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long-Term Battery Lifecycle Analysis | Knowledge Center | Maccor</title>
+    <meta name="description" content="Battery lifecycle analysis: RPT strategy, capacity fade modelling, degradation mechanisms, data management at scale, and MIMS for cycle programs" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/long-term-battery-lifecycle-analysis.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Long-Term Battery Lifecycle Analysis | Maccor" />
+    <meta property="og:description" content="RPT strategy, capacity fade modelling, degradation mechanism identification, and data management for multi-year cycle life programs on Maccor systems." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/long-term-battery-lifecycle-analysis.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Long-Term Battery Lifecycle Analysis",
+      "description": "A practical guide to long-term battery lifecycle analysis — RPT strategy, capacity fade modelling, degradation mechanism identification, data management at scale, and using MIMS for multi-year cycle life programs.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/data-analysis/long-term-battery-lifecycle-analysis.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Request Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../data-analysis.html">Data &amp; Analysis</a> / <span>Long-Term Battery Lifecycle Analysis</span>
+                </div>
+                <h1>Long-Term Battery <span class="highlight">Lifecycle Analysis</span></h1>
+                <p>A practical guide to designing, executing, and analysing multi-year battery cycle life programs — covering Reference Performance Test strategy, capacity fade and impedance trend interpretation, degradation mechanism identification, data management at scale, and how MIMS supports programs running into thousands of cycles over months or years.</p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <div class="content-wrap">
+
+                <div class="article-shell">
+                    <div class="article-body">
+
+                        <h2>What Long-Term Lifecycle Analysis Involves</h2>
+                        <p>A long-term battery lifecycle analysis program has a fundamentally different character from a short characterisation test. Instead of hours or days, the program runs for weeks, months, or years. Instead of a few cycles, it runs hundreds or thousands. The analytical challenge is not just collecting data — it is maintaining data quality, preserving comparability of measurements across the full program duration, and extracting interpretable trends from a dataset that accumulates continuously over the program lifetime.</p>
+                        <p>The primary output of a lifecycle program is the capacity retention curve: discharge capacity as a fraction of the initial reference capacity, plotted against cycle number. Secondary outputs — efficiency trends, impedance growth, differential capacity evolution — provide the mechanistic context needed to understand why the capacity is declining and whether the observed rate of decline is consistent with the expected degradation pathway.</p>
+
+                        <h2>Reference Performance Tests (RPTs)</h2>
+                        <p>The Reference Performance Test is the methodological cornerstone of long-term lifecycle analysis. An RPT is a standardised measurement protocol — fixed C-rate, fixed temperature, fixed voltage limits, fixed rest periods — inserted at regular intervals throughout the cycling program. Its purpose is to measure capacity, impedance, and other key metrics under identical, repeatable conditions every time, regardless of what protocol is being used for the routine cycles.</p>
+                        <p>Without RPTs, comparing capacity at cycle 100 to capacity at cycle 1,000 is problematic if the routine cycling conditions drifted — temperature variations, slight changes in C-rate calibration, or procedure modifications all affect the discharge capacity measured in a routine cycle. An RPT eliminates this confound by providing a consistent measurement anchor at each checkpoint.</p>
+                        <p>Typical RPT contents for a lithium-ion lifecycle program include:</p>
+                        <ul>
+                            <li>Full charge to upper voltage limit at C/5 rate (CC-CV to C/20 taper)</li>
+                            <li>Rest period (typically 1–2 hours)</li>
+                            <li>Full discharge to lower voltage limit at C/5 rate (CC)</li>
+                            <li>Rest period</li>
+                            <li>HPPC pulse sequence for DCIR / ESR measurement at multiple SoC points</li>
+                            <li>Optionally: a slow discharge at C/25 for high-resolution dQ/dV</li>
+                        </ul>
+                        <p>RPT frequency is a balance between data density and throughput. Inserting an RPT every 50 cycles provides a detailed fade curve but adds significant test time on a high-rate cycling program. Every 100–200 cycles is common for programs expected to run 1,000+ cycles; every 500 cycles may be sufficient for programs targeting calendar life at very low cycle rates.</p>
+
+                        <h2>Implementing RPTs in Maccor Procedures</h2>
+                        <p>In Build Test, the RPT is typically implemented as a subroutine — a named block of steps that can be called from the main cycling loop at a specified cycle count. The main procedure loops through routine charge/discharge cycles, and at cycle N (configured as a loop end condition), branches to the RPT subroutine before returning to the routine cycling loop.</p>
+                        <p>Using a subroutine rather than inserting RPT steps inline has several advantages: the subroutine can be updated independently of the main cycling loop if the RPT protocol changes; the subroutine can be called consistently at multiple points in the program; and the step structure of the exported data file clearly separates RPT cycles from routine cycles, making post-analysis filtering straightforward.</p>
+                        <p>The Advanced Start feature is important for long programs. If a tester PC loses power or the program must be paused and resumed, Advanced Start allows the test to restart from a specific step without resetting cycle counters or losing accumulated capacity data — critical for maintaining continuity in a program that may have been running for six months.</p>
+
+                        <h2>Capacity Fade Curve Analysis</h2>
+                        <p>The capacity retention curve from RPT measurements is the primary lifecycle deliverable. The shape of the curve provides diagnostic information beyond the simple end-of-life prediction:</p>
+                        <ul>
+                            <li><strong>Linear fade:</strong> Constant capacity loss per cycle. Typical of SEI growth dominated degradation — a steady, predictable rate. Extrapolation to end-of-life is straightforward.</li>
+                            <li><strong>Knee-point (non-linear acceleration):</strong> Capacity fade that is initially linear then accelerates sharply. The knee indicates the onset of a secondary degradation mechanism — commonly lithium plating, loss of mechanical contact, or electrolyte depletion. Predicting end-of-life requires identifying the knee early and modelling the post-knee rate separately.</li>
+                            <li><strong>Sudden capacity drop:</strong> Abrupt step-change in capacity, often associated with a mechanical event — electrode delamination, current collector failure, or a venting event. Typically not reversible and indicates a safety-relevant failure mode.</li>
+                            <li><strong>Plateau then fade:</strong> Initial stable period followed by gradual decline. Common in cells with excess lithium inventory that is consumed before fade begins to manifest in the capacity curve.</li>
+                        </ul>
+
+                        <h2>ESR and DCIR Trends</h2>
+                        <p>DC internal resistance measured at RPT checkpoints provides a complementary view to capacity retention. In most cell chemistries, DCIR rises monotonically with cycle count as the SEI thickens and electrode contact resistance increases. The DCIR versus cycle curve typically shows faster rise late in life, consistent with the knee-point seen in the capacity curve.</p>
+                        <p>DCIR from Maccor systems is calculated automatically at step transitions and logged in the data record. For RPT-based DCIR measurements at multiple SoC points — as required for HPPC analysis — the Data Export tool can extract the DCIR values at each pulse step across all RPT checkpoints, producing a DCIR versus SoC versus cycle matrix in a single export operation.</p>
+
+                        <h2>dQ/dV Evolution Across the Lifecycle</h2>
+                        <p>Differential capacity analysis at each RPT checkpoint provides mechanistic insight that the capacity and impedance curves alone cannot deliver. The evolution of dQ/dV peaks across the lifecycle reveals which degradation mechanisms are active:</p>
+                        <ul>
+                            <li>Progressive peak broadening indicates increasing polarisation — kinetic degradation consistent with rising DCIR</li>
+                            <li>Peak area reduction without position shift indicates loss of active material (LAM) — capacity fade without significant change in phase equilibria</li>
+                            <li>Peak position shift indicates thermodynamic changes — loss of lithium inventory (LLI), often from side reactions consuming cyclable lithium</li>
+                            <li>Appearance of new peaks can indicate phase transitions associated with overcharge damage or electrolyte decomposition products</li>
+                        </ul>
+                        <p>For the dQ/dV analysis at each RPT to be directly comparable across the lifecycle, the slow-discharge RPT step must use voltage-triggered logging at a consistent minimum dV setting. Including this in the RPT subroutine ensures the comparison is valid regardless of how long the program has been running.</p>
+
+                        <h2>Data Management for Long Programs</h2>
+                        <p>A long-term lifecycle program generates substantial data. A single channel cycling at 1C with 60-second logging over 2,000 cycles will accumulate tens of millions of records. Practical data management strategies for programs of this duration include:</p>
+                        <ul>
+                            <li>Configure MIMS Server to generate end-of-cycle summary ASCII files automatically; these are the primary analysis input for capacity and efficiency trend plots and are orders of magnitude smaller than the full time-series</li>
+                            <li>Keep the full time-series binary archive on server storage for post-hoc queries, but do not attempt to analyse the full time series for routine trend monitoring</li>
+                            <li>Use voltage-triggered logging during RPT steps and time-based logging during routine cycles; the RPT records are where the fine waveform data is needed, not the routine cycling records</li>
+                            <li>Tag RPT cycles clearly in the procedure — either by cycle number convention or by using a distinct step or loop counter value — so that post-analysis scripts can filter RPT records from routine cycle records without manual identification</li>
+                        </ul>
+
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>How often should I run an RPT in a cycle life program?</h3>
+                        <p>Frequency depends on the expected program duration and the rate at which you anticipate capacity to change. For a program expected to reach end-of-life at 500 cycles, an RPT every 50 cycles provides 10 measurement points across the fade curve — usually sufficient to characterise the shape. For a 2,000-cycle program, every 100–200 cycles is typical. The key constraint is throughput: at 1C cycling, an RPT consuming 8 hours adds a meaningful fraction to the total program time if it occurs too frequently.</p>
+
+                        <h3>Can MIMS plot the RPT capacity values separately from routine cycle capacity?</h3>
+                        <p>Yes. MIMS can be configured to plot specific cycle ranges or specific step ranges on a cycle-based chart. If RPT cycles are identified by a consistent cycle number pattern — for example, every 100th cycle — a filtered chart showing only those cycles gives the RPT-normalised capacity fade curve directly. Alternatively, the end-of-cycle summary export can be filtered in Excel or Python on the cycle number column to isolate RPT cycles before plotting.</p>
+
+                        <h3>What is the best way to detect a knee-point in the capacity fade curve?</h3>
+                        <p>The knee-point is most reliably identified by fitting a two-segment linear model (piecewise linear regression) to the RPT capacity data and finding the breakpoint that minimises residuals. Simple visual inspection of the curve is often misleading because the transition is gradual. The second derivative of the capacity versus cycle curve — the rate of change of the fade rate — also works well for programmatic detection. DCIR trend acceleration typically precedes the capacity knee by 50–100 cycles, making ESR monitoring a useful early warning indicator.</p>
+
+                    </div><!-- /article-body -->
+
+                    <aside class="article-aside">
+                        <div class="panel">
+                            <h3>Key Numbers</h3>
+                            <div class="stat-strip" style="grid-template-columns: 1fr;">
+                                <div class="stat-pill">
+                                    <strong>80%</strong>
+                                    <span>Standard end-of-life capacity threshold</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>100–200</strong>
+                                    <span>Typical RPT interval (cycles) for 1,000+ cycle programs</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>C/5</strong>
+                                    <span>Standard RPT discharge rate for capacity measurement</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>dQ/dV</strong>
+                                    <span>Mechanistic diagnosis at each RPT checkpoint</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Fade Curve Shape Guide</h3>
+                            <ul class="topic-list">
+                                <li><a href="#">Linear<span>SEI growth; predictable; straightforward extrapolation</span></a></li>
+                                <li><a href="#">Knee-point<span>Secondary mechanism onset; accelerating late-life</span></a></li>
+                                <li><a href="#">Sudden drop<span>Mechanical failure; safety-relevant</span></a></li>
+                                <li><a href="#">Plateau then fade<span>Excess lithium inventory; delayed onset</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>In This Section</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="battery-test-data-management.html">Battery Test Data Management<span>File types and pipeline architecture</span></a></li>
+                                <li><a href="analyzing-battery-cycle-data.html">Analyzing Battery Cycle Data<span>Half-cycles, metrics, dQ/dV</span></a></li>
+                                <li><a href="battery-performance-metrics.html">Battery Performance Metrics<span>CE, EE, DCIR, capacity retention</span></a></li>
+                                <li><a href="battery-data-visualization-techniques.html">Visualization Techniques<span>MIMS chart modes</span></a></li>
+                                <li><a href="battery-test-reporting.html">Battery Test Reporting<span>Report structure and outputs</span></a></li>
+                                <li><a href="exporting-battery-test-data.html">Exporting Battery Test Data<span>ASCII, Excel, CSV field selection</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Related Topics</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="../applications/battery-reliability-testing.html">Battery Reliability Testing<span>Applications section</span></a></li>
+                                <li><a href="../applications/electric-vehicle-battery-testing.html">EV Battery Testing<span>Applications section</span></a></li>
+                                <li><a href="../fundamentals/battery-degradation-analysis.html">Battery Degradation Analysis<span>Fundamentals section</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div><!-- /article-shell -->
+
+                <div class="cta-band">
+                    <div>
+                        <h2>Design a Lifecycle Program That Delivers</h2>
+                        <p>Maccor applications engineers can help structure your RPT protocol, logging strategy, and data pipeline to support the full duration of a multi-year lifecycle program.</p>
+                    </div>
+                    <div class="cta-band-actions">
+                        <a href="../../contact.html" class="cta-button">Talk to an Engineer</a>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0 2rem;">
+                    <h2 style="font-size:1.6rem; margin-bottom:1.5rem; color:var(--off-white);">Continue in Data &amp; Analysis</h2>
+                    <div class="quick-links-grid">
+                        <a href="battery-performance-metrics.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Performance Metrics</h3>
+                                <p>CE, EE, DCIR, capacity retention — definitions and calculation.</p>
+                                <a href="battery-performance-metrics.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="battery-test-reporting.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Test Reporting</h3>
+                                <p>Structuring results for engineering review and formal submissions.</p>
+                                <a href="battery-test-reporting.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="analyzing-battery-cycle-data.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Analyzing Battery Cycle Data</h3>
+                                <p>Per-cycle metrics, half-cycle definitions, and dQ/dV workflow.</p>
+                                <a href="analyzing-battery-cycle-data.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <div class="quick-link-card current">
+                            <span class="tag">Current</span>
+                            <h3>Long-Term Lifecycle Analysis</h3>
+                            <p>RPT strategy, fade curve shapes, and degradation mechanism ID.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /content-wrap -->
+        </div><!-- /content-section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.pageYOffset > 100 ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.quick-link-card, .stat-pill, .panel').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            obs.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>

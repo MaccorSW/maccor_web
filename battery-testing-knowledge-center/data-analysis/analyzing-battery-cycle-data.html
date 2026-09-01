@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyzing Battery Cycle Data | Knowledge Center | Maccor</title>
+    <meta name="description" content="Battery cycle data analysis: extract capacity, energy, coulombic efficiency, impedance metrics, cycle records, half-cycles, and identify trends." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/analyzing-battery-cycle-data.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Analyzing Battery Cycle Data | Maccor" />
+    <meta property="og:description" content="Per-cycle metrics, half-cycle definitions, dQ/dV analysis, and long-program trend identification — a practical guide to analyzing battery cycle data." />
+    <meta property="og:url" content="https://www.maccor.com/battery-testing-knowledge-center/data-analysis/analyzing-battery-cycle-data.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="../../fonts.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../responsive.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Analyzing Battery Cycle Data",
+      "description": "A practical guide to analyzing battery cycle data — extracting capacity, energy, coulombic efficiency, and impedance metrics from cycle records, half-cycle definitions, and trend identification across long programs.",
+      "author": {"@type":"Organization","name":"Maccor, Inc."},
+      "publisher": {"@type":"Organization","name":"Maccor, Inc.","url":"https://www.maccor.com"},
+      "url": "https://www.maccor.com/battery-testing-knowledge-center/data-analysis/analyzing-battery-cycle-data.html"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav aria-label="Primary">
+        <div class="container">
+            <a class="logo" href="../../index.html" aria-label="Maccor home">
+                <img class="img-fluid" src="../../images/logo_white.png" width="250" height="54" alt="Maccor" loading="eager">
+            </a>
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+                <span class="sr-only">Open menu</span>
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../../index.html#solutions">Solutions</a></li>
+                <li><a href="../../index.html#industries">Industries</a></li>
+                <li><a href="../../index.html#technology">Technology</a></li>
+                <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                <li><a href="../../support.html">Support</a></li>
+                <li><a href="../../contact.html" class="cta-button">Contact Our Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a> / <a href="../../battery-testing-knowledge-center.html">Knowledge Center</a> / <a href="../data-analysis.html">Data &amp; Analysis</a> / <span>Analyzing Battery Cycle Data</span>
+                </div>
+                <h1>Analyzing Battery <span class="highlight">Cycle Data</span></h1>
+                <p>A practical guide to extracting meaningful metrics from battery cycle records — covering per-cycle capacity and energy, coulombic efficiency, half-cycle definitions, differential capacity analysis, and identifying trends across hundreds or thousands of cycles.</p>
+            </div>
+        </section>
+
+        <div class="content-section">
+            <div class="content-wrap">
+
+                <div class="article-shell">
+                    <div class="article-body">
+
+                        <h2>What Cycle Data Analysis Is</h2>
+                        <p>Battery cycle data analysis converts raw time-series records into the per-cycle and trend-level metrics that answer engineering questions. A raw data file contains one record per logged data point — often thousands of rows per cycle — but what engineers primarily need is the summary: how much charge went in, how much came out, what was the efficiency, and how did those values change over time.</p>
+                        <p>MIMS processes raw binary tester output into indexed and ASCII files, then provides cycle-based analysis tools in the Client — charting, statistics, annotations, and export — that operate on this structured dataset. Understanding how MIMS defines cycles, half-cycles, and summary metrics is essential for interpreting results correctly.</p>
+
+                        <h2>How MIMS Defines Cycles and Half-Cycles</h2>
+                        <p>MIMS distinguishes between two cycle counters in the data record:</p>
+                        <ul>
+                            <li><strong>CycleP (Programmed Cycle):</strong> Incremented by the Advance Cycle step in the test procedure. The engineer controls exactly when this counter increments by placing AdvCyc steps in the procedure.</li>
+                            <li><strong>CycleC (Calculated Cycle):</strong> Computed by MIMS Server based on when the main mode switches between charge and discharge. This counter increments automatically regardless of procedure structure.</li>
+                        </ul>
+                        <p>A <strong>half-cycle</strong> is defined as all steps since the device last switched between charge and discharge. Half-cycle Amp-hours (HCAhr) and Watt-hours (HCWHr) accumulate within a half-cycle and reset at each mode change. The LHCAhr and LHCWHr end condition types reference the <em>last</em> half-cycle's accumulated value, enabling percentage-of-previous-half-cycle end conditions for capacity-based step transitions.</p>
+                        <p>For cycle-based chart analysis, end-of-half-cycle is defined by MIMS as the moment the main mode changes — not at the Advance Cycle step. Charge capacity, discharge capacity, mean voltages, and active times reported in cycle-based plots are therefore calculated from half-cycle boundaries, not from procedure-defined cycle boundaries.</p>
+
+                        <h2>Key Metrics Available from Cycle Data</h2>
+                        <p>MIMS provides the following per-cycle and per-half-cycle metrics for cycle-based chart analysis:</p>
+                        <ul>
+                            <li><strong>Charge and discharge capacity (Ah)</strong> — total charge and discharge Amp-hours per half-cycle</li>
+                            <li><strong>Charge and discharge energy (Wh)</strong> — total charge and discharge Watt-hours per half-cycle</li>
+                            <li><strong>Charge and discharge mean voltage</strong> — average voltage during each half-cycle, excluding rest periods</li>
+                            <li><strong>Charge and discharge mean power</strong> — average power during each half-cycle</li>
+                            <li><strong>Charge and discharge total time / active time</strong> — total and non-rest time per half-cycle</li>
+                            <li><strong>Voltage at end of charge / discharge</strong> — last voltage reading during each active half-cycle</li>
+                            <li><strong>Coulombic efficiency</strong> — discharge Ah ÷ charge Ah, derived from half-cycle values</li>
+                            <li><strong>Energy efficiency</strong> — discharge Wh ÷ charge Wh</li>
+                            <li><strong>ESR / DCIR</strong> — resistance computed from ΔV/ΔI at step transitions</li>
+                            <li><strong>Auxiliary inputs</strong> — temperature and other auxiliary values co-logged with electrical data</li>
+                        </ul>
+
+                        <h2>Differential Capacity (dQ/dV) Analysis</h2>
+                        <p>Differential capacity — the incremental capacity per unit voltage (dQ/dV) — is one of the most powerful diagnostic tools available from standard cycle data. Peaks in the dQ/dV curve correspond to phase transition voltages; as a cell ages, these peaks shift, broaden, or disappear, revealing which degradation mechanism is dominant without requiring additional instrumentation.</p>
+                        <p>MIMS calculates dQ/dV from the existing cycle data record and plots it versus voltage. Key settings that affect the result:</p>
+                        <ul>
+                            <li><strong>Min. dV:</strong> The minimum voltage increment used in the calculation. Too large a value smooths out detail; too small produces noisy curves. 5 mV is typically a good starting point for most lithium-ion chemistries.</li>
+                            <li><strong>Aux. no.:</strong> If a reference electrode is monitored on an auxiliary voltage input, MIMS can compute dQ/dV separately for the anode and cathode, localising degradation to a specific electrode.</li>
+                            <li><strong>Connection polarity:</strong> The reference electrode connection configuration must be set correctly for electrode-specific analysis to be meaningful.</li>
+                        </ul>
+                        <div class="callout"><strong>Data resolution note:</strong> dQ/dV analysis requires sufficient data density in the voltage dimension. Voltage-triggered report types — logging a record whenever voltage changes by a specified increment — produce better dQ/dV curves than time-triggered logging alone, because they concentrate data points where voltage changes slowly and the curve shape is most information-rich.</div>
+
+                        <h2>Analysis Workflow in Practice</h2>
+                        <ol>
+                            <li>Open the data file in MIMS Client; confirm the cycle counter type (CycleP or CycleC) that matches the program's cycle structure.</li>
+                            <li>Select time-based view for full-resolution waveform inspection of individual cycles.</li>
+                            <li>Switch to cycle-based view to plot per-cycle summaries — capacity fade, efficiency trends, ESR growth — across the full program.</li>
+                            <li>Configure dQ/dV settings and inspect differential capacity curves at selected checkpoints to track phase transition peak evolution.</li>
+                            <li>Use end-of-cycle and end-of-step ASCII exports to extract per-cycle summary data for external analysis in Python, R, or other tools.</li>
+                            <li>Apply annotations in MIMS to flag anomalous cycles, procedure restarts, or sample handling events.</li>
+                        </ol>
+
+                        <h2>Where Cycle Data Analysis Adds Value</h2>
+                        <table>
+                            <thead>
+                                <tr><th>Program Type</th><th>Primary Analysis</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Cell chemistry development</td><td>dQ/dV peak tracking; early CE trajectory as lifetime predictor</td></tr>
+                                <tr><td>Cycle life / reliability</td><td>Capacity retention curve; efficiency fade; RPT checkpoint comparison</td></tr>
+                                <tr><td>Formation / production</td><td>Per-cell CE in first cycles; capacity grading; formation quality screening</td></tr>
+                                <tr><td>Field failure investigation</td><td>Anomalous cycle identification; correlation with thermal or protocol events</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h2>Frequently Asked Questions</h2>
+                        <h3>What is the difference between CycleP and CycleC?</h3>
+                        <p>CycleP is the programmed cycle counter, incremented by the AdvCyc step — the engineer controls when it increments. CycleC is the calculated counter, incremented by MIMS Server whenever the main mode switches between charge and discharge. Use CycleP when the cycle definition needs to align with the procedure structure; use CycleC when half-cycle boundaries are the natural unit of analysis.</p>
+
+                        <h3>Why does my dQ/dV curve look noisy?</h3>
+                        <p>Noisy dQ/dV curves are usually caused by insufficient voltage-domain data density — the logging rate was time-based rather than voltage-triggered, so there are too few data points where voltage changes slowly. Increasing the minimum dV setting smooths the curve at the cost of detail. For future tests, add a voltage-triggered report type alongside time-based logging.</p>
+
+                        <h3>How are coulombic efficiency and energy efficiency calculated?</h3>
+                        <p>Coulombic efficiency is discharge Amp-hours divided by charge Amp-hours for the same cycle, expressed as a percentage. Energy efficiency is discharge Watt-hours divided by charge Watt-hours. Both are derived from the half-cycle capacity and energy values accumulated in the data record and can be plotted directly in MIMS or calculated from exported per-cycle summary files.</p>
+
+                    </div><!-- /article-body -->
+
+                    <aside class="article-aside">
+                        <div class="panel">
+                            <h3>Key Numbers</h3>
+                            <div class="stat-strip" style="grid-template-columns: 1fr;">
+                                <div class="stat-pill">
+                                    <strong>7</strong>
+                                    <span>Report types per step (max)</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>10 ms</strong>
+                                    <span>Minimum logging interval</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>5 mV</strong>
+                                    <span>Typical Min. dV for Li-ion dQ/dV</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <strong>80%</strong>
+                                    <span>Standard end-of-life retention threshold</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>CycleP vs CycleC</h3>
+                            <ul class="topic-list">
+                                <li><a href="#">CycleP — incremented by AdvCyc step<span>Engineer-defined program structure</span></a></li>
+                                <li><a href="#">CycleC — incremented by MIMS Server<span>Auto half-cycle mode-change detection</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>In This Section</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="battery-performance-metrics.html">Battery Performance Metrics<span>CE, EE, DCIR, capacity retention</span></a></li>
+                                <li><a href="battery-data-logging-systems.html">Data Logging Systems<span>Report types and logging strategy</span></a></li>
+                                <li><a href="battery-data-visualization-techniques.html">Visualization Techniques<span>MIMS chart modes and dQ/dV</span></a></li>
+                                <li><a href="exporting-battery-test-data.html">Exporting Battery Test Data<span>ASCII, Excel, and summary files</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Related Topics</h3>
+                            <ul class="article-nav-list">
+                                <li><a href="../fundamentals/battery-capacity-testing-methods.html">Battery Capacity Testing Methods<span>Fundamentals section</span></a></li>
+                                <li><a href="../applications/battery-reliability-testing.html">Battery Reliability Testing<span>Applications section</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div><!-- /article-shell -->
+
+                <div class="cta-band">
+                    <div>
+                        <h2>See MIMS Cycle Analysis in Action</h2>
+                        <p>Contact Maccor to arrange a demonstration of MIMS Client cycle-based charting, dQ/dV analysis, and multi-cell statistical overlays on your data.</p>
+                    </div>
+                    <div class="cta-band-actions">
+                        <a href="../../contact.html" class="cta-button">Request a Demo</a>
+                    </div>
+                </div>
+
+                <div style="padding: 0 0 2rem;">
+                    <h2 style="font-size:1.6rem; margin-bottom:1.5rem; color:var(--off-white);">Continue in Data &amp; Analysis</h2>
+                    <div class="quick-links-grid">
+                        <div class="quick-link-card current">
+                            <span class="tag">Current</span>
+                            <h3>Analyzing Battery Cycle Data</h3>
+                            <p>Per-cycle metrics, half-cycle definitions, and dQ/dV analysis.</p>
+                        </div>
+                        <a href="battery-performance-metrics.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Performance Metrics</h3>
+                                <p>CE, EE, capacity retention, DCIR, and round-trip Wh efficiency.</p>
+                                <a href="battery-performance-metrics.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="battery-data-logging-systems.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Battery Data Logging Systems</h3>
+                                <p>Report types, logging strategy, and file management.</p>
+                                <a href="battery-data-logging-systems.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                        <a href="battery-data-visualization-techniques.html" style="text-decoration:none;">
+                            <div class="quick-link-card">
+                                <span class="tag">Data &amp; Analysis</span>
+                                <h3>Visualization Techniques</h3>
+                                <p>Time-based and cycle-based MIMS chart modes explained.</p>
+                                <a href="battery-data-visualization-techniques.html" class="link-primary">Read Article →</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div><!-- /content-wrap -->
+        </div><!-- /content-section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img class="img-fluid" src="../../images/logo_white.png" alt="Maccor" width="200"> </div>
+                <p>
+                    Since 1987, Maccor has been the trusted partner for battery testing excellence. Based in Tulsa, Oklahoma, we design and manufacture automated test systems that drive innovation worldwide.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="../../series-6000.html">Advanced Testing Platform</a></li>
+                    <li><a href="../../battery-research-development-equipment.html">Research &amp; Development</a></li>
+                    <li><a href="../../manufacturing-formation.html">Manufacturing</a></li>
+                    <li><a href="../../quality-control-testing.html">Quality Control</a></li>
+                    <li><a href="../../fusion-integrated-systems.html">FUSION Systems</a></li>
+                    <li><a href="../../battery-testing-knowledge-center.html">Knowledge Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="../../cell-battery-module-test-systems.html">Floor-Standing Cabinets</a></li>
+                    <li><a href="../../desktop-battery-testers.html">Desktop Testers</a></li>
+                    <li><a href="../../compact-temperature-chamber.html">Temperature Chamber</a> </li>
+                    <li><a href="../../software/software.html">Software Suite</a></li>
+                    <li><a href="../../options.html">Options</a></li>
+                    <li><a href="../../accessories.html">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../../aboutus.html">About Maccor</a></li>
+                    <li><a href="../../leadership-team.html">Leadership Team</a></li>
+                    <li><a href="../../global-representatives.html">Worldwide</a></li>
+                    <li><a href="../../battery-testing-events.html">Events</a></li>
+                    <li><a href="../../support.html">Support</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Maccor, Inc. All Rights Reserved. | Tulsa, Oklahoma, USA | Made in America&nbsp;&middot;&nbsp; <a href="../../privacy.html">Privacy Statement</a>&nbsp;&middot;&nbsp; <a href="#" data-cookie-settings>Cookie Settings</a></p>
+        </div>        
+        
+    </footer>
+    </main>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.pageYOffset > 100 ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.95)';
+            nav.style.boxShadow = window.pageYOffset > 100 ? '0 4px 20px rgba(0,0,0,0.3)' : 'none';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 80);
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.quick-link-card, .stat-pill, .panel').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            obs.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
+    <script src="../../cookie-consent.js" data-privacy="../../privacy.html"></script>
+</body>
+</html>
