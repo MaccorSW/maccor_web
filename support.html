@@ -114,6 +114,39 @@
             </div>
         </section>
 
+        <section class="split" id="ticket" aria-label="Support ticket creation">
+            <div class="panel" style="border-color: var(--primary);">
+                <!-- Consent gate: the third-party ticket form is NOT loaded until the
+                     visitor explicitly opts in. This prevents the visitor's IP address
+                     and connection data from being transmitted to FreeAgent before
+                     informed consent is given. -->
+                <div id="ticketFormGate">
+                    <h3 style="margin-top: 0;">Create a Support Ticket</h3>
+                    <p style="color: var(--light-grey);">
+                        Our support ticket form is provided by FreeAgent, a third-party service.
+                        When you open the form, the information you enter and standard technical
+                        data (such as your IP address) will be shared with FreeAgent to deliver
+                        your ticket to us. See our <a href="privacy.html" style="text-decoration: none; color: inherit;"><span style="text-decoration: underline;">Privacy Statement</span></a> for details.
+                    </p>
+                    <button type="button" id="ticketFormOpen" class="cta-button">Open the Support Ticket Form</button>
+                </div>
+                <div id="ticketFormContainer" style="overflow: hidden;"></div>
+            </div>
+            
+            <div>
+                <div class="panel">
+                    <h3>Help Desk</h3>
+                    <p style="color: var(--light-grey); margin-bottom: 1.25rem;">
+                        Need technical assistance? Create a help ticket for your Maccor Test System. Our engineers monitor these requests in real-time to provide rapid solutions.
+                    </p>
+                    <ul class="panel-list">
+                        <li><strong>Response Time:</strong> High Priority Monitoring</li>
+                        <li><strong>Global Support:</strong> 24/7 Ticket Intake</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section class="card-grid" aria-label="Service options">
             <div class="mini-card">
                 <div class="topline">
@@ -155,39 +188,6 @@
                     <span>Field Upgrades</span>
                     <span>Optimized</span>
                 </div>
-            </div>
-        </section>
-
-        <section class="split" id="ticket" aria-label="Support ticket creation">
-            <div>
-                <div class="panel">
-                    <h3>Help Desk</h3>
-                    <p style="color: var(--light-grey); margin-bottom: 1.25rem;">
-                        Need technical assistance? Create a help ticket for your Maccor Test System. Our engineers monitor these requests in real-time to provide rapid solutions.
-                    </p>
-                    <ul class="panel-list">
-                        <li><strong>Response Time:</strong> High Priority Monitoring</li>
-                        <li><strong>Global Support:</strong> 24/7 Ticket Intake</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="panel" style="border-color: var(--primary);">
-                <!-- Consent gate: the third-party ticket form is NOT loaded until the
-                     visitor explicitly opts in. This prevents the visitor's IP address
-                     and connection data from being transmitted to FreeAgent before
-                     informed consent is given. -->
-                <div id="ticketFormGate">
-                    <h3 style="margin-top: 0;">Create a Support Ticket</h3>
-                    <p style="color: var(--light-grey);">
-                        Our support ticket form is provided by FreeAgent, a third-party service.
-                        When you open the form, the information you enter and standard technical
-                        data (such as your IP address) will be shared with FreeAgent to deliver
-                        your ticket to us. See our <a href="privacy.html" style="text-decoration: none; color: inherit;"><span style="text-decoration: underline;">Privacy Statement</span></a> for details.
-                    </p>
-                    <button type="button" id="ticketFormOpen" class="cta-button">Open the Support Ticket Form</button>
-                </div>
-                <div id="ticketFormContainer" style="overflow: hidden;"></div>
             </div>
         </section>
 
