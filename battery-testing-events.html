@@ -73,45 +73,9 @@
     </script>
 
     <!-- ═══ ANALYTICS ═══ -->
-    <script>
-      /* Google Analytics / Ads is loaded ONLY after the visitor accepts cookies
-         (see cookie-consent.js). Until then no GA/Ads network request is made and
-         no analytics cookie is set. The gtag() calls below queue inertly in
-         dataLayer and are processed by GA only once it loads post-consent. */
-      (function () {
-        var GA_ID = 'G-048RD5EJRN';
-        function loadGA() {
-          if (window.__maccorGaLoaded) return;
-          window.__maccorGaLoaded = true;
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-          document.head.appendChild(s);
-        }
-        function register() {
-          if (window.MaccorConsent && typeof window.MaccorConsent.onAccept === 'function') {
-            window.MaccorConsent.onAccept(loadGA);
-            return true;
-          }
-          return false;
-        }
-        if (!register()) {
-          document.addEventListener('DOMContentLoaded', function () {
-            if (!register()) {
-              var n = 0, t = setInterval(function () {
-                if (register() || ++n > 40) clearInterval(t);
-              }, 50);
-            }
-          });
-        }
-      })();
-    </script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-048RD5EJRN');
-    </script>
+    <!-- Google Analytics / Ads load through Google Tag Manager, gated by
+         cookie-consent.js. Do not add a separate gtag snippet to this page. -->
+    
 
     <!-- ═══ FONTS & STYLES ═══ -->
     <!--
@@ -220,29 +184,6 @@
 
                 <!-- Cards grid -->
                 <div class="events-grid" id="events-grid" aria-label="Upcoming battery industry events">
-
-                    <!-- Oct 12-15 — The Battery Show NA (booth) -->
-                    <article class="event-card featured" data-region="north-america booth">
-                        <div class="booth-ribbon">Booth 3026</div>
-                        <div class="event-img-wrap">
-                            <img src="images/events/batt-show-2026.png" alt="The Battery Show North America 2026 logo" loading="lazy"
-                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                            <div class="img-fallback" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="3" width="26" height="26" rx="4" stroke="currentColor" stroke-width="1.5"/></svg>Event Logo</div>
-                        </div>
-                        <div class="event-card-body">
-                            <div class="event-date-tag">October 12–15, 2026</div>
-                            <h3>The Battery Show — North America</h3>
-                            <div class="event-loc">
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1.5C5.07 1.5 3.5 3.07 3.5 5c0 2.63 3.5 7 3.5 7s3.5-4.37 3.5-7c0-1.93-1.57-3.5-3.5-3.5z" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="5" r="1.25" fill="currentColor"/></svg>
-                                Huntington Place, Detroit, MI
-                            </div>
-                            <div class="event-card-footer">
-                                <a href="https://www.thebatteryshow.com/en/home.html" target="_blank" rel="noopener" class="btn-event">
-                                    Event Website <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
 
                     <!-- Oct 25-29 — ECS Calgary -->
                     <article class="event-card" data-region="north-america">
@@ -438,12 +379,19 @@
                 
                 <!-- Recent past (always visible) -->
                 <div id="recent-past">
+                    
+                    <div class="past-event-row">
+                        <div class="past-date">October 12–15, 2026</div>
+                        <div class="past-title"><a href="https://www.thebatteryshow.com/en/home.html" target="_blank" rel="noopener" class="btn-event">The Battery Show</a></div>
+                        <div class="past-location">Detroit, MI</div>
+                    </div>                      
+                    
                     <div class="past-event-row">
                         <div class="past-date">August 11–12, 2026</div>
                         <div class="past-title"><a href="https://www.cambridgeenertech.com/solid-state-batteries" target="_blank" rel="noopener" class="btn-event">Solid State Battery Summit</a></div>
                         <div class="past-location">Chicago, IL</div>
-                    </div>  
-
+                    </div>                      
+                    
                     <div class="past-event-row">
                         <div class="past-date">July 14–16, 2026</div>
                         <div class="past-title"><a href="https://plugvolt.com/seminars/" target="_blank" rel="noopener" class="btn-event">PlugVolt Battery Seminar 2026</a></div>

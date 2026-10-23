@@ -1,45 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-      /* Google Analytics / Ads is loaded ONLY after the visitor accepts cookies
-         (see cookie-consent.js). Until then no GA/Ads network request is made and
-         no analytics cookie is set. The gtag() calls below queue inertly in
-         dataLayer and are processed by GA only once it loads post-consent. */
-      (function () {
-        var GA_ID = 'G-048RD5EJRN';
-        function loadGA() {
-          if (window.__maccorGaLoaded) return;
-          window.__maccorGaLoaded = true;
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-          document.head.appendChild(s);
-        }
-        function register() {
-          if (window.MaccorConsent && typeof window.MaccorConsent.onAccept === 'function') {
-            window.MaccorConsent.onAccept(loadGA);
-            return true;
-          }
-          return false;
-        }
-        if (!register()) {
-          document.addEventListener('DOMContentLoaded', function () {
-            if (!register()) {
-              var n = 0, t = setInterval(function () {
-                if (register() || ++n > 40) clearInterval(t);
-              }, 50);
-            }
-          });
-        }
-      })();
-    </script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('js', new Date());
-        gtag('config', 'G-048RD5EJRN');
-    </script>
+    <!-- Google Analytics / Ads load through Google Tag Manager, gated by
+         cookie-consent.js. Do not add a separate gtag snippet to this page. -->
+    
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

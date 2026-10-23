@@ -66,48 +66,29 @@
     </script>
 
     <!-- ═══ ANALYTICS ═══ -->
-    <script>
-      /* Google Analytics / Ads is loaded ONLY after the visitor accepts cookies
-         (see cookie-consent.js). Until then no GA/Ads network request is made and
-         no analytics cookie is set. The gtag() calls below queue inertly in
-         dataLayer and are processed by GA only once it loads post-consent. */
-      (function () {
-        var GA_ID = 'G-048RD5EJRN';
-        function loadGA() {
-          if (window.__maccorGaLoaded) return;
-          window.__maccorGaLoaded = true;
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-          document.head.appendChild(s);
-        }
-        function register() {
-          if (window.MaccorConsent && typeof window.MaccorConsent.onAccept === 'function') {
-            window.MaccorConsent.onAccept(loadGA);
-            return true;
-          }
-          return false;
-        }
-        if (!register()) {
-          document.addEventListener('DOMContentLoaded', function () {
-            if (!register()) {
-              var n = 0, t = setInterval(function () {
-                if (register() || ++n > 40) clearInterval(t);
-              }, 50);
-            }
-          });
-        }
-      })();
-    </script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-048RD5EJRN');
-    </script>
+    <!-- Google Analytics / Ads load through Google Tag Manager, gated by
+         cookie-consent.js. Do not add a separate gtag snippet to this page. -->
+    
 
     <!-- ═══ LEAFLET ═══ -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Self-hosted copy of Leaflet 1.9.4 (no request to a third-party CDN). -->
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css"/>
+    <style>
+        /* Click-to-load placeholder: no map images are requested from CARTO
+           until the visitor chooses to show the map. */
+        .map-consent {
+            height: 100%; min-height: 320px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 1rem; padding: 2rem 1.5rem; text-align: center;
+            color: var(--light-grey, #CBD5E1);
+            background:
+              radial-gradient(circle at 30% 40%, rgba(0,217,255,0.08) 0%, transparent 60%),
+              radial-gradient(circle at 70% 65%, rgba(37,99,235,0.10) 0%, transparent 60%);
+        }
+        .map-consent p { max-width: 520px; margin: 0; font-size: 0.95rem; line-height: 1.6; }
+        .map-consent small { color: var(--steel-gray, #8B9DC3); font-size: 0.82rem; }
+        .map-consent button { cursor: pointer; }
+    </style>
 
     <!-- ═══ FONTS & DESIGN SYSTEM ═══ -->
     <!--
@@ -176,7 +157,13 @@
                         <span class="section-tag">Interactive Map</span>
                         <h2 id="map-heading" style="font-size:1.55rem;font-weight:800;margin-top:0.5rem;">Select a location to find your representative</h2>
                     </div>
-                    <div id="map" role="img" aria-label="Interactive map of Maccor global representatives"></div>
+                    <div id="map" aria-label="Interactive map of Maccor global representatives">
+                        <div class="map-consent" id="map-consent">
+                            <p>The interactive map loads map images from CARTO, a third-party map provider, which will receive your IP address. All representative contact details are listed below without the map.</p>
+                            <button type="button" id="map-load" class="cta-button">Show Interactive Map</button>
+                            <small>See our <a href="privacy.html">Privacy Statement</a>.</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -581,7 +568,6 @@
     </footer>
 
     <!-- ══════════ SCRIPTS ══════════ -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
         // ── Mobile nav ──
         const toggle = document.querySelector('.nav-toggle');
@@ -605,7 +591,28 @@
                 : 'none';
         });
 
-        // ── Leaflet map ──
+        // ── Leaflet map (loads only after the visitor clicks "Show Interactive Map") ──
+        var mapLoadBtn = document.getElementById('map-load');
+        if (mapLoadBtn) {
+            mapLoadBtn.addEventListener('click', function () {
+                mapLoadBtn.disabled = true;
+                mapLoadBtn.textContent = 'Loading map…';
+                var s = document.createElement('script');
+                s.src = 'vendor/leaflet/leaflet.js';
+                s.onload = function () {
+                    var ph = document.getElementById('map-consent');
+                    if (ph) ph.remove();
+                    initMap();
+                };
+                s.onerror = function () {
+                    mapLoadBtn.disabled = false;
+                    mapLoadBtn.textContent = 'Map unavailable, try again';
+                };
+                document.body.appendChild(s);
+            });
+        }
+
+        function initMap() {
         var map = L.map('map', {
             center: [25, 15],
             zoom: 2,
@@ -613,8 +620,11 @@
             zoomControl: true
         });
 
-        // Dark-compatible tile layer (CartoDB Dark Matter)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        // Dark-compatible tile layer (CARTO Dark Matter).
+        // CARTO now requires a free API key: get one at carto.com/basemaps/apikey
+        // and paste it between the quotes below.
+        var CARTO_KEY = 'cb1_4syg_1_6c27b451e2d147358d0b0d2a';
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=' + encodeURIComponent(CARTO_KEY), {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
             subdomains: 'abcd',
             maxZoom: 19
@@ -661,7 +671,7 @@
                          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                      }, 300);
                  }
-                 // GA4 tracking
+                 // GA4 tracking (only reaches Google if the visitor accepted cookies)
                  if (typeof gtag === 'function') {
                      gtag('event', 'map_pin_click', {
                          event_category: 'worldwide_page',
@@ -670,6 +680,7 @@
                  }
              });
         });
+        } // end initMap
     </script>
     <script>document.querySelectorAll("nav a").forEach(function(a){if(a.href===location.href)a.setAttribute("aria-current","page");});</script>
     <script src="cookie-consent.js" data-privacy="privacy.html"></script>
