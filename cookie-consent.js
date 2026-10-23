@@ -63,7 +63,10 @@
     gtag("consent", "update", {
       ad_storage: "granted",
       ad_user_data: "granted",
-      ad_personalization: "granted",
+      // Kept "denied" on purpose: Google Ads is used for conversion
+      // measurement only, never remarketing or personalized ads. This must
+      // match the Privacy Statement; change both together if that changes.
+      ad_personalization: "denied",
       analytics_storage: "granted"
     });
     window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
