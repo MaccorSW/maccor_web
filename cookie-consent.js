@@ -38,6 +38,55 @@
 (function () {
   "use strict";
 
+  // ---- Google Tag Manager (consent-gated) --------------------------------
+  // GTM is NOT loaded until the visitor clicks Accept. Consent Mode v2
+  // defaults are set to "denied" first, then flipped to "granted" right
+  // before GTM loads, so Google Ads / GA tags receive a proper consent signal.
+  var GTM_ID = "GTM-53NSVSJF";
+  var gtmLoaded = false;
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = window.gtag || gtag;
+
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    wait_for_update: 500
+  });
+
+  function loadGTM() {
+    if (gtmLoaded) return;
+    gtmLoaded = true;
+    gtag("consent", "update", {
+      ad_storage: "granted",
+      ad_user_data: "granted",
+      ad_personalization: "granted",
+      analytics_storage: "granted"
+    });
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
+    document.head.appendChild(s);
+  }
+
+  // If someone accepts, then later reopens Cookie Settings and rejects,
+  // tell any already-loaded tags to stop using storage for this page view.
+  document.addEventListener("maccor:consent", function (e) {
+    if (e.detail === "rejected" && gtmLoaded) {
+      gtag("consent", "update", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied"
+      });
+    }
+  });
+  // ------------------------------------------------------------------------
+
   var STORAGE_KEY = "maccor_cookie_consent";     // 'accepted' | 'rejected'
   var STORAGE_TS_KEY = "maccor_cookie_consent_ts";
   var MAX_AGE_DAYS = 180;                         // re-ask after ~6 months (EU best practice)
@@ -115,6 +164,9 @@
   };
   window.MaccorConsent = API;
 
+  // Gate GTM behind consent: runs now if already accepted, otherwise on Accept.
+  API.onAccept(loadGTM);
+
   // ---- Styles (injected; uses site CSS variables with safe fallbacks) ----
   var CSS =
     '.mcc-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:1000;' +
@@ -169,8 +221,8 @@
         '<div class="mcc-text">' +
           "<strong>We value your privacy</strong>" +
           "This site uses strictly necessary cookies to function and stay secure, and " +
-          "&mdash; only if you accept &mdash; Google Analytics cookies that help us understand " +
-          "how the site is used. We do not use advertising or cross-site tracking cookies. See our " +
+          "&mdash; only if you accept &mdash; Google Analytics and Google Ads cookies that help us " +
+          "understand how the site is used and measure the effectiveness of our advertising. See our " +
           '<a href="' + PRIVACY_HREF + '">Privacy Statement</a>.' +
         "</div>" +
         '<div class="mcc-actions">' +
